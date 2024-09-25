@@ -1,0 +1,13 @@
+C:\Users\asoom\OneDrive\Desktop\Trip_Volunteer\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Core\bin\Debug\net6.0\Trip_Volunteer.Core.deps.json
+C:\Users\asoom\OneDrive\Desktop\Trip_Volunteer\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Core\bin\Debug\net6.0\Trip_Volunteer.Core.dll
+C:\Users\asoom\OneDrive\Desktop\Trip_Volunteer\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Core\bin\Debug\net6.0\Trip_Volunteer.Core.pdb
+C:\Users\asoom\OneDrive\Desktop\Trip_Volunteer\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Core\obj\Debug\net6.0\Trip_Volunteer.Core.csproj.AssemblyReference.cache
+C:\Users\asoom\OneDrive\Desktop\Trip_Volunteer\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Core\obj\Debug\net6.0\Trip_Volunteer.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\asoom\OneDrive\Desktop\Trip_Volunteer\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Core\obj\Debug\net6.0\Trip_Volunteer.Core.AssemblyInfoInputs.cache
+C:\Users\asoom\OneDrive\Desktop\Trip_Volunteer\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Core\obj\Debug\net6.0\Trip_Volunteer.Core.AssemblyInfo.cs
+C:\Users\asoom\OneDrive\Desktop\Trip_Volunteer\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Core\obj\Debug\net6.0\Trip_Volunteer.Core.csproj.CoreCompileInputs.cache
+C:\Users\asoom\OneDrive\Desktop\Trip_Volunteer\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Core\obj\Debug\net6.0\Trip_Volunteer.Core.sourcelink.json
+C:\Users\asoom\OneDrive\Desktop\Trip_Volunteer\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Core\obj\Debug\net6.0\Trip_Volunteer.Core.dll
+C:\Users\asoom\OneDrive\Desktop\Trip_Volunteer\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Core\obj\Debug\net6.0\refint\Trip_Volunteer.Core.dll
+C:\Users\asoom\OneDrive\Desktop\Trip_Volunteer\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Core\obj\Debug\net6.0\Trip_Volunteer.Core.pdb
+C:\Users\asoom\OneDrive\Desktop\Trip_Volunteer\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Core\obj\Debug\net6.0\ref\Trip_Volunteer.Core.dll
