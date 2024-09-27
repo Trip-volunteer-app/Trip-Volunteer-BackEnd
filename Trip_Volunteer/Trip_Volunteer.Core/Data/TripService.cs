@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using Trip_Volunteer.Core.Service;
 namespace Trip_Volunteer.Core.Data
 {
     public partial class TripService

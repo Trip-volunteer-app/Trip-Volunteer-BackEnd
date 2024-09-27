@@ -21,9 +21,4 @@
     <ProjectReference Include="..\Trip_Volunteer.Core\Trip_Volunteer.Core.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Service\" />
-    <Folder Include="Repository\" />
-  </ItemGroup>
-
 </Project>
