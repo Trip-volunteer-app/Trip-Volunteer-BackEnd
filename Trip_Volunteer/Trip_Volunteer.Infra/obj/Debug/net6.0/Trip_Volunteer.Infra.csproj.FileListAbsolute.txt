@@ -36,7 +36,6 @@ C:\TripVolunteerSystem\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Infr
 C:\TripVolunteerSystem\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Infra\obj\Debug\net6.0\Trip_Volunteer.Infra.genruntimeconfig.cache
 C:\TripVolunteerSystem\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Infra\obj\Debug\net6.0\ref\Trip_Volunteer.Infra.dll
 =======
-<<<<<<< HEAD
 C:\Users\user\Source\Repos\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Infra\bin\Debug\net6.0\Trip_Volunteer.Infra.deps.json
 C:\Users\user\Source\Repos\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Infra\bin\Debug\net6.0\Trip_Volunteer.Infra.runtimeconfig.json
 C:\Users\user\Source\Repos\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Infra\bin\Debug\net6.0\Trip_Volunteer.Infra.dll
@@ -55,7 +54,6 @@ C:\Users\user\Source\Repos\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.
 C:\Users\user\Source\Repos\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Infra\obj\Debug\net6.0\Trip_Volunteer.Infra.pdb
 C:\Users\user\Source\Repos\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Infra\obj\Debug\net6.0\Trip_Volunteer.Infra.genruntimeconfig.cache
 C:\Users\user\Source\Repos\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Infra\obj\Debug\net6.0\ref\Trip_Volunteer.Infra.dll
-=======
 D:\github\Trip-Volunteer\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Infra\bin\Debug\net6.0\Trip_Volunteer.Infra.deps.json
 D:\github\Trip-Volunteer\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Infra\bin\Debug\net6.0\Trip_Volunteer.Infra.runtimeconfig.json
 D:\github\Trip-Volunteer\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Infra\bin\Debug\net6.0\Trip_Volunteer.Infra.dll

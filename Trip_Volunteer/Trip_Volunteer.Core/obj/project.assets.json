@@ -1407,16 +1407,11 @@
     ]
   },
   "packageFolders": {
-<<<<<<< HEAD
     "C:\\Users\\user\\.nuget\\packages\\": {}
-=======
-    "C:\\Users\\Admin\\.nuget\\packages\\": {}
->>>>>>> de721206ce294c7216656a02c6a85d4340ef3641
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\user\\Source\\Repos\\Trip-Volunteer-BackEnd\\Trip_Volunteer\\Trip_Volunteer.Core\\Trip_Volunteer.Core.csproj",
       "projectName": "Trip_Volunteer.Core",
       "projectPath": "C:\\Users\\user\\Source\\Repos\\Trip-Volunteer-BackEnd\\Trip_Volunteer\\Trip_Volunteer.Core\\Trip_Volunteer.Core.csproj",
@@ -1425,16 +1420,6 @@
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-      "projectUniqueName": "C:\\TripVolunteerSystem\\Trip-Volunteer-BackEnd\\Trip_Volunteer\\Trip_Volunteer.Core\\Trip_Volunteer.Core.csproj",
-      "projectName": "Trip_Volunteer.Core",
-      "projectPath": "C:\\TripVolunteerSystem\\Trip-Volunteer-BackEnd\\Trip_Volunteer\\Trip_Volunteer.Core\\Trip_Volunteer.Core.csproj",
-      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "C:\\TripVolunteerSystem\\Trip-Volunteer-BackEnd\\Trip_Volunteer\\Trip_Volunteer.Core\\obj\\",
-      "projectStyle": "PackageReference",
-      "configFilePaths": [
-        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> de721206ce294c7216656a02c6a85d4340ef3641
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1442,6 +1427,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -1454,6 +1440,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -1481,8 +1472,16 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\user\\Source\\Repos\\Trip-Volunteer-BackEnd\\Trip_Volunteer\\Trip_Volunteer.Core\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

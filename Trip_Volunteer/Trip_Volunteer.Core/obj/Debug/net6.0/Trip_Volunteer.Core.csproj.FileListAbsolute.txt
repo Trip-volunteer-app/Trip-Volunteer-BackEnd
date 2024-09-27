@@ -26,7 +26,6 @@ C:\TripVolunteerSystem\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Core
 C:\TripVolunteerSystem\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Core\obj\Debug\net6.0\Trip_Volunteer.Core.pdb
 C:\TripVolunteerSystem\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Core\obj\Debug\net6.0\ref\Trip_Volunteer.Core.dll
 =======
-<<<<<<< HEAD
 C:\Users\user\Source\Repos\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Core\bin\Debug\net6.0\Trip_Volunteer.Core.deps.json
 C:\Users\user\Source\Repos\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Core\bin\Debug\net6.0\Trip_Volunteer.Core.dll
 C:\Users\user\Source\Repos\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Core\bin\Debug\net6.0\Trip_Volunteer.Core.pdb
@@ -40,7 +39,6 @@ C:\Users\user\Source\Repos\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.
 C:\Users\user\Source\Repos\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Core\obj\Debug\net6.0\refint\Trip_Volunteer.Core.dll
 C:\Users\user\Source\Repos\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Core\obj\Debug\net6.0\Trip_Volunteer.Core.pdb
 C:\Users\user\Source\Repos\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Core\obj\Debug\net6.0\ref\Trip_Volunteer.Core.dll
-=======
 D:\github\Trip-Volunteer\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Core\bin\Debug\net6.0\Trip_Volunteer.Core.deps.json
 D:\github\Trip-Volunteer\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Core\bin\Debug\net6.0\Trip_Volunteer.Core.dll
 D:\github\Trip-Volunteer\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Core\bin\Debug\net6.0\Trip_Volunteer.Core.pdb

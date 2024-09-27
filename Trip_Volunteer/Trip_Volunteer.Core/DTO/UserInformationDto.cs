@@ -8,6 +8,7 @@ namespace Trip_Volunteer.Core.DTO
 {
     public class UserInformationDto
     {
+
         public decimal Login_Id { get; set; }
         public string Email { get; set; } = null!;
         public string Password { get; set; } = null!;
