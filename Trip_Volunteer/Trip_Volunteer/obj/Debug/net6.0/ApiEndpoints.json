@@ -1,0 +1,603 @@
+[
+  {
+    "ContainingType": "Trip_Volunteer.API.Controllers.categoriesController",
+    "Method": "CREATEcategories",
+    "RelativePath": "api/categories/CREATEcategories",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "category",
+        "Type": "Trip_Volunteer.Core.Data.Category",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Trip_Volunteer.API.Controllers.categoriesController",
+    "Method": "Deletecategories",
+    "RelativePath": "api/categories/Deletecategories/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Trip_Volunteer.API.Controllers.categoriesController",
+    "Method": "GetAllcategories",
+    "RelativePath": "api/categories/GetAllcategories",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[Trip_Volunteer.Core.Data.Category, Trip_Volunteer.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Trip_Volunteer.API.Controllers.categoriesController",
+    "Method": "GetcategoriesById",
+    "RelativePath": "api/categories/GetcategoriesById/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Trip_Volunteer.Core.Data.Category",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Trip_Volunteer.API.Controllers.categoriesController",
+    "Method": "UPDATEcategories",
+    "RelativePath": "api/categories/UPDATEcategories",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "category",
+        "Type": "Trip_Volunteer.Core.Data.Category",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Trip_Volunteer.API.Controllers.LocationController",
+    "Method": "CREATElocation",
+    "RelativePath": "api/Location/CREATElocation",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "location",
+        "Type": "Trip_Volunteer.Core.Data.Location",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Trip_Volunteer.API.Controllers.LocationController",
+    "Method": "Deletelocation",
+    "RelativePath": "api/Location/Deletelocation/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Trip_Volunteer.API.Controllers.LocationController",
+    "Method": "GetAlllocation",
+    "RelativePath": "api/Location/GetAlllocation",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[Trip_Volunteer.Core.Data.Location, Trip_Volunteer.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Trip_Volunteer.API.Controllers.LocationController",
+    "Method": "GetlocationById",
+    "RelativePath": "api/Location/GetlocationById/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Trip_Volunteer.Core.Data.Location",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Trip_Volunteer.API.Controllers.LocationController",
+    "Method": "UPDATElocation",
+    "RelativePath": "api/Location/UPDATElocation",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "location",
+        "Type": "Trip_Volunteer.Core.Data.Location",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Trip_Volunteer.API.Controllers.TripImageController",
+    "Method": "CREATEtrip_image",
+    "RelativePath": "api/TripImage/CREATEtrip_image",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "tripImage",
+        "Type": "Trip_Volunteer.Core.Data.TripImage",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Trip_Volunteer.API.Controllers.TripImageController",
+    "Method": "Deletetrip_image",
+    "RelativePath": "api/TripImage/Deletetrip_image/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Trip_Volunteer.API.Controllers.TripImageController",
+    "Method": "GetAlltrip_image",
+    "RelativePath": "api/TripImage/GetAlltrip_image",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[Trip_Volunteer.Core.Data.TripImage, Trip_Volunteer.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Trip_Volunteer.API.Controllers.TripImageController",
+    "Method": "Gettrip_imageById",
+    "RelativePath": "api/TripImage/Gettrip_imageById/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Trip_Volunteer.Core.Data.TripImage",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Trip_Volunteer.API.Controllers.TripImageController",
+    "Method": "UPDATEtrip_image",
+    "RelativePath": "api/TripImage/UPDATEtrip_image",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "tripImage",
+        "Type": "Trip_Volunteer.Core.Data.TripImage",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Trip_Volunteer.API.Controllers.TripImageController",
+    "Method": "UploadImage",
+    "RelativePath": "api/TripImage/uploadImage",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "Trip_Volunteer.Core.Data.TripImage",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Trip_Volunteer.API.Controllers.TripsController",
+    "Method": "CREATEtrips",
+    "RelativePath": "api/Trips/CREATEtrips",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "trip",
+        "Type": "Trip_Volunteer.Core.Data.Trip",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Trip_Volunteer.API.Controllers.TripsController",
+    "Method": "Deletetrips",
+    "RelativePath": "api/Trips/Deletetrips/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Trip_Volunteer.API.Controllers.TripsController",
+    "Method": "GetAlltrips",
+    "RelativePath": "api/Trips/GetAlltrips",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[Trip_Volunteer.Core.Data.Trip, Trip_Volunteer.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Trip_Volunteer.API.Controllers.TripsController",
+    "Method": "GettripsById",
+    "RelativePath": "api/Trips/GettripsById/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Trip_Volunteer.Core.Data.Trip",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Trip_Volunteer.API.Controllers.TripsController",
+    "Method": "UPDATEtrips",
+    "RelativePath": "api/Trips/UPDATEtrips",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "trip",
+        "Type": "Trip_Volunteer.Core.Data.Trip",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Trip_Volunteer.API.Controllers.WebsiteInformationController",
+    "Method": "CREATEwebsite_information",
+    "RelativePath": "api/WebsiteInformation/CREATEwebsite_information",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "websiteInformation",
+        "Type": "Trip_Volunteer.Core.Data.WebsiteInformation",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Trip_Volunteer.API.Controllers.WebsiteInformationController",
+    "Method": "Deletewebsite_information",
+    "RelativePath": "api/WebsiteInformation/Deletewebsite_information/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Trip_Volunteer.API.Controllers.WebsiteInformationController",
+    "Method": "GetAllwebsite_information",
+    "RelativePath": "api/WebsiteInformation/GetAllwebsite_information",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[Trip_Volunteer.Core.Data.WebsiteInformation, Trip_Volunteer.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Trip_Volunteer.API.Controllers.WebsiteInformationController",
+    "Method": "Getwebsite_informationById",
+    "RelativePath": "api/WebsiteInformation/Getwebsite_informationById/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Trip_Volunteer.Core.Data.WebsiteInformation",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Trip_Volunteer.API.Controllers.WebsiteInformationController",
+    "Method": "UPDATEwebsite_information",
+    "RelativePath": "api/WebsiteInformation/UPDATEwebsite_information",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "websiteInformation",
+        "Type": "Trip_Volunteer.Core.Data.WebsiteInformation",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Trip_Volunteer.Controllers.WeatherForecastController",
+    "Method": "Get",
+    "RelativePath": "WeatherForecast",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Trip_Volunteer.WeatherForecast, Trip_Volunteer.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "GetWeatherForecast"
+  }
+]

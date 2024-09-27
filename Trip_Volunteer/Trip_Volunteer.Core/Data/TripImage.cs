@@ -5,9 +5,9 @@ namespace Trip_Volunteer.Core.Data
 {
     public partial class TripImage
     {
-        public decimal TripImageId { get; set; }
-        public decimal? TripId { get; set; }
-        public string? ImageName { get; set; }
+        public decimal Trip_Image_Id { get; set; }
+        public decimal? Trip_Id { get; set; }
+        public string? Image_Name { get; set; }
 
         public virtual Trip? Trip { get; set; }
     }
