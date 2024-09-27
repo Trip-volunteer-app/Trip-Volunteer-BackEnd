@@ -214,13 +214,13 @@ namespace Trip_Volunteer.Core.Data
 
             modelBuilder.Entity<ContactusElement>(entity =>
             {
-
+<<<<<<< HEAD
                 entity.HasKey(e => e.ContactusElementsId)
                     .HasName("SYS_C009383");
-
+=======
                 entity.HasKey(e => e.Contactus_Elements_Id)
                     .HasName("SYS_C008465");
-
+>>>>>>> 12407fa9651d03d62ac832f1034499c214c00399
 
                 entity.ToTable("CONTACTUS_ELEMENTS");
 
