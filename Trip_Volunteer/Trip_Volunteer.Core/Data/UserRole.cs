@@ -10,8 +10,8 @@ namespace Trip_Volunteer.Core.Data
             UserLogins = new HashSet<UserLogin>();
         }
 
-        public decimal RoleId { get; set; }
-        public string RoleName { get; set; } = null!;
+        public decimal Role_Id { get; set; }
+        public string Role_Name { get; set; } = null!;
 
         public virtual ICollection<UserLogin> UserLogins { get; set; }
     }

@@ -10,13 +10,13 @@ namespace Trip_Volunteer.Core.Data
             UserLogins = new HashSet<UserLogin>();
         }
 
-        public decimal UserId { get; set; }
-        public string FirstName { get; set; } = null!;
-        public string? LastName { get; set; }
-        public string? ImagePath { get; set; }
+        public decimal User_Id { get; set; }
+        public string First_Name { get; set; } = null!;
+        public string? Last_Name { get; set; }
+        public string? Image_Path { get; set; }
         public string? Address { get; set; }
-        public string? PhoneNumber { get; set; }
-        public DateTime? BirthDate { get; set; }
+        public string? Phone_Number { get; set; }
+        public DateTime? Birth_Date { get; set; }
 
         public virtual ICollection<UserLogin> UserLogins { get; set; }
     }
