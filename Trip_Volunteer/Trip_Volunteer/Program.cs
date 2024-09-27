@@ -1,5 +1,12 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 using Trip_Volunteer.Core.Common;
+using Trip_Volunteer.Core.Repository;
+using Trip_Volunteer.Core.Service;
 using Trip_Volunteer.Infra.Common;
+using Trip_Volunteer.Infra.Repository;
+using Trip_Volunteer.Infra.Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,7 +17,32 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IDbContext, DbContext>();
-
+builder.Services.AddScoped<IBankRepository, BankRepository>();
+builder.Services.AddScoped<IRoleRepository, RoleRepository>();
+builder.Services.AddScoped<ITestimonialElementRepository, TestimonialElementRepository>();
+builder.Services.AddScoped<IContactusElementRepository, ContactusElementRepository>();
+builder.Services.AddScoped<IUserLoginRepository, UserLoginRepository>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IRoleService, RoleService>();
+builder.Services.AddScoped<IBankService, BankService>();
+builder.Services.AddScoped<ITestimonialElementService, TestimonialElementService>();
+builder.Services.AddScoped<IContactusElementService, ContactusElementService>();
+builder.Services.AddScoped<IUserLoginService, UserLoginService>();
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddAuthentication(opt =>
+{
+    opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    opt.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+}).AddJwtBearer(options => {
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = false,
+        ValidateAudience = false,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("SuperSecretKey@ApiCourse123456"))
+    };
+});
 
 var app = builder.Build();
 
@@ -22,6 +54,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 

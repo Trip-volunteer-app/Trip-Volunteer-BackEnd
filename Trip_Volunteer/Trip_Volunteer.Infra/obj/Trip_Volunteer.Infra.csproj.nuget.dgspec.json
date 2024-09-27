@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\asoom\\OneDrive\\Desktop\\Trip_Volunteer\\Trip-Volunteer-BackEnd\\Trip_Volunteer\\Trip_Volunteer.Infra\\Trip_Volunteer.Infra.csproj": {}
+    "D:\\github\\Trip-Volunteer\\Trip-Volunteer-BackEnd\\Trip_Volunteer\\Trip_Volunteer.Infra\\Trip_Volunteer.Infra.csproj": {}
   },
   "projects": {
-    "C:\\Users\\asoom\\OneDrive\\Desktop\\Trip_Volunteer\\Trip-Volunteer-BackEnd\\Trip_Volunteer\\Trip_Volunteer.Core\\Trip_Volunteer.Core.csproj": {
+    "D:\\github\\Trip-Volunteer\\Trip-Volunteer-BackEnd\\Trip_Volunteer\\Trip_Volunteer.Core\\Trip_Volunteer.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\asoom\\OneDrive\\Desktop\\Trip_Volunteer\\Trip-Volunteer-BackEnd\\Trip_Volunteer\\Trip_Volunteer.Core\\Trip_Volunteer.Core.csproj",
+        "projectUniqueName": "D:\\github\\Trip-Volunteer\\Trip-Volunteer-BackEnd\\Trip_Volunteer\\Trip_Volunteer.Core\\Trip_Volunteer.Core.csproj",
         "projectName": "Trip_Volunteer.Core",
-        "projectPath": "C:\\Users\\asoom\\OneDrive\\Desktop\\Trip_Volunteer\\Trip-Volunteer-BackEnd\\Trip_Volunteer\\Trip_Volunteer.Core\\Trip_Volunteer.Core.csproj",
-        "packagesPath": "C:\\Users\\asoom\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\asoom\\OneDrive\\Desktop\\Trip_Volunteer\\Trip-Volunteer-BackEnd\\Trip_Volunteer\\Trip_Volunteer.Core\\obj\\",
+        "projectPath": "D:\\github\\Trip-Volunteer\\Trip-Volunteer-BackEnd\\Trip_Volunteer\\Trip_Volunteer.Core\\Trip_Volunteer.Core.csproj",
+        "packagesPath": "C:\\Users\\smadi\\.nuget\\packages\\",
+        "outputPath": "D:\\github\\Trip-Volunteer\\Trip-Volunteer-BackEnd\\Trip_Volunteer\\Trip_Volunteer.Core\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\asoom\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\smadi\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -71,25 +67,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\asoom\\OneDrive\\Desktop\\Trip_Volunteer\\Trip-Volunteer-BackEnd\\Trip_Volunteer\\Trip_Volunteer.Infra\\Trip_Volunteer.Infra.csproj": {
+    "D:\\github\\Trip-Volunteer\\Trip-Volunteer-BackEnd\\Trip_Volunteer\\Trip_Volunteer.Infra\\Trip_Volunteer.Infra.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\asoom\\OneDrive\\Desktop\\Trip_Volunteer\\Trip-Volunteer-BackEnd\\Trip_Volunteer\\Trip_Volunteer.Infra\\Trip_Volunteer.Infra.csproj",
+        "projectUniqueName": "D:\\github\\Trip-Volunteer\\Trip-Volunteer-BackEnd\\Trip_Volunteer\\Trip_Volunteer.Infra\\Trip_Volunteer.Infra.csproj",
         "projectName": "Trip_Volunteer.Infra",
-        "projectPath": "C:\\Users\\asoom\\OneDrive\\Desktop\\Trip_Volunteer\\Trip-Volunteer-BackEnd\\Trip_Volunteer\\Trip_Volunteer.Infra\\Trip_Volunteer.Infra.csproj",
-        "packagesPath": "C:\\Users\\asoom\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\asoom\\OneDrive\\Desktop\\Trip_Volunteer\\Trip-Volunteer-BackEnd\\Trip_Volunteer\\Trip_Volunteer.Infra\\obj\\",
+        "projectPath": "D:\\github\\Trip-Volunteer\\Trip-Volunteer-BackEnd\\Trip_Volunteer\\Trip_Volunteer.Infra\\Trip_Volunteer.Infra.csproj",
+        "packagesPath": "C:\\Users\\smadi\\.nuget\\packages\\",
+        "outputPath": "D:\\github\\Trip-Volunteer\\Trip-Volunteer-BackEnd\\Trip_Volunteer\\Trip_Volunteer.Infra\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\asoom\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\smadi\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -104,8 +96,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\asoom\\OneDrive\\Desktop\\Trip_Volunteer\\Trip-Volunteer-BackEnd\\Trip_Volunteer\\Trip_Volunteer.Core\\Trip_Volunteer.Core.csproj": {
-                "projectPath": "C:\\Users\\asoom\\OneDrive\\Desktop\\Trip_Volunteer\\Trip-Volunteer-BackEnd\\Trip_Volunteer\\Trip_Volunteer.Core\\Trip_Volunteer.Core.csproj"
+              "D:\\github\\Trip-Volunteer\\Trip-Volunteer-BackEnd\\Trip_Volunteer\\Trip_Volunteer.Core\\Trip_Volunteer.Core.csproj": {
+                "projectPath": "D:\\github\\Trip-Volunteer\\Trip-Volunteer-BackEnd\\Trip_Volunteer\\Trip_Volunteer.Core\\Trip_Volunteer.Core.csproj"
               }
             }
           }
@@ -129,6 +121,10 @@
               "target": "Package",
               "version": "[2.0.123, )"
             },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[6.0.14, )"
+            },
             "Microsoft.Data.SqlClient": {
               "target": "Package",
               "version": "[5.0.0, )"
@@ -146,6 +142,10 @@
             "Oracle.ManagedDataAccess.Core": {
               "target": "Package",
               "version": "[3.21.90, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[6.26.1, )"
             }
           },
           "imports": [
@@ -164,7 +164,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
         }
       }
     }

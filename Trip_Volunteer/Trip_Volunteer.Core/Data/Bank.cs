@@ -10,12 +10,12 @@ namespace Trip_Volunteer.Core.Data
             Payments = new HashSet<Payment>();
         }
 
-        public decimal BankId { get; set; }
-        public string? FullName { get; set; }
-        public string? CardNumber { get; set; }
+        public decimal Bank_Id { get; set; }
+        public string? Full_Name { get; set; }
+        public string? Card_Number { get; set; }
         public decimal Balance { get; set; }
         public string Cvv { get; set; } = null!;
-        public DateTime? ExpirationDate { get; set; }
+        public DateTime? Expiration_Date { get; set; }
 
         public virtual ICollection<Payment> Payments { get; set; }
     }

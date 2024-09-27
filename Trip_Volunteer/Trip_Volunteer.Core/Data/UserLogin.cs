@@ -13,13 +13,13 @@ namespace Trip_Volunteer.Core.Data
             Volunteers = new HashSet<Volunteer>();
         }
 
-        public decimal LoginId { get; set; }
+        public decimal Login_Id { get; set; }
         public string Email { get; set; } = null!;
         public string Password { get; set; } = null!;
-        public decimal? RoleId { get; set; }
-        public DateTime? DateRegister { get; set; }
-        public decimal? UserId { get; set; }
-        public string Repassword { get; set; } = null!;
+        public decimal? Role_Id { get; set; }
+        public DateTime? Date_Register { get; set; }
+        public decimal? User_Id { get; set; }
+        public string? Repassword { get; set; }
 
         public virtual UserRole? Role { get; set; }
         public virtual User? User { get; set; }
