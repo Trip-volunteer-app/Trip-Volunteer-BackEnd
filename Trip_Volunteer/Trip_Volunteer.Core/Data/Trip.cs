@@ -15,16 +15,16 @@ namespace Trip_Volunteer.Core.Data
             Volunteers = new HashSet<Volunteer>();
         }
 
-        public decimal TripId { get; set; }
-        public string? TripName { get; set; }
-        public decimal? TripLocationId { get; set; }
-        public decimal? TripPrice { get; set; }
-        public decimal? MaxNumberOfUsers { get; set; }
-        public DateTime? StartDate { get; set; }
-        public DateTime? EndDate { get; set; }
-        public decimal? MaxNumberOfVolunteers { get; set; }
+        public decimal Trip_Id { get; set; }
+        public string? Trip_Name { get; set; }
+        public decimal? Trip_Location_Id { get; set; }
+        public decimal? Trip_Price { get; set; }
+        public decimal? Max_Number_Of_Users { get; set; }
+        public DateTime? Start_Date { get; set; }
+        public DateTime? End_Date { get; set; }
         public string? Description { get; set; }
-        public decimal? CategoryId { get; set; }
+        public decimal? Max_Number_Of_Volunteers { get; set; }
+        public decimal? Category_Id { get; set; }
 
         public virtual Category? Category { get; set; }
         public virtual Location? TripLocation { get; set; }

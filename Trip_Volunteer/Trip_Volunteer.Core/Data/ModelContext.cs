@@ -56,7 +56,7 @@ namespace Trip_Volunteer.Core.Data
             modelBuilder.Entity<Aboutu>(entity =>
             {
                 entity.HasKey(e => e.AboutusPageId)
-                    .HasName("SYS_C008461");
+                    .HasName("SYS_C009379");
 
                 entity.ToTable("ABOUTUS");
 
@@ -168,12 +168,12 @@ namespace Trip_Volunteer.Core.Data
             {
                 entity.ToTable("CATEGORIES");
 
-                entity.Property(e => e.CategoryId)
+                entity.Property(e => e.Category_Id)
                     .HasColumnType("NUMBER(38)")
                     .ValueGeneratedOnAdd()
                     .HasColumnName("CATEGORY_ID");
 
-                entity.Property(e => e.CategoryName)
+                entity.Property(e => e.Category_Name)
                     .HasMaxLength(200)
                     .IsUnicode(false)
                     .HasColumnName("CATEGORY_NAME");
@@ -182,7 +182,7 @@ namespace Trip_Volunteer.Core.Data
             modelBuilder.Entity<ContactU>(entity =>
             {
                 entity.HasKey(e => e.ContactId)
-                    .HasName("SYS_C008449");
+                    .HasName("SYS_C009370");
 
                 entity.ToTable("CONTACT_US");
 
@@ -215,7 +215,7 @@ namespace Trip_Volunteer.Core.Data
             modelBuilder.Entity<ContactusElement>(entity =>
             {
                 entity.HasKey(e => e.ContactusElementsId)
-                    .HasName("SYS_C008465");
+                    .HasName("SYS_C009383");
 
                 entity.ToTable("CONTACTUS_ELEMENTS");
 
@@ -238,7 +238,7 @@ namespace Trip_Volunteer.Core.Data
             modelBuilder.Entity<HomePageElement>(entity =>
             {
                 entity.HasKey(e => e.HomePageId)
-                    .HasName("SYS_C008459");
+                    .HasName("SYS_C009377");
 
                 entity.ToTable("HOME_PAGE_ELEMENTS");
 
@@ -302,34 +302,34 @@ namespace Trip_Volunteer.Core.Data
             {
                 entity.ToTable("LOCATION");
 
-                entity.Property(e => e.LocationId)
+                entity.Property(e => e.Location_Id)
                     .HasColumnType("NUMBER(38)")
                     .ValueGeneratedOnAdd()
                     .HasColumnName("LOCATION_ID");
 
-                entity.Property(e => e.DepartureLatitude)
+                entity.Property(e => e.Departure_Latitude)
                     .HasColumnType("NUMBER")
                     .HasColumnName("DEPARTURE_LATITUDE");
 
-                entity.Property(e => e.DepartureLocation)
+                entity.Property(e => e.Departure_Location)
                     .HasMaxLength(200)
                     .IsUnicode(false)
                     .HasColumnName("DEPARTURE_LOCATION");
 
-                entity.Property(e => e.DepartureLongitude)
+                entity.Property(e => e.Departure_Longitude)
                     .HasColumnType("NUMBER")
                     .HasColumnName("DEPARTURE_LONGITUDE");
 
-                entity.Property(e => e.DestinationLatitude)
+                entity.Property(e => e.Destination_Latitude)
                     .HasColumnType("NUMBER")
                     .HasColumnName("DESTINATION_LATITUDE");
 
-                entity.Property(e => e.DestinationLocation)
+                entity.Property(e => e.Destination_Location)
                     .HasMaxLength(200)
                     .IsUnicode(false)
                     .HasColumnName("DESTINATION_LOCATION");
 
-                entity.Property(e => e.DestinationLongitude)
+                entity.Property(e => e.Destination_Longitude)
                     .HasColumnType("NUMBER")
                     .HasColumnName("DESTINATION_LONGITUDE");
             });
@@ -494,7 +494,7 @@ namespace Trip_Volunteer.Core.Data
             modelBuilder.Entity<TestimonialElement>(entity =>
             {
                 entity.HasKey(e => e.TestimonialElementsId)
-                    .HasName("SYS_C008463");
+                    .HasName("SYS_C009381");
 
                 entity.ToTable("TESTIMONIAL_ELEMENTS");
 
@@ -518,12 +518,12 @@ namespace Trip_Volunteer.Core.Data
             {
                 entity.ToTable("TRIPS");
 
-                entity.Property(e => e.TripId)
+                entity.Property(e => e.Trip_Id)
                     .HasColumnType("NUMBER(38)")
                     .ValueGeneratedOnAdd()
                     .HasColumnName("TRIP_ID");
 
-                entity.Property(e => e.CategoryId)
+                entity.Property(e => e.Category_Id)
                     .HasColumnType("NUMBER(38)")
                     .HasColumnName("CATEGORY_ID");
 
@@ -531,44 +531,44 @@ namespace Trip_Volunteer.Core.Data
                     .IsUnicode(false)
                     .HasColumnName("DESCRIPTION");
 
-                entity.Property(e => e.EndDate)
+                entity.Property(e => e.End_Date)
                     .HasColumnType("DATE")
                     .HasColumnName("END_DATE");
 
-                entity.Property(e => e.MaxNumberOfUsers)
+                entity.Property(e => e.Max_Number_Of_Users)
                     .HasColumnType("NUMBER(38)")
                     .HasColumnName("MAX_NUMBER_OF_USERS");
 
-                entity.Property(e => e.MaxNumberOfVolunteers)
+                entity.Property(e => e.Max_Number_Of_Volunteers)
                     .HasColumnType("NUMBER(38)")
                     .HasColumnName("MAX_NUMBER_OF_VOLUNTEERS");
 
-                entity.Property(e => e.StartDate)
+                entity.Property(e => e.Start_Date)
                     .HasColumnType("DATE")
                     .HasColumnName("START_DATE");
 
-                entity.Property(e => e.TripLocationId)
+                entity.Property(e => e.Trip_Location_Id)
                     .HasColumnType("NUMBER(38)")
                     .HasColumnName("TRIP_LOCATION_ID");
 
-                entity.Property(e => e.TripName)
+                entity.Property(e => e.Trip_Name)
                     .HasMaxLength(200)
                     .IsUnicode(false)
                     .HasColumnName("TRIP_NAME");
 
-                entity.Property(e => e.TripPrice)
+                entity.Property(e => e.Trip_Price)
                     .HasColumnType("NUMBER")
                     .HasColumnName("TRIP_PRICE");
 
                 entity.HasOne(d => d.Category)
                     .WithMany(p => p.Trips)
-                    .HasForeignKey(d => d.CategoryId)
+                    .HasForeignKey(d => d.Category_Id)
                     .OnDelete(DeleteBehavior.SetNull)
                     .HasConstraintName("FK_TRIPS_CATEGORY_ID");
 
                 entity.HasOne(d => d.TripLocation)
                     .WithMany(p => p.Trips)
-                    .HasForeignKey(d => d.TripLocationId)
+                    .HasForeignKey(d => d.Trip_Location_Id)
                     .OnDelete(DeleteBehavior.SetNull)
                     .HasConstraintName("FK_TRIPS_LOCATION_ID");
             });
@@ -577,23 +577,23 @@ namespace Trip_Volunteer.Core.Data
             {
                 entity.ToTable("TRIP_IMAGE");
 
-                entity.Property(e => e.TripImageId)
+                entity.Property(e => e.Trip_Image_Id)
                     .HasColumnType("NUMBER(38)")
                     .ValueGeneratedOnAdd()
                     .HasColumnName("TRIP_IMAGE_ID");
 
-                entity.Property(e => e.ImageName)
+                entity.Property(e => e.Image_Name)
                     .HasMaxLength(1000)
                     .IsUnicode(false)
                     .HasColumnName("IMAGE_NAME");
 
-                entity.Property(e => e.TripId)
+                entity.Property(e => e.Trip_Id)
                     .HasColumnType("NUMBER(38)")
                     .HasColumnName("TRIP_ID");
 
                 entity.HasOne(d => d.Trip)
                     .WithMany(p => p.TripImages)
-                    .HasForeignKey(d => d.TripId)
+                    .HasForeignKey(d => d.Trip_Id)
                     .OnDelete(DeleteBehavior.SetNull)
                     .HasConstraintName("FK_TRIP_IMAGE_TRIP_ID");
             });
@@ -670,11 +670,11 @@ namespace Trip_Volunteer.Core.Data
             modelBuilder.Entity<UserLogin>(entity =>
             {
                 entity.HasKey(e => e.LoginId)
-                    .HasName("SYS_C008401");
+                    .HasName("SYS_C009321");
 
                 entity.ToTable("USER_LOGIN");
 
-                entity.HasIndex(e => e.Email, "SYS_C008402")
+                entity.HasIndex(e => e.Email, "SYS_C009322")
                     .IsUnique();
 
                 entity.Property(e => e.LoginId)
@@ -726,11 +726,11 @@ namespace Trip_Volunteer.Core.Data
             modelBuilder.Entity<UserRole>(entity =>
             {
                 entity.HasKey(e => e.RoleId)
-                    .HasName("SYS_C008393");
+                    .HasName("SYS_C009313");
 
                 entity.ToTable("USER_ROLE");
 
-                entity.HasIndex(e => e.RoleName, "SYS_C008394")
+                entity.HasIndex(e => e.RoleName, "SYS_C009314")
                     .IsUnique();
 
                 entity.Property(e => e.RoleId)
@@ -843,12 +843,12 @@ namespace Trip_Volunteer.Core.Data
 
             modelBuilder.Entity<WebsiteInformation>(entity =>
             {
-                entity.HasKey(e => e.WebsiteId)
-                    .HasName("SYS_C008451");
+                entity.HasKey(e => e.Website_Id)
+                    .HasName("SYS_C009372");
 
                 entity.ToTable("WEBSITE_INFORMATION");
 
-                entity.Property(e => e.WebsiteId)
+                entity.Property(e => e.Website_Id)
                     .HasColumnType("NUMBER(38)")
                     .ValueGeneratedOnAdd()
                     .HasColumnName("WEBSITE_ID");
@@ -858,7 +858,7 @@ namespace Trip_Volunteer.Core.Data
                     .IsUnicode(false)
                     .HasColumnName("ADRESS");
 
-                entity.Property(e => e.ClosingTime)
+                entity.Property(e => e.Closing_Time)
                     .HasMaxLength(200)
                     .IsUnicode(false)
                     .HasColumnName("CLOSING_TIME");
@@ -868,12 +868,12 @@ namespace Trip_Volunteer.Core.Data
                     .IsUnicode(false)
                     .HasColumnName("EMAIL");
 
-                entity.Property(e => e.OpenTime)
+                entity.Property(e => e.Open_Time)
                     .HasMaxLength(200)
                     .IsUnicode(false)
                     .HasColumnName("OPEN_TIME");
 
-                entity.Property(e => e.PhoneNumber)
+                entity.Property(e => e.Phone_Number)
                     .HasMaxLength(50)
                     .IsUnicode(false)
                     .HasColumnName("PHONE_NUMBER");

@@ -10,13 +10,13 @@ namespace Trip_Volunteer.Core.Data
             Trips = new HashSet<Trip>();
         }
 
-        public decimal LocationId { get; set; }
-        public string? DepartureLocation { get; set; }
-        public string? DestinationLocation { get; set; }
-        public decimal? DepartureLatitude { get; set; }
-        public decimal? DepartureLongitude { get; set; }
-        public decimal? DestinationLatitude { get; set; }
-        public decimal? DestinationLongitude { get; set; }
+        public decimal Location_Id { get; set; }
+        public string? Departure_Location { get; set; }
+        public string? Destination_Location { get; set; }
+        public decimal? Departure_Latitude { get; set; }
+        public decimal? Departure_Longitude { get; set; }
+        public decimal? Destination_Latitude { get; set; }
+        public decimal? Destination_Longitude { get; set; }
 
         public virtual ICollection<Trip> Trips { get; set; }
     }
