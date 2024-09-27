@@ -90,7 +90,7 @@ namespace Trip_Volunteer.Core.Data
             {
                 entity.ToTable("BANK");
 
-                entity.Property(e => e.BankId)
+                entity.Property(e => e.Bank_Id)
                     .HasColumnType("NUMBER(38)")
                     .ValueGeneratedOnAdd()
                     .HasColumnName("BANK_ID");
@@ -99,7 +99,7 @@ namespace Trip_Volunteer.Core.Data
                     .HasColumnType("NUMBER")
                     .HasColumnName("BALANCE");
 
-                entity.Property(e => e.CardNumber)
+                entity.Property(e => e.Card_Number)
                     .HasMaxLength(50)
                     .IsUnicode(false)
                     .HasColumnName("CARD_NUMBER");
@@ -109,11 +109,11 @@ namespace Trip_Volunteer.Core.Data
                     .IsUnicode(false)
                     .HasColumnName("CVV");
 
-                entity.Property(e => e.ExpirationDate)
+                entity.Property(e => e.Expiration_Date)
                     .HasColumnType("DATE")
                     .HasColumnName("EXPIRATION_DATE");
 
-                entity.Property(e => e.FullName)
+                entity.Property(e => e.Full_Name)
                     .HasMaxLength(100)
                     .IsUnicode(false)
                     .HasColumnName("FULL_NAME");
@@ -214,12 +214,17 @@ namespace Trip_Volunteer.Core.Data
 
             modelBuilder.Entity<ContactusElement>(entity =>
             {
+<<<<<<< HEAD
                 entity.HasKey(e => e.ContactusElementsId)
                     .HasName("SYS_C009383");
+=======
+                entity.HasKey(e => e.Contactus_Elements_Id)
+                    .HasName("SYS_C008465");
+>>>>>>> 12407fa9651d03d62ac832f1034499c214c00399
 
                 entity.ToTable("CONTACTUS_ELEMENTS");
 
-                entity.Property(e => e.ContactusElementsId)
+                entity.Property(e => e.Contactus_Elements_Id)
                     .HasColumnType("NUMBER(38)")
                     .ValueGeneratedOnAdd()
                     .HasColumnName("CONTACTUS_ELEMENTS_ID");
@@ -493,12 +498,17 @@ namespace Trip_Volunteer.Core.Data
 
             modelBuilder.Entity<TestimonialElement>(entity =>
             {
+<<<<<<< HEAD
                 entity.HasKey(e => e.TestimonialElementsId)
                     .HasName("SYS_C009381");
+=======
+                entity.HasKey(e => e.Testimonial_Elements_Id)
+                    .HasName("SYS_C008463");
+>>>>>>> 12407fa9651d03d62ac832f1034499c214c00399
 
                 entity.ToTable("TESTIMONIAL_ELEMENTS");
 
-                entity.Property(e => e.TestimonialElementsId)
+                entity.Property(e => e.Testimonial_Elements_Id)
                     .HasColumnType("NUMBER(38)")
                     .ValueGeneratedOnAdd()
                     .HasColumnName("TESTIMONIAL_ELEMENTS_ID");
@@ -632,7 +642,7 @@ namespace Trip_Volunteer.Core.Data
             {
                 entity.ToTable("USERS");
 
-                entity.Property(e => e.UserId)
+                entity.Property(e => e.User_Id)
                     .HasColumnType("NUMBER(38)")
                     .ValueGeneratedOnAdd()
                     .HasColumnName("USER_ID");
@@ -642,26 +652,26 @@ namespace Trip_Volunteer.Core.Data
                     .IsUnicode(false)
                     .HasColumnName("ADDRESS");
 
-                entity.Property(e => e.BirthDate)
+                entity.Property(e => e.Birth_Date)
                     .HasColumnType("DATE")
                     .HasColumnName("BIRTH_DATE");
 
-                entity.Property(e => e.FirstName)
+                entity.Property(e => e.First_Name)
                     .HasMaxLength(200)
                     .IsUnicode(false)
                     .HasColumnName("FIRST_NAME");
 
-                entity.Property(e => e.ImagePath)
+                entity.Property(e => e.Image_Path)
                     .HasMaxLength(500)
                     .IsUnicode(false)
                     .HasColumnName("IMAGE_PATH");
 
-                entity.Property(e => e.LastName)
+                entity.Property(e => e.Last_Name)
                     .HasMaxLength(200)
                     .IsUnicode(false)
                     .HasColumnName("LAST_NAME");
 
-                entity.Property(e => e.PhoneNumber)
+                entity.Property(e => e.Phone_Number)
                     .HasMaxLength(100)
                     .IsUnicode(false)
                     .HasColumnName("PHONE_NUMBER");
@@ -669,20 +679,25 @@ namespace Trip_Volunteer.Core.Data
 
             modelBuilder.Entity<UserLogin>(entity =>
             {
+<<<<<<< HEAD
                 entity.HasKey(e => e.LoginId)
                     .HasName("SYS_C009321");
+=======
+                entity.HasKey(e => e.Login_Id)
+                    .HasName("SYS_C008401");
+>>>>>>> 12407fa9651d03d62ac832f1034499c214c00399
 
                 entity.ToTable("USER_LOGIN");
 
                 entity.HasIndex(e => e.Email, "SYS_C009322")
                     .IsUnique();
 
-                entity.Property(e => e.LoginId)
+                entity.Property(e => e.Login_Id)
                     .HasColumnType("NUMBER(38)")
                     .ValueGeneratedOnAdd()
                     .HasColumnName("LOGIN_ID");
 
-                entity.Property(e => e.DateRegister)
+                entity.Property(e => e.Date_Register)
                     .HasColumnType("DATE")
                     .HasColumnName("DATE_REGISTER")
                     .HasDefaultValueSql("SYSDATE");
@@ -702,43 +717,52 @@ namespace Trip_Volunteer.Core.Data
                     .IsUnicode(false)
                     .HasColumnName("REPASSWORD");
 
-                entity.Property(e => e.RoleId)
+                entity.Property(e => e.Role_Id)
                     .HasColumnType("NUMBER(38)")
                     .HasColumnName("ROLE_ID");
 
-                entity.Property(e => e.UserId)
+                entity.Property(e => e.User_Id)
                     .HasColumnType("NUMBER(38)")
                     .HasColumnName("USER_ID");
 
                 entity.HasOne(d => d.Role)
                     .WithMany(p => p.UserLogins)
-                    .HasForeignKey(d => d.RoleId)
+                    .HasForeignKey(d => d.Role_Id)
                     .OnDelete(DeleteBehavior.SetNull)
                     .HasConstraintName("FK_USER_LOGIN_USER_ROLE_ID");
 
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.UserLogins)
-                    .HasForeignKey(d => d.UserId)
+                    .HasForeignKey(d => d.User_Id)
                     .OnDelete(DeleteBehavior.SetNull)
                     .HasConstraintName("FK_USER_LOGIN_USERS_ID");
             });
 
             modelBuilder.Entity<UserRole>(entity =>
             {
+<<<<<<< HEAD
                 entity.HasKey(e => e.RoleId)
                     .HasName("SYS_C009313");
 
                 entity.ToTable("USER_ROLE");
 
                 entity.HasIndex(e => e.RoleName, "SYS_C009314")
+=======
+                entity.HasKey(e => e.Role_Id)
+                    .HasName("SYS_C008393");
+
+                entity.ToTable("USER_ROLE");
+
+                entity.HasIndex(e => e.Role_Name, "SYS_C008394")
+>>>>>>> 12407fa9651d03d62ac832f1034499c214c00399
                     .IsUnique();
 
-                entity.Property(e => e.RoleId)
+                entity.Property(e => e.Role_Id)
                     .HasColumnType("NUMBER(38)")
                     .ValueGeneratedOnAdd()
                     .HasColumnName("ROLE_ID");
 
-                entity.Property(e => e.RoleName)
+                entity.Property(e => e.Role_Name)
                     .HasMaxLength(200)
                     .IsUnicode(false)
                     .HasColumnName("ROLE_NAME");
