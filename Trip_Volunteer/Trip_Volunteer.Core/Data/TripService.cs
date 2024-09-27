@@ -9,7 +9,7 @@ namespace Trip_Volunteer.Core.Data
         public decimal? ServiceId { get; set; }
         public decimal? TripId { get; set; }
 
-        public virtual Service? Service { get; set; }
+        public virtual Core.Service? Service { get; set; }
         public virtual Trip? Trip { get; set; }
     }
 }

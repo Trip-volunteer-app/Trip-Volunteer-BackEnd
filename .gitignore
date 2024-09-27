@@ -2,4 +2,11 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+/.vs
+>>>>>>> 37ecf244071c0d7e1839afa8c39660cb7a15a8db
+=======
+>>>>>>> 5eae04a522cc98ebf81749c04e51503c82ca0eea
 /Trip_Volunteer/.vs/Trip_Volunteer

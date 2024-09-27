@@ -26,7 +26,7 @@ namespace Trip_Volunteer.Core.Data
         public virtual DbSet<Location> Locations { get; set; } = null!;
         public virtual DbSet<Payment> Payments { get; set; } = null!;
         public virtual DbSet<Review> Reviews { get; set; } = null!;
-        public virtual DbSet<Service> Services { get; set; } = null!;
+        public virtual DbSet<Core.Service> Services { get; set; } = null!;
         public virtual DbSet<Testimonial> Testimonials { get; set; } = null!;
         public virtual DbSet<TestimonialElement> TestimonialElements { get; set; } = null!;
         public virtual DbSet<Trip> Trips { get; set; } = null!;
