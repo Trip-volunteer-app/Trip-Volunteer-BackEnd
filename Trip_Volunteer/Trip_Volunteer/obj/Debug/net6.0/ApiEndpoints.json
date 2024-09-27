@@ -1,0 +1,359 @@
+[
+  {
+    "ContainingType": "Trip_Volunteer.API.Controllers.PaymentController",
+    "Method": "CreatePayment",
+    "RelativePath": "api/Payment/CreatePayment",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "payment",
+        "Type": "Trip_Volunteer.Core.Data.Payment",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Trip_Volunteer.API.Controllers.PaymentController",
+    "Method": "DeletePayment",
+    "RelativePath": "api/Payment/DeletePayment/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Trip_Volunteer.API.Controllers.PaymentController",
+    "Method": "GetAllPayments",
+    "RelativePath": "api/Payment/GetAllPayments",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[Trip_Volunteer.Core.Data.Payment, Trip_Volunteer.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Trip_Volunteer.API.Controllers.PaymentController",
+    "Method": "GetPaymantById",
+    "RelativePath": "api/Payment/GetPaymantById/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Trip_Volunteer.Core.Data.Payment",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Trip_Volunteer.API.Controllers.PaymentController",
+    "Method": "UpdatePayment",
+    "RelativePath": "api/Payment/UpdatePayment",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "payment",
+        "Type": "Trip_Volunteer.Core.Data.Payment",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Trip_Volunteer.API.Controllers.VolunteerRolesController",
+    "Method": "CreateVolunteerRole",
+    "RelativePath": "api/VolunteerRoles/CreateVolunteerRole",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "volunteerRole",
+        "Type": "Trip_Volunteer.Core.Data.VolunteerRole",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Trip_Volunteer.API.Controllers.VolunteerRolesController",
+    "Method": "DeleteVolunteerRole",
+    "RelativePath": "api/VolunteerRoles/DeleteVolunteerRole/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Trip_Volunteer.API.Controllers.VolunteerRolesController",
+    "Method": "GetAllVolunteerRoles",
+    "RelativePath": "api/VolunteerRoles/GetAllVolunteerRoles",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[Trip_Volunteer.Core.Data.VolunteerRole, Trip_Volunteer.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Trip_Volunteer.API.Controllers.VolunteerRolesController",
+    "Method": "GetVolunteerRoleById",
+    "RelativePath": "api/VolunteerRoles/GetVolunteerRoleById/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Trip_Volunteer.Core.Data.VolunteerRole",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Trip_Volunteer.API.Controllers.VolunteerRolesController",
+    "Method": "UpdateVolunteerRole",
+    "RelativePath": "api/VolunteerRoles/UpdateVolunteerRole",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "volunteerRole",
+        "Type": "Trip_Volunteer.Core.Data.VolunteerRole",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Trip_Volunteer.API.Controllers.VolunteersController",
+    "Method": "CreateVolunteer",
+    "RelativePath": "api/Volunteers/CreateVolunteer",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "volunteer",
+        "Type": "Trip_Volunteer.Core.Data.Volunteer",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Trip_Volunteer.API.Controllers.VolunteersController",
+    "Method": "DeleteVolunteer",
+    "RelativePath": "api/Volunteers/DeleteVolunteer/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Trip_Volunteer.API.Controllers.VolunteersController",
+    "Method": "GetAllVolunteers",
+    "RelativePath": "api/Volunteers/GetAllVolunteers",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[Trip_Volunteer.Core.Data.Volunteer, Trip_Volunteer.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Trip_Volunteer.API.Controllers.VolunteersController",
+    "Method": "GetVolunteerById",
+    "RelativePath": "api/Volunteers/GetVolunteerById/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Trip_Volunteer.Core.Data.Volunteer",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Trip_Volunteer.API.Controllers.VolunteersController",
+    "Method": "UpdateVolunteer",
+    "RelativePath": "api/Volunteers/UpdateVolunteer",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "volunteer",
+        "Type": "Trip_Volunteer.Core.Data.Volunteer",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Trip_Volunteer.Controllers.WeatherForecastController",
+    "Method": "Get",
+    "RelativePath": "WeatherForecast",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Trip_Volunteer.WeatherForecast, Trip_Volunteer.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "GetWeatherForecast"
+  }
+]

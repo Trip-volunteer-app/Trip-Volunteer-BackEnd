@@ -338,21 +338,21 @@ namespace Trip_Volunteer.Core.Data
             {
                 entity.ToTable("PAYMENTS");
 
-                entity.Property(e => e.PaymentId)
+                entity.Property(e => e.Payment_Id)
                     .HasColumnType("NUMBER(38)")
                     .ValueGeneratedOnAdd()
                     .HasColumnName("PAYMENT_ID");
 
-                entity.Property(e => e.BankId)
+                entity.Property(e => e.Bank_Id)
                     .HasColumnType("NUMBER(38)")
                     .HasColumnName("BANK_ID");
 
-                entity.Property(e => e.CreateAt)
+                entity.Property(e => e.Create_At)
                     .HasColumnType("DATE")
                     .HasColumnName("CREATE_AT")
                     .HasDefaultValueSql("sysdate");
 
-                entity.Property(e => e.LoginId)
+                entity.Property(e => e.Login_Id)
                     .HasColumnType("NUMBER(38)")
                     .HasColumnName("LOGIN_ID");
 
@@ -360,25 +360,25 @@ namespace Trip_Volunteer.Core.Data
                     .HasColumnType("NUMBER")
                     .HasColumnName("PRICE");
 
-                entity.Property(e => e.TripId)
+                entity.Property(e => e.Trip_Id)
                     .HasColumnType("NUMBER(38)")
                     .HasColumnName("TRIP_ID");
 
                 entity.HasOne(d => d.Bank)
                     .WithMany(p => p.Payments)
-                    .HasForeignKey(d => d.BankId)
+                    .HasForeignKey(d => d.Bank_Id)
                     .OnDelete(DeleteBehavior.SetNull)
                     .HasConstraintName("FK_PAYMENTS_BANK_ID");
 
                 entity.HasOne(d => d.Login)
                     .WithMany(p => p.Payments)
-                    .HasForeignKey(d => d.LoginId)
+                    .HasForeignKey(d => d.Login_Id)
                     .OnDelete(DeleteBehavior.SetNull)
                     .HasConstraintName("FK_PAYMENTS_LOGIN_ID");
 
                 entity.HasOne(d => d.Trip)
                     .WithMany(p => p.Payments)
-                    .HasForeignKey(d => d.TripId)
+                    .HasForeignKey(d => d.Trip_Id)
                     .OnDelete(DeleteBehavior.SetNull)
                     .HasConstraintName("FK_PAYMENTS_TRIP_ID");
             });
@@ -450,7 +450,7 @@ namespace Trip_Volunteer.Core.Data
             {
                 entity.ToTable("TESTIMONIAL");
 
-                entity.Property(e => e.TestimonialId)
+                entity.Property(e => e.Testimonial_Id)
                     .HasColumnType("NUMBER(38)")
                     .ValueGeneratedOnAdd()
                     .HasColumnName("TESTIMONIAL_ID");
@@ -460,7 +460,7 @@ namespace Trip_Volunteer.Core.Data
                     .IsUnicode(false)
                     .HasColumnName("CASE");
 
-                entity.Property(e => e.CreateAt)
+                entity.Property(e => e.Create_At)
                     .HasColumnType("DATE")
                     .HasColumnName("CREATE_AT")
                     .HasDefaultValueSql("sysdate");
@@ -470,7 +470,7 @@ namespace Trip_Volunteer.Core.Data
                     .IsUnicode(false)
                     .HasColumnName("FEEDBACK");
 
-                entity.Property(e => e.LoginId)
+                entity.Property(e => e.Login_Id)
                     .HasColumnType("NUMBER(38)")
                     .HasColumnName("LOGIN_ID");
 
@@ -486,7 +486,7 @@ namespace Trip_Volunteer.Core.Data
 
                 entity.HasOne(d => d.Login)
                     .WithMany(p => p.Testimonials)
-                    .HasForeignKey(d => d.LoginId)
+                    .HasForeignKey(d => d.Login_Id)
                     .OnDelete(DeleteBehavior.SetNull)
                     .HasConstraintName("FK_TESTIMONIAL_LOGIN_ID");
             });
@@ -748,12 +748,12 @@ namespace Trip_Volunteer.Core.Data
             {
                 entity.ToTable("VOLUNTEERS");
 
-                entity.Property(e => e.VolunteerId)
+                entity.Property(e => e.Volunteer_Id)
                     .HasColumnType("NUMBER")
                     .ValueGeneratedOnAdd()
                     .HasColumnName("VOLUNTEER_ID");
 
-                entity.Property(e => e.DateApplied)
+                entity.Property(e => e.Date_Applied)
                     .HasColumnType("DATE")
                     .HasColumnName("DATE_APPLIED")
                     .HasDefaultValueSql("SYSDATE");
@@ -763,7 +763,7 @@ namespace Trip_Volunteer.Core.Data
                     .IsUnicode(false)
                     .HasColumnName("EMAIL");
 
-                entity.Property(e => e.EmergencyContact)
+                entity.Property(e => e.Emergency_Contact)
                     .HasMaxLength(100)
                     .IsUnicode(false)
                     .HasColumnName("EMERGENCY_CONTACT");
@@ -773,7 +773,7 @@ namespace Trip_Volunteer.Core.Data
                     .IsUnicode(false)
                     .HasColumnName("EXPERIENCE");
 
-                entity.Property(e => e.LoginId)
+                entity.Property(e => e.Login_Id)
                     .HasColumnType("NUMBER(38)")
                     .HasColumnName("LOGIN_ID");
 
@@ -782,7 +782,7 @@ namespace Trip_Volunteer.Core.Data
                     .IsUnicode(false)
                     .HasColumnName("NOTES");
 
-                entity.Property(e => e.PhoneNumber)
+                entity.Property(e => e.Phone_Number)
                     .HasColumnType("NUMBER")
                     .HasColumnName("PHONE_NUMBER");
 
@@ -792,27 +792,27 @@ namespace Trip_Volunteer.Core.Data
                     .HasColumnName("STATUS")
                     .HasDefaultValueSql("'pending'");
 
-                entity.Property(e => e.TripId)
+                entity.Property(e => e.Trip_Id)
                     .HasColumnType("NUMBER(38)")
                     .HasColumnName("TRIP_ID");
 
-                entity.Property(e => e.VolunteerRoleId)
+                entity.Property(e => e.Volunteer_Role_Id)
                     .HasColumnType("NUMBER(38)")
                     .HasColumnName("VOLUNTEER_ROLE_ID");
 
                 entity.HasOne(d => d.Login)
                     .WithMany(p => p.Volunteers)
-                    .HasForeignKey(d => d.LoginId)
+                    .HasForeignKey(d => d.Login_Id)
                     .HasConstraintName("FK_VOLUNTEERS_LOGIN");
 
                 entity.HasOne(d => d.Trip)
                     .WithMany(p => p.Volunteers)
-                    .HasForeignKey(d => d.TripId)
+                    .HasForeignKey(d => d.Trip_Id)
                     .HasConstraintName("FK_VOLUNTEERS_TRIPS");
 
                 entity.HasOne(d => d.VolunteerRole)
                     .WithMany(p => p.Volunteers)
-                    .HasForeignKey(d => d.VolunteerRoleId)
+                    .HasForeignKey(d => d.Volunteer_Role_Id)
                     .HasConstraintName("FK_VOLUNTEERS_VOLUNTEER_ROLE");
             });
 
@@ -820,23 +820,23 @@ namespace Trip_Volunteer.Core.Data
             {
                 entity.ToTable("VOLUNTEER_ROLES");
 
-                entity.Property(e => e.VolunteerRoleId)
+                entity.Property(e => e.Volunteer_Role_Id)
                     .HasColumnType("NUMBER")
                     .ValueGeneratedOnAdd()
                     .HasColumnName("VOLUNTEER_ROLE_ID");
 
-                entity.Property(e => e.RoleName)
+                entity.Property(e => e.Role_Name)
                     .HasMaxLength(200)
                     .IsUnicode(false)
                     .HasColumnName("ROLE_NAME");
 
-                entity.Property(e => e.TripId)
+                entity.Property(e => e.Trip_Id)
                     .HasColumnType("NUMBER(38)")
                     .HasColumnName("TRIP_ID");
 
                 entity.HasOne(d => d.Trip)
                     .WithMany(p => p.VolunteerRoles)
-                    .HasForeignKey(d => d.TripId)
+                    .HasForeignKey(d => d.Trip_Id)
                     .OnDelete(DeleteBehavior.SetNull)
                     .HasConstraintName("FK_VOLUNTEER_ROLES_TRIP_ID");
             });
