@@ -5,11 +5,11 @@ namespace Trip_Volunteer.Core.Data
 {
     public partial class WebsiteInformation
     {
-        public decimal WebsiteId { get; set; }
+        public decimal Website_Id { get; set; }
         public string? Email { get; set; }
-        public string? PhoneNumber { get; set; }
+        public string? Phone_Number { get; set; }
         public string? Adress { get; set; }
-        public string? OpenTime { get; set; }
-        public string? ClosingTime { get; set; }
+        public string? Open_Time { get; set; }
+        public string? Closing_Time { get; set; }
     }
 }
