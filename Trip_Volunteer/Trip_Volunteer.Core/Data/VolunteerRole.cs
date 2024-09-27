@@ -10,9 +10,9 @@ namespace Trip_Volunteer.Core.Data
             Volunteers = new HashSet<Volunteer>();
         }
 
-        public decimal VolunteerRoleId { get; set; }
-        public string? RoleName { get; set; }
-        public decimal? TripId { get; set; }
+        public decimal Volunteer_Role_Id { get; set; }
+        public string? Role_Name { get; set; }
+        public decimal? Trip_Id { get; set; }
 
         public virtual Trip? Trip { get; set; }
         public virtual ICollection<Volunteer> Volunteers { get; set; }
