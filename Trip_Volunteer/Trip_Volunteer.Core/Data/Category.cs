@@ -10,8 +10,8 @@ namespace Trip_Volunteer.Core.Data
             Trips = new HashSet<Trip>();
         }
 
-        public decimal CategoryId { get; set; }
-        public string? CategoryName { get; set; }
+        public decimal Category_Id { get; set; }
+        public string? Category_Name { get; set; }
 
         public virtual ICollection<Trip> Trips { get; set; }
     }
