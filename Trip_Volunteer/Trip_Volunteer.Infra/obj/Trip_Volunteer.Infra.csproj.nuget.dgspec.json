@@ -1,7 +1,6 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD
     "C:\\Users\\user\\Source\\Repos\\Trip-Volunteer-BackEnd\\Trip_Volunteer\\Trip_Volunteer.Infra\\Trip_Volunteer.Infra.csproj": {}
   },
   "projects": {
@@ -16,22 +15,6 @@
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-    "C:\\TripVolunteerSystem\\Trip-Volunteer-BackEnd\\Trip_Volunteer\\Trip_Volunteer.Infra\\Trip_Volunteer.Infra.csproj": {}
-  },
-  "projects": {
-    "C:\\TripVolunteerSystem\\Trip-Volunteer-BackEnd\\Trip_Volunteer\\Trip_Volunteer.Core\\Trip_Volunteer.Core.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\TripVolunteerSystem\\Trip-Volunteer-BackEnd\\Trip_Volunteer\\Trip_Volunteer.Core\\Trip_Volunteer.Core.csproj",
-        "projectName": "Trip_Volunteer.Core",
-        "projectPath": "C:\\TripVolunteerSystem\\Trip-Volunteer-BackEnd\\Trip_Volunteer\\Trip_Volunteer.Core\\Trip_Volunteer.Core.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\TripVolunteerSystem\\Trip-Volunteer-BackEnd\\Trip_Volunteer\\Trip_Volunteer.Core\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> de721206ce294c7216656a02c6a85d4340ef3641
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -39,6 +22,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -51,6 +35,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -78,11 +67,10 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     },
-<<<<<<< HEAD
     "C:\\Users\\user\\Source\\Repos\\Trip-Volunteer-BackEnd\\Trip_Volunteer\\Trip_Volunteer.Infra\\Trip_Volunteer.Infra.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -94,19 +82,6 @@
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-    "C:\\TripVolunteerSystem\\Trip-Volunteer-BackEnd\\Trip_Volunteer\\Trip_Volunteer.Infra\\Trip_Volunteer.Infra.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\TripVolunteerSystem\\Trip-Volunteer-BackEnd\\Trip_Volunteer\\Trip_Volunteer.Infra\\Trip_Volunteer.Infra.csproj",
-        "projectName": "Trip_Volunteer.Infra",
-        "projectPath": "C:\\TripVolunteerSystem\\Trip-Volunteer-BackEnd\\Trip_Volunteer\\Trip_Volunteer.Infra\\Trip_Volunteer.Infra.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\TripVolunteerSystem\\Trip-Volunteer-BackEnd\\Trip_Volunteer\\Trip_Volunteer.Infra\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> de721206ce294c7216656a02c6a85d4340ef3641
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -114,19 +89,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-<<<<<<< HEAD
               "C:\\Users\\user\\Source\\Repos\\Trip-Volunteer-BackEnd\\Trip_Volunteer\\Trip_Volunteer.Core\\Trip_Volunteer.Core.csproj": {
                 "projectPath": "C:\\Users\\user\\Source\\Repos\\Trip-Volunteer-BackEnd\\Trip_Volunteer\\Trip_Volunteer.Core\\Trip_Volunteer.Core.csproj"
-=======
-              "C:\\TripVolunteerSystem\\Trip-Volunteer-BackEnd\\Trip_Volunteer\\Trip_Volunteer.Core\\Trip_Volunteer.Core.csproj": {
-                "projectPath": "C:\\TripVolunteerSystem\\Trip-Volunteer-BackEnd\\Trip_Volunteer\\Trip_Volunteer.Core\\Trip_Volunteer.Core.csproj"
->>>>>>> de721206ce294c7216656a02c6a85d4340ef3641
               }
             }
           }
@@ -135,6 +106,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -188,7 +164,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

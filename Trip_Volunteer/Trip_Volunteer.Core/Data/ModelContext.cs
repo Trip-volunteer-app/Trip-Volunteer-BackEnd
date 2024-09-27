@@ -26,7 +26,7 @@ namespace Trip_Volunteer.Core.Data
         public virtual DbSet<Location> Locations { get; set; } = null!;
         public virtual DbSet<Payment> Payments { get; set; } = null!;
         public virtual DbSet<Review> Reviews { get; set; } = null!;
-        public virtual DbSet<Core.Service> Services { get; set; } = null!;
+        public virtual DbSet<Service> Services { get; set; } = null!;
         public virtual DbSet<Testimonial> Testimonials { get; set; } = null!;
         public virtual DbSet<TestimonialElement> TestimonialElements { get; set; } = null!;
         public virtual DbSet<Trip> Trips { get; set; } = null!;
@@ -43,7 +43,6 @@ namespace Trip_Volunteer.Core.Data
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
                 optionsBuilder.UseOracle("User Id=C##TRIP;PASSWORD=Test321;DATA SOURCE=localhost:1521/xe");
             }
         }
@@ -214,13 +213,8 @@ namespace Trip_Volunteer.Core.Data
 
             modelBuilder.Entity<ContactusElement>(entity =>
             {
-<<<<<<< HEAD
-                entity.HasKey(e => e.ContactusElementsId)
-                    .HasName("SYS_C009383");
-=======
                 entity.HasKey(e => e.Contactus_Elements_Id)
-                    .HasName("SYS_C008465");
->>>>>>> 12407fa9651d03d62ac832f1034499c214c00399
+                    .HasName("SYS_C009383");
 
                 entity.ToTable("CONTACTUS_ELEMENTS");
 
@@ -498,13 +492,8 @@ namespace Trip_Volunteer.Core.Data
 
             modelBuilder.Entity<TestimonialElement>(entity =>
             {
-<<<<<<< HEAD
-                entity.HasKey(e => e.TestimonialElementsId)
-                    .HasName("SYS_C009381");
-=======
                 entity.HasKey(e => e.Testimonial_Elements_Id)
-                    .HasName("SYS_C008463");
->>>>>>> 12407fa9651d03d62ac832f1034499c214c00399
+                    .HasName("SYS_C009381");
 
                 entity.ToTable("TESTIMONIAL_ELEMENTS");
 
@@ -679,13 +668,8 @@ namespace Trip_Volunteer.Core.Data
 
             modelBuilder.Entity<UserLogin>(entity =>
             {
-<<<<<<< HEAD
-                entity.HasKey(e => e.LoginId)
-                    .HasName("SYS_C009321");
-=======
                 entity.HasKey(e => e.Login_Id)
-                    .HasName("SYS_C008401");
->>>>>>> 12407fa9651d03d62ac832f1034499c214c00399
+                    .HasName("SYS_C009321");
 
                 entity.ToTable("USER_LOGIN");
 
@@ -740,21 +724,12 @@ namespace Trip_Volunteer.Core.Data
 
             modelBuilder.Entity<UserRole>(entity =>
             {
-<<<<<<< HEAD
-                entity.HasKey(e => e.RoleId)
+                entity.HasKey(e => e.Role_Id)
                     .HasName("SYS_C009313");
 
                 entity.ToTable("USER_ROLE");
 
-                entity.HasIndex(e => e.RoleName, "SYS_C009314")
-=======
-                entity.HasKey(e => e.Role_Id)
-                    .HasName("SYS_C008393");
-
-                entity.ToTable("USER_ROLE");
-
-                entity.HasIndex(e => e.Role_Name, "SYS_C008394")
->>>>>>> 12407fa9651d03d62ac832f1034499c214c00399
+                entity.HasIndex(e => e.Role_Name, "SYS_C009314")
                     .IsUnique();
 
                 entity.Property(e => e.Role_Id)
@@ -836,7 +811,7 @@ namespace Trip_Volunteer.Core.Data
 
                 entity.HasOne(d => d.VolunteerRole)
                     .WithMany(p => p.Volunteers)
-                    .HasForeignKey(d => d.Volunteer_Role_Id)
+                    .HasForeignKey(d => d.Volunteer_Id)
                     .HasConstraintName("FK_VOLUNTEERS_VOLUNTEER_ROLE");
             });
 

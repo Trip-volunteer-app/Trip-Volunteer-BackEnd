@@ -178,7 +178,6 @@ C:\TripVolunteerSystem\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer\obj\
 C:\TripVolunteerSystem\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer\obj\Debug\net6.0\Trip_Volunteer.API.genruntimeconfig.cache
 C:\TripVolunteerSystem\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer\obj\Debug\net6.0\ref\Trip_Volunteer.API.dll
 =======
-<<<<<<< HEAD
 C:\Users\user\Source\Repos\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer\bin\Debug\net6.0\appsettings.Development.json
 C:\Users\user\Source\Repos\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer\bin\Debug\net6.0\appsettings.json
 C:\Users\user\Source\Repos\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer\bin\Debug\net6.0\Trip_Volunteer.API.exe
@@ -268,7 +267,6 @@ C:\Users\user\Source\Repos\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer\
 C:\Users\user\Source\Repos\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer\obj\Debug\net6.0\Trip_Volunteer.API.pdb
 C:\Users\user\Source\Repos\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer\obj\Debug\net6.0\Trip_Volunteer.API.genruntimeconfig.cache
 C:\Users\user\Source\Repos\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer\obj\Debug\net6.0\ref\Trip_Volunteer.API.dll
-=======
 D:\github\Trip-Volunteer\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer\bin\Debug\net6.0\appsettings.Development.json
 D:\github\Trip-Volunteer\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer\bin\Debug\net6.0\appsettings.json
 D:\github\Trip-Volunteer\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer\bin\Debug\net6.0\Trip_Volunteer.API.exe
