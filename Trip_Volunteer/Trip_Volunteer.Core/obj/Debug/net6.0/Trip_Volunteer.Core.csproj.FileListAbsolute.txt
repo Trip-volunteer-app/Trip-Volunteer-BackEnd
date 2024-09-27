@@ -11,6 +11,7 @@ C:\Users\asoom\OneDrive\Desktop\Trip_Volunteer\Trip-Volunteer-BackEnd\Trip_Volun
 C:\Users\asoom\OneDrive\Desktop\Trip_Volunteer\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Core\obj\Debug\net6.0\refint\Trip_Volunteer.Core.dll
 C:\Users\asoom\OneDrive\Desktop\Trip_Volunteer\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Core\obj\Debug\net6.0\Trip_Volunteer.Core.pdb
 C:\Users\asoom\OneDrive\Desktop\Trip_Volunteer\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Core\obj\Debug\net6.0\ref\Trip_Volunteer.Core.dll
+<<<<<<< HEAD
 C:\Users\user\Source\Repos\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Core\bin\Debug\net6.0\Trip_Volunteer.Core.deps.json
 C:\Users\user\Source\Repos\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Core\bin\Debug\net6.0\Trip_Volunteer.Core.dll
 C:\Users\user\Source\Repos\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Core\bin\Debug\net6.0\Trip_Volunteer.Core.pdb
@@ -24,3 +25,18 @@ C:\Users\user\Source\Repos\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.
 C:\Users\user\Source\Repos\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Core\obj\Debug\net6.0\refint\Trip_Volunteer.Core.dll
 C:\Users\user\Source\Repos\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Core\obj\Debug\net6.0\Trip_Volunteer.Core.pdb
 C:\Users\user\Source\Repos\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Core\obj\Debug\net6.0\ref\Trip_Volunteer.Core.dll
+=======
+D:\github\Trip-Volunteer\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Core\bin\Debug\net6.0\Trip_Volunteer.Core.deps.json
+D:\github\Trip-Volunteer\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Core\bin\Debug\net6.0\Trip_Volunteer.Core.dll
+D:\github\Trip-Volunteer\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Core\bin\Debug\net6.0\Trip_Volunteer.Core.pdb
+D:\github\Trip-Volunteer\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Core\obj\Debug\net6.0\Trip_Volunteer.Core.csproj.AssemblyReference.cache
+D:\github\Trip-Volunteer\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Core\obj\Debug\net6.0\Trip_Volunteer.Core.GeneratedMSBuildEditorConfig.editorconfig
+D:\github\Trip-Volunteer\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Core\obj\Debug\net6.0\Trip_Volunteer.Core.AssemblyInfoInputs.cache
+D:\github\Trip-Volunteer\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Core\obj\Debug\net6.0\Trip_Volunteer.Core.AssemblyInfo.cs
+D:\github\Trip-Volunteer\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Core\obj\Debug\net6.0\Trip_Volunteer.Core.csproj.CoreCompileInputs.cache
+D:\github\Trip-Volunteer\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Core\obj\Debug\net6.0\Trip_Volunteer.Core.sourcelink.json
+D:\github\Trip-Volunteer\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Core\obj\Debug\net6.0\Trip_Volunteer.Core.dll
+D:\github\Trip-Volunteer\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Core\obj\Debug\net6.0\refint\Trip_Volunteer.Core.dll
+D:\github\Trip-Volunteer\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Core\obj\Debug\net6.0\Trip_Volunteer.Core.pdb
+D:\github\Trip-Volunteer\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Core\obj\Debug\net6.0\ref\Trip_Volunteer.Core.dll
+>>>>>>> 12407fa9651d03d62ac832f1034499c214c00399
