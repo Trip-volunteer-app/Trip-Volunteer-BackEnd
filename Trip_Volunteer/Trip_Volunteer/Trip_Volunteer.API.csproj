@@ -19,4 +19,8 @@
     <ProjectReference Include="..\Trip_Volunteer.Infra\Trip_Volunteer.Infra.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Images\" />
+  </ItemGroup>
+
 </Project>
