@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Trip_Volunteer.Core.Data;
 
-namespace Trip_Volunteer.Core.Repository
+namespace Trip_Volunteer.Core.Service
 {
-    public interface IAboutUsRepository
+    public interface IAboutUsService
     {
         List<Aboutu> GetAllAboutUsElements();
         Aboutu GetAboutUsElementById(int id);
