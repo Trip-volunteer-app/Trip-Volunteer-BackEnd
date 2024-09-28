@@ -22,67 +22,54 @@ internal class Program
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
-
         builder.Services.AddScoped<IDbContext, DbContext>();
-        builder.Services.AddScoped<IBookingRepository, BookingRepository>();
-        builder.Services.AddScoped<IContactUsRepository, ContactUsRepository>();
-        builder.Services.AddScoped<IReviewRepository, ReviewRepository>();
-        builder.Services.AddScoped<IServiceRepository, ServiceRepository>();
-        builder.Services.AddScoped<ITripServiceRepository, TripServiceRepository>();
-        builder.Services.AddScoped<IBookingService, BookingService>();
-        builder.Services.AddScoped<IContactUsService, ContactUsService>();
-        builder.Services.AddScoped<IReviewService, ReviewService>();
-        builder.Services.AddScoped<IServicesService, ServicesService>();
-        builder.Services.AddScoped<ITripServicesService, TripServicesService>();
-
-
-
-
-        builder.Services.AddScoped<IPaymentRepository, PaymentRepository>();
-        builder.Services.AddScoped<IVolunteerRolesRepository, VolunteerRolesRepository>();
-        builder.Services.AddScoped<IVolunteersRepository, VolunteersRepository>();
-        builder.Services.AddScoped<ITestimonialRepository, TestimonialRepository>();
-
-
-
-        builder.Services.AddScoped<IPaymentService, PaymentService>();
-        builder.Services.AddScoped<IVolunteerRolesService, VolunteerRolesService>();
-        builder.Services.AddScoped<IVolunteersService, VolunteersService>();
-        builder.Services.AddScoped<ITestimonialService, TestimonialService>();
-
-
-        builder.Services.AddScoped<ILocationRepository, LocationRepository>();
-        builder.Services.AddScoped<ILocationService, LocationService>();
-
-        builder.Services.AddScoped<IcategoriesRepository, categoriesRepository>();
-        builder.Services.AddScoped<IcategoriesService, categoriesService>();
-
-        builder.Services.AddScoped<ITripImageRepository, TripImageRepository>();
-        builder.Services.AddScoped<ITripImageService, TripImageService>();
-
-        builder.Services.AddScoped<ITripsRepository, TripsRepository>();
-        builder.Services.AddScoped<ITripsService, TripsService>();
-
-
-        builder.Services.AddScoped<IWebsiteInformationRepository, WebsiteInformationRepository>();
-        builder.Services.AddScoped<IWebsiteInformationService, WebsiteInformationService>();
-
-        builder.Services.AddScoped<IServiceRepository, ServiceRepository>();
 
         builder.Services.AddScoped<IBankRepository, BankRepository>();
-        builder.Services.AddScoped<IRoleRepository, RoleRepository>();
-        builder.Services.AddScoped<ITestimonialElementRepository, TestimonialElementRepository>();
+        builder.Services.AddScoped<IBookingRepository, BookingRepository>();
+        builder.Services.AddScoped<IcategoriesRepository, categoriesRepository>();
         builder.Services.AddScoped<IContactusElementRepository, ContactusElementRepository>();
+        builder.Services.AddScoped<IContactUsRepository, ContactUsRepository>();
+        builder.Services.AddScoped<ILocationRepository, LocationRepository>();
+        builder.Services.AddScoped<IPaymentRepository, PaymentRepository>();
+        builder.Services.AddScoped<IReviewRepository, ReviewRepository>();
+        builder.Services.AddScoped<IRoleRepository, RoleRepository>();
+        builder.Services.AddScoped<IServiceRepository, ServiceRepository>();
+        builder.Services.AddScoped<ITestimonialElementRepository, TestimonialElementRepository>();
+        builder.Services.AddScoped<ITestimonialRepository, TestimonialRepository>();
+        builder.Services.AddScoped<ITripImageRepository, TripImageRepository>();
+        builder.Services.AddScoped<ITripServiceRepository, TripServiceRepository>();
+        builder.Services.AddScoped<ITripsRepository, TripsRepository>();
         builder.Services.AddScoped<IUserLoginRepository, UserLoginRepository>();
         builder.Services.AddScoped<IUserRepository, UserRepository>();
-        builder.Services.AddScoped<IRoleService, RoleService>();
+        builder.Services.AddScoped<IVolunteerRolesRepository, VolunteerRolesRepository>();
+        builder.Services.AddScoped<IVolunteersRepository, VolunteersRepository>();
+        builder.Services.AddScoped<IWebsiteInformationRepository, WebsiteInformationRepository>();
+        builder.Services.AddScoped<IHomePageElementsRepository, HomePageElementsRepository>();
+        builder.Services.AddScoped<IAboutUsRepository, AboutUsRepository>();
+
         builder.Services.AddScoped<IBankService, BankService>();
-        builder.Services.AddScoped<ITestimonialElementService, TestimonialElementService>();
+        builder.Services.AddScoped<IBookingService, BookingService>();
+        builder.Services.AddScoped<IcategoriesService, categoriesService>();
         builder.Services.AddScoped<IContactusElementService, ContactusElementService>();
+        builder.Services.AddScoped<IContactUsService, ContactUsService>();
+        builder.Services.AddScoped<ILocationService, LocationService>();
+        builder.Services.AddScoped<IPaymentService, PaymentService>();
+        builder.Services.AddScoped<IReviewService, ReviewService>();
+        builder.Services.AddScoped<IRoleService, RoleService>();
+        builder.Services.AddScoped<IServicesService, ServicesService>();
+        builder.Services.AddScoped<ITestimonialElementService, TestimonialElementService>();
+        builder.Services.AddScoped<ITestimonialService, TestimonialService>();
+        builder.Services.AddScoped<ITripImageService, TripImageService>();
+        builder.Services.AddScoped<ITripServicesService, TripServicesService>();
+        builder.Services.AddScoped<ITripsService, TripsService>();
         builder.Services.AddScoped<IUserLoginService, UserLoginService>();
         builder.Services.AddScoped<IUserService, UserService>();
+        builder.Services.AddScoped<IVolunteerRolesService, VolunteerRolesService>();
+        builder.Services.AddScoped<IVolunteersService, VolunteersService>();
+        builder.Services.AddScoped<IWebsiteInformationService, WebsiteInformationService>();
+        builder.Services.AddScoped<IHomePageElementsService, HomePageElementsService>();
+        builder.Services.AddScoped<IAboutUsService, AboutUsService>();
 
-        builder.Services.AddScoped<IAboutUsRepository, AboutUsRepository>();
 
         builder.Services.AddAuthentication(opt =>
         {
