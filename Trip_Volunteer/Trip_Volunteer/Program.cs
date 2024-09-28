@@ -81,6 +81,9 @@ internal class Program
         builder.Services.AddScoped<IContactusElementService, ContactusElementService>();
         builder.Services.AddScoped<IUserLoginService, UserLoginService>();
         builder.Services.AddScoped<IUserService, UserService>();
+
+        builder.Services.AddScoped<IAboutUsRepository, AboutUsRepository>();
+
         builder.Services.AddAuthentication(opt =>
         {
             opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
