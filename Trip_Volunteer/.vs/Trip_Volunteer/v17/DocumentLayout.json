@@ -1,0 +1,249 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\github\\Trip-Volunteer\\Trip-Volunteer-BackEnd\\Trip_Volunteer\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1E0C1392-F609-4A4B-9D4D-77D644EFD711}|Trip_Volunteer\\Trip_Volunteer.API.csproj|d:\\github\\trip-volunteer\\trip-volunteer-backend\\trip_volunteer\\trip_volunteer\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E0C1392-F609-4A4B-9D4D-77D644EFD711}|Trip_Volunteer\\Trip_Volunteer.API.csproj|solutionrelative:trip_volunteer\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E0C1392-F609-4A4B-9D4D-77D644EFD711}|Trip_Volunteer\\Trip_Volunteer.API.csproj|d:\\github\\trip-volunteer\\trip-volunteer-backend\\trip_volunteer\\trip_volunteer\\controllers\\servicetripecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E0C1392-F609-4A4B-9D4D-77D644EFD711}|Trip_Volunteer\\Trip_Volunteer.API.csproj|solutionrelative:trip_volunteer\\controllers\\servicetripecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A762942-738D-4D7F-AB6A-DCC5F57B574C}|Trip_Volunteer.Infra\\Trip_Volunteer.Infra.csproj|d:\\github\\trip-volunteer\\trip-volunteer-backend\\trip_volunteer\\trip_volunteer.infra\\repository\\contactusrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1A762942-738D-4D7F-AB6A-DCC5F57B574C}|Trip_Volunteer.Infra\\Trip_Volunteer.Infra.csproj|solutionrelative:trip_volunteer.infra\\repository\\contactusrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A762942-738D-4D7F-AB6A-DCC5F57B574C}|Trip_Volunteer.Infra\\Trip_Volunteer.Infra.csproj|d:\\github\\trip-volunteer\\trip-volunteer-backend\\trip_volunteer\\trip_volunteer.infra\\repository\\reviewrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1A762942-738D-4D7F-AB6A-DCC5F57B574C}|Trip_Volunteer.Infra\\Trip_Volunteer.Infra.csproj|solutionrelative:trip_volunteer.infra\\repository\\reviewrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{252C9390-0C2E-41EE-A9BE-CEAD63B332F0}|Trip_Volunteer.Core\\Trip_Volunteer.Core.csproj|d:\\github\\trip-volunteer\\trip-volunteer-backend\\trip_volunteer\\trip_volunteer.core\\data\\modelcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{252C9390-0C2E-41EE-A9BE-CEAD63B332F0}|Trip_Volunteer.Core\\Trip_Volunteer.Core.csproj|solutionrelative:trip_volunteer.core\\data\\modelcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{252C9390-0C2E-41EE-A9BE-CEAD63B332F0}|Trip_Volunteer.Core\\Trip_Volunteer.Core.csproj|d:\\github\\trip-volunteer\\trip-volunteer-backend\\trip_volunteer\\trip_volunteer.core\\data\\aboutu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{252C9390-0C2E-41EE-A9BE-CEAD63B332F0}|Trip_Volunteer.Core\\Trip_Volunteer.Core.csproj|solutionrelative:trip_volunteer.core\\data\\aboutu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{252C9390-0C2E-41EE-A9BE-CEAD63B332F0}|Trip_Volunteer.Core\\Trip_Volunteer.Core.csproj|d:\\github\\trip-volunteer\\trip-volunteer-backend\\trip_volunteer\\trip_volunteer.core\\data\\booking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{252C9390-0C2E-41EE-A9BE-CEAD63B332F0}|Trip_Volunteer.Core\\Trip_Volunteer.Core.csproj|solutionrelative:trip_volunteer.core\\data\\booking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E0C1392-F609-4A4B-9D4D-77D644EFD711}|Trip_Volunteer\\Trip_Volunteer.API.csproj|d:\\github\\trip-volunteer\\trip-volunteer-backend\\trip_volunteer\\trip_volunteer\\controllers\\bankcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E0C1392-F609-4A4B-9D4D-77D644EFD711}|Trip_Volunteer\\Trip_Volunteer.API.csproj|solutionrelative:trip_volunteer\\controllers\\bankcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{252C9390-0C2E-41EE-A9BE-CEAD63B332F0}|Trip_Volunteer.Core\\Trip_Volunteer.Core.csproj|d:\\github\\trip-volunteer\\trip-volunteer-backend\\trip_volunteer\\trip_volunteer.core\\data\\contactu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{252C9390-0C2E-41EE-A9BE-CEAD63B332F0}|Trip_Volunteer.Core\\Trip_Volunteer.Core.csproj|solutionrelative:trip_volunteer.core\\data\\contactu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{252C9390-0C2E-41EE-A9BE-CEAD63B332F0}|Trip_Volunteer.Core\\Trip_Volunteer.Core.csproj|d:\\github\\trip-volunteer\\trip-volunteer-backend\\trip_volunteer\\trip_volunteer.core\\data\\homepageelement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{252C9390-0C2E-41EE-A9BE-CEAD63B332F0}|Trip_Volunteer.Core\\Trip_Volunteer.Core.csproj|solutionrelative:trip_volunteer.core\\data\\homepageelement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{252C9390-0C2E-41EE-A9BE-CEAD63B332F0}|Trip_Volunteer.Core\\Trip_Volunteer.Core.csproj|d:\\github\\trip-volunteer\\trip-volunteer-backend\\trip_volunteer\\trip_volunteer.core\\data\\review.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{252C9390-0C2E-41EE-A9BE-CEAD63B332F0}|Trip_Volunteer.Core\\Trip_Volunteer.Core.csproj|solutionrelative:trip_volunteer.core\\data\\review.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{252C9390-0C2E-41EE-A9BE-CEAD63B332F0}|Trip_Volunteer.Core\\Trip_Volunteer.Core.csproj|d:\\github\\trip-volunteer\\trip-volunteer-backend\\trip_volunteer\\trip_volunteer.core\\data\\service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{252C9390-0C2E-41EE-A9BE-CEAD63B332F0}|Trip_Volunteer.Core\\Trip_Volunteer.Core.csproj|solutionrelative:trip_volunteer.core\\data\\service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{252C9390-0C2E-41EE-A9BE-CEAD63B332F0}|Trip_Volunteer.Core\\Trip_Volunteer.Core.csproj|d:\\github\\trip-volunteer\\trip-volunteer-backend\\trip_volunteer\\trip_volunteer.core\\data\\tripservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{252C9390-0C2E-41EE-A9BE-CEAD63B332F0}|Trip_Volunteer.Core\\Trip_Volunteer.Core.csproj|solutionrelative:trip_volunteer.core\\data\\tripservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "serviceTripeController.cs",
+              "DocumentMoniker": "D:\\github\\Trip-Volunteer\\Trip-Volunteer-BackEnd\\Trip_Volunteer\\Trip_Volunteer\\Controllers\\serviceTripeController.cs",
+              "RelativeDocumentMoniker": "Trip_Volunteer\\Controllers\\serviceTripeController.cs",
+              "ToolTip": "D:\\github\\Trip-Volunteer\\Trip-Volunteer-BackEnd\\Trip_Volunteer\\Trip_Volunteer\\Controllers\\serviceTripeController.cs",
+              "RelativeToolTip": "Trip_Volunteer\\Controllers\\serviceTripeController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-28T10:55:54.543Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\github\\Trip-Volunteer\\Trip-Volunteer-BackEnd\\Trip_Volunteer\\Trip_Volunteer\\Program.cs",
+              "RelativeDocumentMoniker": "Trip_Volunteer\\Program.cs",
+              "ToolTip": "D:\\github\\Trip-Volunteer\\Trip-Volunteer-BackEnd\\Trip_Volunteer\\Trip_Volunteer\\Program.cs",
+              "RelativeToolTip": "Trip_Volunteer\\Program.cs",
+              "ViewState": "AQIAAFgAAAAAAAAAAAAgwAMAAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-28T10:53:47.075Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ReviewRepository.cs",
+              "DocumentMoniker": "D:\\github\\Trip-Volunteer\\Trip-Volunteer-BackEnd\\Trip_Volunteer\\Trip_Volunteer.Infra\\Repository\\ReviewRepository.cs",
+              "RelativeDocumentMoniker": "Trip_Volunteer.Infra\\Repository\\ReviewRepository.cs",
+              "ToolTip": "D:\\github\\Trip-Volunteer\\Trip-Volunteer-BackEnd\\Trip_Volunteer\\Trip_Volunteer.Infra\\Repository\\ReviewRepository.cs",
+              "RelativeToolTip": "Trip_Volunteer.Infra\\Repository\\ReviewRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-28T10:53:19.294Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ContactUsRepository.cs",
+              "DocumentMoniker": "D:\\github\\Trip-Volunteer\\Trip-Volunteer-BackEnd\\Trip_Volunteer\\Trip_Volunteer.Infra\\Repository\\ContactUsRepository.cs",
+              "RelativeDocumentMoniker": "Trip_Volunteer.Infra\\Repository\\ContactUsRepository.cs",
+              "ToolTip": "D:\\github\\Trip-Volunteer\\Trip-Volunteer-BackEnd\\Trip_Volunteer\\Trip_Volunteer.Infra\\Repository\\ContactUsRepository.cs",
+              "RelativeToolTip": "Trip_Volunteer.Infra\\Repository\\ContactUsRepository.cs",
+              "ViewState": "AQIAACYAAAAAAAAAAAAIwDYAAAAyAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-28T10:53:10.095Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Aboutu.cs",
+              "DocumentMoniker": "D:\\github\\Trip-Volunteer\\Trip-Volunteer-BackEnd\\Trip_Volunteer\\Trip_Volunteer.Core\\Data\\Aboutu.cs",
+              "RelativeDocumentMoniker": "Trip_Volunteer.Core\\Data\\Aboutu.cs",
+              "ToolTip": "D:\\github\\Trip-Volunteer\\Trip-Volunteer-BackEnd\\Trip_Volunteer\\Trip_Volunteer.Core\\Data\\Aboutu.cs",
+              "RelativeToolTip": "Trip_Volunteer.Core\\Data\\Aboutu.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-28T10:52:28.51Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Booking.cs",
+              "DocumentMoniker": "D:\\github\\Trip-Volunteer\\Trip-Volunteer-BackEnd\\Trip_Volunteer\\Trip_Volunteer.Core\\Data\\Booking.cs",
+              "RelativeDocumentMoniker": "Trip_Volunteer.Core\\Data\\Booking.cs",
+              "ToolTip": "D:\\github\\Trip-Volunteer\\Trip-Volunteer-BackEnd\\Trip_Volunteer\\Trip_Volunteer.Core\\Data\\Booking.cs",
+              "RelativeToolTip": "Trip_Volunteer.Core\\Data\\Booking.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-28T10:52:10.863Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ContactU.cs",
+              "DocumentMoniker": "D:\\github\\Trip-Volunteer\\Trip-Volunteer-BackEnd\\Trip_Volunteer\\Trip_Volunteer.Core\\Data\\ContactU.cs",
+              "RelativeDocumentMoniker": "Trip_Volunteer.Core\\Data\\ContactU.cs",
+              "ToolTip": "D:\\github\\Trip-Volunteer\\Trip-Volunteer-BackEnd\\Trip_Volunteer\\Trip_Volunteer.Core\\Data\\ContactU.cs",
+              "RelativeToolTip": "Trip_Volunteer.Core\\Data\\ContactU.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-28T10:51:56.926Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "HomePageElement.cs",
+              "DocumentMoniker": "D:\\github\\Trip-Volunteer\\Trip-Volunteer-BackEnd\\Trip_Volunteer\\Trip_Volunteer.Core\\Data\\HomePageElement.cs",
+              "RelativeDocumentMoniker": "Trip_Volunteer.Core\\Data\\HomePageElement.cs",
+              "ToolTip": "D:\\github\\Trip-Volunteer\\Trip-Volunteer-BackEnd\\Trip_Volunteer\\Trip_Volunteer.Core\\Data\\HomePageElement.cs",
+              "RelativeToolTip": "Trip_Volunteer.Core\\Data\\HomePageElement.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-28T10:51:40.334Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Review.cs",
+              "DocumentMoniker": "D:\\github\\Trip-Volunteer\\Trip-Volunteer-BackEnd\\Trip_Volunteer\\Trip_Volunteer.Core\\Data\\Review.cs",
+              "RelativeDocumentMoniker": "Trip_Volunteer.Core\\Data\\Review.cs",
+              "ToolTip": "D:\\github\\Trip-Volunteer\\Trip-Volunteer-BackEnd\\Trip_Volunteer\\Trip_Volunteer.Core\\Data\\Review.cs",
+              "RelativeToolTip": "Trip_Volunteer.Core\\Data\\Review.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAyAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-28T10:51:20.257Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Service.cs",
+              "DocumentMoniker": "D:\\github\\Trip-Volunteer\\Trip-Volunteer-BackEnd\\Trip_Volunteer\\Trip_Volunteer.Core\\Data\\Service.cs",
+              "RelativeDocumentMoniker": "Trip_Volunteer.Core\\Data\\Service.cs",
+              "ToolTip": "D:\\github\\Trip-Volunteer\\Trip-Volunteer-BackEnd\\Trip_Volunteer\\Trip_Volunteer.Core\\Data\\Service.cs",
+              "RelativeToolTip": "Trip_Volunteer.Core\\Data\\Service.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-28T10:51:02.894Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "TripService.cs",
+              "DocumentMoniker": "D:\\github\\Trip-Volunteer\\Trip-Volunteer-BackEnd\\Trip_Volunteer\\Trip_Volunteer.Core\\Data\\TripService.cs",
+              "RelativeDocumentMoniker": "Trip_Volunteer.Core\\Data\\TripService.cs",
+              "ToolTip": "D:\\github\\Trip-Volunteer\\Trip-Volunteer-BackEnd\\Trip_Volunteer\\Trip_Volunteer.Core\\Data\\TripService.cs",
+              "RelativeToolTip": "Trip_Volunteer.Core\\Data\\TripService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-28T10:46:03.699Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ModelContext.cs",
+              "DocumentMoniker": "D:\\github\\Trip-Volunteer\\Trip-Volunteer-BackEnd\\Trip_Volunteer\\Trip_Volunteer.Core\\Data\\ModelContext.cs",
+              "RelativeDocumentMoniker": "Trip_Volunteer.Core\\Data\\ModelContext.cs",
+              "ToolTip": "D:\\github\\Trip-Volunteer\\Trip-Volunteer-BackEnd\\Trip_Volunteer\\Trip_Volunteer.Core\\Data\\ModelContext.cs",
+              "RelativeToolTip": "Trip_Volunteer.Core\\Data\\ModelContext.cs",
+              "ViewState": "AQIAAHsAAAAAAAAAAAAAAJ0AAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-28T10:43:19.445Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "BankController.cs",
+              "DocumentMoniker": "D:\\github\\Trip-Volunteer\\Trip-Volunteer-BackEnd\\Trip_Volunteer\\Trip_Volunteer\\Controllers\\BankController.cs",
+              "RelativeDocumentMoniker": "Trip_Volunteer\\Controllers\\BankController.cs",
+              "ToolTip": "D:\\github\\Trip-Volunteer\\Trip-Volunteer-BackEnd\\Trip_Volunteer\\Trip_Volunteer\\Controllers\\BankController.cs",
+              "RelativeToolTip": "Trip_Volunteer\\Controllers\\BankController.cs",
+              "ViewState": "AQIAACAAAAAAAAAAAAAiwCUAAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-28T10:04:41.518Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -5,7 +5,7 @@ namespace Trip_Volunteer.Core.Data
 {
     public partial class Aboutu
     {
-        public decimal AboutusPageId { get; set; }
+        public decimal Aboutus_Page_Id { get; set; }
         public string? Image1 { get; set; }
         public string? Image2 { get; set; }
         public string? Text1 { get; set; }

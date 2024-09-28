@@ -5,11 +5,11 @@ namespace Trip_Volunteer.Core.Data
 {
     public partial class HomePageElement
     {
-        public decimal HomePageId { get; set; }
-        public string? HeroImage { get; set; }
+        public decimal Home_Page_Id { get; set; }
+        public string? Hero_Image { get; set; }
         public string? Title { get; set; }
-        public string? LogoImage { get; set; }
-        public string? LogoText { get; set; }
+        public string? Logo_Image { get; set; }
+        public string? Logo_Text { get; set; }
         public string? Image1 { get; set; }
         public string? Image2 { get; set; }
         public string? Image3 { get; set; }

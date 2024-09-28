@@ -10,12 +10,12 @@ namespace Trip_Volunteer.Core.Data
             Reviews = new HashSet<Review>();
         }
 
-        public decimal BookingId { get; set; }
-        public string? PaymentStatus { get; set; }
-        public decimal? TripId { get; set; }
-        public decimal? LoginId { get; set; }
-        public decimal? TotalAmount { get; set; }
-        public DateTime? CreateAt { get; set; }
+        public decimal Booking_Id { get; set; }
+        public string? Payment_Status { get; set; }
+        public decimal? Trip_Id { get; set; }
+        public decimal? Login_Id { get; set; }
+        public decimal? Total_Amount { get; set; }
+        public DateTime? Create_At { get; set; }
 
         public virtual UserLogin? Login { get; set; }
         public virtual Trip? Trip { get; set; }
