@@ -40,7 +40,7 @@ namespace Trip_Volunteer.Infra.Repository
             p.Add("p_query", contact.Query, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("p_messages", contact.Messages, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("p_email", contact.Email, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("p_full_name", contact.FullName, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("p_full_name", contact.Full_Name, dbType: DbType.String, direction: ParameterDirection.Input);
 
             _dbContext.Connection.Execute("contact_us_Package.CreateContact", p, commandType: CommandType.StoredProcedure);
         }
@@ -51,8 +51,8 @@ namespace Trip_Volunteer.Infra.Repository
             p.Add("p_query", contact.Query, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("p_messages", contact.Messages, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("p_email", contact.Email, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("p_full_name", contact.FullName, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("p_contact_id", contact.ContactId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("p_full_name", contact.Full_Name, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("p_contact_id", contact.Contact_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
 
             _dbContext.Connection.Execute("contact_us_Package.UpdateContact", p, commandType: CommandType.StoredProcedure);
         }

@@ -26,7 +26,7 @@ namespace Trip_Volunteer.Core.Data
         public virtual DbSet<Location> Locations { get; set; } = null!;
         public virtual DbSet<Payment> Payments { get; set; } = null!;
         public virtual DbSet<Review> Reviews { get; set; } = null!;
-        public virtual DbSet<Core.Service> Services { get; set; } = null!;
+        public virtual DbSet<Service> Services { get; set; } = null!;
         public virtual DbSet<Testimonial> Testimonials { get; set; } = null!;
         public virtual DbSet<TestimonialElement> TestimonialElements { get; set; } = null!;
         public virtual DbSet<Trip> Trips { get; set; } = null!;
@@ -55,12 +55,12 @@ namespace Trip_Volunteer.Core.Data
 
             modelBuilder.Entity<Aboutu>(entity =>
             {
-                entity.HasKey(e => e.AboutusPageId)
+                entity.HasKey(e => e.Aboutus_Page_Id)
                     .HasName("SYS_C009379");
 
                 entity.ToTable("ABOUTUS");
 
-                entity.Property(e => e.AboutusPageId)
+                entity.Property(e => e.Aboutus_Page_Id)
                     .HasColumnType("NUMBER(38)")
                     .ValueGeneratedOnAdd()
                     .HasColumnName("ABOUTUS_PAGE_ID");
@@ -123,43 +123,43 @@ namespace Trip_Volunteer.Core.Data
             {
                 entity.ToTable("BOOKING");
 
-                entity.Property(e => e.BookingId)
+                entity.Property(e => e.Booking_Id)
                     .HasColumnType("NUMBER(38)")
                     .ValueGeneratedOnAdd()
                     .HasColumnName("BOOKING_ID");
 
-                entity.Property(e => e.CreateAt)
+                entity.Property(e => e.Create_At)
                     .HasColumnType("DATE")
                     .HasColumnName("CREATE_AT")
                     .HasDefaultValueSql("SYSDATE");
 
-                entity.Property(e => e.LoginId)
+                entity.Property(e => e.Login_Id)
                     .HasColumnType("NUMBER(38)")
                     .HasColumnName("LOGIN_ID");
 
-                entity.Property(e => e.PaymentStatus)
+                entity.Property(e => e.Payment_Status)
                     .HasMaxLength(200)
                     .IsUnicode(false)
                     .HasColumnName("PAYMENT_STATUS")
                     .HasDefaultValueSql("'Not Paid'");
 
-                entity.Property(e => e.TotalAmount)
+                entity.Property(e => e.Total_Amount)
                     .HasColumnType("NUMBER")
                     .HasColumnName("TOTAL_AMOUNT");
 
-                entity.Property(e => e.TripId)
+                entity.Property(e => e.Trip_Id)
                     .HasColumnType("NUMBER(38)")
                     .HasColumnName("TRIP_ID");
 
                 entity.HasOne(d => d.Login)
                     .WithMany(p => p.Bookings)
-                    .HasForeignKey(d => d.LoginId)
+                    .HasForeignKey(d => d.Login_Id)
                     .OnDelete(DeleteBehavior.SetNull)
                     .HasConstraintName("FK_BOOKING_LOGIN_ID");
 
                 entity.HasOne(d => d.Trip)
                     .WithMany(p => p.Bookings)
-                    .HasForeignKey(d => d.TripId)
+                    .HasForeignKey(d => d.Trip_Id)
                     .OnDelete(DeleteBehavior.SetNull)
                     .HasConstraintName("FK_BOOKING_TRIPS_ID");
             });
@@ -181,12 +181,12 @@ namespace Trip_Volunteer.Core.Data
 
             modelBuilder.Entity<ContactU>(entity =>
             {
-                entity.HasKey(e => e.ContactId)
+                entity.HasKey(e => e.Contact_Id)
                     .HasName("SYS_C009370");
 
                 entity.ToTable("CONTACT_US");
 
-                entity.Property(e => e.ContactId)
+                entity.Property(e => e.Contact_Id)
                     .HasColumnType("NUMBER(38)")
                     .ValueGeneratedOnAdd()
                     .HasColumnName("CONTACT_ID");
@@ -196,7 +196,7 @@ namespace Trip_Volunteer.Core.Data
                     .IsUnicode(false)
                     .HasColumnName("EMAIL");
 
-                entity.Property(e => e.FullName)
+                entity.Property(e => e.Full_Name)
                     .HasMaxLength(200)
                     .IsUnicode(false)
                     .HasColumnName("FULL_NAME");
@@ -214,14 +214,6 @@ namespace Trip_Volunteer.Core.Data
 
             modelBuilder.Entity<ContactusElement>(entity =>
             {
-<<<<<<< HEAD
-                entity.HasKey(e => e.ContactusElementsId)
-                    .HasName("SYS_C009383");
-=======
-                entity.HasKey(e => e.Contactus_Elements_Id)
-                    .HasName("SYS_C008465");
->>>>>>> 12407fa9651d03d62ac832f1034499c214c00399
-
                 entity.ToTable("CONTACTUS_ELEMENTS");
 
                 entity.Property(e => e.Contactus_Elements_Id)
@@ -242,17 +234,17 @@ namespace Trip_Volunteer.Core.Data
 
             modelBuilder.Entity<HomePageElement>(entity =>
             {
-                entity.HasKey(e => e.HomePageId)
+                entity.HasKey(e => e.Home_Page_Id)
                     .HasName("SYS_C009377");
 
                 entity.ToTable("HOME_PAGE_ELEMENTS");
 
-                entity.Property(e => e.HomePageId)
+                entity.Property(e => e.Home_Page_Id)
                     .HasColumnType("NUMBER(38)")
                     .ValueGeneratedOnAdd()
                     .HasColumnName("HOME_PAGE_ID");
 
-                entity.Property(e => e.HeroImage)
+                entity.Property(e => e.Hero_Image)
                     .HasMaxLength(600)
                     .IsUnicode(false)
                     .HasColumnName("HERO_IMAGE");
@@ -282,12 +274,12 @@ namespace Trip_Volunteer.Core.Data
                     .IsUnicode(false)
                     .HasColumnName("IMAGE5");
 
-                entity.Property(e => e.LogoImage)
+                entity.Property(e => e.Logo_Image)
                     .HasMaxLength(600)
                     .IsUnicode(false)
                     .HasColumnName("LOGO_IMAGE");
 
-                entity.Property(e => e.LogoText)
+                entity.Property(e => e.Logo_Text)
                     .HasMaxLength(600)
                     .IsUnicode(false)
                     .HasColumnName("LOGO_TEXT");
@@ -392,16 +384,16 @@ namespace Trip_Volunteer.Core.Data
             {
                 entity.ToTable("REVIEW");
 
-                entity.Property(e => e.ReviewId)
+                entity.Property(e => e.Review_Id)
                     .HasColumnType("NUMBER(38)")
                     .ValueGeneratedOnAdd()
                     .HasColumnName("REVIEW_ID");
 
-                entity.Property(e => e.BookingId)
+                entity.Property(e => e.Booking_Id)
                     .HasColumnType("NUMBER(38)")
                     .HasColumnName("BOOKING_ID");
 
-                entity.Property(e => e.CreateAt)
+                entity.Property(e => e.Create_At)
                     .HasColumnType("DATE")
                     .HasColumnName("CREATE_AT")
                     .HasDefaultValueSql("SYSDATE");
@@ -415,19 +407,19 @@ namespace Trip_Volunteer.Core.Data
                     .HasColumnType("NUMBER")
                     .HasColumnName("RATE");
 
-                entity.Property(e => e.VolunteerId)
+                entity.Property(e => e.Volunteer_Id)
                     .HasColumnType("NUMBER")
                     .HasColumnName("VOLUNTEER_ID");
 
                 entity.HasOne(d => d.Booking)
                     .WithMany(p => p.Reviews)
-                    .HasForeignKey(d => d.BookingId)
+                    .HasForeignKey(d => d.Booking_Id)
                     .OnDelete(DeleteBehavior.SetNull)
                     .HasConstraintName("FK_REVIEW_BOOKING_ID");
 
                 entity.HasOne(d => d.Volunteer)
                     .WithMany(p => p.Reviews)
-                    .HasForeignKey(d => d.VolunteerId)
+                    .HasForeignKey(d => d.Volunteer_Id)
                     .OnDelete(DeleteBehavior.SetNull)
                     .HasConstraintName("FK_REVIEW_VOLUNTEER_ID");
             });
@@ -436,16 +428,16 @@ namespace Trip_Volunteer.Core.Data
             {
                 entity.ToTable("SERVICE");
 
-                entity.Property(e => e.ServiceId)
+                entity.Property(e => e.Service_Id)
                     .HasColumnType("NUMBER(38)")
                     .ValueGeneratedOnAdd()
                     .HasColumnName("SERVICE_ID");
 
-                entity.Property(e => e.ServiceCost)
+                entity.Property(e => e.Service_Cost)
                     .HasColumnType("NUMBER")
                     .HasColumnName("SERVICE_COST");
 
-                entity.Property(e => e.ServiceName)
+                entity.Property(e => e.Service_Name)
                     .HasMaxLength(200)
                     .IsUnicode(false)
                     .HasColumnName("SERVICE_NAME");
@@ -498,14 +490,6 @@ namespace Trip_Volunteer.Core.Data
 
             modelBuilder.Entity<TestimonialElement>(entity =>
             {
-<<<<<<< HEAD
-                entity.HasKey(e => e.TestimonialElementsId)
-                    .HasName("SYS_C009381");
-=======
-                entity.HasKey(e => e.Testimonial_Elements_Id)
-                    .HasName("SYS_C008463");
->>>>>>> 12407fa9651d03d62ac832f1034499c214c00399
-
                 entity.ToTable("TESTIMONIAL_ELEMENTS");
 
                 entity.Property(e => e.Testimonial_Elements_Id)
@@ -612,28 +596,28 @@ namespace Trip_Volunteer.Core.Data
             {
                 entity.ToTable("TRIP_SERVICE");
 
-                entity.Property(e => e.TripServiceId)
+                entity.Property(e => e.Trip_Service_Id)
                     .HasColumnType("NUMBER(38)")
                     .ValueGeneratedOnAdd()
                     .HasColumnName("TRIP_SERVICE_ID");
 
-                entity.Property(e => e.ServiceId)
+                entity.Property(e => e.Service_Id)
                     .HasColumnType("NUMBER(38)")
                     .HasColumnName("SERVICE_ID");
 
-                entity.Property(e => e.TripId)
+                entity.Property(e => e.Trip_Id)
                     .HasColumnType("NUMBER(38)")
                     .HasColumnName("TRIP_ID");
 
                 entity.HasOne(d => d.Service)
                     .WithMany(p => p.TripServices)
-                    .HasForeignKey(d => d.ServiceId)
+                    .HasForeignKey(d => d.Service_Id)
                     .OnDelete(DeleteBehavior.SetNull)
                     .HasConstraintName("FK_TRIP_SERVICE_SERVICE_ID");
 
                 entity.HasOne(d => d.Trip)
                     .WithMany(p => p.TripServices)
-                    .HasForeignKey(d => d.TripId)
+                    .HasForeignKey(d => d.Trip_Id)
                     .OnDelete(DeleteBehavior.SetNull)
                     .HasConstraintName("FK_TRIP_SERVICE_TRIP_ID");
             });
@@ -679,14 +663,6 @@ namespace Trip_Volunteer.Core.Data
 
             modelBuilder.Entity<UserLogin>(entity =>
             {
-<<<<<<< HEAD
-                entity.HasKey(e => e.LoginId)
-                    .HasName("SYS_C009321");
-=======
-                entity.HasKey(e => e.Login_Id)
-                    .HasName("SYS_C008401");
->>>>>>> 12407fa9651d03d62ac832f1034499c214c00399
-
                 entity.ToTable("USER_LOGIN");
 
                 entity.HasIndex(e => e.Email, "SYS_C009322")
@@ -740,22 +716,9 @@ namespace Trip_Volunteer.Core.Data
 
             modelBuilder.Entity<UserRole>(entity =>
             {
-<<<<<<< HEAD
-                entity.HasKey(e => e.RoleId)
-                    .HasName("SYS_C009313");
-
                 entity.ToTable("USER_ROLE");
-
-                entity.HasIndex(e => e.RoleName, "SYS_C009314")
-=======
                 entity.HasKey(e => e.Role_Id)
                     .HasName("SYS_C008393");
-
-                entity.ToTable("USER_ROLE");
-
-                entity.HasIndex(e => e.Role_Name, "SYS_C008394")
->>>>>>> 12407fa9651d03d62ac832f1034499c214c00399
-                    .IsUnique();
 
                 entity.Property(e => e.Role_Id)
                     .HasColumnType("NUMBER(38)")

@@ -39,7 +39,7 @@ namespace Trip_Volunteer.Infra.Repository
             var p = new DynamicParameters();
             p.Add("p_rate", review.Rate, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("p_feedback", review.Feedback, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("p_booking_id", review.BookingId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("p_booking_id", review.Booking_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
 
             _dbContext.Connection.Execute("review_Package.Createreview", p, commandType: CommandType.StoredProcedure);
         }
@@ -50,8 +50,8 @@ namespace Trip_Volunteer.Infra.Repository
             var p = new DynamicParameters();
             p.Add("p_rate", review.Rate, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("p_feedback", review.Feedback, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("p_booking_id", review.BookingId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("IdReview", review.ReviewId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("p_booking_id", review.Booking_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("IdReview", review.Review_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
 
             _dbContext.Connection.Execute("review_Package.Updatereview", p, commandType: CommandType.StoredProcedure);
         }

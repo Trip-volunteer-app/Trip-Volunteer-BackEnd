@@ -1,61 +1,3 @@
-C:\Users\asoom\OneDrive\Desktop\Trip_Volunteer\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Infra\bin\Debug\net6.0\Trip_Volunteer.Infra.deps.json
-C:\Users\asoom\OneDrive\Desktop\Trip_Volunteer\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Infra\bin\Debug\net6.0\Trip_Volunteer.Infra.runtimeconfig.json
-C:\Users\asoom\OneDrive\Desktop\Trip_Volunteer\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Infra\bin\Debug\net6.0\Trip_Volunteer.Infra.dll
-C:\Users\asoom\OneDrive\Desktop\Trip_Volunteer\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Infra\bin\Debug\net6.0\Trip_Volunteer.Infra.pdb
-C:\Users\asoom\OneDrive\Desktop\Trip_Volunteer\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Infra\bin\Debug\net6.0\Trip_Volunteer.Core.dll
-C:\Users\asoom\OneDrive\Desktop\Trip_Volunteer\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Infra\bin\Debug\net6.0\Trip_Volunteer.Core.pdb
-C:\Users\asoom\OneDrive\Desktop\Trip_Volunteer\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Infra\obj\Debug\net6.0\Trip_Volunteer.Infra.csproj.AssemblyReference.cache
-C:\Users\asoom\OneDrive\Desktop\Trip_Volunteer\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Infra\obj\Debug\net6.0\Trip_Volunteer.Infra.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\asoom\OneDrive\Desktop\Trip_Volunteer\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Infra\obj\Debug\net6.0\Trip_Volunteer.Infra.AssemblyInfoInputs.cache
-C:\Users\asoom\OneDrive\Desktop\Trip_Volunteer\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Infra\obj\Debug\net6.0\Trip_Volunteer.Infra.AssemblyInfo.cs
-C:\Users\asoom\OneDrive\Desktop\Trip_Volunteer\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Infra\obj\Debug\net6.0\Trip_Volunteer.Infra.csproj.CoreCompileInputs.cache
-C:\Users\asoom\OneDrive\Desktop\Trip_Volunteer\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Infra\obj\Debug\net6.0\Trip_Volunteer.Infra.sourcelink.json
-C:\Users\asoom\OneDrive\Desktop\Trip_Volunteer\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Infra\obj\Debug\net6.0\Trip_Vol.6FA5E551.Up2Date
-C:\Users\asoom\OneDrive\Desktop\Trip_Volunteer\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Infra\obj\Debug\net6.0\Trip_Volunteer.Infra.dll
-C:\Users\asoom\OneDrive\Desktop\Trip_Volunteer\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Infra\obj\Debug\net6.0\refint\Trip_Volunteer.Infra.dll
-C:\Users\asoom\OneDrive\Desktop\Trip_Volunteer\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Infra\obj\Debug\net6.0\Trip_Volunteer.Infra.pdb
-C:\Users\asoom\OneDrive\Desktop\Trip_Volunteer\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Infra\obj\Debug\net6.0\Trip_Volunteer.Infra.genruntimeconfig.cache
-C:\Users\asoom\OneDrive\Desktop\Trip_Volunteer\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Infra\obj\Debug\net6.0\ref\Trip_Volunteer.Infra.dll
-<<<<<<< HEAD
-C:\TripVolunteerSystem\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Infra\bin\Debug\net6.0\Trip_Volunteer.Infra.deps.json
-C:\TripVolunteerSystem\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Infra\bin\Debug\net6.0\Trip_Volunteer.Infra.runtimeconfig.json
-C:\TripVolunteerSystem\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Infra\bin\Debug\net6.0\Trip_Volunteer.Infra.dll
-C:\TripVolunteerSystem\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Infra\bin\Debug\net6.0\Trip_Volunteer.Infra.pdb
-C:\TripVolunteerSystem\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Infra\bin\Debug\net6.0\Trip_Volunteer.Core.dll
-C:\TripVolunteerSystem\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Infra\bin\Debug\net6.0\Trip_Volunteer.Core.pdb
-C:\TripVolunteerSystem\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Infra\obj\Debug\net6.0\Trip_Volunteer.Infra.csproj.AssemblyReference.cache
-C:\TripVolunteerSystem\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Infra\obj\Debug\net6.0\Trip_Volunteer.Infra.GeneratedMSBuildEditorConfig.editorconfig
-C:\TripVolunteerSystem\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Infra\obj\Debug\net6.0\Trip_Volunteer.Infra.AssemblyInfoInputs.cache
-C:\TripVolunteerSystem\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Infra\obj\Debug\net6.0\Trip_Volunteer.Infra.AssemblyInfo.cs
-C:\TripVolunteerSystem\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Infra\obj\Debug\net6.0\Trip_Volunteer.Infra.csproj.CoreCompileInputs.cache
-C:\TripVolunteerSystem\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Infra\obj\Debug\net6.0\Trip_Volunteer.Infra.sourcelink.json
-C:\TripVolunteerSystem\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Infra\obj\Debug\net6.0\Trip_Volunteer.Infra.csproj.CopyComplete
-C:\TripVolunteerSystem\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Infra\obj\Debug\net6.0\Trip_Volunteer.Infra.dll
-C:\TripVolunteerSystem\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Infra\obj\Debug\net6.0\refint\Trip_Volunteer.Infra.dll
-C:\TripVolunteerSystem\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Infra\obj\Debug\net6.0\Trip_Volunteer.Infra.pdb
-C:\TripVolunteerSystem\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Infra\obj\Debug\net6.0\Trip_Volunteer.Infra.genruntimeconfig.cache
-C:\TripVolunteerSystem\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Infra\obj\Debug\net6.0\ref\Trip_Volunteer.Infra.dll
-=======
-<<<<<<< HEAD
-C:\Users\user\Source\Repos\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Infra\bin\Debug\net6.0\Trip_Volunteer.Infra.deps.json
-C:\Users\user\Source\Repos\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Infra\bin\Debug\net6.0\Trip_Volunteer.Infra.runtimeconfig.json
-C:\Users\user\Source\Repos\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Infra\bin\Debug\net6.0\Trip_Volunteer.Infra.dll
-C:\Users\user\Source\Repos\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Infra\bin\Debug\net6.0\Trip_Volunteer.Infra.pdb
-C:\Users\user\Source\Repos\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Infra\bin\Debug\net6.0\Trip_Volunteer.Core.dll
-C:\Users\user\Source\Repos\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Infra\bin\Debug\net6.0\Trip_Volunteer.Core.pdb
-C:\Users\user\Source\Repos\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Infra\obj\Debug\net6.0\Trip_Volunteer.Infra.csproj.AssemblyReference.cache
-C:\Users\user\Source\Repos\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Infra\obj\Debug\net6.0\Trip_Volunteer.Infra.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\user\Source\Repos\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Infra\obj\Debug\net6.0\Trip_Volunteer.Infra.AssemblyInfoInputs.cache
-C:\Users\user\Source\Repos\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Infra\obj\Debug\net6.0\Trip_Volunteer.Infra.AssemblyInfo.cs
-C:\Users\user\Source\Repos\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Infra\obj\Debug\net6.0\Trip_Volunteer.Infra.csproj.CoreCompileInputs.cache
-C:\Users\user\Source\Repos\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Infra\obj\Debug\net6.0\Trip_Volunteer.Infra.sourcelink.json
-C:\Users\user\Source\Repos\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Infra\obj\Debug\net6.0\Trip_Vol.6FA5E551.Up2Date
-C:\Users\user\Source\Repos\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Infra\obj\Debug\net6.0\Trip_Volunteer.Infra.dll
-C:\Users\user\Source\Repos\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Infra\obj\Debug\net6.0\refint\Trip_Volunteer.Infra.dll
-C:\Users\user\Source\Repos\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Infra\obj\Debug\net6.0\Trip_Volunteer.Infra.pdb
-C:\Users\user\Source\Repos\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Infra\obj\Debug\net6.0\Trip_Volunteer.Infra.genruntimeconfig.cache
-C:\Users\user\Source\Repos\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Infra\obj\Debug\net6.0\ref\Trip_Volunteer.Infra.dll
-=======
 D:\github\Trip-Volunteer\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Infra\bin\Debug\net6.0\Trip_Volunteer.Infra.deps.json
 D:\github\Trip-Volunteer\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Infra\bin\Debug\net6.0\Trip_Volunteer.Infra.runtimeconfig.json
 D:\github\Trip-Volunteer\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Infra\bin\Debug\net6.0\Trip_Volunteer.Infra.dll
@@ -74,5 +16,3 @@ D:\github\Trip-Volunteer\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.In
 D:\github\Trip-Volunteer\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Infra\obj\Debug\net6.0\Trip_Volunteer.Infra.pdb
 D:\github\Trip-Volunteer\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Infra\obj\Debug\net6.0\Trip_Volunteer.Infra.genruntimeconfig.cache
 D:\github\Trip-Volunteer\Trip-Volunteer-BackEnd\Trip_Volunteer\Trip_Volunteer.Infra\obj\Debug\net6.0\ref\Trip_Volunteer.Infra.dll
->>>>>>> 12407fa9651d03d62ac832f1034499c214c00399
->>>>>>> 5eae04a522cc98ebf81749c04e51503c82ca0eea

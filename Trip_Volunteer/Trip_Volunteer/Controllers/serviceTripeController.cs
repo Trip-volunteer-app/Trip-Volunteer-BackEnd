@@ -16,34 +16,33 @@ namespace Trip_Volunteer.API.Controllers
         }
 
         [HttpGet]
-        //[Route("GetAllTripServices")]
-        List<TripService> GetAllTripServices()
+        public List<TripService> GetAllTripServices()
         {
             return _tripServicesService.GetAllTripServices();
         }
 
         [HttpGet]
-        [Route("GetTripServiceById/{tripServiceId}")]
-        TripService GetTripServiceById(int tripServiceId)
+        [Route("GetTripServiceById")]
+        public TripService GetTripServiceById(int tripServiceId)
         {
             return _tripServicesService.GetTripServiceById(tripServiceId);
         }
         [HttpPost]
         [Route("CreateTripService")]
-        void CreateTripService(int serviceId, int tripId)
+        public void CreateTripService(int serviceId, int tripId)
         {
             _tripServicesService.CreateTripService(serviceId, tripId);
         }
         [HttpPut]
         [Route("UpdateTripService")]
-        void UpdateTripService(int tripServiceId, int serviceId, int tripId)
+        public void UpdateTripService(int tripServiceId, int serviceId, int tripId)
         {
             _tripServicesService.UpdateTripService(tripServiceId, serviceId, tripId);
         }
 
         [HttpDelete]
-        [Route("DeleteTripService/{tripServiceId}")]
-        void DeleteTripService(int tripServiceId)
+        [Route("DeleteTripService")]
+        public void DeleteTripService(int tripServiceId)
         {
             _tripServicesService.DeleteTripService(tripServiceId);
         }
