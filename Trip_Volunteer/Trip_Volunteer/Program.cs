@@ -46,6 +46,9 @@ internal class Program
         builder.Services.AddScoped<IWebsiteInformationRepository, WebsiteInformationRepository>();
         builder.Services.AddScoped<IHomePageElementsRepository, HomePageElementsRepository>();
         builder.Services.AddScoped<IAboutUsRepository, AboutUsRepository>();
+        builder.Services.AddScoped<IMonthlyRepository, MonthlyRepository>();
+        builder.Services.AddScoped<IAnnualRepository, AnnualRepository>();
+
 
         builder.Services.AddScoped<IBankService, BankService>();
         builder.Services.AddScoped<IBookingService, BookingService>();
@@ -69,6 +72,8 @@ internal class Program
         builder.Services.AddScoped<IWebsiteInformationService, WebsiteInformationService>();
         builder.Services.AddScoped<IHomePageElementsService, HomePageElementsService>();
         builder.Services.AddScoped<IAboutUsService, AboutUsService>();
+        builder.Services.AddScoped<IMonthlyService, MonthlyService>();
+        builder.Services.AddScoped<IAnnualService, AnnualService>();
 
 
         builder.Services.AddAuthentication(opt =>

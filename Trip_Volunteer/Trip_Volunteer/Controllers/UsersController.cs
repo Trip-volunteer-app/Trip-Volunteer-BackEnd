@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Trip_Volunteer.Core.Data;
 using Trip_Volunteer.Core.Repository;
 using Trip_Volunteer.Core.Service;
+using Trip_Volunteer.Infra.Repository;
 
 namespace Trip_Volunteer.API.Controllers
 {
@@ -47,5 +48,14 @@ namespace Trip_Volunteer.API.Controllers
         {
             _userService.DeleteUsers(id);
         }
+
+
+        [HttpGet("trips/NumberOfRegisteredUsers")]
+        public IActionResult NumberOfRegisteredUsers()
+        {
+            int numberOfTrips = _userService.NumberOfRegisteredUsers();
+            return Ok(numberOfTrips); 
+        }
+
     }
 }
