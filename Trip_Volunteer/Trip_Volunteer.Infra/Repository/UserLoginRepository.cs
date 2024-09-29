@@ -13,7 +13,7 @@ using Trip_Volunteer.Core.Repository;
 
 namespace Trip_Volunteer.Infra.Repository
 {
-    public class UserLoginRepository: IUserLoginRepository
+    public class UserLoginRepository : IUserLoginRepository
     {
         private readonly IDbContext _dbContext;
         public UserLoginRepository(IDbContext dbContext)
@@ -44,7 +44,7 @@ namespace Trip_Volunteer.Infra.Repository
             p.Add("u_id ", userLogin.User_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
 
             _dbContext.Connection.Execute("User_Login_Package.CreateUserLogin", p, commandType: CommandType.StoredProcedure);
-        }   
+        }
         public void UpdateUserLogin(UserLogin userLogin)
         {
             var p = new DynamicParameters();
@@ -65,6 +65,16 @@ namespace Trip_Volunteer.Infra.Repository
             p.Add("Id", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             _dbContext.Connection.Execute("User_Login_Package.DeleteUserLogin", p, commandType: CommandType.StoredProcedure);
         }
+        public void Registers(string FirstName, string LastName, string Email, string Password, string RePassword)
+        {
+            var p = new DynamicParameters();
+            p.Add("P_FirstName", FirstName, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("P_LastName", LastName, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("P_Email", Email, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("P_Password", Password, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("P_RePassword", RePassword, dbType: DbType.String, direction: ParameterDirection.Input);
+            _dbContext.Connection.Execute("User_Login_Package.Registers", p, commandType: CommandType.StoredProcedure);
+        }
 
         public UserLogin Auth(UserLogin userLogin)
         {
@@ -73,6 +83,26 @@ namespace Trip_Volunteer.Infra.Repository
             p.Add("L_Pass", userLogin.Password, dbType: DbType.String, direction: ParameterDirection.Input);
             var result = _dbContext.Connection.Query<UserLogin>("User_Login_Package.Login_User", p, commandType: CommandType.StoredProcedure).FirstOrDefault();
             return result;
+        }
+
+        public void UpdateAllUserInformation(string L_id, string L_Email, string L_Pass, string L_RePass, string r_id, string u_id,
+            string F_Name, string L_Name, string IMG, string u_Address, string phone, DateTime B_Day)
+        {
+            var p = new DynamicParameters();
+
+            p.Add("L_id", L_id, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("L_Email", L_Email, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("L_Pass", L_Pass, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("L_RePass", L_RePass, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("r_id", r_id, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("u_id", u_id, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("F_Name", F_Name, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("L_Name", L_Name, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("IMG", IMG, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("u_Address", u_Address, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("phone", phone, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("B_Day", B_Day, dbType: DbType.Date, direction: ParameterDirection.Input);
+            _dbContext.Connection.Execute("User_Login_Package.UpdateAllUserInformation", p, commandType: CommandType.StoredProcedure);
         }
         public List<UserInformationDto> GetAllUserInformation()
         {
@@ -94,7 +124,7 @@ namespace Trip_Volunteer.Infra.Repository
             IEnumerable<UserInformationDto> result = _dbContext.Connection.Query<UserInformationDto>("User_Login_Package.GetUserinfoByPhone", p, commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
-        public List<UserInformationDto> GetUserinfoByName(string F_Name,string L_Name)
+        public List<UserInformationDto> GetUserinfoByName(string F_Name, string L_Name)
         {
             var p = new DynamicParameters();
             p.Add("F_Name", F_Name, dbType: DbType.String, direction: ParameterDirection.Input);

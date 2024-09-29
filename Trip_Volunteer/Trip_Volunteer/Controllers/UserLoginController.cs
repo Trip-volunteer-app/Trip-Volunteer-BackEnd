@@ -49,6 +49,12 @@ namespace Trip_Volunteer.API.Controllers
             _userLoginService.DeleteUserLogin(id);
         }
         [HttpPost]
+        [Route("Registers")]
+        public void Registers(string FirstName, string LastName, string Email, string Password, string RePassword)
+        {
+            _userLoginService.Registers(FirstName, LastName, Email, Password, RePassword);
+        }
+        [HttpPost]
         [Route("Auth")]
 
         public IActionResult Auth(UserLogin userLogin)
@@ -62,6 +68,12 @@ namespace Trip_Volunteer.API.Controllers
             {
                 return Ok(token);
             }
+        }
+        [HttpPut]
+        [Route("UpdateAllUserInformation")]
+        public void UpdateAllUserInformation(string L_id, string L_Email, string L_Pass, string L_RePass, string r_id, string u_id, string F_Name, string L_Name, string IMG, string u_Address, string phone, DateTime B_Day)
+        {
+            _userLoginService.UpdateAllUserInformation(L_id, L_Email, L_Pass, L_RePass, r_id, u_id, F_Name, L_Name, IMG, u_Address, phone, B_Day);
         }
         [HttpGet]
         [Route("GetAllUserInformation")]
