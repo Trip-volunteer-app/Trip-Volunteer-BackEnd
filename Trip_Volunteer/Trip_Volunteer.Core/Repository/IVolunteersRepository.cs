@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Trip_Volunteer.Core.Data;
+using Trip_Volunteer.Core.DTO;
 
 namespace Trip_Volunteer.Core.Repository
 {
@@ -14,5 +15,6 @@ namespace Trip_Volunteer.Core.Repository
         void CreateVolunteer(Volunteer volunteer);
         void UpdateVolunteer(Volunteer volunteer);
         void DeleteVolunteer(int id);
+        List<VolunteerSearchDto> SearchVolunteers(VolunteerSearchDto searchCriteria);
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Trip_Volunteer.Core.Data;
+using Trip_Volunteer.Core.DTO;
 using Trip_Volunteer.Core.Service;
 
 namespace Trip_Volunteer.API.Controllers
@@ -48,6 +49,13 @@ namespace Trip_Volunteer.API.Controllers
         public void DeleteVolunteer(int id)
         {
             _volunteersService.DeleteVolunteer(id);
+        }
+
+        [HttpPost]
+        [Route("Search")]
+        public List<VolunteerSearchDto> SearchVolunteers(VolunteerSearchDto searchCriteria)
+        {
+            return _volunteersService.SearchVolunteers(searchCriteria);
         }
     }
 }
