@@ -15,7 +15,9 @@ namespace Trip_Volunteer.Core.Repository
         void CreateUserLogin(UserLogin userLogin);
         void UpdateUserLogin(UserLogin userLogin);
         void DeleteUserLogin(int id);
+        void Registers(string FirstName, string LastName, string Email, string Password, string RePassword);
         UserLogin Auth(UserLogin userLogin);
+        void UpdateAllUserInformation(string L_id, string L_Email, string L_Pass, string L_RePass, string r_id, string u_id,string F_Name, string L_Name, string IMG, string u_Address, string phone, DateTime B_Day);
         List<UserInformationDto> GetAllUserInformation();
         List<UserInformationDto> GetUserinfoByEmail(string email);
         List<UserInformationDto> GetUserinfoByPhone(string Phone);
