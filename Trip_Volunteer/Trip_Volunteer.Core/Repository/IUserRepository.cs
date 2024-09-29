@@ -14,6 +14,6 @@ namespace Trip_Volunteer.Core.Repository
         void CreateUsers(User user);
         void UpdateUsers(User user);
         void DeleteUsers(int id);
-
+        int NumberOfRegisteredUsers();
     }
 }

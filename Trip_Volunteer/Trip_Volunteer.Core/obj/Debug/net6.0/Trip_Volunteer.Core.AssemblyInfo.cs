@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Trip_Volunteer.Core")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c743bcc144c546b30935e37867a608a8f6b5a615")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d6602ae02d71e465a2b2aded184eadc721b89460")]
 [assembly: System.Reflection.AssemblyProductAttribute("Trip_Volunteer.Core")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Trip_Volunteer.Core")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

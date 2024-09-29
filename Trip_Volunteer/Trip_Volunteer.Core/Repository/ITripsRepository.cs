@@ -19,5 +19,8 @@ namespace Trip_Volunteer.Core.Repository
 
          void Deletetrips(int Id);
 
+        int NumberOfTrips();
+
+        List<Trip> TripsWithMaxReservations();
     }
 }

@@ -59,7 +59,20 @@ namespace Trip_Volunteer.API.Controllers
             _tripsRepository.Deletetrips(id);
         }
 
+        [HttpGet("trips/GetNumberOfTrips")]
+        public IActionResult GetNumberOfTrips()
+        {
+            int numberOfTrips = _tripsRepository.NumberOfTrips();
+            return Ok(numberOfTrips); // Return the total number of trips
+        }
 
 
+        [HttpGet]
+        [Route("TripsWithMaxReservations")]
+
+        public List<Trip> TripsWithMaxReservations()
+        {
+            return _tripsRepository.TripsWithMaxReservations();
+        }
     }
 }

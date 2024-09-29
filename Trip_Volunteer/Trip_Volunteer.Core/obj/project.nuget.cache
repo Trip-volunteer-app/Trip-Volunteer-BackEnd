@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "2dirYHAkCBQ=",
+  "dgSpecHash": "IrJW9/b9WQg=",
   "success": true,
-  "projectFilePath": "C:\\Users\\user\\source\\repos\\Trip Test\\Trip-Volunteer-BackEnd\\Trip_Volunteer\\Trip_Volunteer.Core\\Trip_Volunteer.Core.csproj",
+  "projectFilePath": "C:\\Users\\user\\source\\repos\\Trip-Volunteer-BackEnd\\Trip_Volunteer\\Trip_Volunteer.Core\\Trip_Volunteer.Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\user\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.6\\microsoft.entityframeworkcore.6.0.6.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\6.0.6\\microsoft.entityframeworkcore.abstractions.6.0.6.nupkg.sha512",

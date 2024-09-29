@@ -81,5 +81,18 @@ namespace Trip_Volunteer.Infra.Repository
         }
 
 
+        public int NumberOfTrips()
+        {
+            var result = _dbContext.Connection.QuerySingleOrDefault<int>("trips_Package.NumberOfTrips", commandType: CommandType.StoredProcedure);
+
+            return result;  
+        }
+
+        public List<Trip> TripsWithMaxReservations()
+        {
+            IEnumerable<Trip> result = _dbContext.Connection.Query<Trip>("trips_Package.TripsWithMaxReservations", commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+
     }
 }

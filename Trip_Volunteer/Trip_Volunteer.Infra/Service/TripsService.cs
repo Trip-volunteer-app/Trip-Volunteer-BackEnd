@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -47,5 +48,15 @@ namespace Trip_Volunteer.Infra.Service
             _tripsRepository.Deletetrips(Id);
         }
 
+        public int NumberOfTrips()
+        {
+            var result = _tripsRepository.NumberOfTrips();
+            return result;
+        }
+
+        public List<Trip> TripsWithMaxReservations()
+        {
+            return _tripsRepository.TripsWithMaxReservations();
+        }
     }
 }

@@ -17,5 +17,9 @@ namespace Trip_Volunteer.Core.Service
         void UPDATEtrips(Trip trip);
 
         void Deletetrips(int Id);
+
+        int NumberOfTrips();
+
+        List<Trip> TripsWithMaxReservations();
     }
 }
