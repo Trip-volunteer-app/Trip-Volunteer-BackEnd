@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Trip_Volunteer.Core.Data;
+using Trip_Volunteer.Core.DTO;
 using Trip_Volunteer.Core.Repository;
 using Trip_Volunteer.Core.Service;
 
@@ -35,6 +36,10 @@ namespace Trip_Volunteer.Infra.Service
         public void DeleteVolunteer(int id)
         {
             _volunteersRepository.DeleteVolunteer(id);
+        }
+        public List<VolunteerSearchDto> SearchVolunteers(VolunteerSearchDto searchCriteria)
+        {
+            return _volunteersRepository.SearchVolunteers(searchCriteria);
         }
     }
 }

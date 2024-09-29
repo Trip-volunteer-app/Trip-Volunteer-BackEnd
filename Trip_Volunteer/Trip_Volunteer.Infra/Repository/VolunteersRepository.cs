@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Trip_Volunteer.Core.Common;
 using Trip_Volunteer.Core.Data;
+using Trip_Volunteer.Core.DTO;
 using Trip_Volunteer.Core.Repository;
 
 namespace Trip_Volunteer.Infra.Repository
@@ -72,6 +73,17 @@ namespace Trip_Volunteer.Infra.Repository
             var p = new DynamicParameters();
             p.Add("V_Id", id, DbType.Int32, direction: ParameterDirection.Input);
             _dbContext.Connection.Execute("volunteers_package.DeleteVolunteer", p, commandType: CommandType.StoredProcedure);
+        }
+        public List<VolunteerSearchDto> SearchVolunteers(VolunteerSearchDto searchCriteria)
+        {
+            var parameters = new DynamicParameters();
+            parameters.Add("pFirstName", searchCriteria.First_Name, DbType.String, ParameterDirection.Input);
+            parameters.Add("pLastName", searchCriteria.Last_Name, DbType.String, ParameterDirection.Input);
+            parameters.Add("pTripName", searchCriteria.Trip_Name, DbType.String, ParameterDirection.Input);
+            parameters.Add("pVolunteerRole", searchCriteria.Role_Name, DbType.String, ParameterDirection.Input);
+
+            var result = _dbContext.Connection.Query<VolunteerSearchDto>("SearchVolunteers", parameters, commandType: CommandType.StoredProcedure);
+            return result.ToList();
         }
     }
 }
