@@ -1,9 +1,10 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Trip_Volunteer.Core.Data;
+using Trip_Volunteer.Core.DTO;
 using Trip_Volunteer.Core.Repository;
 using Trip_Volunteer.Core.Service;
 
@@ -36,10 +37,16 @@ namespace Trip_Volunteer.Infra.Service
         {
             _volunteersRepository.DeleteVolunteer(id);
         }
-
         public void UpdateVolunteerStatus(int id, string status)
         {
             _volunteersRepository.UpdateVolunteerStatus(id, status);
+        public List<VolunteerSearchDto> SearchVolunteers(VolunteerSearchDto searchCriteria)
+        {
+            return _volunteersRepository.SearchVolunteers(searchCriteria);
+        }
+        public List<Trip> GetTripsForVolunteerByName(string firstName, string lastName)
+        {
+            return _volunteersRepository.GetTripsForVolunteerByName(firstName, lastName);
         }
     }
 }

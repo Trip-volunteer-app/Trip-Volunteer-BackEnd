@@ -1,4 +1,4 @@
-﻿using Dapper;
+using Dapper;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Trip_Volunteer.Core.Common;
 using Trip_Volunteer.Core.Data;
+using Trip_Volunteer.Core.DTO;
 using Trip_Volunteer.Core.Repository;
 
 namespace Trip_Volunteer.Infra.Repository
@@ -80,6 +81,33 @@ namespace Trip_Volunteer.Infra.Repository
             p.Add("p_Volunteer_ID", id, DbType.Int32, direction: ParameterDirection.Input);
             p.Add("p_New_Status", status, DbType.String, direction: ParameterDirection.Input);
             _dbContext.Connection.Execute("volunteers_package.UpdateVolunteerStatus", p, commandType: CommandType.StoredProcedure);
+        }
+        
+        public List<VolunteerSearchDto> SearchVolunteers(VolunteerSearchDto searchCriteria)
+        {
+            var parameters = new DynamicParameters();
+            parameters.Add("pFirstName", searchCriteria.First_Name, DbType.String, ParameterDirection.Input);
+            parameters.Add("pLastName", searchCriteria.Last_Name, DbType.String, ParameterDirection.Input);
+            parameters.Add("pTripName", searchCriteria.Trip_Name, DbType.String, ParameterDirection.Input);
+            parameters.Add("pVolunteerRole", searchCriteria.Role_Name, DbType.String, ParameterDirection.Input);
+
+            var result = _dbContext.Connection.Query<VolunteerSearchDto>("SearchVolunteers", parameters, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+
+        public List<Trip> GetTripsForVolunteerByName(string firstName, string lastName)
+        {
+            var parameters = new DynamicParameters();
+            parameters.Add("pFirstName", firstName, DbType.String, ParameterDirection.Input);
+            parameters.Add("pLastName", lastName, DbType.String, ParameterDirection.Input);
+
+            var result = _dbContext.Connection.Query<Trip>(
+                "GetTripsForVolunteerByName",
+                parameters,
+                commandType: CommandType.StoredProcedure
+            );
+
+            return result.ToList();
         }
     }
 }

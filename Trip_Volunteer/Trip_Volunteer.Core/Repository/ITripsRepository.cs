@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -21,5 +21,8 @@ namespace Trip_Volunteer.Core.Repository
 
         List<Trip> searchBetweendate(DateTime Start_Date, DateTime End_Date);
 
+        int NumberOfTrips();
+
+        List<Trip> TripsWithMaxReservations();
     }
 }

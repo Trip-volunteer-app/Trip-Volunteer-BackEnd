@@ -40,6 +40,10 @@ namespace Trip_Volunteer.Infra.Service
         {
             _userLoginRepository.DeleteUserLogin(id);
         }
+        public void Registers(string FirstName, string LastName, string Email, string Password, string RePassword)
+        {
+            _userLoginRepository.Registers(FirstName, LastName, Email, Password, RePassword);
+        }
         public string Auth(UserLogin userLogin)
         {
             var result = _userLoginRepository.Auth(userLogin);
@@ -54,6 +58,7 @@ namespace Trip_Volunteer.Infra.Service
                 var claims = new List<Claim>
         {
             new Claim(ClaimTypes.Email, result.Email),
+            new Claim(ClaimTypes.UserData, result.Login_Id.ToString()),
             new Claim(ClaimTypes.Role, result.Role_Id.ToString())
         };
                 var tokeOptions = new JwtSecurityToken(
@@ -64,6 +69,11 @@ namespace Trip_Volunteer.Infra.Service
                 var tokenString = new JwtSecurityTokenHandler().WriteToken(tokeOptions);
                 return tokenString;  
             }
+        }
+
+        public void UpdateAllUserInformation(string L_id, string L_Email, string L_Pass, string L_RePass, string r_id, string u_id,string F_Name, string L_Name, string IMG, string u_Address, string phone, DateTime B_Day)
+        {
+            _userLoginRepository.UpdateAllUserInformation(L_id,L_Email,L_Pass,L_RePass,r_id,u_id,F_Name,L_Name, IMG,u_Address,phone,B_Day);
         }
         public List<UserInformationDto> GetAllUserInformation()
         {

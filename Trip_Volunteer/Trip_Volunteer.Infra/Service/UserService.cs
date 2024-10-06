@@ -36,5 +36,10 @@ namespace Trip_Volunteer.Infra.Service
         {
             _userRepository.DeleteUsers(id);
         }
+
+        public int NumberOfRegisteredUsers()
+        {
+            return _userRepository.NumberOfRegisteredUsers();
+        }
     }
 }

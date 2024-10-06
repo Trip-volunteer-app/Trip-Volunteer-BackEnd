@@ -65,5 +65,14 @@ namespace Trip_Volunteer.Infra.Repository
 
         }
 
+
+        public int NumberOfRegisteredUsers()
+        {
+            
+            var result = _dbContext.Connection.QuerySingleOrDefault<int>("users_Package.NumberOfRegisteredUsers", commandType: CommandType.StoredProcedure);
+
+            return result;  
+        }
+
     }
 }

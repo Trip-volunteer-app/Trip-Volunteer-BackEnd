@@ -1,6 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Trip_Volunteer.Core.Data;
+using Trip_Volunteer.Core.DTO;
 using Trip_Volunteer.Core.Service;
 
 namespace Trip_Volunteer.API.Controllers
@@ -55,6 +56,19 @@ namespace Trip_Volunteer.API.Controllers
         public void UpdateVolunteerStatus(int id, string status)
         {
             _volunteersService.UpdateVolunteerStatus(id, status);
+
+        [HttpPost]
+        [Route("Search")]
+        public List<VolunteerSearchDto> SearchVolunteers(VolunteerSearchDto searchCriteria)
+        {
+            return _volunteersService.SearchVolunteers(searchCriteria);
+        }
+
+        [HttpPost]
+        [Route("GetTripsByVolunteerName")]
+        public List<Trip> GetTripsForVolunteerByName(string firstName, string lastName)
+        {
+            return _volunteersService.GetTripsForVolunteerByName(firstName, lastName);
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using Dapper;
+using Dapper;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -86,6 +86,19 @@ namespace Trip_Volunteer.Infra.Repository
             p.Add("p_start_date", Start_Date, dbType: DbType.Date, direction: ParameterDirection.Input);
             p.Add("p_end_date", End_Date, dbType: DbType.Date, direction: ParameterDirection.Input);
             IEnumerable<Trip> result = _dbContext.Connection.Query<Trip>("trips_Package.searchBetweendate", p, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+
+        public int NumberOfTrips()
+        {
+            var result = _dbContext.Connection.QuerySingleOrDefault<int>("trips_Package.NumberOfTrips", commandType: CommandType.StoredProcedure);
+
+            return result;  
+        }
+
+        public List<Trip> TripsWithMaxReservations()
+        {
+            IEnumerable<Trip> result = _dbContext.Connection.Query<Trip>("trips_Package.TripsWithMaxReservations", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
     }

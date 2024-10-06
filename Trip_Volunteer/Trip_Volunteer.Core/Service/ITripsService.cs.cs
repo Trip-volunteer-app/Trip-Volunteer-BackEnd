@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,5 +19,9 @@ namespace Trip_Volunteer.Core.Service
         void Deletetrips(int Id);
 
         List<Trip> searchBetweendate(DateTime Start_Date, DateTime End_Date);
+      
+        int NumberOfTrips();
+
+        List<Trip> TripsWithMaxReservations();
     }
 }

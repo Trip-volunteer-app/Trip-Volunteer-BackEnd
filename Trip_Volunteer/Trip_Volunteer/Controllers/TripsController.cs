@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Trip_Volunteer.Core.Data;
 using Trip_Volunteer.Core.Repository;
@@ -67,8 +67,20 @@ namespace Trip_Volunteer.API.Controllers
         }
 
 
+        [HttpGet("trips/GetNumberOfTrips")]
+        public IActionResult GetNumberOfTrips()
+        {
+            int numberOfTrips = _tripsRepository.NumberOfTrips();
+            return Ok(numberOfTrips); // Return the total number of trips
+        }
 
 
+        [HttpGet]
+        [Route("TripsWithMaxReservations")]
 
+        public List<Trip> TripsWithMaxReservations()
+        {
+            return _tripsRepository.TripsWithMaxReservations();
+        }
     }
 }
