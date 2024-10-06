@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -48,6 +48,9 @@ namespace Trip_Volunteer.Infra.Service
             _tripsRepository.Deletetrips(Id);
         }
 
+        public List<Trip> searchBetweendate(DateTime Start_Date, DateTime End_Date)
+        {
+            return _tripsRepository.searchBetweendate(Start_Date, End_Date);
         public int NumberOfTrips()
         {
             var result = _tripsRepository.NumberOfTrips();

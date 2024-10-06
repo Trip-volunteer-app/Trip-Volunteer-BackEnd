@@ -93,7 +93,7 @@ internal class Program
                 IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("SuperSecretKey@ApiCourse123456"))
             };
         });
-
+        builder.Services.AddHttpClient<Location_ApiController>();
 
         var app = builder.Build();
 

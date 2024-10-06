@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Trip_Volunteer.Core.Data;
 using Trip_Volunteer.Core.Repository;
@@ -58,6 +58,14 @@ namespace Trip_Volunteer.API.Controllers
         {
             _tripsRepository.Deletetrips(id);
         }
+
+        [HttpGet]
+        [Route("searchBetweendate/{Start_Date}/{End_Date}")]
+        public List<Trip> searchBetweendate(DateTime Start_Date,DateTime End_Date)
+        {
+            return _tripsRepository.searchBetweendate(Start_Date, End_Date);
+        }
+
 
         [HttpGet("trips/GetNumberOfTrips")]
         public IActionResult GetNumberOfTrips()

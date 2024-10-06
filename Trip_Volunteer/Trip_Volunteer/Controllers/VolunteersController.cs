@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Trip_Volunteer.Core.Data;
 using Trip_Volunteer.Core.DTO;
@@ -50,6 +50,12 @@ namespace Trip_Volunteer.API.Controllers
         {
             _volunteersService.DeleteVolunteer(id);
         }
+
+        [HttpPut]
+        [Route("UpdateVolunteerStatus/{id}/{status}")]
+        public void UpdateVolunteerStatus(int id, string status)
+        {
+            _volunteersService.UpdateVolunteerStatus(id, status);
 
         [HttpPost]
         [Route("Search")]
