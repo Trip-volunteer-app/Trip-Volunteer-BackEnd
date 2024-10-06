@@ -85,5 +85,21 @@ namespace Trip_Volunteer.Infra.Repository
             var result = _dbContext.Connection.Query<VolunteerSearchDto>("SearchVolunteers", parameters, commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
+
+        public List<Trip> GetTripsForVolunteerByName(string firstName, string lastName)
+        {
+            var parameters = new DynamicParameters();
+            parameters.Add("pFirstName", firstName, DbType.String, ParameterDirection.Input);
+            parameters.Add("pLastName", lastName, DbType.String, ParameterDirection.Input);
+
+            var result = _dbContext.Connection.Query<Trip>(
+                "GetTripsForVolunteerByName",
+                parameters,
+                commandType: CommandType.StoredProcedure
+            );
+
+            return result.ToList();
+        }
+
     }
 }

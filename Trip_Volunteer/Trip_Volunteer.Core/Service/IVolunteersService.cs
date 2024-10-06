@@ -16,6 +16,7 @@ namespace Trip_Volunteer.Core.Service
         void UpdateVolunteer(Volunteer volunteer);
         void DeleteVolunteer(int id);
         List<VolunteerSearchDto> SearchVolunteers(VolunteerSearchDto searchCriteria);
+        List<Trip> GetTripsForVolunteerByName(string firstName, string lastName);
 
     }
 }
