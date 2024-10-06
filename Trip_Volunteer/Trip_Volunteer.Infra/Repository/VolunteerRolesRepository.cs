@@ -36,7 +36,7 @@ namespace Trip_Volunteer.Infra.Repository
         {
             var p = new DynamicParameters();
             p.Add("V_RoleName", volunteerRole.Role_Name, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("TripId", volunteerRole.Trip_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("TripId", volunteerRole.TripVolunteerroles, dbType: DbType.Int32, direction: ParameterDirection.Input);
 
             _dbContext.Connection.Execute("Volunteer_Roles_Package.CreateVolunteerRole", p, commandType: CommandType.StoredProcedure);
         }
@@ -46,7 +46,7 @@ namespace Trip_Volunteer.Infra.Repository
             var p = new DynamicParameters();
             p.Add("V_RoleId", volunteerRole.Volunteer_Role_Id, DbType.Int32, direction: ParameterDirection.Input);
             p.Add("V_RoleName", volunteerRole.Role_Name, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("TripId", volunteerRole.Trip_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("TripId", volunteerRole.TripVolunteerroles, dbType: DbType.Int32, direction: ParameterDirection.Input);
             _dbContext.Connection.Execute("Volunteer_Roles_Package.UpdateVolunteerRole", p, commandType: CommandType.StoredProcedure);
         }
 

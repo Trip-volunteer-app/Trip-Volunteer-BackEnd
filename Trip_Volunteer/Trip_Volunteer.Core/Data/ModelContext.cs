@@ -32,12 +32,14 @@ namespace Trip_Volunteer.Core.Data
         public virtual DbSet<Trip> Trips { get; set; } = null!;
         public virtual DbSet<TripImage> TripImages { get; set; } = null!;
         public virtual DbSet<TripService> TripServices { get; set; } = null!;
+        public virtual DbSet<TripVolunteerrole> TripVolunteerroles { get; set; } = null!;
         public virtual DbSet<User> Users { get; set; } = null!;
         public virtual DbSet<UserLogin> UserLogins { get; set; } = null!;
         public virtual DbSet<UserRole> UserRoles { get; set; } = null!;
         public virtual DbSet<Volunteer> Volunteers { get; set; } = null!;
         public virtual DbSet<VolunteerRole> VolunteerRoles { get; set; } = null!;
         public virtual DbSet<WebsiteInformation> WebsiteInformations { get; set; } = null!;
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -792,6 +794,39 @@ namespace Trip_Volunteer.Core.Data
                     .HasConstraintName("FK_VOLUNTEERS_VOLUNTEER_ROLE");
             });
 
+            modelBuilder.Entity<TripVolunteerrole>(entity =>
+            {
+                entity.HasKey(e => e.Trip_Volunteerroles_Id)
+                    .HasName("SYS_C009389");
+
+                entity.ToTable("TRIP_VOLUNTEERROLES");
+
+                entity.Property(e => e.Trip_Volunteerroles_Id)
+                    .HasColumnType("NUMBER(38)")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnName("TRIP_VOLUNTEERROLES_ID");
+
+                entity.Property(e => e.Trip_Id)
+                    .HasColumnType("NUMBER(38)")
+                    .HasColumnName("TRIP_ID");
+
+                entity.Property(e => e.Volunteer_Role_Id)
+                    .HasColumnType("NUMBER(38)")
+                    .HasColumnName("VOLUNTEER_ROLE_ID");
+
+                entity.HasOne(d => d.Trip)
+                    .WithMany(p => p.TripVolunteerroles)
+                    .HasForeignKey(d => d.Trip_Id)
+                    .OnDelete(DeleteBehavior.SetNull)
+                    .HasConstraintName("FK_TRIP_VOLUNTEERROLES_ID");
+
+                entity.HasOne(d => d.VolunteerRole)
+                    .WithMany(p => p.TripVolunteerroles)
+                    .HasForeignKey(d => d.Volunteer_Role_Id)
+                    .OnDelete(DeleteBehavior.SetNull)
+                    .HasConstraintName("FK_TRIP_VOLUNTEER_ROLES_ID");
+            });
+
             modelBuilder.Entity<VolunteerRole>(entity =>
             {
                 entity.ToTable("VOLUNTEER_ROLES");
@@ -805,18 +840,7 @@ namespace Trip_Volunteer.Core.Data
                     .HasMaxLength(200)
                     .IsUnicode(false)
                     .HasColumnName("ROLE_NAME");
-
-                entity.Property(e => e.Trip_Id)
-                    .HasColumnType("NUMBER(38)")
-                    .HasColumnName("TRIP_ID");
-
-                entity.HasOne(d => d.Trip)
-                    .WithMany(p => p.VolunteerRoles)
-                    .HasForeignKey(d => d.Trip_Id)
-                    .OnDelete(DeleteBehavior.SetNull)
-                    .HasConstraintName("FK_VOLUNTEER_ROLES_TRIP_ID");
             });
-
             modelBuilder.Entity<WebsiteInformation>(entity =>
             {
                 entity.HasKey(e => e.Website_Id)

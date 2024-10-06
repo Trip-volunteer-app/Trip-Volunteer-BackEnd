@@ -57,5 +57,22 @@ namespace Trip_Volunteer.API.Controllers
             return Ok(numberOfTrips); 
         }
 
+        [Route("uploadImage")]
+        [HttpPost]
+        public User UploadImage()
+        {
+            var file = Request.Form.Files[0];
+            var fileName = Guid.NewGuid().ToString() + "_" + file.FileName;
+            var fullPath = Path.Combine("Images", fileName);
+            using (var stream = new FileStream(fullPath, FileMode.Create))
+            {
+                file.CopyTo(stream);
+            }
+            User item = new User();
+            item.Image_Path = fileName;
+            return item;
+        }
+
+
     }
 }

@@ -21,7 +21,7 @@ namespace Trip_Volunteer.Infra.Repository
 
         public List<Bank> GetAllCard()
         {
-            IEnumerable<Bank> result = _dbContext.Connection.Query<Bank>("Bank_Package.GetCardById", commandType: CommandType.StoredProcedure);
+            IEnumerable<Bank> result = _dbContext.Connection.Query<Bank>("Bank_Package.GetAllCard", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
 

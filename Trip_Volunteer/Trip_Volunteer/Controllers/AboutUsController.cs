@@ -50,5 +50,37 @@ namespace Trip_Volunteer.API.Controllers
         {
             _aboutUsService.DeleteAboutUsElements(id);
         }
+
+        [Route("uploadImage1")]
+        [HttpPost]
+        public Aboutu UploadImage1()
+        {
+            var file = Request.Form.Files[0];
+            var fileName = Guid.NewGuid().ToString() + "_" + file.FileName;
+            var fullPath = Path.Combine("Images", fileName);
+            using (var stream = new FileStream(fullPath, FileMode.Create))
+            {
+                file.CopyTo(stream);
+            }
+            Aboutu item = new Aboutu();
+            item.Image1 = fileName;
+            return item;
+        }
+
+        [Route("uploadImage2")]
+        [HttpPost]
+        public Aboutu UploadImage2()
+        {
+            var file = Request.Form.Files[0];
+            var fileName = Guid.NewGuid().ToString() + "_" + file.FileName;
+            var fullPath = Path.Combine("Images", fileName);
+            using (var stream = new FileStream(fullPath, FileMode.Create))
+            {
+                file.CopyTo(stream);
+            }
+            Aboutu item = new Aboutu();
+            item.Image2 = fileName;
+            return item;
+        }
     }
 }
