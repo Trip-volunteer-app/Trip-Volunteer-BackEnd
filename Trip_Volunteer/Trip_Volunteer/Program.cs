@@ -8,6 +8,7 @@ using Trip_Volunteer.Infra.Service;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using Trip_Volunteer.API.Controllers;
 
 
 internal class Program
@@ -48,6 +49,7 @@ internal class Program
         builder.Services.AddScoped<IAboutUsRepository, AboutUsRepository>();
         builder.Services.AddScoped<IMonthlyRepository, MonthlyRepository>();
         builder.Services.AddScoped<IAnnualRepository, AnnualRepository>();
+        builder.Services.AddHttpClient<Location_ApiController>(); // Register the HttpClient for the controller
 
 
         builder.Services.AddScoped<IBankService, BankService>();

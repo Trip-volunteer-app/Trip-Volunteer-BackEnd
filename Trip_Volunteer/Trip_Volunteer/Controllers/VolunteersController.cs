@@ -57,5 +57,12 @@ namespace Trip_Volunteer.API.Controllers
         {
             return _volunteersService.SearchVolunteers(searchCriteria);
         }
+
+        [HttpPost]
+        [Route("GetTripsByVolunteerName")]
+        public List<Trip> GetTripsForVolunteerByName(string firstName, string lastName)
+        {
+            return _volunteersService.GetTripsForVolunteerByName(firstName, lastName);
+        }
     }
 }

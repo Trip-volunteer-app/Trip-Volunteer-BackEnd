@@ -41,5 +41,9 @@ namespace Trip_Volunteer.Infra.Service
         {
             return _volunteersRepository.SearchVolunteers(searchCriteria);
         }
+        public List<Trip> GetTripsForVolunteerByName(string firstName, string lastName)
+        {
+            return _volunteersRepository.GetTripsForVolunteerByName(firstName, lastName);
+        }
     }
 }
