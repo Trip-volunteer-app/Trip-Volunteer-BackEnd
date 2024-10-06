@@ -43,5 +43,24 @@ namespace Trip_Volunteer.API.Controllers
         {
             _contactusElementService.DeleteContactusElement(id);
         }
+
+
+        [Route("uploadImage")]
+        [HttpPost]
+        public ContactusElement UploadImage()
+        {
+            var file = Request.Form.Files[0];
+            var fileName = Guid.NewGuid().ToString() + "_" + file.FileName;
+            var fullPath = Path.Combine("Images", fileName);
+            using (var stream = new FileStream(fullPath, FileMode.Create))
+            {
+                file.CopyTo(stream);
+            }
+            ContactusElement item = new ContactusElement();
+            item.Image1 = fileName;
+            return item;
+        }
+
+
     }
 }

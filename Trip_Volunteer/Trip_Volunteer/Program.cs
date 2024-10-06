@@ -8,6 +8,7 @@ using Trip_Volunteer.Infra.Service;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using Trip_Volunteer.API.Controllers;
 
 
 internal class Program
@@ -48,6 +49,7 @@ internal class Program
         builder.Services.AddScoped<IAboutUsRepository, AboutUsRepository>();
         builder.Services.AddScoped<IMonthlyRepository, MonthlyRepository>();
         builder.Services.AddScoped<IAnnualRepository, AnnualRepository>();
+        builder.Services.AddScoped<ITripVolunteerroleRepository, TripVolunteerroleRepository>();
 
 
         builder.Services.AddScoped<IBankService, BankService>();
@@ -55,7 +57,7 @@ internal class Program
         builder.Services.AddScoped<IcategoriesService, categoriesService>();
         builder.Services.AddScoped<IContactusElementService, ContactusElementService>();
         builder.Services.AddScoped<IContactUsService, ContactUsService>();
-        builder.Services.AddScoped<ILocationService, LocationService>();
+        builder.Services.AddScoped<ILocationService, LocationsService>();
         builder.Services.AddScoped<IPaymentService, PaymentService>();
         builder.Services.AddScoped<IReviewService, ReviewService>();
         builder.Services.AddScoped<IRoleService, RoleService>();
@@ -74,7 +76,10 @@ internal class Program
         builder.Services.AddScoped<IAboutUsService, AboutUsService>();
         builder.Services.AddScoped<IMonthlyService, MonthlyService>();
         builder.Services.AddScoped<IAnnualService, AnnualService>();
+        builder.Services.AddScoped<ITripVolunteerroleService, TripVolunteerroleService>();
 
+
+        builder.Services.AddHttpClient<Location_ApiController>();
 
         builder.Services.AddAuthentication(opt =>
         {

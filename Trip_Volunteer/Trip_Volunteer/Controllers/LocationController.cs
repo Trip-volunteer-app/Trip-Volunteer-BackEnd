@@ -1,20 +1,30 @@
 ﻿using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json.Linq;
+using System.Net.Http;
+using Trip_Volunteer.Core.Common;
 using Trip_Volunteer.Core.Data;
 using Trip_Volunteer.Core.Service;
+using System.Net.Http;
+
 
 namespace Trip_Volunteer.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class LocationController : ControllerBase
-    {
-        private readonly ILocationService _locationService;
+    {        
 
-        public LocationController(ILocationService locationService)
+        private readonly ILocationService _locationService;
+        private readonly HttpClient _httpClient;
+
+        public LocationController(ILocationService locationService, HttpClient httpClient)
         {
             _locationService = locationService;
+            _httpClient = httpClient;
+
+
         }
 
         [HttpGet]
@@ -57,7 +67,12 @@ namespace Trip_Volunteer.API.Controllers
             _locationService.Deletelocation(id);
         }
 
-        
 
+        
     }
 }
+
+
+
+
+

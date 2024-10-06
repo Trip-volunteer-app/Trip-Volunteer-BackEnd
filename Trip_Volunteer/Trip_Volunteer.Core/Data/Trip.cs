@@ -11,7 +11,7 @@ namespace Trip_Volunteer.Core.Data
             Payments = new HashSet<Payment>();
             TripImages = new HashSet<TripImage>();
             TripServices = new HashSet<TripService>();
-            VolunteerRoles = new HashSet<VolunteerRole>();
+            TripVolunteerroles = new HashSet<TripVolunteerrole>();
             Volunteers = new HashSet<Volunteer>();
         }
 
@@ -32,7 +32,7 @@ namespace Trip_Volunteer.Core.Data
         public virtual ICollection<Payment> Payments { get; set; }
         public virtual ICollection<TripImage> TripImages { get; set; }
         public virtual ICollection<TripService> TripServices { get; set; }
-        public virtual ICollection<VolunteerRole> VolunteerRoles { get; set; }
+        public virtual ICollection<TripVolunteerrole> TripVolunteerroles { get; set; }
         public virtual ICollection<Volunteer> Volunteers { get; set; }
     }
 }

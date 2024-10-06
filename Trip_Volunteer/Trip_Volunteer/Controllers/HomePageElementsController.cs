@@ -50,5 +50,86 @@ namespace Trip_Volunteer.API.Controllers
         {
             _homePageElementsService.DeleteHomePageElement(id);
         }
+
+
+        [Route("uploadImage1")]
+        [HttpPost]
+        public HomePageElement UploadImage1()
+        {
+            var file = Request.Form.Files[0];
+            var fileName = Guid.NewGuid().ToString() + "_" + file.FileName;
+            var fullPath = Path.Combine("Images", fileName);
+            using (var stream = new FileStream(fullPath, FileMode.Create))
+            {
+                file.CopyTo(stream);
+            }
+            HomePageElement item = new HomePageElement();
+            item.Image1 = fileName;
+            return item;
+        }
+
+        [Route("uploadImage2")]
+        [HttpPost]
+        public HomePageElement UploadImage2()
+        {
+            var file = Request.Form.Files[0];
+            var fileName = Guid.NewGuid().ToString() + "_" + file.FileName;
+            var fullPath = Path.Combine("Images", fileName);
+            using (var stream = new FileStream(fullPath, FileMode.Create))
+            {
+                file.CopyTo(stream);
+            }
+            HomePageElement item = new HomePageElement();
+            item.Image2 = fileName;
+            return item;
+        }
+
+        [Route("uploadImage3")]
+        [HttpPost]
+        public HomePageElement UploadImage3()
+        {
+            var file = Request.Form.Files[0];
+            var fileName = Guid.NewGuid().ToString() + "_" + file.FileName;
+            var fullPath = Path.Combine("Images", fileName);
+            using (var stream = new FileStream(fullPath, FileMode.Create))
+            {
+                file.CopyTo(stream);
+            }
+            HomePageElement item = new HomePageElement();
+            item.Image3 = fileName;
+            return item;
+        }
+
+        [Route("uploadImage4")]
+        [HttpPost]
+        public HomePageElement UploadImage4()
+        {
+            var file = Request.Form.Files[0];
+            var fileName = Guid.NewGuid().ToString() + "_" + file.FileName;
+            var fullPath = Path.Combine("Images", fileName);
+            using (var stream = new FileStream(fullPath, FileMode.Create))
+            {
+                file.CopyTo(stream);
+            }
+            HomePageElement item = new HomePageElement();
+            item.Image4 = fileName;
+            return item;
+        }
+
+        [Route("uploadImage5")]
+        [HttpPost]
+        public HomePageElement UploadImage5()
+        {
+            var file = Request.Form.Files[0];
+            var fileName = Guid.NewGuid().ToString() + "_" + file.FileName;
+            var fullPath = Path.Combine("Images", fileName);
+            using (var stream = new FileStream(fullPath, FileMode.Create))
+            {
+                file.CopyTo(stream);
+            }
+            HomePageElement item = new HomePageElement();
+            item.Image5 = fileName;
+            return item;
+        }
     }
 }

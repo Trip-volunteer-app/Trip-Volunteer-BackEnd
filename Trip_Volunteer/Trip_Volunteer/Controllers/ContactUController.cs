@@ -52,5 +52,6 @@ namespace Trip_Volunteer.API.Controllers
             _contactUsService.DeleteContact(contactId);
         }
 
+
     }
 }
