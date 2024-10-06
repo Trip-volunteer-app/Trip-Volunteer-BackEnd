@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Trip_Volunteer.Infra")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0e8bf073dc903527f140f707e4371aaf4ecb5e11")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+86dc818680a08843ec8ca02a8ee476d10bbfee6c")]
 [assembly: System.Reflection.AssemblyProductAttribute("Trip_Volunteer.Infra")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Trip_Volunteer.Infra")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
