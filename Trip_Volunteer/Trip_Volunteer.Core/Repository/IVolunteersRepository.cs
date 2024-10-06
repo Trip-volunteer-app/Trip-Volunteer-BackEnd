@@ -14,5 +14,7 @@ namespace Trip_Volunteer.Core.Repository
         void CreateVolunteer(Volunteer volunteer);
         void UpdateVolunteer(Volunteer volunteer);
         void DeleteVolunteer(int id);
+
+        void UpdateVolunteerStatus(int id, string status);
     }
 }

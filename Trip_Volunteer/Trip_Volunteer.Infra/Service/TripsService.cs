@@ -47,5 +47,9 @@ namespace Trip_Volunteer.Infra.Service
             _tripsRepository.Deletetrips(Id);
         }
 
+        public List<Trip> searchBetweendate(DateTime Start_Date, DateTime End_Date)
+        {
+            return _tripsRepository.searchBetweendate(Start_Date, End_Date);
+        }
     }
 }

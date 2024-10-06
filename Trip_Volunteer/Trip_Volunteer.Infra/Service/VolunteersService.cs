@@ -36,5 +36,10 @@ namespace Trip_Volunteer.Infra.Service
         {
             _volunteersRepository.DeleteVolunteer(id);
         }
+
+        public void UpdateVolunteerStatus(int id, string status)
+        {
+            _volunteersRepository.UpdateVolunteerStatus(id, status);
+        }
     }
 }

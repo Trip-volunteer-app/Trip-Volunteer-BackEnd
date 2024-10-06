@@ -8,6 +8,7 @@ using Trip_Volunteer.Infra.Service;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using Trip_Volunteer.API.Controllers;
 
 
 internal class Program
@@ -86,7 +87,7 @@ internal class Program
                 IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("SuperSecretKey@ApiCourse123456"))
             };
         });
-
+        builder.Services.AddHttpClient<Location_ApiController>();
 
         var app = builder.Build();
 

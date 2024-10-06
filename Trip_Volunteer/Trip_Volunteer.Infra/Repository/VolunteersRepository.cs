@@ -73,5 +73,13 @@ namespace Trip_Volunteer.Infra.Repository
             p.Add("V_Id", id, DbType.Int32, direction: ParameterDirection.Input);
             _dbContext.Connection.Execute("volunteers_package.DeleteVolunteer", p, commandType: CommandType.StoredProcedure);
         }
+
+        public void UpdateVolunteerStatus(int id, string status)
+        {
+            var p = new DynamicParameters();
+            p.Add("p_Volunteer_ID", id, DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("p_New_Status", status, DbType.String, direction: ParameterDirection.Input);
+            _dbContext.Connection.Execute("volunteers_package.UpdateVolunteerStatus", p, commandType: CommandType.StoredProcedure);
+        }
     }
 }

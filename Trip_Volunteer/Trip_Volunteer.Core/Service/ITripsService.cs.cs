@@ -17,5 +17,7 @@ namespace Trip_Volunteer.Core.Service
         void UPDATEtrips(Trip trip);
 
         void Deletetrips(int Id);
+
+        List<Trip> searchBetweendate(DateTime Start_Date, DateTime End_Date);
     }
 }
