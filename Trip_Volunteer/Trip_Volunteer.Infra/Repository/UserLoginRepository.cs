@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
@@ -67,20 +68,29 @@ namespace Trip_Volunteer.Infra.Repository
         }
         public void Registers(string FirstName, string LastName, string Email, string Password, string RePassword)
         {
+         
+            string hashedPassword = HashPassword(Password);
+            string hashedRePassword = HashPassword(RePassword);
+           if (hashedPassword != hashedRePassword)
+            {
+                throw new ArgumentException("Passwords do not match.");
+            }
             var p = new DynamicParameters();
             p.Add("P_FirstName", FirstName, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("P_LastName", LastName, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("P_Email", Email, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("P_Password", Password, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("P_RePassword", RePassword, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("P_Password", hashedPassword, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("P_RePassword", hashedRePassword, dbType: DbType.String, direction: ParameterDirection.Input);
             _dbContext.Connection.Execute("User_Login_Package.Registers", p, commandType: CommandType.StoredProcedure);
         }
 
         public UserLogin Auth(UserLogin userLogin)
         {
+            string hashedPassword = HashPassword(userLogin.Password);
+
             var p = new DynamicParameters();
             p.Add("L_Email", userLogin.Email, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("L_Pass", userLogin.Password, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("L_Pass", hashedPassword, dbType: DbType.String, direction: ParameterDirection.Input);
             var result = _dbContext.Connection.Query<UserLogin>("User_Login_Package.Login_User", p, commandType: CommandType.StoredProcedure).FirstOrDefault();
             return result;
         }
@@ -131,6 +141,20 @@ namespace Trip_Volunteer.Infra.Repository
             p.Add("L_Name", L_Name, dbType: DbType.String, direction: ParameterDirection.Input);
             IEnumerable<UserInformationDto> result = _dbContext.Connection.Query<UserInformationDto>("User_Login_Package.GetUserinfoByName", p, commandType: CommandType.StoredProcedure);
             return result.ToList();
+        }
+
+        private string HashPassword(string password)
+        {
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+                StringBuilder builder = new StringBuilder();
+                for (int i = 0; i < bytes.Length; i++)
+                {
+                    builder.Append(bytes[i].ToString("x2"));
+                }
+                return builder.ToString();
+            }
         }
     }
 }
