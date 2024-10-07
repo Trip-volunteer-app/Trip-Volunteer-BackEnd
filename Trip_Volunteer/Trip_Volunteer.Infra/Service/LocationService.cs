@@ -9,11 +9,11 @@ using Trip_Volunteer.Core.Service;
 
 namespace Trip_Volunteer.Infra.Service
 {
-    public class LocationsService : ILocationService
+    public class LocationService : ILocationService
     {
         private readonly ILocationRepository _locationRepository;
 
-        public LocationsService(ILocationRepository locationRepository)
+        public LocationService(ILocationRepository locationRepository)
         {
             _locationRepository = locationRepository;
         }
