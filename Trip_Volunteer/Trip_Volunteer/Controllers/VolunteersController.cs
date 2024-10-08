@@ -56,7 +56,7 @@ namespace Trip_Volunteer.API.Controllers
         public void UpdateVolunteerStatus(int id, string status)
         {
             _volunteersService.UpdateVolunteerStatus(id, status);
-
+        }
         [HttpPost]
         [Route("Search")]
         public List<VolunteerSearchDto> SearchVolunteers(VolunteerSearchDto searchCriteria)
@@ -72,3 +72,4 @@ namespace Trip_Volunteer.API.Controllers
         }
     }
 }
+

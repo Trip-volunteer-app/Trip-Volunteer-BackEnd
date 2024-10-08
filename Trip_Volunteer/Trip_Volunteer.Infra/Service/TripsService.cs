@@ -51,6 +51,7 @@ namespace Trip_Volunteer.Infra.Service
         public List<Trip> searchBetweendate(DateTime Start_Date, DateTime End_Date)
         {
             return _tripsRepository.searchBetweendate(Start_Date, End_Date);
+        }
         public int NumberOfTrips()
         {
             var result = _tripsRepository.NumberOfTrips();

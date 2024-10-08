@@ -57,7 +57,7 @@ internal class Program
         builder.Services.AddScoped<IcategoriesService, categoriesService>();
         builder.Services.AddScoped<IContactusElementService, ContactusElementService>();
         builder.Services.AddScoped<IContactUsService, ContactUsService>();
-        builder.Services.AddScoped<ILocationService, LocationService>();
+        builder.Services.AddScoped<ILocationService, LocationsService>();
         builder.Services.AddScoped<IPaymentService, PaymentService>();
         builder.Services.AddScoped<IReviewService, ReviewService>();
         builder.Services.AddScoped<IRoleService, RoleService>();
