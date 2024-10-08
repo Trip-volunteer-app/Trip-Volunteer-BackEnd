@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json.Linq;
 using Trip_Volunteer.Core.Common;
@@ -82,7 +83,7 @@ namespace Trip_Volunteer.API.Controllers
                 Departure_Latitude = latitudeDeparture,
                 Departure_Longitude = longitudeDeparture,
                 Departure_Location = departureAddress,
-                Destination_Location= destinationAddress,
+                Destination_Location = destinationAddress,
                 Destination_Latitude = latitudeDestination,
                 Destination_Longitude = longitudeDestination,
             };

@@ -40,6 +40,7 @@ namespace Trip_Volunteer.Infra.Service
         public void UpdateVolunteerStatus(int id, string status)
         {
             _volunteersRepository.UpdateVolunteerStatus(id, status);
+        }
         public List<VolunteerSearchDto> SearchVolunteers(VolunteerSearchDto searchCriteria)
         {
             return _volunteersRepository.SearchVolunteers(searchCriteria);
