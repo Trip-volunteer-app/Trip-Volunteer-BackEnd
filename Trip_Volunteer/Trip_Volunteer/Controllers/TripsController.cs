@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Trip_Volunteer.Core.Data;
+using Trip_Volunteer.Core.DTO;
 using Trip_Volunteer.Core.Repository;
 using Trip_Volunteer.Core.Service;
 
@@ -11,10 +12,10 @@ namespace Trip_Volunteer.API.Controllers
     public class TripsController : ControllerBase
     {
 
-        private readonly ITripsRepository _tripsRepository;
-        public TripsController(ITripsRepository tripsRepository)
+        private readonly ITripsService _tripsService;
+        public TripsController(ITripsService tripsService)
         {
-            _tripsRepository = tripsRepository;
+            _tripsService = tripsService;
         }
 
 
@@ -23,14 +24,14 @@ namespace Trip_Volunteer.API.Controllers
 
         public List<Trip> GetAlltrips()
         {
-            return _tripsRepository.GetAlltrips();
+            return _tripsService.GetAlltrips();
         }
 
         [HttpGet]
         [Route("GettripsById/{id}")]
         public Trip GettripsById(int id)
         {
-            return _tripsRepository.GettripsById(id);
+            return _tripsService.GettripsById(id);
         }
 
 
@@ -39,7 +40,7 @@ namespace Trip_Volunteer.API.Controllers
         [Route("CREATEtrips")]
         public void CREATEtrips(Trip trip)
         {
-            _tripsRepository.CREATEtrips(trip);
+            _tripsService.CREATEtrips(trip);
         }
 
 
@@ -48,7 +49,7 @@ namespace Trip_Volunteer.API.Controllers
 
         public void UPDATEtrips(Trip trip)
         {
-            _tripsRepository.UPDATEtrips(trip);
+            _tripsService.UPDATEtrips(trip);
         }
 
 
@@ -56,21 +57,21 @@ namespace Trip_Volunteer.API.Controllers
         [Route("Deletetrips/{id}")]
         public void Deletetrips(int id)
         {
-            _tripsRepository.Deletetrips(id);
+            _tripsService.Deletetrips(id);
         }
 
         [HttpGet]
         [Route("searchBetweendate/{Start_Date}/{End_Date}")]
         public List<Trip> searchBetweendate(DateTime Start_Date,DateTime End_Date)
         {
-            return _tripsRepository.searchBetweendate(Start_Date, End_Date);
+            return _tripsService.searchBetweendate(Start_Date, End_Date);
         }
 
 
         [HttpGet("trips/GetNumberOfTrips")]
         public IActionResult GetNumberOfTrips()
         {
-            int numberOfTrips = _tripsRepository.NumberOfTrips();
+            int numberOfTrips = _tripsService.NumberOfTrips();
             return Ok(numberOfTrips); // Return the total number of trips
         }
 
@@ -80,7 +81,31 @@ namespace Trip_Volunteer.API.Controllers
 
         public List<Trip> TripsWithMaxReservations()
         {
-            return _tripsRepository.TripsWithMaxReservations();
+            return _tripsService.TripsWithMaxReservations();
+        }
+        [HttpGet]
+        [Route("GetAllTripInformation")]
+        public List<TripInformationDTO> GetAllTripInformation()
+        {
+            return _tripsService.GetAllTripInformation();
+        }
+        [HttpGet]
+        [Route("GetAllTripInformationById")]
+        public TripInformationDTO GetAllTripInformationById(int Id)
+        {
+            return _tripsService.GetAllTripInformationById(Id);
+        }
+        [HttpGet]
+        [Route("GetTripVolById")]
+        public TripWithVolDTO GetTripVolById(int Id)
+        {
+            return _tripsService.GetTripVolById(Id);
+        }
+        [HttpGet]
+        [Route("GetTripUsersById")]
+        public TripWithVolDTO GetTripUsersById(int Id)
+        {
+            return _tripsService.GetTripUsersById(Id);
         }
     }
 }

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Trip_Volunteer.Core.Data;
+using Trip_Volunteer.Core.DTO;
 
 namespace Trip_Volunteer.Core.Repository
 {
@@ -24,5 +25,9 @@ namespace Trip_Volunteer.Core.Repository
         int NumberOfTrips();
 
         List<Trip> TripsWithMaxReservations();
+        List<TripInformationDTO> GetAllTripInformation();
+        TripInformationDTO GetAllTripInformationById(int Id);
+        TripWithVolDTO GetTripVolById(int Id);
+        TripWithVolDTO GetTripUsersById(int Id);
     }
 }
