@@ -35,11 +35,16 @@ namespace Trip_Volunteer.Infra.Repository
 
         public void CreateAboutUsElements(Aboutu aboutus)
         {
+
             var p = new DynamicParameters();
             p.Add("A_IMG_1", aboutus.Image1, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("A_IMG_2", aboutus.Image2, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("A_Text_1", aboutus.Text1, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("A_Text_2", aboutus.Text2, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("A_Text_3", aboutus.Text3, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("A_IMG_3", aboutus.Image3, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("A_IMG_4", aboutus.Image4, dbType: DbType.String, direction: ParameterDirection.Input);
+
             _dbContext.Connection.Execute("Aboutus_Package.CreateAboutUsElements", p, commandType: CommandType.StoredProcedure);
         }
 
@@ -51,6 +56,9 @@ namespace Trip_Volunteer.Infra.Repository
             p.Add("A_IMG_2", aboutus.Image2, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("A_Text_1", aboutus.Text1, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("A_Text_2", aboutus.Text2, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("A_Text_3", aboutus.Text3, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("A_IMG_3", aboutus.Image3, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("A_IMG_4", aboutus.Image4, dbType: DbType.String, direction: ParameterDirection.Input);
             _dbContext.Connection.Execute("Aboutus_Package.UpdateAboutUsElements", p, commandType: CommandType.StoredProcedure);
         }
 
