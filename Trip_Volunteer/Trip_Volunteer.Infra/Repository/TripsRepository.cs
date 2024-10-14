@@ -1,14 +1,14 @@
 using Dapper;
+using Oracle.ManagedDataAccess.Client;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Trip_Volunteer.Core.Common;
 using Trip_Volunteer.Core.Data;
+using Trip_Volunteer.Core.DTO;
 using Trip_Volunteer.Core.Repository;
-using Trip_Volunteer.Infra.Service;
+
 
 namespace Trip_Volunteer.Infra.Repository
 {
@@ -100,6 +100,35 @@ namespace Trip_Volunteer.Infra.Repository
         {
             IEnumerable<Trip> result = _dbContext.Connection.Query<Trip>("trips_Package.TripsWithMaxReservations", commandType: CommandType.StoredProcedure);
             return result.ToList();
+        }
+
+        public List<TripInformationDTO> GetAllTripInformation()
+        {
+            IEnumerable<TripInformationDTO> result = _dbContext.Connection.Query<TripInformationDTO>("trips_Package.GetAllTripInformation", commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+        public TripInformationDTO GetAllTripInformationById(int Id)
+        {
+            var p = new DynamicParameters();
+            p.Add("id", Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            IEnumerable<TripInformationDTO> result = _dbContext.Connection.Query<TripInformationDTO>("trips_Package.GetAllTripInformationById", p, commandType: CommandType.StoredProcedure);
+            return result.FirstOrDefault();
+        }
+
+
+        public TripWithVolDTO GetTripVolById(int Id)
+        {
+            var p = new DynamicParameters();
+            p.Add("id", Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            IEnumerable<TripWithVolDTO> result = _dbContext.Connection.Query<TripWithVolDTO>("trips_Package.GetTripVolById", p, commandType: CommandType.StoredProcedure);
+            return result.FirstOrDefault();
+        }
+        public TripWithVolDTO GetTripUsersById(int Id)
+        {
+            var p = new DynamicParameters();
+            p.Add("id", Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            IEnumerable<TripWithVolDTO> result = _dbContext.Connection.Query<TripWithVolDTO>("trips_Package.GetTripUsersById", p, commandType: CommandType.StoredProcedure);
+            return result.FirstOrDefault();
         }
     }
 }

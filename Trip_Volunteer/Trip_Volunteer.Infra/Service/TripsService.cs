@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Trip_Volunteer.Core.Data;
+using Trip_Volunteer.Core.DTO;
 using Trip_Volunteer.Core.Repository;
 using Trip_Volunteer.Core.Service;
 
@@ -61,6 +62,22 @@ namespace Trip_Volunteer.Infra.Service
         public List<Trip> TripsWithMaxReservations()
         {
             return _tripsRepository.TripsWithMaxReservations();
+        }
+        public List<TripInformationDTO> GetAllTripInformation()
+        {
+            return _tripsRepository.GetAllTripInformation();
+        }
+        public TripInformationDTO GetAllTripInformationById(int Id)
+        {
+            return _tripsRepository.GetAllTripInformationById(Id);
+        }
+        public TripWithVolDTO GetTripVolById(int Id)
+        {
+            return _tripsRepository.GetTripVolById(Id);
+        }
+        public TripWithVolDTO GetTripUsersById(int Id)
+        {
+            return _tripsRepository.GetTripUsersById(Id);
         }
     }
 }
