@@ -220,6 +220,16 @@ namespace Trip_Volunteer.Core.Data
                     .IsUnicode(false)
                     .HasColumnName("IMAGE1");
 
+                entity.Property(e => e.Header)
+                    .HasMaxLength(100)
+                    .IsUnicode(false)
+                    .HasColumnName("HEADER");
+
+                entity.Property(e => e.Hero_Img)
+                    .HasMaxLength(1000)
+                    .IsUnicode(false)
+                    .HasColumnName("HERO_IMG");
+
                 entity.Property(e => e.Text1)
                     .HasMaxLength(1000)
                     .IsUnicode(false)
@@ -867,6 +877,11 @@ namespace Trip_Volunteer.Core.Data
                     .HasMaxLength(200)
                     .IsUnicode(false)
                     .HasColumnName("EMAIL");
+                
+                entity.Property(e => e.Website_Link)
+                    .HasMaxLength(500)
+                    .IsUnicode(false)
+                    .HasColumnName("WEBSITE_LINK");
 
                 entity.Property(e => e.Open_Time)
                     .HasMaxLength(200)

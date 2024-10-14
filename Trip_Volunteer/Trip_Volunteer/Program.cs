@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Trip_Volunteer.API.Controllers;
+using Microsoft.AspNetCore.Http.Features;
 
 
 internal class Program
@@ -17,6 +18,14 @@ internal class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
+        builder.Services.AddCors(corsOptions =>
+        {
+            corsOptions.AddPolicy("policy",
+            builder =>
+            {
+                builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+            });
+        });
         // Add services to the container.
 
         builder.Services.AddControllers();
@@ -94,6 +103,10 @@ internal class Program
             };
         });
         builder.Services.AddHttpClient<Location_ApiController>();
+        builder.Services.Configure<FormOptions>(options =>
+        {
+            options.MultipartBodyLengthLimit = 104857600; // Limit to 100 MB, for example
+        });
 
         var app = builder.Build();
 
@@ -110,6 +123,8 @@ internal class Program
         app.UseAuthentication();
 
         app.UseAuthorization();
+
+        app.UseCors("policy");
 
         app.MapControllers();
 
