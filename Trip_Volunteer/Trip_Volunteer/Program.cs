@@ -26,6 +26,7 @@ internal class Program
                 builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
             });
         });
+
         // Add services to the container.
 
         builder.Services.AddControllers();
@@ -117,6 +118,7 @@ internal class Program
             app.UseSwagger();
             app.UseSwaggerUI();
         }
+        app.UseCors("policy");
 
         app.UseHttpsRedirection();
 

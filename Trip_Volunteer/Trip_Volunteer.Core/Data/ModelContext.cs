@@ -79,9 +79,24 @@ namespace Trip_Volunteer.Core.Data
                     .HasColumnName("TEXT1");
 
                 entity.Property(e => e.Text2)
-                    .HasMaxLength(1000)
+                    .HasMaxLength(4000)
                     .IsUnicode(false)
                     .HasColumnName("TEXT2");
+
+                entity.Property(e => e.Text3)
+                    .HasMaxLength(4000)
+                    .IsUnicode(false)
+                    .HasColumnName("TEXT3");
+
+                entity.Property(e => e.Image3)
+                   .HasMaxLength(600)
+                   .IsUnicode(false)
+                   .HasColumnName("IMAGE3");
+
+                entity.Property(e => e.Image4)
+                   .HasMaxLength(600)
+                   .IsUnicode(false)
+                   .HasColumnName("IMAGE4");
             });
 
             modelBuilder.Entity<Bank>(entity =>
