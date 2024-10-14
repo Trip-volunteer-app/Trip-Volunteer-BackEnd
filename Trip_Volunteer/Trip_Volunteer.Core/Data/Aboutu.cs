@@ -14,6 +14,9 @@ namespace Trip_Volunteer.Core.Data
         public string? Image3 { get; set; }
         public string? Image4 { get; set; }
 
+        public string? Text5 { get; set; }
+        public string? Text6 { get; set; }
+        public string? Text7 { get; set; }
 
     }
 }
