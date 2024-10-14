@@ -44,6 +44,9 @@ namespace Trip_Volunteer.Infra.Repository
             p.Add("A_Text_3", aboutus.Text3, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("A_IMG_3", aboutus.Image3, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("A_IMG_4", aboutus.Image4, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("A_Text_5", aboutus.Text5, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("A_Text_6", aboutus.Text6, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("A_Text_7", aboutus.Text7, dbType: DbType.String, direction: ParameterDirection.Input);
 
             _dbContext.Connection.Execute("Aboutus_Package.CreateAboutUsElements", p, commandType: CommandType.StoredProcedure);
         }
@@ -59,6 +62,10 @@ namespace Trip_Volunteer.Infra.Repository
             p.Add("A_Text_3", aboutus.Text3, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("A_IMG_3", aboutus.Image3, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("A_IMG_4", aboutus.Image4, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("A_Text_5", aboutus.Text5, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("A_Text_6", aboutus.Text6, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("A_Text_7", aboutus.Text7, dbType: DbType.String, direction: ParameterDirection.Input);
+            
             _dbContext.Connection.Execute("Aboutus_Package.UpdateAboutUsElements", p, commandType: CommandType.StoredProcedure);
         }
 
