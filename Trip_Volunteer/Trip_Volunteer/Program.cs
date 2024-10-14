@@ -17,6 +17,15 @@ internal class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
+        builder.Services.AddCors(corsOptions =>
+        {
+            corsOptions.AddPolicy("policy",
+            builder =>
+            {
+                builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+            });
+        });
+
         // Add services to the container.
 
         builder.Services.AddControllers();
@@ -104,6 +113,7 @@ internal class Program
             app.UseSwagger();
             app.UseSwaggerUI();
         }
+        app.UseCors("policy");
 
         app.UseHttpsRedirection();
 
