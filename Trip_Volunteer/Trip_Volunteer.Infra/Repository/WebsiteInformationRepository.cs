@@ -43,7 +43,7 @@ namespace Trip_Volunteer.Infra.Repository
             p.Add("adress", websiteInformation.Adress, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("open_time", websiteInformation.Open_Time, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("closing_time", websiteInformation.Closing_Time, dbType: DbType.String, direction: ParameterDirection.Input);
-            
+
             var result = _dbContext.Connection.Execute("website_information_Package.CREATEwebsite_information", p, commandType: CommandType.StoredProcedure);
 
 
@@ -71,6 +71,16 @@ namespace Trip_Volunteer.Infra.Repository
 
         }
 
-
+        public WebsiteInformation GetSelectedWebsiteInfo()
+        {
+            var result = _dbContext.Connection.Query<WebsiteInformation>("website_information_Package.GetSelectedWebsiteInfo", commandType: CommandType.StoredProcedure);
+            return result.SingleOrDefault();
+        }
+        public void UpdateSelectedWebsiteInfo(int id)
+        {
+            var p = new DynamicParameters();
+            p.Add("id ", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            _dbContext.Connection.Execute("website_information_Package.UpdateSelectedWebsiteInfo", p, commandType: CommandType.StoredProcedure);
+        }
     }
 }

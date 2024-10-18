@@ -10,15 +10,15 @@ namespace Trip_Volunteer.Core.Repository
     public interface IWebsiteInformationRepository
     {
 
-         List<WebsiteInformation> GetAllwebsite_information();
-         WebsiteInformation Getwebsite_informationById(int ID);
+        List<WebsiteInformation> GetAllwebsite_information();
+        WebsiteInformation Getwebsite_informationById(int ID);
 
-         void CREATEwebsite_information(WebsiteInformation websiteInformation);
+        void CREATEwebsite_information(WebsiteInformation websiteInformation);
 
-         void UPDATEwebsite_information(WebsiteInformation websiteInformation);
+        void UPDATEwebsite_information(WebsiteInformation websiteInformation);
 
-         void Deletewebsite_information(int Id);
-
-
+        void Deletewebsite_information(int Id);
+        WebsiteInformation GetSelectedWebsiteInfo();
+        void UpdateSelectedWebsiteInfo(int id);
     }
 }

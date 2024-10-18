@@ -261,10 +261,10 @@ namespace Trip_Volunteer.Core.Data
                     .IsUnicode(false)
                     .HasColumnName("HERO_IMG");
 
-                entity.Property(e => e.Text1)
+                entity.Property(e => e.Selected)
                     .HasMaxLength(1000)
                     .IsUnicode(false)
-                    .HasColumnName("TEXT1");
+                    .HasColumnName("SELECTED");
             });
 
             modelBuilder.Entity<HomePageElement>(entity =>
@@ -923,6 +923,11 @@ namespace Trip_Volunteer.Core.Data
                     .HasMaxLength(50)
                     .IsUnicode(false)
                     .HasColumnName("PHONE_NUMBER");
+
+                entity.Property(e => e.Selected)
+                    .HasColumnType("NUMBER")
+                    .IsUnicode(false)
+                    .HasColumnName("SELECTED");
             });
 
             OnModelCreatingPartial(modelBuilder);

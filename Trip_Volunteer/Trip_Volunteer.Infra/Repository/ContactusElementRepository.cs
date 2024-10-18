@@ -39,7 +39,8 @@ namespace Trip_Volunteer.Infra.Repository
             var p = new DynamicParameters();
 
             p.Add("C_Img", contactusElement.Image1, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("C_Text", contactusElement.Text1, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("C_hero_img", contactusElement.Hero_Img, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("C_header", contactusElement.Header, dbType: DbType.String, direction: ParameterDirection.Input);
 
             _dbContext.Connection.Execute("Contactus_Elements_Package.CreateContactusElement", p, commandType: CommandType.StoredProcedure);
         }
@@ -50,7 +51,8 @@ namespace Trip_Volunteer.Infra.Repository
 
             p.Add("C_id ", contactusElement.Contactus_Elements_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("C_Img", contactusElement.Image1, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("C_Text", contactusElement.Text1, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("C_hero_img", contactusElement.Hero_Img, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("C_header", contactusElement.Header, dbType: DbType.String, direction: ParameterDirection.Input);
 
             _dbContext.Connection.Execute("Contactus_Elements_Package.UpdateContactusElement", p, commandType: CommandType.StoredProcedure);
         }
@@ -61,6 +63,19 @@ namespace Trip_Volunteer.Infra.Repository
             p.Add("Id", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             _dbContext.Connection.Execute("Contactus_Elements_Package.DeleteContactusElement", p, commandType: CommandType.StoredProcedure);
 
+        }
+
+        public ContactusElement GetSelectedContactusElement()
+        {
+            var result = _dbContext.Connection.Query<ContactusElement>("Contactus_Elements_Package.GetSelectedContactusElement", commandType: CommandType.StoredProcedure);
+            return result.SingleOrDefault();
+        }
+
+        public void UpdateContactusElementSelectStatus(int id)
+        {
+            var p = new DynamicParameters();
+            p.Add("C_id ", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            _dbContext.Connection.Execute("Contactus_Elements_Package.UpdateContactusElementSelectStatus", p, commandType: CommandType.StoredProcedure);
         }
     }
 }

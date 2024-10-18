@@ -14,5 +14,7 @@ namespace Trip_Volunteer.Core.Service
         void CreateContactusElement(ContactusElement contactusElement);
         void UpdateContactusElement(ContactusElement contactusElement);
         void DeleteContactusElement(int id);
+        void UpdateContactusElementSelectStatus(int id);
+        ContactusElement GetSelectedContactusElement();
     }
 }
