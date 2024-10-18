@@ -41,11 +41,11 @@ namespace Trip_Volunteer.Infra.Repository
             return result.SingleOrDefault();
         }
 
-        public void CreateService(decimal serviceCost, string serviceName)
+        public void CreateService(Core.Data.Service service)
         {
             var p = new DynamicParameters();
-            p.Add("p_service_cost", serviceCost, dbType: DbType.Decimal, direction: ParameterDirection.Input);
-            p.Add("p_service_name", serviceName, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("p_service_cost", service.Service_Cost, dbType: DbType.Decimal, direction: ParameterDirection.Input);
+            p.Add("p_service_name", service. Service_Name, dbType: DbType.String, direction: ParameterDirection.Input);
 
             _dbContext.Connection.Execute(
                 "service_Package.CreateService",

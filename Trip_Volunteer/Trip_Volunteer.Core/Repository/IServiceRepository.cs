@@ -11,7 +11,7 @@ namespace Trip_Volunteer.Core.Repository
     {
         List<Core.Data.Service> GetAllServices();
         Core.Data.Service GetServiceById(int serviceId);
-        void CreateService(decimal serviceCost, string serviceName);
+        void CreateService(Core.Data.Service service);
         void UpdateService(int serviceId, decimal serviceCost, string serviceName);
         void DeleteService(int serviceId);
     }

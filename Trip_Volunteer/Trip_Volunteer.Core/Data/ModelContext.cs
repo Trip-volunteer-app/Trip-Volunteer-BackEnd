@@ -716,12 +716,12 @@ namespace Trip_Volunteer.Core.Data
                     .HasColumnName("EMAIL");
 
                 entity.Property(e => e.Password)
-                    .HasMaxLength(50)
+                    .HasMaxLength(2000)
                     .IsUnicode(false)
                     .HasColumnName("PASSWORD");
 
                 entity.Property(e => e.Repassword)
-                    .HasMaxLength(50)
+                    .HasMaxLength(2000)
                     .IsUnicode(false)
                     .HasColumnName("REPASSWORD");
 
