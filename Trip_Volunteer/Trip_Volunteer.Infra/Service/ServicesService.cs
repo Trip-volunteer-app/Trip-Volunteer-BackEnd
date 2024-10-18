@@ -17,9 +17,9 @@ namespace Trip_Volunteer.Infra.Service
             _serviceRepository = serviceRepository;
         }
 
-        public void CreateService(decimal serviceCost, string serviceName)
+        public void CreateService(Core.Data.Service service)
         {
-             _serviceRepository.CreateService(serviceCost, serviceName);
+             _serviceRepository.CreateService(service);
         }
          
         public void DeleteService(int serviceId)

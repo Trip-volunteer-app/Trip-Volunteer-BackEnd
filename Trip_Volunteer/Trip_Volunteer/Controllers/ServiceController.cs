@@ -34,9 +34,9 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPost]
         [Route("CreateService")]
-        public void CreateService(decimal serviceCost, string serviceName)
+        public void CreateService(Core.Data.Service service)
         {
-            _servicesService.CreateService(serviceCost, serviceName);
+            _servicesService.CreateService(service);
         }
 
         [HttpPut]

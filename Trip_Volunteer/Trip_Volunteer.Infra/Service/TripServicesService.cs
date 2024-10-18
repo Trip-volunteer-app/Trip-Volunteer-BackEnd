@@ -18,9 +18,9 @@ namespace Trip_Volunteer.Infra.Service
             _tripServiceRepository = tripServiceRepository;
         }
 
-        public void CreateTripService(int serviceId, int tripId)
+        public void CreateTripService(TripService tripService)
         {
-            _tripServiceRepository.CreateTripService(serviceId, tripId);
+            _tripServiceRepository.CreateTripService(tripService);
         }
 
         public void DeleteTripService(int tripServiceId)
@@ -38,9 +38,9 @@ namespace Trip_Volunteer.Infra.Service
             return _tripServiceRepository.GetTripServiceById(tripServiceId);
         }
 
-        public void UpdateTripService(int tripServiceId, int serviceId, int tripId)
+        public void UpdateTripService(TripService tripService)
         {
-            _tripServiceRepository.UpdateTripService(tripServiceId, serviceId, tripId);
+            _tripServiceRepository.UpdateTripService(tripService);
         }
     }
 }

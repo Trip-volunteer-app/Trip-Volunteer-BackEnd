@@ -50,9 +50,9 @@ namespace Trip_Volunteer.API.Controllers
         }
         [HttpPost]
         [Route("Registers")]
-        public void Registers(string FirstName, string LastName, string Email, string Password, string RePassword)
+        public void Registers(string First_Name, string Last_Name, string Email, string Password, string RePassword)
         {
-            _userLoginService.Registers(FirstName, LastName, Email, Password, RePassword);
+            _userLoginService.Registers(First_Name, Last_Name, Email, Password, RePassword);
         }
         [HttpPost]
         [Route("Auth")]

@@ -16,6 +16,7 @@ namespace Trip_Volunteer.API.Controllers
         }
 
         [HttpGet]
+        [Route("GetAllTripServices")]
         public List<TripService> GetAllTripServices()
         {
             return _tripServicesService.GetAllTripServices();
@@ -29,15 +30,15 @@ namespace Trip_Volunteer.API.Controllers
         }
         [HttpPost]
         [Route("CreateTripService")]
-        public void CreateTripService(int serviceId, int tripId)
+        public void CreateTripService(TripService tripService)
         {
-            _tripServicesService.CreateTripService(serviceId, tripId);
+            _tripServicesService.CreateTripService(tripService);
         }
         [HttpPut]
         [Route("UpdateTripService")]
-        public void UpdateTripService(int tripServiceId, int serviceId, int tripId)
+        public void UpdateTripService(TripService tripService)
         {
-            _tripServicesService.UpdateTripService(tripServiceId, serviceId, tripId);
+            _tripServicesService.UpdateTripService(tripService);
         }
 
         [HttpDelete]

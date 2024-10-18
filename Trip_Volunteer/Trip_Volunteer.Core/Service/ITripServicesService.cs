@@ -11,8 +11,8 @@ namespace Trip_Volunteer.Core.Service
     {
         List<TripService> GetAllTripServices();
         TripService GetTripServiceById(int tripServiceId);
-        void CreateTripService(int serviceId, int tripId);
-        void UpdateTripService(int tripServiceId, int serviceId, int tripId);
+        void CreateTripService(TripService tripService);
+        void UpdateTripService(TripService tripService);
         void DeleteTripService(int tripServiceId);
     }
 }

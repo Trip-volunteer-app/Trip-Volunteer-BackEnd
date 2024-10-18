@@ -36,21 +36,21 @@ namespace Trip_Volunteer.Infra.Repository
             return result.SingleOrDefault();
         }
 
-        public void CreateTripService(int serviceId, int tripId)
+        public void CreateTripService(TripService tripService)
         {
             var p = new DynamicParameters();
-            p.Add("p_service_id", serviceId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("p_trip_id", tripId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("p_service_id", tripService.Service_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("p_trip_id", tripService.Trip_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
 
             _dbContext.Connection.Execute("trip_service_Package.CreateTripService",p, commandType: CommandType.StoredProcedure);
         }
 
-        public void UpdateTripService(int tripServiceId, int serviceId, int tripId)
+        public void UpdateTripService(TripService tripService)
         {
             var p = new DynamicParameters();
-            p.Add("p_trip_service_id", tripServiceId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("p_service_id", serviceId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("p_trip_id", tripId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("p_trip_service_id", tripService.Trip_Service_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("p_service_id", tripService.Service_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("p_trip_id", tripService.Trip_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
 
             _dbContext.Connection.Execute("trip_service_Package.UpdateTripService",p, commandType: CommandType.StoredProcedure);
           
