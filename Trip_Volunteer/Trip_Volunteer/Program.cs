@@ -58,6 +58,7 @@ internal class Program
         builder.Services.AddScoped<IMonthlyRepository, MonthlyRepository>();
         builder.Services.AddScoped<IAnnualRepository, AnnualRepository>();
         builder.Services.AddHttpClient<Location_ApiController>(); // Register the HttpClient for the controller
+        builder.Services.AddScoped<ITripVolunteerroleRepository, TripVolunteerroleRepository>();
 
 
         builder.Services.AddScoped<IBankService, BankService>();
@@ -84,6 +85,7 @@ internal class Program
         builder.Services.AddScoped<IAboutUsService, AboutUsService>();
         builder.Services.AddScoped<IMonthlyService, MonthlyService>();
         builder.Services.AddScoped<IAnnualService, AnnualService>();
+        builder.Services.AddScoped<ITripVolunteerroleService, TripVolunteerroleService>();
 
 
         builder.Services.AddAuthentication(opt =>

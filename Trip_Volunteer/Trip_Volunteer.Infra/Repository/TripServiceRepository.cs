@@ -39,6 +39,7 @@ namespace Trip_Volunteer.Infra.Repository
         public void CreateTripService(TripService tripService)
         {
             var p = new DynamicParameters();
+            p.Add("p_trip_service_id", tripService.Trip_Service_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("p_service_id", tripService.Service_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("p_trip_id", tripService.Trip_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
 
