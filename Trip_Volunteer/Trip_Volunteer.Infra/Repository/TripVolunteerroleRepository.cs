@@ -36,6 +36,7 @@ namespace Trip_Volunteer.Infra.Repository
         public void CREATEtrip_volunteerRoles(TripVolunteerrole tripVolunteerrole)
         {
             var p = new DynamicParameters();
+            p.Add("trip_volunteerRoles_id", tripVolunteerrole.Trip_Volunteerroles_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("trip_id", tripVolunteerrole.Trip_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("Volunteer_Role_ID", tripVolunteerrole.Volunteer_Role_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             
