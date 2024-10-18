@@ -58,8 +58,18 @@ namespace Trip_Volunteer.API.Controllers
             _websiteInformationService.Deletewebsite_information(id);
         }
 
+        [HttpPut]
+        [Route("UpdateSelectedWebsiteInfo")]
+        public void UpdateSelectedWebsiteInfo(int id)
+        {
+            _websiteInformationService.UpdateSelectedWebsiteInfo(id);
+        }
 
-
-
+        [HttpGet]
+        [Route("GetSelectedWebsiteInfo")]
+        public WebsiteInformation GetSelectedWebsiteInfo()
+        {
+            return _websiteInformationService.GetSelectedWebsiteInfo();
+        }
     }
 }

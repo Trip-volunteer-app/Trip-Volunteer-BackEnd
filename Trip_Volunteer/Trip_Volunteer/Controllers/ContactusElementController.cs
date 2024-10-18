@@ -61,6 +61,19 @@ namespace Trip_Volunteer.API.Controllers
             return item;
         }
 
+        [Route("UpdateSelectedElement")]
+        [HttpPut]
+        public void UpdateContactusElementSelectStatus(int id)
+        {
+            _contactusElementService.UpdateContactusElementSelectStatus(id);
+        }
+
+        [Route("GetSelectedElement")]
+        [HttpGet]
+        public ContactusElement GetSelectedContactusElement()
+        {
+            return _contactusElementService.GetSelectedContactusElement();
+        }
 
     }
 }

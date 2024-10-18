@@ -37,5 +37,13 @@ namespace Trip_Volunteer.Infra.Service
         {
             _contactusElementRepository.DeleteContactusElement(id);
         }
+        public void UpdateContactusElementSelectStatus(int id)
+        {
+            _contactusElementRepository.UpdateContactusElementSelectStatus(id);
+        }
+        public ContactusElement GetSelectedContactusElement()
+        {
+            return _contactusElementRepository.GetSelectedContactusElement();
+        }
     }
 }

@@ -1,11 +1,14 @@
-﻿using System;
+﻿using Dapper;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Trip_Volunteer.Core.Data;
 using Trip_Volunteer.Core.Repository;
 using Trip_Volunteer.Core.Service;
+using Trip_Volunteer.Infra.Repository;
 
 namespace Trip_Volunteer.Infra.Service
 {
@@ -45,6 +48,15 @@ namespace Trip_Volunteer.Infra.Service
         public void Deletewebsite_information(int Id)
         {
             _websiteInformationRepository.Deletewebsite_information(Id);
+        }
+
+        public void UpdateSelectedWebsiteInfo(int id)
+        {
+            _websiteInformationRepository.UpdateSelectedWebsiteInfo(id);
+        }
+        public WebsiteInformation GetSelectedWebsiteInfo()
+        {
+            return _websiteInformationRepository.GetSelectedWebsiteInfo();
         }
     }
 }

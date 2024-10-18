@@ -19,6 +19,8 @@ namespace Trip_Volunteer.Core.Service
         void UPDATEwebsite_information(WebsiteInformation websiteInformation);
 
         void Deletewebsite_information(int Id);
+        WebsiteInformation GetSelectedWebsiteInfo();
+        void UpdateSelectedWebsiteInfo(int id);
 
     }
 }
