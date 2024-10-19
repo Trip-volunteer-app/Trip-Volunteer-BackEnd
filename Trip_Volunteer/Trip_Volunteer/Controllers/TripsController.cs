@@ -75,6 +75,13 @@ namespace Trip_Volunteer.API.Controllers
             return Ok(numberOfTrips); // Return the total number of trips
         }
 
+        [HttpGet("trips/NumberOfFinishedTrips")]
+        public IActionResult NumberOfFinishedTrips()
+        {
+            int numberOfTrips = _tripsService.NumberOfFinishedTrips();
+            return Ok(numberOfTrips); // Return the total number of trips
+        }
+
 
         [HttpGet]
         [Route("TripsWithMaxReservations")]
