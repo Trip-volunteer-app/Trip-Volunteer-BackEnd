@@ -18,33 +18,37 @@ namespace Trip_Volunteer.Infra.Service
             _tripImageRepository = tripImageRepository;
         }
 
-        public List<TripImage> GetAlltrip_image()
+        public List<TripImage> GetAllTripImage()
         {
-            return _tripImageRepository.GetAlltrip_image();
+            return _tripImageRepository.GetAllTripImage();
         }
 
 
-        public TripImage Gettrip_imageById(int ID)
+        public TripImage GetTripImageById(int ID)
         {
-            return _tripImageRepository.Gettrip_imageById(ID);
+            return _tripImageRepository.GetTripImageById(ID);
 
+        }
+        public List<TripImage> GetTripImageByTripId(int id)
+        {
+            return _tripImageRepository.GetTripImageByTripId(id);
         }
 
 
-        public void CREATEtrip_image(TripImage tripImage)
+        public void CreateTripImage(TripImage tripImage)
         {
-            _tripImageRepository.CREATEtrip_image(tripImage);
+            _tripImageRepository.CreateTripImage(tripImage);
 
         }
 
-        public void UPDATEtrip_image(TripImage tripImage)
+        public void UpdateTripImage(TripImage tripImage)
         {
-            _tripImageRepository.UPDATEtrip_image(tripImage);
+            _tripImageRepository.UpdateTripImage(tripImage);
         }
 
-        public void Deletetrip_image(int Id)
+        public void DeleteTripImage(int Id)
         {
-            _tripImageRepository.Deletetrip_image(Id);
+            _tripImageRepository.DeleteTripImage(Id);
         }
 
 

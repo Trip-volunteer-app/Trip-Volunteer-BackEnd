@@ -19,44 +19,47 @@ namespace Trip_Volunteer.API.Controllers
 
 
         [HttpGet]
-        [Route("GetAlltrip_image")]
 
-        public List<TripImage> GetAlltrip_image()
+        public List<TripImage> GetAllTripImage()
         {
-            return _tripImageService.GetAlltrip_image();
+            return _tripImageService.GetAllTripImage();
         }
 
         [HttpGet]
-        [Route("Gettrip_imageById/{id}")]
-        public TripImage Gettrip_imageById(int id)
+        [Route("GetTripImageById")]
+        public TripImage GetTripImageById(int id)
         {
-            return _tripImageService.Gettrip_imageById(id);
+            return _tripImageService.GetTripImageById(id);
         }
 
-
-
-        [HttpPost]
-        [Route("CREATEtrip_image")]
-        public void CREATEtrip_image(TripImage tripImage)
+        [HttpGet]
+        [Route("GetTripImageByTripId/{id}")]
+        public List<TripImage> GetTripImageByTripId(int id)
         {
-            _tripImageService.CREATEtrip_image(tripImage);
+            return _tripImageService.GetTripImageByTripId(id);
+        }
+        [HttpPost]
+        [Route("CreateTripImage")]
+        public void CreateTripImage(TripImage tripImage)
+        {
+            _tripImageService.CreateTripImage(tripImage);
         }
 
 
         [HttpPut]
-        [Route("UPDATEtrip_image")]
+        [Route("UpdateTripImage")]
 
-        public void UPDATEtrip_image(TripImage tripImage)
+        public void UpdateTripImage(TripImage tripImage)
         {
-            _tripImageService.UPDATEtrip_image(tripImage);
+            _tripImageService.UpdateTripImage(tripImage);
         }
 
 
         [HttpDelete]
-        [Route("Deletetrip_image/{id}")]
-        public void Deletetrip_image(int id)
+        [Route("DeleteTripImage/{id}")]
+        public void DeleteTripImage(int id)
         {
-            _tripImageService.Deletetrip_image(id);
+            _tripImageService.DeleteTripImage(id);
         }
 
         [Route("uploadImage")]

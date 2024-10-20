@@ -1,4 +1,4 @@
-using Dapper;
+﻿using Dapper;
 using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections;
@@ -8,6 +8,7 @@ using Trip_Volunteer.Core.Common;
 using Trip_Volunteer.Core.Data;
 using Trip_Volunteer.Core.DTO;
 using Trip_Volunteer.Core.Repository;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 
 namespace Trip_Volunteer.Infra.Repository
@@ -21,13 +22,13 @@ namespace Trip_Volunteer.Infra.Repository
             _dbContext = dbContext;
         }
 
-        public List<Trip> GetAlltrips()
+        public List<Trip> GetAllTrips()
         {
             IEnumerable<Trip> result = _dbContext.Connection.Query<Trip>("trips_Package.GetAlltrips", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
 
-        public Trip GettripsById(int ID)
+        public Trip GetTripById(int ID)
         {
             var p = new DynamicParameters();
             p.Add("id", ID, dbType: DbType.Int32, direction: ParameterDirection.Input);
@@ -35,7 +36,7 @@ namespace Trip_Volunteer.Infra.Repository
             return result.FirstOrDefault();
         }
 
-        public void CREATEtrips(Trip trip)
+        public void CreateTrip(Trip trip)
         {
             var p = new DynamicParameters();
             p.Add("trip_id", trip.Trip_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
@@ -54,7 +55,7 @@ namespace Trip_Volunteer.Infra.Repository
 
         }
 
-        public void UPDATEtrips(Trip trip)
+        public void UpdateTrip(Trip trip)
         {
             var p = new DynamicParameters();
             p.Add("tripid", trip.Trip_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
@@ -72,7 +73,7 @@ namespace Trip_Volunteer.Infra.Repository
 
         }
 
-        public void Deletetrips(int Id)
+        public void DeleteTrip(int Id)
         {
             var p = new DynamicParameters();
             p.Add("Id", Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
@@ -80,7 +81,7 @@ namespace Trip_Volunteer.Infra.Repository
 
         }
 
-        public List<Trip> searchBetweendate(DateTime Start_Date, DateTime End_Date)
+        public List<Trip> SearchBetweenDate(DateTime Start_Date, DateTime End_Date)
         {
             var p = new DynamicParameters();
             p.Add("p_start_date", Start_Date, dbType: DbType.Date, direction: ParameterDirection.Input);
@@ -104,8 +105,9 @@ namespace Trip_Volunteer.Infra.Repository
 
         public List<TripInformationDTO> GetAllTripInformation()
         {
-            IEnumerable<TripInformationDTO> result = _dbContext.Connection.Query<TripInformationDTO>("trips_Package.GetAllTripInformation", commandType: CommandType.StoredProcedure);
-            return result.ToList();
+             IEnumerable<TripInformationDTO> result = _dbContext.Connection.Query<TripInformationDTO>("trips_Package.GetAllTripInformation", commandType: CommandType.StoredProcedure);
+             return result.ToList();
+
         }
         public TripInformationDTO GetAllTripInformationById(int Id)
         {
