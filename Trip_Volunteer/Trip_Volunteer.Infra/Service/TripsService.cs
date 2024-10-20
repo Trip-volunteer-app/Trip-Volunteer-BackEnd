@@ -20,38 +20,38 @@ namespace Trip_Volunteer.Infra.Service
             _tripsRepository = tripsRepository;
         }
 
-        public List<Trip> GetAlltrips()
+        public List<Trip> GetAllTrips()
         {
-            return _tripsRepository.GetAlltrips();
+            return _tripsRepository.GetAllTrips();
         }
 
 
-        public Trip GettripsById(int ID)
+        public Trip GetTripById(int ID)
         {
-            return _tripsRepository.GettripsById(ID);
+            return _tripsRepository.GetTripById(ID);
 
         }
 
 
-        public void CREATEtrips(Trip trip)
+        public void CreateTrip(Trip trip)
         {
-            _tripsRepository.CREATEtrips(trip);
+            _tripsRepository.CreateTrip(trip);
 
         }
 
-        public void UPDATEtrips(Trip trip)
+        public void UpdateTrip(Trip trip)
         {
-            _tripsRepository.UPDATEtrips(trip);
+            _tripsRepository.UpdateTrip(trip);
         }
 
-        public void Deletetrips(int Id)
+        public void DeleteTrip(int Id)
         {
-            _tripsRepository.Deletetrips(Id);
+            _tripsRepository.DeleteTrip(Id);
         }
 
-        public List<Trip> searchBetweendate(DateTime Start_Date, DateTime End_Date)
+        public List<Trip> SearchBetweenDate(DateTime Start_Date, DateTime End_Date)
         {
-            return _tripsRepository.searchBetweendate(Start_Date, End_Date);
+            return _tripsRepository.SearchBetweenDate(Start_Date, End_Date);
         }
         public int NumberOfTrips()
         {

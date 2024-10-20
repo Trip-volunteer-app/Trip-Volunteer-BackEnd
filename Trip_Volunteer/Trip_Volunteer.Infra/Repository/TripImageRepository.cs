@@ -20,13 +20,13 @@ namespace Trip_Volunteer.Infra.Repository
             _dbContext = dbContext;
         }
 
-        public List<TripImage> GetAlltrip_image()
+        public List<TripImage> GetAllTripImage()
         {
             IEnumerable<TripImage> result = _dbContext.Connection.Query<TripImage>("trip_image_Package.GetAlltrip_image", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
 
-        public TripImage Gettrip_imageById(int ID)
+        public TripImage GetTripImageById(int ID)
         {
             var p = new DynamicParameters();
             p.Add("id", ID, dbType: DbType.Int32, direction: ParameterDirection.Input);
@@ -34,7 +34,14 @@ namespace Trip_Volunteer.Infra.Repository
             return result.FirstOrDefault();
         }
 
-        public void CREATEtrip_image(TripImage tripImage)
+        public List<TripImage> GetTripImageByTripId(int id)
+        {
+            var p = new DynamicParameters();
+            p.Add("id", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            IEnumerable<TripImage> result = _dbContext.Connection.Query<TripImage>("trip_image_Package.GetTripImageByTripId",p, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+        public void CreateTripImage(TripImage tripImage)
         {
             var p = new DynamicParameters();
             p.Add("trip_image_id", tripImage.Trip_Image_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
@@ -46,7 +53,7 @@ namespace Trip_Volunteer.Infra.Repository
 
         }
 
-        public void UPDATEtrip_image(TripImage tripImage)
+        public void UpdateTripImage(TripImage tripImage)
         {
             var p = new DynamicParameters();
             p.Add("tripimageid", tripImage.Trip_Image_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
@@ -57,7 +64,7 @@ namespace Trip_Volunteer.Infra.Repository
 
         }
 
-        public void Deletetrip_image(int Id)
+        public void DeleteTripImage(int Id)
         {
             var p = new DynamicParameters();
             p.Add("Id", Id, dbType: DbType.Int32, direction: ParameterDirection.Input);

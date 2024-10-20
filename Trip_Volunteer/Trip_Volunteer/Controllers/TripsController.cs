@@ -20,51 +20,51 @@ namespace Trip_Volunteer.API.Controllers
 
 
         [HttpGet]
-        [Route("GetAlltrips")]
+        [Route("GetAllTrips")]
 
-        public List<Trip> GetAlltrips()
+        public List<Trip> GetAllTrips()
         {
-            return _tripsService.GetAlltrips();
+            return _tripsService.GetAllTrips();
         }
 
         [HttpGet]
-        [Route("GettripsById/{id}")]
-        public Trip GettripsById(int id)
+        [Route("GetTripById/{id}")]
+        public Trip GetTripById(int id)
         {
-            return _tripsService.GettripsById(id);
+            return _tripsService.GetTripById(id);
         }
 
 
 
         [HttpPost]
-        [Route("CREATEtrips")]
-        public void CREATEtrips(Trip trip)
+        [Route("CreateTrip")]
+        public void CreateTrip(Trip trip)
         {
-            _tripsService.CREATEtrips(trip);
+            _tripsService.CreateTrip(trip);
         }
 
 
         [HttpPut]
-        [Route("UPDATEtrips")]
+        [Route("UpdateTrip")]
 
-        public void UPDATEtrips(Trip trip)
+        public void UpdateTrip(Trip trip)
         {
-            _tripsService.UPDATEtrips(trip);
+            _tripsService.UpdateTrip(trip);
         }
 
 
         [HttpDelete]
-        [Route("Deletetrips/{id}")]
-        public void Deletetrips(int id)
+        [Route("DeleteTrip/{id}")]
+        public void DeleteTrip(int id)
         {
-            _tripsService.Deletetrips(id);
+            _tripsService.DeleteTrip(id);
         }
 
         [HttpGet]
-        [Route("searchBetweendate/{Start_Date}/{End_Date}")]
-        public List<Trip> searchBetweendate(DateTime Start_Date,DateTime End_Date)
+        [Route("SearchBetweenDate")]
+        public List<Trip> SearchBetweenDate(DateTime Start_Date,DateTime End_Date)
         {
-            return _tripsService.searchBetweendate(Start_Date, End_Date);
+            return _tripsService.SearchBetweenDate(Start_Date, End_Date);
         }
 
 

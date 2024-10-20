@@ -11,16 +11,16 @@ namespace Trip_Volunteer.Core.Repository
 {
     public interface ITripsRepository
     {
-         List<Trip> GetAlltrips();
-         Trip GettripsById(int ID);
+         List<Trip> GetAllTrips();
+         Trip GetTripById(int ID);
 
-         void CREATEtrips(Trip trip);
+         void CreateTrip(Trip trip);
 
-         void UPDATEtrips(Trip trip);
+         void UpdateTrip(Trip trip);
 
-         void Deletetrips(int Id);
+         void DeleteTrip(int Id);
 
-        List<Trip> searchBetweendate(DateTime Start_Date, DateTime End_Date);
+        List<Trip> SearchBetweenDate(DateTime Start_Date, DateTime End_Date);
 
         int NumberOfTrips();
 

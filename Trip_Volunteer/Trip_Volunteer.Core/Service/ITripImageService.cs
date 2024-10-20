@@ -9,14 +9,15 @@ namespace Trip_Volunteer.Core.Service
 {
     public interface ITripImageService
     {
-        List<TripImage> GetAlltrip_image();
+        List<TripImage> GetAllTripImage();
 
-        TripImage Gettrip_imageById(int ID);
+        TripImage GetTripImageById(int ID);
 
-        void CREATEtrip_image(TripImage tripImage);
+        List<TripImage> GetTripImageByTripId(int id);
+        void CreateTripImage(TripImage tripImage);
 
-        void UPDATEtrip_image(TripImage tripImage);
+        void UpdateTripImage(TripImage tripImage);
 
-        void Deletetrip_image(int Id);
+        void DeleteTripImage(int Id);
     }
 }
