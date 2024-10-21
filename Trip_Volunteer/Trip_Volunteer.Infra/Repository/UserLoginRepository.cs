@@ -76,11 +76,11 @@ namespace Trip_Volunteer.Infra.Repository
                 throw new ArgumentException("Passwords do not match.");
             }
             var p = new DynamicParameters();
-            p.Add("First_Name", FirstName, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("Last_Name", LastName, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("EMAIL", Email, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("PASSWORD", hashedPassword, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("REPASSWORD", hashedRePassword, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("P_FirstName", FirstName, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("P_LastName", LastName, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("P_Email", Email, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("P_Password", hashedPassword, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("P_RePassword", hashedRePassword, dbType: DbType.String, direction: ParameterDirection.Input);
             _dbContext.Connection.Execute("User_Login_Package.Registers", p, commandType: CommandType.StoredProcedure);
         }
 
