@@ -54,12 +54,12 @@ namespace Trip_Volunteer.Infra.Service
             else
             {
                 var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("SuperSecretKey@ApiCourse123456"));
-                var signinCredentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
+                var signinCredentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256Signature);
                 var claims = new List<Claim>
         {
             new Claim(ClaimTypes.Email, result.Email),
-            new Claim(ClaimTypes.UserData, result.Login_Id.ToString()),
-            new Claim(ClaimTypes.Role, result.Role_Id.ToString())
+            new Claim("loginid", result.Login_Id.ToString()),
+            new Claim("Roleid", result.Role_Id.ToString())
         };
                 var tokeOptions = new JwtSecurityToken(
                     claims: claims,

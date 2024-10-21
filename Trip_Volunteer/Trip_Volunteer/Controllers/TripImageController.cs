@@ -19,7 +19,6 @@ namespace Trip_Volunteer.API.Controllers
 
 
         [HttpGet]
-
         public List<TripImage> GetAllTripImage()
         {
             return _tripImageService.GetAllTripImage();
@@ -68,7 +67,7 @@ namespace Trip_Volunteer.API.Controllers
         {
             var file = Request.Form.Files[0];
             var fileName = Guid.NewGuid().ToString() + "_" + file.FileName;
-            var fullPath = Path.Combine("Images", fileName);
+            var fullPath = Path.Combine("D:\\github\\Trip-Volunteer\\Trip-Volunteer-Frontend\\src\\assets\\images", fileName);
             using (var stream = new FileStream(fullPath, FileMode.Create))
             {
                 file.CopyTo(stream);
