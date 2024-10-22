@@ -10,11 +10,12 @@ namespace Trip_Volunteer.API.Controllers
     public class TripImageController : ControllerBase
     {
 
-
+        private readonly IConfiguration _configuration;
         private readonly ITripImageService _tripImageService;
-        public TripImageController(ITripImageService tripImageService)
+        public TripImageController(ITripImageService tripImageService, IConfiguration configuration)
         {
             _tripImageService = tripImageService;
+            _configuration = configuration;
         }
 
 
@@ -67,7 +68,7 @@ namespace Trip_Volunteer.API.Controllers
         {
             var file = Request.Form.Files[0];
             var fileName = Guid.NewGuid().ToString() + "_" + file.FileName;
-            var fullPath = Path.Combine("D:\\github\\Trip-Volunteer\\Trip-Volunteer-Frontend\\src\\assets\\images", fileName);
+            var fullPath = Path.Combine(_configuration["AppSettings:UploadImage"], fileName);
             using (var stream = new FileStream(fullPath, FileMode.Create))
             {
                 file.CopyTo(stream);
