@@ -14,5 +14,6 @@ namespace Trip_Volunteer.Core.Service
         void CreateTestimony(Testimonial testimonial);
         void UpdateTestimony(Testimonial testimonial);
         void DeleteTestimony(int id);
+        Task<Dictionary<string, int>> GetStatusDistributionAsync();
     }
 }

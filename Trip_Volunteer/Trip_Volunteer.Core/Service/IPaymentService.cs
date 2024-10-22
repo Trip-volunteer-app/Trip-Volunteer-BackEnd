@@ -14,5 +14,6 @@ namespace Trip_Volunteer.Core.Service
         void CreatePayment(Payment payment);
         void UpdatePayment(Payment payment);
         void DeletePayment(int id);
+        int TotalNumberOfPayments();
     }
 }

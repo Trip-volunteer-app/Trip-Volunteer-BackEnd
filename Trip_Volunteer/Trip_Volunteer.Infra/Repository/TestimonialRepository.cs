@@ -66,5 +66,8 @@ namespace Trip_Volunteer.Infra.Repository
             p.Add("T_Id", id, DbType.Int32, direction: ParameterDirection.Input);
             _dbContext.Connection.Execute("Testimonial_Package.DeleteTestimony", p, commandType: CommandType.StoredProcedure);
         }
+
+
+
     }
 }

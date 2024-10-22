@@ -62,5 +62,12 @@ namespace Trip_Volunteer.Infra.Repository
             p.Add("Pay_Id", id, DbType.Int32, direction: ParameterDirection.Input);
             _dbContext.Connection.Execute("Payments_Package.DeletePayment", p, commandType: CommandType.StoredProcedure);
         }
+
+        public int TotalNumberOfPayments()
+        {
+            var result = _dbContext.Connection.QuerySingleOrDefault<int>("Payments_Package.TotalNumberOfPayments", commandType: CommandType.StoredProcedure);
+
+            return result;
+        }
     }
 }
