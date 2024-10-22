@@ -37,12 +37,12 @@ namespace Trip_Volunteer.Infra.Repository
         public void CREATEwebsite_information(WebsiteInformation websiteInformation)
         {
             var p = new DynamicParameters();
-            p.Add("website_id", websiteInformation.Website_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("email", websiteInformation.Email, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("Phone_number", websiteInformation.Phone_Number, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("adress", websiteInformation.Adress, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("phone_number", websiteInformation.Phone_Number, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("address", websiteInformation.Adress, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("open_time", websiteInformation.Open_Time, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("closing_time", websiteInformation.Closing_Time, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("website_link", websiteInformation.Closing_Time, dbType: DbType.String, direction: ParameterDirection.Input);
 
             var result = _dbContext.Connection.Execute("website_information_Package.CREATEwebsite_information", p, commandType: CommandType.StoredProcedure);
 
@@ -76,6 +76,7 @@ namespace Trip_Volunteer.Infra.Repository
             var result = _dbContext.Connection.Query<WebsiteInformation>("website_information_Package.GetSelectedWebsiteInfo", commandType: CommandType.StoredProcedure);
             return result.SingleOrDefault();
         }
+
         public void UpdateSelectedWebsiteInfo(int id)
         {
             var p = new DynamicParameters();

@@ -14,5 +14,7 @@ namespace Trip_Volunteer.Core.Service
         void CreateAboutUsElements(Aboutu aboutus);
         void UpdateAboutUsElements(Aboutu aboutus);
         void DeleteAboutUsElements(int id);
+        Aboutu GetSelectedAboutus();
+        void UpdateSelectedAboutus(int id);
     }
 }

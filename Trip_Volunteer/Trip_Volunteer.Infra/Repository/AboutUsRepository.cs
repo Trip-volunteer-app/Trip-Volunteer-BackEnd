@@ -75,5 +75,18 @@ namespace Trip_Volunteer.Infra.Repository
             p.Add("AboutUs_Id", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             _dbContext.Connection.Execute("Aboutus_Package.DeleteAboutUsElements", p, commandType: CommandType.StoredProcedure);
         }
+
+        public Aboutu GetSelectedAboutus()
+        {
+            var result = _dbContext.Connection.Query<Aboutu>("Aboutus_Package.GetSelectedAboutus", commandType: CommandType.StoredProcedure);
+            return result.SingleOrDefault();
+        }
+
+        public void UpdateSelectedAboutus(int id)
+        {
+            var p = new DynamicParameters();
+            p.Add("AboutUs_Id", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            _dbContext.Connection.Execute("Aboutus_Package.UpdateSelectedAboutus", p, commandType: CommandType.StoredProcedure);
+        }
     }
 }
