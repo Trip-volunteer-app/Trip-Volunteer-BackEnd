@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Dapper;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,6 +39,15 @@ namespace Trip_Volunteer.Infra.Service
         public void DeleteAboutUsElements(int id)
         {
             _aboutUsRepository.DeleteAboutUsElements(id);
+        }
+        public Aboutu GetSelectedAboutus()
+        {
+            return _aboutUsRepository.GetSelectedAboutus();
+
+        }
+        public void UpdateSelectedAboutus(int id)
+        {
+            _aboutUsRepository.UpdateSelectedAboutus(id);
         }
     }
 }

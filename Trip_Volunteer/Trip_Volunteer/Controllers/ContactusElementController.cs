@@ -10,9 +10,12 @@ namespace Trip_Volunteer.API.Controllers
     public class ContactusElementController : ControllerBase
     {
         private readonly IContactusElementService _contactusElementService;
-        public ContactusElementController(IContactusElementService contactusElementService)
+        private readonly IConfiguration _configuration;
+
+        public ContactusElementController(IContactusElementService contactusElementService, IConfiguration configuration)
         {
             _contactusElementService = contactusElementService;
+            _configuration = configuration;
         }
         [HttpGet]
         public List<ContactusElement> GetAllContactusElements()
@@ -51,13 +54,29 @@ namespace Trip_Volunteer.API.Controllers
         {
             var file = Request.Form.Files[0];
             var fileName = Guid.NewGuid().ToString() + "_" + file.FileName;
-            var fullPath = Path.Combine("Images", fileName);
+            var fullPath = Path.Combine(_configuration["AppSettings:UploadImage"], fileName);
             using (var stream = new FileStream(fullPath, FileMode.Create))
             {
                 file.CopyTo(stream);
             }
             ContactusElement item = new ContactusElement();
             item.Image1 = fileName;
+            return item;
+        }
+
+        [Route("uploadImage2")]
+        [HttpPost]
+        public ContactusElement UploadImage2()
+        {
+            var file = Request.Form.Files[0];
+            var fileName = Guid.NewGuid().ToString() + "_" + file.FileName;
+            var fullPath = Path.Combine(_configuration["AppSettings:UploadImage"], fileName);
+            using (var stream = new FileStream(fullPath, FileMode.Create))
+            {
+                file.CopyTo(stream);
+            }
+            ContactusElement item = new ContactusElement();
+            item.Hero_Img = fileName;
             return item;
         }
 
