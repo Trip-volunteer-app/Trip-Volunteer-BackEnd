@@ -36,5 +36,18 @@ namespace Trip_Volunteer.Infra.Service
         {
             _testimonialRepository.DeleteTestimony(id);
         }
+
+
+        public async Task<Dictionary<string, int>> GetStatusDistributionAsync()
+        {
+            var testimonials =  _testimonialRepository.GetAllTestimonies();
+
+            // Count the number of testimonials by status
+            var statusDistribution = testimonials
+                .GroupBy(t => t.Status)
+                .ToDictionary(g => g.Key ?? "Unknown", g => g.Count());
+
+            return statusDistribution;
+        }
     }
 }

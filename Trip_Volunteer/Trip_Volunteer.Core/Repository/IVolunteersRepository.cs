@@ -18,5 +18,6 @@ namespace Trip_Volunteer.Core.Repository
         void UpdateVolunteerStatus(int id, string status);
         List<VolunteerSearchDto> SearchVolunteers(VolunteerSearchDto searchCriteria);
         List<Trip> GetTripsForVolunteerByName(string firstName, string lastName);
+        int TotalNumberOfVolunteer();
     }
 }

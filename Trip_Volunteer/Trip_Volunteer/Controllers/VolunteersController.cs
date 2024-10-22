@@ -5,6 +5,7 @@ using System.Net;
 using Trip_Volunteer.Core.Data;
 using Trip_Volunteer.Core.DTO;
 using Trip_Volunteer.Core.Service;
+using Trip_Volunteer.Infra.Service;
 
 namespace Trip_Volunteer.API.Controllers
 {
@@ -110,6 +111,14 @@ namespace Trip_Volunteer.API.Controllers
             {
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
+            
+        }
+
+        [HttpGet("TotalNumberOfVolunteer")]
+        public IActionResult TotalNumberOfVolunteer()
+        {
+            int numberOfTrips = _volunteersService.TotalNumberOfVolunteer();
+            return Ok(numberOfTrips);
         }
     }
 

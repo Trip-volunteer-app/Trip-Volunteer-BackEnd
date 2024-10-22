@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Trip_Volunteer.Core.Data;
 using Trip_Volunteer.Core.Repository;
 using Trip_Volunteer.Core.Service;
+using Trip_Volunteer.Infra.Repository;
 
 namespace Trip_Volunteer.Infra.Service
 {
@@ -36,6 +37,12 @@ namespace Trip_Volunteer.Infra.Service
         public void DeletePayment(int id)
         {
              _paymentRepository.DeletePayment(id);
+        }
+
+        public int TotalNumberOfPayments() 
+        {
+            var result = _paymentRepository.TotalNumberOfPayments();
+            return result;
         }
     }
 }

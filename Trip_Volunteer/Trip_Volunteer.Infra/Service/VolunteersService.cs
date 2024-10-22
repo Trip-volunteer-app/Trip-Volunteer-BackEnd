@@ -7,6 +7,7 @@ using Trip_Volunteer.Core.Data;
 using Trip_Volunteer.Core.DTO;
 using Trip_Volunteer.Core.Repository;
 using Trip_Volunteer.Core.Service;
+using Trip_Volunteer.Infra.Repository;
 
 namespace Trip_Volunteer.Infra.Service
 {
@@ -49,5 +50,13 @@ namespace Trip_Volunteer.Infra.Service
         {
             return _volunteersRepository.GetTripsForVolunteerByName(firstName, lastName);
         }
+
+        public int TotalNumberOfVolunteer()
+        {
+            var result = _volunteersRepository.TotalNumberOfVolunteer();
+            return result;
+        }
+
+        
     }
 }

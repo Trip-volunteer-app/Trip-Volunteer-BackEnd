@@ -109,5 +109,14 @@ namespace Trip_Volunteer.Infra.Repository
 
             return result.ToList();
         }
+
+
+        public int TotalNumberOfVolunteer()
+        {
+
+            var result = _dbContext.Connection.QuerySingleOrDefault<int>("volunteers_package.TotalNumberOfVolunteer", commandType: CommandType.StoredProcedure);
+
+            return result;
+        }
     }
 }

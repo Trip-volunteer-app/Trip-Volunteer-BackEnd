@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Trip_Volunteer.Core.Data;
 using Trip_Volunteer.Core.Service;
+using System.Linq;
+
 
 namespace Trip_Volunteer.API.Controllers
 {
@@ -50,5 +52,18 @@ namespace Trip_Volunteer.API.Controllers
             _testimonialService.DeleteTestimony(id);
         }
 
+
+        [HttpGet("StatusDistribution")]
+        public async Task<IActionResult> GetStatusDistribution()
+        {
+            var distribution = await _testimonialService.GetStatusDistributionAsync();
+            return Ok(distribution);
+        }
+
+
     }
 }
+
+
+
+

@@ -72,14 +72,14 @@ namespace Trip_Volunteer.API.Controllers
         public IActionResult GetNumberOfTrips()
         {
             int numberOfTrips = _tripsService.NumberOfTrips();
-            return Ok(numberOfTrips); // Return the total number of trips
+            return Ok(numberOfTrips); 
         }
 
         [HttpGet("trips/NumberOfFinishedTrips")]
         public IActionResult NumberOfFinishedTrips()
         {
             int numberOfTrips = _tripsService.NumberOfFinishedTrips();
-            return Ok(numberOfTrips); // Return the total number of trips
+            return Ok(numberOfTrips); 
         }
 
 

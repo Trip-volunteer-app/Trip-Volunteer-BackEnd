@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Data;
 using Trip_Volunteer.Core.Data;
 using Trip_Volunteer.Core.Service;
+using Trip_Volunteer.Infra.Service;
 
 namespace Trip_Volunteer.API.Controllers
 {
@@ -50,5 +51,15 @@ namespace Trip_Volunteer.API.Controllers
         {
             _paymentService.DeletePayment(id);
         }
+
+
+        [HttpGet("TotalNumberOfPayments")]
+        public IActionResult TotalNumberOfPayments()
+        {
+            int numberOfpayment = _paymentService.TotalNumberOfPayments();
+            return Ok(numberOfpayment);
+        }
+
+
     }
 }
