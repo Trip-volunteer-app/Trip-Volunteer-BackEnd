@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using Trip_Volunteer.Core.Data;
 using Trip_Volunteer.Core.DTO;
+using Trip_Volunteer.Core.Repository;
+using Trip_Volunteer.Core.Service;
 
 namespace Trip_Volunteer.Core.Service
 {
@@ -22,6 +25,11 @@ namespace Trip_Volunteer.Core.Service
         List<UserInformationDto> GetUserinfoByEmail(string email);
         List<UserInformationDto> GetUserinfoByPhone(string Phone);
         List<UserInformationDto> GetUserinfoByName(string F_Name, string L_Name);
-        object GetTemporaryUserByEmail(string email);
     }
 }
+
+
+
+
+
+
