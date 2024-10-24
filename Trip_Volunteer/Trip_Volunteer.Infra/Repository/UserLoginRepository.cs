@@ -66,12 +66,16 @@ namespace Trip_Volunteer.Infra.Repository
             p.Add("Id", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             _dbContext.Connection.Execute("User_Login_Package.DeleteUserLogin", p, commandType: CommandType.StoredProcedure);
         }
-        public void Registers(string FirstName, string LastName, string Email, string Password, string RePassword)
+        public void Registers(string FirstName, string LastName, string Email, string Password, string RePassword, string PHONE_NUMBER, string ADDRESS)
         {
          
             string hashedPassword = HashPassword(Password);
             string hashedRePassword = HashPassword(RePassword);
-           if (hashedPassword != hashedRePassword)
+
+
+
+
+            if (hashedPassword != hashedRePassword)
             {
                 throw new ArgumentException("Passwords do not match.");
             }
@@ -81,9 +85,12 @@ namespace Trip_Volunteer.Infra.Repository
             p.Add("P_Email", Email, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("P_Password", hashedPassword, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("P_RePassword", hashedRePassword, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("PHONE_NUMBER", PHONE_NUMBER, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("ADDRESS", ADDRESS, dbType: DbType.String, direction: ParameterDirection.Input);
+
             _dbContext.Connection.Execute("User_Login_Package.Registers", p, commandType: CommandType.StoredProcedure);
         }
-
+        
         public UserLogin Auth(UserLogin userLogin)
         {
             string hashedPassword = HashPassword(userLogin.Password);
