@@ -59,11 +59,11 @@ namespace Trip_Volunteer.Infra.Service
             return result;
         }
 
-        public int NumberOfFinishedTrips()
-        {
-            var result = _tripsRepository.NumberOfFinishedTrips();
-            return result;
-        }
+        //public int NumberOfFinishedTrips()
+        //{
+        //    var result = _tripsRepository.NumberOfFinishedTrips();
+        //    return result;
+        //}
         
 
         public List<Trip> TripsWithMaxReservations()

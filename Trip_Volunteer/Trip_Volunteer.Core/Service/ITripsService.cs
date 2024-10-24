@@ -23,7 +23,7 @@ namespace Trip_Volunteer.Core.Service
       
         int NumberOfTrips();
 
-        int NumberOfFinishedTrips();
+        //int NumberOfFinishedTrips();
 
         List<Trip> TripsWithMaxReservations();
         List<TripInformationDTO> GetAllTripInformation();

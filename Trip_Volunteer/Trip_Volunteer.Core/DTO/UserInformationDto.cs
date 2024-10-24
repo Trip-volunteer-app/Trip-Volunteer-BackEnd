@@ -25,3 +25,5 @@ namespace Trip_Volunteer.Core.DTO
         public string Role_Name { get; set; } = null!;
     }
 }
+
+
