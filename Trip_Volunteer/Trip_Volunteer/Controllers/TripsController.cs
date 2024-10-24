@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Configuration;
 using Trip_Volunteer.Core.Data;
 using Trip_Volunteer.Core.DTO;
 using Trip_Volunteer.Core.Repository;
@@ -11,11 +12,14 @@ namespace Trip_Volunteer.API.Controllers
     [ApiController]
     public class TripsController : ControllerBase
     {
+        private readonly IConfiguration _configuration;
 
         private readonly ITripsService _tripsService;
-        public TripsController(ITripsService tripsService)
+        public TripsController(ITripsService tripsService, IConfiguration configuration)
         {
             _tripsService = tripsService;
+            _configuration = configuration;
+
         }
 
 
@@ -38,7 +42,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPost]
         [Route("CreateTrip")]
-        public void CreateTrip(Trip trip)
+        public void CreateTrip(TripsDto trip)
         {
             _tripsService.CreateTrip(trip);
         }
@@ -114,5 +118,7 @@ namespace Trip_Volunteer.API.Controllers
         {
             return _tripsService.GetTripUsersById(Id);
         }
+
+   
     }
 }

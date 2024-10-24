@@ -14,7 +14,7 @@ namespace Trip_Volunteer.Core.Repository
          List<Trip> GetAllTrips();
          Trip GetTripById(int ID);
 
-         void CreateTrip(Trip trip);
+         void CreateTrip(TripsDto trip);
 
          void UpdateTrip(Trip trip);
 

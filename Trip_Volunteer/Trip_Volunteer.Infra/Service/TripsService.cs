@@ -33,7 +33,7 @@ namespace Trip_Volunteer.Infra.Service
         }
 
 
-        public void CreateTrip(Trip trip)
+        public void CreateTrip(TripsDto trip)
         {
             _tripsRepository.CreateTrip(trip);
 

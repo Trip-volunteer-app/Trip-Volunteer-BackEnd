@@ -13,7 +13,7 @@ namespace Trip_Volunteer.Core.Service
         List<Trip> GetAllTrips();
         Trip GetTripById(int ID);
 
-        void CreateTrip(Trip trip);
+        void CreateTrip(TripsDto trip);
 
         void UpdateTrip(Trip trip);
 
