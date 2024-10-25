@@ -98,6 +98,25 @@ namespace Trip_Volunteer.Core.Data
                    .IsUnicode(false)
                    .HasColumnName("IMAGE4");
 
+                //entity.Property(e => e.Image4)
+                //    .HasMaxLength(600)
+                //    .IsUnicode(false)
+                //    .HasColumnName("IMAGE5");
+
+                //entity.Property(e => e.Image4)
+                //    .HasMaxLength(600)
+                //    .IsUnicode(false)
+                //    .HasColumnName("IMAGE6");
+
+                //entity.Property(e => e.Image4)
+                //    .HasMaxLength(600)
+                //    .IsUnicode(false)
+                //    .HasColumnName("IMAGE7");
+
+                //entity.Property(e => e.Image4)
+                //    .HasMaxLength(600)
+                //    .IsUnicode(false)
+                //    .HasColumnName("IMAGE8");
 
                 entity.Property(e => e.Text7)
                     .HasMaxLength(4000)
@@ -321,10 +340,20 @@ namespace Trip_Volunteer.Core.Data
                     .IsUnicode(false)
                     .HasColumnName("TEXT1");
 
+                entity.Property(e => e.Header)
+                    .HasMaxLength(500)
+                    .IsUnicode(false)
+                    .HasColumnName("HEADER");
+
                 entity.Property(e => e.Title)
                     .HasMaxLength(600)
                     .IsUnicode(false)
                     .HasColumnName("TITLE");
+
+                entity.Property(e => e.Selected)
+                    .HasColumnType("NUMBER")
+                    .IsUnicode(false)
+                    .HasColumnName("SELECTED");
             });
 
             modelBuilder.Entity<Location>(entity =>
