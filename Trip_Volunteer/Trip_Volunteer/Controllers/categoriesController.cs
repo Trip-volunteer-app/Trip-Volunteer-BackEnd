@@ -20,7 +20,6 @@ namespace Trip_Volunteer.API.Controllers
         
         [HttpGet]
         [Route("GetAllcategories")]
-
         public List<Category> GetAllcategories()
         {
             return _categoriesService.GetAllcategories();
@@ -37,6 +36,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPost]
         [Route("CREATEcategories")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public void CREATEcategories(Category category)
         {
             _categoriesService.CREATEcategories(category);
@@ -45,6 +45,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPut]
         [Route("UPDATEcategories")]
+        [CheckClaimsAttribute("Roleid", "1")]
 
         public void UPDATEcategories(Category category)
         {
@@ -54,6 +55,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpDelete]
         [Route("Deletecategories/{id}")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public void Deletecategories(int id)
         {
             _categoriesService.Deletecategories(id);

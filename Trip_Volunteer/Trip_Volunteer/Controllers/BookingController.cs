@@ -18,7 +18,9 @@ namespace Trip_Volunteer.API.Controllers
         {
             _bookingService = bookingService;
         }
+
         [HttpGet]
+        [CheckClaimsAttribute("Roleid", "1")]
         public List<Booking> GetAllBookings()
         {
           return  _bookingService.GetAllBookings();
@@ -26,6 +28,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpGet]
         [Route("GetBookingById/{bookingId}")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public Booking GetBookingById(int bookingId)
         {
            return _bookingService.GetBookingById(bookingId);
@@ -33,6 +36,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPost]
         [Route("CreateBooking")]
+        [CheckClaimsAttribute("Roleid", "1","2")]
         public void CreateBooking(int tripId, int loginId, decimal totalAmount)
         {
             _bookingService.CreateBooking(tripId, loginId, totalAmount);
@@ -40,6 +44,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPut]
         [Route("UpdateBooking")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public void UpdateBooking(int bookingId, string paymentStatus, int tripId, int loginId, decimal totalAmount)
         {
             _bookingService.UpdateBooking(bookingId, paymentStatus, tripId, loginId, totalAmount);
@@ -47,6 +52,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpDelete]
         [Route("DeleteBooking/{bookingId}")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public void DeleteBooking(int bookingId)
         {
 

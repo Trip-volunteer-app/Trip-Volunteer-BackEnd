@@ -17,31 +17,44 @@ namespace Trip_Volunteer.API.Controllers
             _contactusElementService = contactusElementService;
             _configuration = configuration;
         }
+
+
         [HttpGet]
         public List<ContactusElement> GetAllContactusElements()
         {
             return _contactusElementService.GetAllContactusElements();
         }
+
+
         [HttpGet]
         [Route("GetContactusElementById")]
         public ContactusElement GetContactusElementById(int id)
         {
             return _contactusElementService.GetContactusElementById(id);
         }
+
+
         [HttpPost]
         [Route("CreateContactusElement")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public void CreateContactusElement(ContactusElement contactusElement)
         {
             _contactusElementService.CreateContactusElement(contactusElement);
         }
+
+
         [HttpPut]
         [Route("UpdateContactusElement")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public void UpdateContactusElement(ContactusElement contactusElement)
         {
             _contactusElementService.UpdateContactusElement(contactusElement);
         }
+
+
         [HttpDelete]
         [Route("DeleteContactusElement")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public void DeleteContactusElement(int id)
         {
             _contactusElementService.DeleteContactusElement(id);
@@ -50,6 +63,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [Route("uploadImage")]
         [HttpPost]
+        [CheckClaimsAttribute("Roleid", "1")]
         public ContactusElement UploadImage()
         {
             var file = Request.Form.Files[0];
@@ -64,8 +78,10 @@ namespace Trip_Volunteer.API.Controllers
             return item;
         }
 
-        [Route("uploadImage2")]
+        
         [HttpPost]
+        [Route("uploadImage2")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public ContactusElement UploadImage2()
         {
             var file = Request.Form.Files[0];
@@ -80,15 +96,19 @@ namespace Trip_Volunteer.API.Controllers
             return item;
         }
 
-        [Route("UpdateSelectedElement")]
+        
         [HttpPut]
+        [Route("UpdateSelectedElement")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public void UpdateContactusElementSelectStatus(int id)
         {
             _contactusElementService.UpdateContactusElementSelectStatus(id);
         }
 
-        [Route("GetSelectedElement")]
+        
         [HttpGet]
+        [Route("GetSelectedElement")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public ContactusElement GetSelectedContactusElement()
         {
             return _contactusElementService.GetSelectedContactusElement();

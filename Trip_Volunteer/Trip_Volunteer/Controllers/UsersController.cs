@@ -16,34 +16,46 @@ namespace Trip_Volunteer.API.Controllers
         {
             _userService = userService;
         }
+
+
         [HttpGet]
+        [CheckClaimsAttribute("Roleid", "1")]
         public List<User> GetAllUsers()
         {
             return _userService.GetAllUsers();
         }
+
+
         [HttpGet]
         [Route("GetUsersById")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public User GetUsersById(int id)
         {
             return _userService.GetUsersById(id);
         }
+
+
         [HttpPost]
         [Route("CreateUsers")]
-
+        [CheckClaimsAttribute("Roleid", "1")]
         public void CreateUsers(User user)
         {
             _userService.CreateUsers(user);
         }
+
+
         [HttpPut]
         [Route("UpdateUsers")]
-
+        [CheckClaimsAttribute("Roleid", "1", "2")]
         public void UpdateUsers(User user)
         {
             _userService.UpdateUsers(user);
         }
+
+
         [HttpDelete]
         [Route("DeleteUsers")]
-
+        [CheckClaimsAttribute("Roleid", "1")]
         public void DeleteUsers(int id)
         {
             _userService.DeleteUsers(id);
@@ -51,14 +63,17 @@ namespace Trip_Volunteer.API.Controllers
 
 
         [HttpGet("trips/NumberOfRegisteredUsers")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public IActionResult NumberOfRegisteredUsers()
         {
             int numberOfTrips = _userService.NumberOfRegisteredUsers();
             return Ok(numberOfTrips); 
         }
 
-        [Route("uploadImage")]
+        
         [HttpPost]
+        [Route("uploadImage")]
+        [CheckClaimsAttribute("Roleid", "1", "2")]
         public User UploadImage()
         {
             var file = Request.Form.Files[0];
