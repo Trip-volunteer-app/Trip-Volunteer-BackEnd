@@ -17,7 +17,10 @@ namespace Trip_Volunteer.API.Controllers
         {
             _contactUsService = contactUsService;
         }
+
+
         [HttpGet]
+        [CheckClaimsAttribute("Roleid", "1")]
         public List<ContactU> GetAllContacts()
         {
           return _contactUsService.GetAllContacts();
@@ -26,6 +29,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpGet]
         [Route("GetContactById/{contactId}")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public ContactU GetContactById(int contactId)
         {
            return _contactUsService.GetContactById(contactId);
@@ -33,6 +37,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPost]
         [Route("CreateContact")]
+        [CheckClaimsAttribute("Roleid", "2")]
         public void CreateContact(ContactU contact)
         {
             _contactUsService.CreateContact(contact);
@@ -47,6 +52,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpDelete]
         [Route("DeleteContact/{contactId}")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public void DeleteContact(int contactId)
         {
             _contactUsService.DeleteContact(contactId);

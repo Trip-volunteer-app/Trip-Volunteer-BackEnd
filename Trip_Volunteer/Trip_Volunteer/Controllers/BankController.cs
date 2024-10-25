@@ -14,29 +14,39 @@ namespace Trip_Volunteer.API.Controllers
         {
             this._bankService = bankService;
         }
+
+
         [HttpGet]
         public List<Bank> GetAllCard()
         {
             return _bankService.GetAllCard();
         }
+
+
         [HttpGet]
         [Route("GetCardById")]
         public Bank GetCardById(int id)
         {
             return _bankService.GetCardById(id);
         }
+
+
         [HttpPost]
         [Route("CreateCard")]
         public void CreateCard(Bank bank)
         {
             _bankService.CreateCard(bank);
         }
+
+
         [HttpPut]
         [Route("UpdateCard")]
         public void UpdateCard(Bank bank)
         {
             _bankService.UpdateCard(bank);
         }
+
+
         [HttpDelete]
         [Route("DeleteCard")]
         public void DeleteCard(int id)
