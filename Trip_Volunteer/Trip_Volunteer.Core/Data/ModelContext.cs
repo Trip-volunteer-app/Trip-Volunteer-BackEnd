@@ -59,9 +59,24 @@ namespace Trip_Volunteer.Core.Data
                 entity.ToTable("ABOUTUS");
 
                 entity.Property(e => e.Aboutus_Page_Id)
-                    .HasColumnType("NUMBER(38)")
-                    .ValueGeneratedOnAdd()
-                    .HasColumnName("ABOUTUS_PAGE_ID");
+                       .HasColumnType("NUMBER(38)")
+                       .ValueGeneratedOnAdd()
+                       .HasColumnName("ABOUTUS_PAGE_ID");
+
+                entity.Property(e => e.Title)
+                    .HasMaxLength(255)
+                    .IsUnicode(false)
+                    .HasColumnName("TITLE");
+
+                entity.Property(e => e.Hero_image)
+                    .HasMaxLength(1000)
+                    .IsUnicode(false)
+                    .HasColumnName("HERO_IMAGE");
+
+                entity.Property(e => e.Header)
+                    .HasMaxLength(255)
+                    .IsUnicode(false)
+                    .HasColumnName("HEADER");
 
                 entity.Property(e => e.Image1)
                     .HasMaxLength(600)
@@ -73,65 +88,110 @@ namespace Trip_Volunteer.Core.Data
                     .IsUnicode(false)
                     .HasColumnName("IMAGE2");
 
-                entity.Property(e => e.Text1)
+                entity.Property(e => e.Image3)
+                    .HasMaxLength(600)
+                    .IsUnicode(false)
+                    .HasColumnName("IMAGE3");
+
+                entity.Property(e => e.Image4)
+                    .HasMaxLength(600)
+                    .IsUnicode(false)
+                    .HasColumnName("IMAGE4");
+
+                entity.Property(e => e.Feature1_header)
+                    .HasMaxLength(255)
+                    .IsUnicode(false)
+                    .HasColumnName("FEATURE1_HEADER");
+
+                entity.Property(e => e.Feature1)
+                    .HasMaxLength(500)
+                    .IsUnicode(false)
+                    .HasColumnName("FEATURE1");
+
+                entity.Property(e => e.Feature2_header)
+                    .HasMaxLength(255)
+                    .IsUnicode(false)
+                    .HasColumnName("FEATURE2_HEADER");
+
+                entity.Property(e => e.Feature2)
+                    .HasMaxLength(500)
+                    .IsUnicode(false)
+                    .HasColumnName("FEATURE2");
+
+                entity.Property(e => e.Feature3_header)
+                    .HasMaxLength(255)
+                    .IsUnicode(false)
+                    .HasColumnName("FEATURE3_HEADER");
+
+                entity.Property(e => e.Feature3)
+                    .HasMaxLength(500)
+                    .IsUnicode(false)
+                    .HasColumnName("FEATURE3");
+
+                entity.Property(e => e.Feature4_header)
+                    .HasMaxLength(255)
+                    .IsUnicode(false)
+                    .HasColumnName("FEATURE4_HEADER");
+
+                entity.Property(e => e.Feature4)
+                    .HasMaxLength(500)
+                    .IsUnicode(false)
+                    .HasColumnName("FEATURE4");
+
+                entity.Property(e => e.Header2)
+                    .HasMaxLength(255)
+                    .IsUnicode(false)
+                    .HasColumnName("HEADER2");
+
+                entity.Property(e => e.Title2)
+                    .HasMaxLength(255)
+                    .IsUnicode(false)
+                    .HasColumnName("TITLE2");
+
+                entity.Property(e => e.Aboutus)
+                    .HasMaxLength(4000)
+                    .IsUnicode(false)
+                    .HasColumnName("ABOUTUS");
+
+                entity.Property(e => e.Image5)
                     .HasMaxLength(1000)
+                    .IsUnicode(false)
+                    .HasColumnName("IMAGE5");
+
+                entity.Property(e => e.Image6)
+                    .HasMaxLength(1000)
+                    .IsUnicode(false)
+                    .HasColumnName("IMAGE6");
+
+                entity.Property(e => e.Header3)
+                    .HasMaxLength(255)
+                    .IsUnicode(false)
+                    .HasColumnName("HEADER3");
+
+                entity.Property(e => e.Text1)
+                    .HasMaxLength(4000)
                     .IsUnicode(false)
                     .HasColumnName("TEXT1");
 
-                entity.Property(e => e.Text2)
-                    .HasMaxLength(4000)
+                entity.Property(e => e.FeedbackHeader)
+                    .HasMaxLength(255)
                     .IsUnicode(false)
-                    .HasColumnName("TEXT2");
+                    .HasColumnName("FEEDBACK_HEADER");
 
-                entity.Property(e => e.Text3)
-                    .HasMaxLength(4000)
+                entity.Property(e => e.FeedbackTitle)
+                    .HasMaxLength(255)
                     .IsUnicode(false)
-                    .HasColumnName("TEXT3");
+                    .HasColumnName("FEEDBACK_TITLE");
 
-                entity.Property(e => e.Image3)
-                   .HasMaxLength(600)
-                   .IsUnicode(false)
-                   .HasColumnName("IMAGE3");
-
-                entity.Property(e => e.Image4)
-                   .HasMaxLength(600)
-                   .IsUnicode(false)
-                   .HasColumnName("IMAGE4");
-
-                //entity.Property(e => e.Image4)
-                //    .HasMaxLength(600)
-                //    .IsUnicode(false)
-                //    .HasColumnName("IMAGE5");
-
-                //entity.Property(e => e.Image4)
-                //    .HasMaxLength(600)
-                //    .IsUnicode(false)
-                //    .HasColumnName("IMAGE6");
-
-                //entity.Property(e => e.Image4)
-                //    .HasMaxLength(600)
-                //    .IsUnicode(false)
-                //    .HasColumnName("IMAGE7");
-
-                //entity.Property(e => e.Image4)
-                //    .HasMaxLength(600)
-                //    .IsUnicode(false)
-                //    .HasColumnName("IMAGE8");
-
-                entity.Property(e => e.Text7)
-                    .HasMaxLength(4000)
+                entity.Property(e => e.Feedback_background)
+                    .HasMaxLength(1000)
                     .IsUnicode(false)
-                    .HasColumnName("TEXT7");
+                    .HasColumnName("FEEDBACK_BACKGROUND");
 
-                entity.Property(e => e.Text5)
-                    .HasMaxLength(4000)
+                entity.Property(e => e.Selected)
+                    .HasMaxLength(1000)
                     .IsUnicode(false)
-                    .HasColumnName("TEXT5");
-
-                entity.Property(e => e.Text6)
-                    .HasMaxLength(4000)
-                    .IsUnicode(false)
-                    .HasColumnName("TEXT6");
+                    .HasColumnName("SELECTED");
             });
 
             modelBuilder.Entity<Bank>(entity =>
