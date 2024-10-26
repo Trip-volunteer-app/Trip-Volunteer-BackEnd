@@ -46,6 +46,8 @@ namespace Trip_Volunteer.Infra.Repository
             p.Add("H_Image4", homePageElement.Image4, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("H_Image5", homePageElement.Image5, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("H_Text1", homePageElement.Text1, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("H_Header", homePageElement.Header, dbType: DbType.String, direction: ParameterDirection.Input);
+
             _dbContext.Connection.Execute("Home_Page_Elements_PACKAGE.CreateHomePageElements", p, commandType: CommandType.StoredProcedure);
         }
 
@@ -63,6 +65,8 @@ namespace Trip_Volunteer.Infra.Repository
             p.Add("H_Image4", homePageElement.Image4, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("H_Image5", homePageElement.Image5, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("H_Text1", homePageElement.Text1, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("H_Header", homePageElement.Header, dbType: DbType.String, direction: ParameterDirection.Input);
+
             _dbContext.Connection.Execute("Home_Page_Elements_PACKAGE.UpdateHomePageElements", p, commandType: CommandType.StoredProcedure);
         }
 
@@ -71,6 +75,18 @@ namespace Trip_Volunteer.Infra.Repository
             var p = new DynamicParameters();
             p.Add("H_Page_Id", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             _dbContext.Connection.Execute("Home_Page_Elements_PACKAGE.DeleteHomePageElements", p, commandType: CommandType.StoredProcedure);
+        }
+        public HomePageElement GetSelectedHomeElement()
+        {
+            var result = _dbContext.Connection.Query<HomePageElement>("Home_Page_Elements_PACKAGE.GetSelectedHomeElements", commandType: CommandType.StoredProcedure);
+            return result.SingleOrDefault();
+        }
+
+        public void UpdateHomeSelectStatus(int id)
+        {
+            var p = new DynamicParameters();
+            p.Add("H_Page_Id ", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            _dbContext.Connection.Execute("Home_Page_Elements_PACKAGE.UpdateSelectedHomeElements", p, commandType: CommandType.StoredProcedure);
         }
     }
 }

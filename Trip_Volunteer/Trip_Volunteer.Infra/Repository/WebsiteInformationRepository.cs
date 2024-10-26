@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using Trip_Volunteer.Core.Common;
@@ -55,12 +56,12 @@ namespace Trip_Volunteer.Infra.Repository
             p.Add("websiteid", websiteInformation.Website_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("Uemail", websiteInformation.Email, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("Phonenumber", websiteInformation.Phone_Number, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("Uadress", websiteInformation.Adress, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("uaddress", websiteInformation.Adress, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("opentime", websiteInformation.Open_Time, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("closingtime", websiteInformation.Closing_Time, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("websitelink", websiteInformation.Website_Link, dbType: DbType.String, direction: ParameterDirection.Input);
 
             _dbContext.Connection.Execute("website_information_Package.UPDATEwebsite_information", p, commandType: CommandType.StoredProcedure);
-
         }
 
         public void Deletewebsite_information(int Id)

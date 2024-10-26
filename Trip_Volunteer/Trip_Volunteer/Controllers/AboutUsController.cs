@@ -60,7 +60,24 @@ namespace Trip_Volunteer.API.Controllers
             _aboutUsService.DeleteAboutUsElements(id);
         }
 
-        
+
+        [Route("uploadHeroImage")]
+        [HttpPost]
+        public Aboutu uploadHeroImage()
+        {
+            var file = Request.Form.Files[0];
+            var fileName = Guid.NewGuid().ToString() + "_" + file.FileName;
+            var fullPath = Path.Combine(_configuration["AppSettings:UploadImage"], fileName);
+            using (var stream = new FileStream(fullPath, FileMode.Create))
+            {
+                file.CopyTo(stream);
+            }
+            Aboutu item = new Aboutu();
+            item.Hero_image = fileName;
+            return item;
+        }
+
+        [Route("uploadImage1")]
         [HttpPost]
         [Route("uploadImage1")]
         [CheckClaimsAttribute("Roleid", "1")]
@@ -132,8 +149,53 @@ namespace Trip_Volunteer.API.Controllers
             return item;
         }
 
-        
-        [HttpGet]
+        [Route("uploadImage5")]
+        [HttpPost]
+        public Aboutu UploadImage5()
+        {
+            var file = Request.Form.Files[0];
+            var fileName = Guid.NewGuid().ToString() + "_" + file.FileName;
+            var fullPath = Path.Combine(_configuration["AppSettings:UploadImage"], fileName);
+            using (var stream = new FileStream(fullPath, FileMode.Create))
+            {
+                file.CopyTo(stream);
+            }
+            Aboutu item = new Aboutu();
+            item.Image5 = fileName;
+            return item;
+        }
+
+        [Route("uploadImage6")]
+        [HttpPost]
+        public Aboutu UploadImage6()
+        {
+            var file = Request.Form.Files[0];
+            var fileName = Guid.NewGuid().ToString() + "_" + file.FileName;
+            var fullPath = Path.Combine(_configuration["AppSettings:UploadImage"], fileName);
+            using (var stream = new FileStream(fullPath, FileMode.Create))
+            {
+                file.CopyTo(stream);
+            }
+            Aboutu item = new Aboutu();
+            item.Image6 = fileName;
+            return item;
+        }
+        [Route("uploadFeedbackBackground")]
+        [HttpPost]
+        public Aboutu uploadFeedbackBackground()
+        {
+            var file = Request.Form.Files[0];
+            var fileName = Guid.NewGuid().ToString() + "_" + file.FileName;
+            var fullPath = Path.Combine(_configuration["AppSettings:UploadImage"], fileName);
+            using (var stream = new FileStream(fullPath, FileMode.Create))
+            {
+                file.CopyTo(stream);
+            }
+            Aboutu item = new Aboutu();
+            item.Feedback_background = fileName;
+            return item;
+        }
+
         [Route("GetSelectedAboutus")]
         [CheckClaimsAttribute("Roleid", "1")]
         public Aboutu GetSelectedAboutus()

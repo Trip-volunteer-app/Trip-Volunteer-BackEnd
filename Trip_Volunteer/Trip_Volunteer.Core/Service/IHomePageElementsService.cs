@@ -14,5 +14,7 @@ namespace Trip_Volunteer.Core.Service
         void CreateHomePageElement(HomePageElement homePageElement);
         void UpdatHomePageElement(HomePageElement homePageElement);
         void DeleteHomePageElement(int id);
+        void UpdateHomeSelectStatus(int id);
+        HomePageElement GetSelectedHomeElement();
     }
 }
