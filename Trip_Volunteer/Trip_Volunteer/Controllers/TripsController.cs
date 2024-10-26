@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Configuration;
 using Trip_Volunteer.Core.Data;
 using Trip_Volunteer.Core.DTO;
 using Trip_Volunteer.Core.Repository;
@@ -11,11 +12,14 @@ namespace Trip_Volunteer.API.Controllers
     [ApiController]
     public class TripsController : ControllerBase
     {
+        private readonly IConfiguration _configuration;
 
         private readonly ITripsService _tripsService;
-        public TripsController(ITripsService tripsService)
+        public TripsController(ITripsService tripsService, IConfiguration configuration)
         {
             _tripsService = tripsService;
+            _configuration = configuration;
+
         }
 
 
@@ -29,6 +33,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpGet]
         [Route("GetTripById/{id}")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public Trip GetTripById(int id)
         {
             return _tripsService.GetTripById(id);
@@ -38,7 +43,8 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPost]
         [Route("CreateTrip")]
-        public void CreateTrip(Trip trip)
+        [CheckClaimsAttribute("Roleid", "1")]
+        public void CreateTrip(TripsDto trip)
         {
             _tripsService.CreateTrip(trip);
         }
@@ -46,7 +52,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPut]
         [Route("UpdateTrip")]
-
+        [CheckClaimsAttribute("Roleid", "1")]
         public void UpdateTrip(Trip trip)
         {
             _tripsService.UpdateTrip(trip);
@@ -55,6 +61,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpDelete]
         [Route("DeleteTrip/{id}")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public void DeleteTrip(int id)
         {
             _tripsService.DeleteTrip(id);
@@ -62,6 +69,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpGet]
         [Route("SearchBetweenDate")]
+
         public List<Trip> SearchBetweenDate(DateTime Start_Date,DateTime End_Date)
         {
             return _tripsService.SearchBetweenDate(Start_Date, End_Date);
@@ -69,50 +77,64 @@ namespace Trip_Volunteer.API.Controllers
 
 
         [HttpGet("trips/GetNumberOfTrips")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public IActionResult GetNumberOfTrips()
         {
             int numberOfTrips = _tripsService.NumberOfTrips();
             return Ok(numberOfTrips); 
         }
 
-        [HttpGet("trips/NumberOfFinishedTrips")]
-        public IActionResult NumberOfFinishedTrips()
-        {
-            int numberOfTrips = _tripsService.NumberOfFinishedTrips();
-            return Ok(numberOfTrips); 
-        }
+        //[HttpGet("trips/NumberOfFinishedTrips")]
+        //public IActionResult NumberOfFinishedTrips()
+        //{
+        //    int numberOfTrips = _tripsService.NumberOfFinishedTrips();
+        //    return Ok(numberOfTrips); 
+        //}
 
 
         [HttpGet]
         [Route("TripsWithMaxReservations")]
-
+        [CheckClaimsAttribute("Roleid", "1")]
         public List<Trip> TripsWithMaxReservations()
         {
             return _tripsService.TripsWithMaxReservations();
         }
+
+
         [HttpGet]
         [Route("GetAllTripInformation")]
         public List<TripInformationDTO> GetAllTripInformation()
         {
             return _tripsService.GetAllTripInformation();
         }
+
+
         [HttpGet]
         [Route("GetAllTripInformationById")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public TripInformationDTO GetAllTripInformationById(int Id)
         {
             return _tripsService.GetAllTripInformationById(Id);
         }
+
+
         [HttpGet]
         [Route("GetTripVolById")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public TripWithVolDTO GetTripVolById(int Id)
         {
             return _tripsService.GetTripVolById(Id);
         }
+
+
         [HttpGet]
         [Route("GetTripUsersById")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public TripWithVolDTO GetTripUsersById(int Id)
         {
             return _tripsService.GetTripUsersById(Id);
         }
+
+   
     }
 }

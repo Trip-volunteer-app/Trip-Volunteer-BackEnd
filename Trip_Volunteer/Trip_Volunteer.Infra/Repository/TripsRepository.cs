@@ -36,21 +36,21 @@ namespace Trip_Volunteer.Infra.Repository
             return result.FirstOrDefault();
         }
 
-        public void CreateTrip(Trip trip)
+        public void CreateTrip(TripsDto trip)
         {
             var p = new DynamicParameters();
-            p.Add("trip_id", trip.Trip_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("trip_name", trip.Trip_Name, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("trip_location_id", trip.Trip_Location_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("trip_price", trip.Trip_Price, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("max_number_of_users", trip.Max_Number_Of_Users, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("start_date", trip.Start_Date, dbType: DbType.Date, direction: ParameterDirection.Input);
-            p.Add("end_date", trip.End_Date, dbType: DbType.Date, direction: ParameterDirection.Input);
-            p.Add("description", trip.Description, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("max_number_of_volunteers", trip.Max_Number_Of_Volunteers, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("category_id", trip.Category_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("t_name", trip.Trip_Name, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("t_location_id", trip.Trip_Location_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("t_price", trip.Trip_Price, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("number_users", trip.Max_Number_Of_Users, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("s_date", trip.Start_Date, dbType: DbType.Date, direction: ParameterDirection.Input);
+            p.Add("e_date", trip.End_Date, dbType: DbType.Date, direction: ParameterDirection.Input);
+            p.Add("descr", trip.Description, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("number_Volunteers", trip.Max_Number_Of_Volunteers, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("cate_id", trip.Category_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("img_name", trip.Image_Name, dbType: DbType.String, direction: ParameterDirection.Input);
 
-            var result = _dbContext.Connection.Execute("trips_Package.CREATEtrips", p, commandType: CommandType.StoredProcedure);
+            var result = _dbContext.Connection.Execute("trips_Package.CreateTrip", p, commandType: CommandType.StoredProcedure);
 
 
         }
@@ -97,12 +97,12 @@ namespace Trip_Volunteer.Infra.Repository
             return result;  
         }
 
-        public int NumberOfFinishedTrips()
-        {
-            var result = _dbContext.Connection.QuerySingleOrDefault<int>("trips_Package.NumberOfFinishedTrips", commandType: CommandType.StoredProcedure);
+        //public int NumberOfFinishedTrips()
+        //{
+        //    var result = _dbContext.Connection.QuerySingleOrDefault<int>("trips_Package.NumberOfFinishedTrips", commandType: CommandType.StoredProcedure);
 
-            return result;
-        }
+        //    return result;
+        //}
 
         public List<Trip> TripsWithMaxReservations()
         {

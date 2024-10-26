@@ -22,7 +22,7 @@ namespace Trip_Volunteer.API.Controllers
         }
 
         [HttpGet]
-        [Route("GetAllAboutUsElements")]
+        [Route("GetAllAboutUsElements")]      
         public List<Aboutu> GetAllAboutUsElements()
         {
             return _aboutUsService.GetAllAboutUsElements();
@@ -35,8 +35,10 @@ namespace Trip_Volunteer.API.Controllers
             return _aboutUsService.GetAboutUsElementById(id);
         }
 
+
         [HttpPost]
         [Route("CreateAboutUsElements")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public void CreateAboutUsElements(Aboutu aboutus)
         {
             _aboutUsService.CreateAboutUsElements(aboutus);
@@ -44,6 +46,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPut]
         [Route("UpdateAboutUsElements")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public void UpdateAboutUsElements(Aboutu aboutus)
         {
             _aboutUsService.UpdateAboutUsElements(aboutus);
@@ -51,6 +54,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpDelete]
         [Route("DeleteAboutUsElements/{id}")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public void DeleteAboutUsElements(int id)
         {
             _aboutUsService.DeleteAboutUsElements(id);
@@ -75,6 +79,8 @@ namespace Trip_Volunteer.API.Controllers
 
         [Route("uploadImage1")]
         [HttpPost]
+        [Route("uploadImage1")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public Aboutu UploadImage1()
         {
             var file = Request.Form.Files[0];
@@ -89,8 +95,10 @@ namespace Trip_Volunteer.API.Controllers
             return item;
         }
 
-        [Route("uploadImage2")]
+        
         [HttpPost]
+        [Route("uploadImage2")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public Aboutu UploadImage2()
         {
             var file = Request.Form.Files[0];
@@ -105,8 +113,10 @@ namespace Trip_Volunteer.API.Controllers
             return item;
         }
 
-        [Route("uploadImage3")]
+        
         [HttpPost]
+        [Route("uploadImage3")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public Aboutu UploadImage3()
         {
             var file = Request.Form.Files[0];
@@ -121,8 +131,10 @@ namespace Trip_Volunteer.API.Controllers
             return item;
         }
 
-        [Route("uploadImage4")]
+        
         [HttpPost]
+        [Route("uploadImage4")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public Aboutu UploadImage4()
         {
             var file = Request.Form.Files[0];
@@ -185,15 +197,17 @@ namespace Trip_Volunteer.API.Controllers
         }
 
         [Route("GetSelectedAboutus")]
-        [HttpGet]
+        [CheckClaimsAttribute("Roleid", "1")]
         public Aboutu GetSelectedAboutus()
         {
             return _aboutUsService.GetSelectedAboutus();
 
         }
 
-        [Route("UpdateSelectedAboutus")]
+        
         [HttpPut]
+        [Route("UpdateSelectedAboutus")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public void UpdateSelectedAboutus(int id)
         {
             _aboutUsService.UpdateSelectedAboutus(id);

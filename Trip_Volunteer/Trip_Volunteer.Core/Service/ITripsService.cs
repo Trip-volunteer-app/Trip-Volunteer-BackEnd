@@ -13,7 +13,7 @@ namespace Trip_Volunteer.Core.Service
         List<Trip> GetAllTrips();
         Trip GetTripById(int ID);
 
-        void CreateTrip(Trip trip);
+        void CreateTrip(TripsDto trip);
 
         void UpdateTrip(Trip trip);
 
@@ -23,7 +23,7 @@ namespace Trip_Volunteer.Core.Service
       
         int NumberOfTrips();
 
-        int NumberOfFinishedTrips();
+        //int NumberOfFinishedTrips();
 
         List<Trip> TripsWithMaxReservations();
         List<TripInformationDTO> GetAllTripInformation();

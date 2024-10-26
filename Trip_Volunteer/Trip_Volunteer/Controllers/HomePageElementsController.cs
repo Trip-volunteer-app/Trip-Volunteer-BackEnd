@@ -36,6 +36,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPost]
         [Route("CreateHomePageElement")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public void CreateHomePageElement(HomePageElement homePageElement)
         {
             _homePageElementsService.CreateHomePageElement(homePageElement);
@@ -43,6 +44,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPut]
         [Route("UpdatHomePageElement")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public void UpdatHomePageElement(HomePageElement homePageElement)
         {
             _homePageElementsService.UpdatHomePageElement(homePageElement);
@@ -50,6 +52,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpDelete]
         [Route("DeleteHomePageElement/{id}")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public void DeleteHomePageElement(int id)
         {
             _homePageElementsService.DeleteHomePageElement(id);
@@ -72,7 +75,7 @@ namespace Trip_Volunteer.API.Controllers
         }
 
         [Route("uploadImage1")]
-        [HttpPost]
+        [CheckClaimsAttribute("Roleid", "1")]
         public HomePageElement UploadImage1()
         {
             var file = Request.Form.Files[0];
@@ -87,8 +90,10 @@ namespace Trip_Volunteer.API.Controllers
             return item;
         }
 
-        [Route("uploadImage2")]
+
         [HttpPost]
+        [Route("uploadImage2")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public HomePageElement UploadImage2()
         {
             var file = Request.Form.Files[0];
@@ -103,8 +108,10 @@ namespace Trip_Volunteer.API.Controllers
             return item;
         }
 
-        [Route("uploadImage3")]
+
         [HttpPost]
+        [Route("uploadImage3")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public HomePageElement UploadImage3()
         {
             var file = Request.Form.Files[0];
@@ -119,8 +126,10 @@ namespace Trip_Volunteer.API.Controllers
             return item;
         }
 
-        [Route("uploadImage4")]
+
         [HttpPost]
+        [Route("uploadImage4")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public HomePageElement UploadImage4()
         {
             var file = Request.Form.Files[0];
@@ -135,8 +144,10 @@ namespace Trip_Volunteer.API.Controllers
             return item;
         }
 
-        [Route("uploadImage5")]
+
         [HttpPost]
+        [Route("uploadImage5")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public HomePageElement UploadImage5()
         {
             var file = Request.Form.Files[0];

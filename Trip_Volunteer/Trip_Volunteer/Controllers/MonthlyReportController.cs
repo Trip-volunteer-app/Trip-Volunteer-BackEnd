@@ -18,7 +18,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpGet]
         [Route("MonthlyReport")]
-
+        [CheckClaimsAttribute("Roleid", "1")]
         public List<MonthlyReportDTO> MonthlyReport()
         {
             return _monthlyService.MonthlyReport();

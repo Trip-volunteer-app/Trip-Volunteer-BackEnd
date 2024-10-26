@@ -19,7 +19,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpGet]
         [Route("GetAllwebsite_information")]
-
+        [CheckClaimsAttribute("Roleid", "1", "2")]
         public List<WebsiteInformation> GetAllwebsite_information()
         {
             return _websiteInformationService.GetAllwebsite_information();
@@ -27,6 +27,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpGet]
         [Route("Getwebsite_informationById/{id}")]
+        [CheckClaimsAttribute("Roleid", "1", "2")]
         public WebsiteInformation Getwebsite_informationById(int id)
         {
             return _websiteInformationService.Getwebsite_informationById(id);
@@ -36,6 +37,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPost]
         [Route("CREATEwebsite_information")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public void CREATEwebsite_information(WebsiteInformation websiteInformation)
         {
             _websiteInformationService.CREATEwebsite_information(websiteInformation);
@@ -44,6 +46,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPut]
         [Route("UPDATEwebsite_information")]
+        [CheckClaimsAttribute("Roleid", "1")]
 
         public void UPDATEwebsite_information(WebsiteInformation websiteInformation)
         {
@@ -53,6 +56,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpDelete]
         [Route("Deletewebsite_information/{id}")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public void Deletewebsite_information(int id)
         {
             _websiteInformationService.Deletewebsite_information(id);
@@ -60,6 +64,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPut]
         [Route("UpdateSelectedWebsiteInfo")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public void UpdateSelectedWebsiteInfo(int id)
         {
             _websiteInformationService.UpdateSelectedWebsiteInfo(id);
@@ -67,6 +72,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpGet]
         [Route("GetSelectedWebsiteInfo")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public WebsiteInformation GetSelectedWebsiteInfo()
         {
             return _websiteInformationService.GetSelectedWebsiteInfo();
