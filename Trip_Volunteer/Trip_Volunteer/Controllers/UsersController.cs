@@ -37,7 +37,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPost]
         [Route("CreateUsers")]
-        [CheckClaimsAttribute("Roleid", "1")]
+        [CheckClaimsAttribute("Roleid", "1", "2")]
         public void CreateUsers(User user)
         {
             _userService.CreateUsers(user);
