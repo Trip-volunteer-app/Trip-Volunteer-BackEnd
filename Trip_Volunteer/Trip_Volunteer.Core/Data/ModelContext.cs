@@ -21,6 +21,8 @@ namespace Trip_Volunteer.Core.Data
         public virtual DbSet<Booking> Bookings { get; set; } = null!;
         public virtual DbSet<Category> Categories { get; set; } = null!;
         public virtual DbSet<ContactU> ContactUs { get; set; } = null!;
+        public virtual DbSet<BookingService> BookingServices { get; set; } = null!;
+
         public virtual DbSet<ContactusElement> ContactusElements { get; set; } = null!;
         public virtual DbSet<HomePageElement> HomePageElements { get; set; } = null!;
         public virtual DbSet<Location> Locations { get; set; } = null!;
@@ -148,6 +150,47 @@ namespace Trip_Volunteer.Core.Data
                     .HasColumnName("FULL_NAME");
             });
 
+
+            modelBuilder.Entity<BookingService>(entity =>
+            {
+                entity.ToTable("BOOKING_SERVICE");
+
+                entity.Property(e => e.Booking_Service_Id)
+                    .HasColumnType("NUMBER(38)")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnName("BOOKING_SERVICE_ID");
+
+                entity.Property(e => e.Booking_Id)
+                    .HasColumnType("NUMBER")
+                    .HasColumnName("BOOKING_ID");
+
+                entity.Property(e => e.Service_Id)
+                    .HasColumnType("NUMBER")
+                    .HasColumnName("SERVICE_ID");
+
+                entity.HasOne(d => d.Booking)
+                    .WithMany(p => p.Booking_Services)
+                    .HasForeignKey(d => d.Booking_Id)
+                    .OnDelete(DeleteBehavior.SetNull)
+                    .HasConstraintName("FK_BOOKING_BOOKING_SERVICE_ID");
+
+                entity.HasOne(d => d.Service)
+                    .WithMany(p => p.Booking_Services)
+                    .HasForeignKey(d => d.Service_Id)
+                    .OnDelete(DeleteBehavior.SetNull)
+                    .HasConstraintName("FK_BOOKING_SERVICE_SERVICE_ID");
+            });
+
+
+
+
+
+
+
+
+
+
+
             modelBuilder.Entity<Booking>(entity =>
             {
                 entity.ToTable("BOOKING");
@@ -165,6 +208,15 @@ namespace Trip_Volunteer.Core.Data
                 entity.Property(e => e.Login_Id)
                     .HasColumnType("NUMBER(38)")
                     .HasColumnName("LOGIN_ID");
+
+                entity.Property(e => e.Note)
+                    .HasMaxLength(2000)
+                    .IsUnicode(false)
+                    .HasColumnName("NOTE");
+
+                entity.Property(e => e.NumberOfUser)
+                    .HasColumnType("NUMBER")
+                    .HasColumnName("NUMBEROFUSER");
 
                 entity.Property(e => e.Payment_Status)
                     .HasMaxLength(200)
@@ -908,7 +960,7 @@ namespace Trip_Volunteer.Core.Data
                     .HasMaxLength(200)
                     .IsUnicode(false)
                     .HasColumnName("EMAIL");
-                
+
                 entity.Property(e => e.Website_Link)
                     .HasMaxLength(500)
                     .IsUnicode(false)

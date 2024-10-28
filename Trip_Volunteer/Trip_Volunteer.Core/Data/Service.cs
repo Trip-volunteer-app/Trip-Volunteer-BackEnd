@@ -15,5 +15,7 @@ namespace Trip_Volunteer.Core.Data
         public string? Service_Name { get; set; }
 
         public virtual ICollection<TripService> TripServices { get; set; }
+        public virtual ICollection<BookingService> Booking_Services { get; set; }
+
     }
 }
