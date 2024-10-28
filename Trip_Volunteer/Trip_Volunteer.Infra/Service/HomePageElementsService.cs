@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Trip_Volunteer.Core.Data;
 using Trip_Volunteer.Core.Repository;
 using Trip_Volunteer.Core.Service;
+using Trip_Volunteer.Infra.Repository;
 
 namespace Trip_Volunteer.Infra.Service
 {
@@ -36,6 +37,14 @@ namespace Trip_Volunteer.Infra.Service
         public void DeleteHomePageElement(int id)
         {
             _homePageElementsRepository.DeleteHomePageElement(id);
+        }
+        public void UpdateHomeSelectStatus(int id)
+        {
+            _homePageElementsRepository.UpdateHomeSelectStatus(id);
+        }
+        public HomePageElement GetSelectedHomeElement()
+        {
+            return _homePageElementsRepository.GetSelectedHomeElement();
         }
     }
 }

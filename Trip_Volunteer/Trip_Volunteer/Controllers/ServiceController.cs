@@ -17,16 +17,17 @@ namespace Trip_Volunteer.API.Controllers
         {
             _servicesService = servicesService;
         }
+
         [HttpGet]
+        [CheckClaimsAttribute("Roleid", "1","2")]
         public List<Service> GetAllServices()
         {
           return  _servicesService.GetAllServices();
-
-
         }
 
         [HttpGet]
         [Route("GetServiceById/{serviceId}")]
+        [CheckClaimsAttribute("Roleid", "1","2")]
         public Service GetServiceById(int serviceId)
         {
           return _servicesService.GetServiceById(serviceId);
@@ -34,6 +35,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPost]
         [Route("CreateService")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public void CreateService(Core.Data.Service service)
         {
             _servicesService.CreateService(service);
@@ -41,6 +43,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPut]
         [Route("UpdateService")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public void UpdateService(int serviceId, decimal serviceCost, string serviceName)
         {
             _servicesService.UpdateService(serviceId, serviceCost, serviceName);
@@ -48,6 +51,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpDelete]
         [Route("DeleteService/{serviceId}")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public void DeleteService(int serviceId)
         {
             _servicesService.DeleteService(serviceId);

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Trip_Volunteer.Core.Data;
 using Trip_Volunteer.Core.Repository;
 using Trip_Volunteer.Core.Service;
+using Trip_Volunteer.Infra.Repository;
 
 namespace Trip_Volunteer.API.Controllers
 {
@@ -11,9 +12,12 @@ namespace Trip_Volunteer.API.Controllers
     public class HomePageElementsController : ControllerBase
     {
         private readonly IHomePageElementsService _homePageElementsService;
-        public HomePageElementsController(IHomePageElementsService homePageElementsService)
+        private readonly IConfiguration _configuration;
+
+        public HomePageElementsController(IHomePageElementsService homePageElementsService, IConfiguration configuration)
         {
             _homePageElementsService = homePageElementsService;
+            _configuration = configuration;
         }
 
         [HttpGet]
@@ -32,6 +36,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPost]
         [Route("CreateHomePageElement")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public void CreateHomePageElement(HomePageElement homePageElement)
         {
             _homePageElementsService.CreateHomePageElement(homePageElement);
@@ -39,6 +44,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPut]
         [Route("UpdatHomePageElement")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public void UpdatHomePageElement(HomePageElement homePageElement)
         {
             _homePageElementsService.UpdatHomePageElement(homePageElement);
@@ -46,19 +52,35 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpDelete]
         [Route("DeleteHomePageElement/{id}")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public void DeleteHomePageElement(int id)
         {
             _homePageElementsService.DeleteHomePageElement(id);
         }
 
+        [Route("uploadHeroImg")]
+        [HttpPost]
+        public HomePageElement UploadHero_img()
+        {
+            var file = Request.Form.Files[0];
+            var fileName = Guid.NewGuid().ToString() + "_" + file.FileName;
+            var fullPath = Path.Combine(_configuration["AppSettings:UploadImage"], fileName);
+            using (var stream = new FileStream(fullPath, FileMode.Create))
+            {
+                file.CopyTo(stream);
+            }
+            HomePageElement item = new HomePageElement();
+            item.Hero_Image = fileName;
+            return item;
+        }
 
         [Route("uploadImage1")]
-        [HttpPost]
+        [CheckClaimsAttribute("Roleid", "1")]
         public HomePageElement UploadImage1()
         {
             var file = Request.Form.Files[0];
             var fileName = Guid.NewGuid().ToString() + "_" + file.FileName;
-            var fullPath = Path.Combine("Images", fileName);
+            var fullPath = Path.Combine(_configuration["AppSettings:UploadImage"], fileName);
             using (var stream = new FileStream(fullPath, FileMode.Create))
             {
                 file.CopyTo(stream);
@@ -68,13 +90,15 @@ namespace Trip_Volunteer.API.Controllers
             return item;
         }
 
-        [Route("uploadImage2")]
+
         [HttpPost]
+        [Route("uploadImage2")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public HomePageElement UploadImage2()
         {
             var file = Request.Form.Files[0];
             var fileName = Guid.NewGuid().ToString() + "_" + file.FileName;
-            var fullPath = Path.Combine("Images", fileName);
+            var fullPath = Path.Combine(_configuration["AppSettings:UploadImage"], fileName);
             using (var stream = new FileStream(fullPath, FileMode.Create))
             {
                 file.CopyTo(stream);
@@ -84,13 +108,15 @@ namespace Trip_Volunteer.API.Controllers
             return item;
         }
 
-        [Route("uploadImage3")]
+
         [HttpPost]
+        [Route("uploadImage3")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public HomePageElement UploadImage3()
         {
             var file = Request.Form.Files[0];
             var fileName = Guid.NewGuid().ToString() + "_" + file.FileName;
-            var fullPath = Path.Combine("Images", fileName);
+            var fullPath = Path.Combine(_configuration["AppSettings:UploadImage"], fileName);
             using (var stream = new FileStream(fullPath, FileMode.Create))
             {
                 file.CopyTo(stream);
@@ -100,8 +126,10 @@ namespace Trip_Volunteer.API.Controllers
             return item;
         }
 
-        [Route("uploadImage4")]
+
         [HttpPost]
+        [Route("uploadImage4")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public HomePageElement UploadImage4()
         {
             var file = Request.Form.Files[0];
@@ -116,8 +144,10 @@ namespace Trip_Volunteer.API.Controllers
             return item;
         }
 
-        [Route("uploadImage5")]
+
         [HttpPost]
+        [Route("uploadImage5")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public HomePageElement UploadImage5()
         {
             var file = Request.Form.Files[0];
@@ -130,6 +160,20 @@ namespace Trip_Volunteer.API.Controllers
             HomePageElement item = new HomePageElement();
             item.Image5 = fileName;
             return item;
+        }
+
+        [Route("UpdateHomeSelectStatus")]
+        [HttpPut]
+        public void UpdateHomeSelectStatus(int id)
+        {
+            _homePageElementsService.UpdateHomeSelectStatus(id);
+        }
+
+        [Route("GetSelectedHomeElement")]
+        [HttpGet]
+        public HomePageElement GetSelectedHomeElement()
+        {
+            return _homePageElementsService.GetSelectedHomeElement();
         }
     }
 }

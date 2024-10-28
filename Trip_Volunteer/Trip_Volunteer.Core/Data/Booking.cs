@@ -20,5 +20,12 @@ namespace Trip_Volunteer.Core.Data
         public virtual UserLogin? Login { get; set; }
         public virtual Trip? Trip { get; set; }
         public virtual ICollection<Review> Reviews { get; set; }
+
+        public string? Note { get; set; }
+
+        public decimal? NumberOfUser { get; set; }
+
+        public virtual ICollection<BookingService> Booking_Services { get; set; }
+
     }
 }

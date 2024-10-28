@@ -23,12 +23,10 @@ namespace Trip_Volunteer.API.Controllers
         {
             _locationService = locationService;
             _httpClient = httpClient;
-
-
         }
 
         [HttpGet]
-        [Route("GetAlllocation")]
+        [Route("GetAlllocation")]       
         public List<Location> GetAlllocation()
         {
             return _locationService.GetAlllocation();
@@ -37,6 +35,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpGet]
         [Route("GetlocationById/{id}")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public Location GetlocationById(int id)
         {
             return _locationService.GetlocationById(id);
@@ -45,6 +44,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPost]
         [Route("CREATElocation")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public void CREATElocation(Location location)
         {
             _locationService.CREATElocation(location);
@@ -53,7 +53,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPut]
         [Route("UPDATElocation")]
-
+        [CheckClaimsAttribute("Roleid", "1")]
         public void UPDATElocation(Location location)
         {
             _locationService.UPDATElocation(location);
@@ -62,6 +62,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpDelete]
         [Route("Deletelocation/{id}")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public void Deletelocation(int id)
         {
             _locationService.Deletelocation(id);

@@ -15,8 +15,11 @@ namespace Trip_Volunteer.API.Controllers
 
             _volunteerRolesService = volunteerRolesService;
         }
+
+
         [HttpGet]
         [Route("GetAllVolunteerRoles")]
+        [CheckClaimsAttribute("Roleid", "1", "2")]
         public List<VolunteerRole> GetAllVolunteerRoles()
         {
             return _volunteerRolesService.GetAllVolunteerRoles();
@@ -24,6 +27,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpGet]
         [Route("GetVolunteerRoleById/{id}")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public VolunteerRole GetVolunteerRoleById(int id)
         {
             return _volunteerRolesService.GetVolunteerRoleById(id);
@@ -31,6 +35,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPost]
         [Route("CreateVolunteerRole")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public void CreateVolunteerRole(VolunteerRole volunteerRole)
         {
             _volunteerRolesService.CreateVolunteerRole(volunteerRole);
@@ -38,6 +43,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPut]
         [Route("UpdateVolunteerRole")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public void UpdateVolunteerRole(VolunteerRole volunteerRole)
         {
             _volunteerRolesService.UpdateVolunteerRole(volunteerRole);
@@ -45,6 +51,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpDelete]
         [Route("DeleteVolunteerRole/{id}")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public void DeleteVolunteerRole(int id)
         {
             _volunteerRolesService.DeleteVolunteerRole(id);

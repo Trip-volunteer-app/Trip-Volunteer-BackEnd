@@ -35,39 +35,78 @@ namespace Trip_Volunteer.Infra.Repository
 
         public void CreateAboutUsElements(Aboutu aboutus)
         {
-
             var p = new DynamicParameters();
-            p.Add("A_IMG_1", aboutus.Image1, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("A_IMG_2", aboutus.Image2, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("A_Text_1", aboutus.Text1, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("A_Text_2", aboutus.Text2, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("A_Text_3", aboutus.Text3, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("A_IMG_3", aboutus.Image3, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("A_IMG_4", aboutus.Image4, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("A_Text_5", aboutus.Text5, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("A_Text_6", aboutus.Text6, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("A_Text_7", aboutus.Text7, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("A_Title", aboutus.Title, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("A_Hero_Image", aboutus.Hero_image, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("A_Header", aboutus.Header, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("A_Image1", aboutus.Image1, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("A_Image2", aboutus.Image2, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("A_Image3", aboutus.Image3, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("A_Image4", aboutus.Image4, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("A_Feature1_Header", aboutus.Feature1_header, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("A_Feature1", aboutus.Feature1, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("A_Feature2_Header", aboutus.Feature2_header, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("A_Feature2", aboutus.Feature2, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("A_Feature3_Header", aboutus.Feature3_header, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("A_Feature3", aboutus.Feature3, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("A_Feature4_Header", aboutus.Feature4_header, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("A_Feature4", aboutus.Feature4, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("A_Header2", aboutus.Header2, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("A_Title2", aboutus.Title2, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("A_AboutUs", aboutus.Aboutus, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("A_Image5", aboutus.Image5, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("A_Image6", aboutus.Image6, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("A_Header3", aboutus.Header3, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("A_Text1", aboutus.Text1, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("A_FeedbackHeader", aboutus.FeedbackHeader, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("A_FeedbackTitle", aboutus.FeedbackTitle, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("A_Feedback_Background", aboutus.Feedback_background, dbType: DbType.String, direction: ParameterDirection.Input);
 
-            _dbContext.Connection.Execute("Aboutus_Package.CreateAboutUsElements", p, commandType: CommandType.StoredProcedure);
+            _dbContext.Connection.Execute(
+                "Aboutus_Package.CreateAboutUsElements",
+                p,
+                commandType: CommandType.StoredProcedure
+            );
         }
 
         public void UpdateAboutUsElements(Aboutu aboutus)
         {
             var p = new DynamicParameters();
+
             p.Add("AboutUs_Id", aboutus.Aboutus_Page_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("A_IMG_1", aboutus.Image1, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("A_IMG_2", aboutus.Image2, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("A_Text_1", aboutus.Text1, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("A_Text_2", aboutus.Text2, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("A_Text_3", aboutus.Text3, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("A_IMG_3", aboutus.Image3, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("A_IMG_4", aboutus.Image4, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("A_Text_5", aboutus.Text5, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("A_Text_6", aboutus.Text6, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("A_Text_7", aboutus.Text7, dbType: DbType.String, direction: ParameterDirection.Input);
-            
-            _dbContext.Connection.Execute("Aboutus_Package.UpdateAboutUsElements", p, commandType: CommandType.StoredProcedure);
+            p.Add("A_Title", aboutus.Title, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("A_Hero_Image", aboutus.Hero_image, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("A_Header", aboutus.Header, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("A_Image1", aboutus.Image1, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("A_Image2", aboutus.Image2, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("A_Image3", aboutus.Image3, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("A_Image4", aboutus.Image4, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("A_Feature1_Header", aboutus.Feature1_header, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("A_Feature1", aboutus.Feature1, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("A_Feature2_Header", aboutus.Feature2_header, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("A_Feature2", aboutus.Feature2, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("A_Feature3_Header", aboutus.Feature3_header, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("A_Feature3", aboutus.Feature3, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("A_Feature4_Header", aboutus.Feature4_header, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("A_Feature4", aboutus.Feature4, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("A_Header2", aboutus.Header2, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("A_Title2", aboutus.Title2, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("A_AboutUs", aboutus.Aboutus, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("A_Image5", aboutus.Image5, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("A_Image6", aboutus.Image6, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("A_Header3", aboutus.Header3, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("A_Text1", aboutus.Text1, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("A_FeedbackHeader", aboutus.FeedbackHeader, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("A_FeedbackTitle", aboutus.FeedbackTitle, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("A_Feedback_Background", aboutus.Feedback_background, dbType: DbType.String, direction: ParameterDirection.Input);
+
+            _dbContext.Connection.Execute(
+                "Aboutus_Package.UpdateAboutUsElements",
+                p,
+                commandType: CommandType.StoredProcedure
+            );
         }
+
 
         public void DeleteAboutUsElements(int id)
         {

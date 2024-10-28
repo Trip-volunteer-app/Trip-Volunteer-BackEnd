@@ -14,38 +14,54 @@ namespace Trip_Volunteer.API.Controllers
         {
             _testimonialElementService = testimonialElementService;
         }
+
+
         [HttpGet]
         public List<TestimonialElement> GetAllTestimonialElements()
         {
             return _testimonialElementService.GetAllTestimonialElements();
         }
+
+
         [HttpGet]
         [Route("GetTestimonialElementById")]
+        [CheckClaimsAttribute("Roleid", "1", "2")]
         public TestimonialElement GetTestimonialElementById(int id)
         {
             return _testimonialElementService.GetTestimonialElementById(id);
         }
+
+
         [HttpPost]
         [Route("CreateTestimonialElement")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public void CreateTestimonialElement(TestimonialElement testimonialElement)
         {
             _testimonialElementService.CreateTestimonialElement(testimonialElement);
         }
+
+
         [HttpPut]
         [Route("UpdateTestimonialElement")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public void UpdateTestimonialElement(TestimonialElement testimonialElement)
         {
             _testimonialElementService.UpdateTestimonialElement(testimonialElement);
         }
+
+
         [HttpDelete]
         [Route("DeleteTestimonialElement")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public void DeleteTestimonialElement(int id)
         {
             _testimonialElementService.DeleteTestimonialElement(id);
         }
 
-        [Route("uploadImage")]
+
         [HttpPost]
+        [Route("uploadImage")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public TestimonialElement UploadImage()
         {
             var file = Request.Form.Files[0];

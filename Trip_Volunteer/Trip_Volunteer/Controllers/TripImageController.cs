@@ -19,14 +19,14 @@ namespace Trip_Volunteer.API.Controllers
         }
 
 
-        [HttpGet]
+        [HttpGet]      
         public List<TripImage> GetAllTripImage()
         {
             return _tripImageService.GetAllTripImage();
         }
 
         [HttpGet]
-        [Route("GetTripImageById")]
+        [Route("GetTripImageById")]       
         public TripImage GetTripImageById(int id)
         {
             return _tripImageService.GetTripImageById(id);
@@ -34,12 +34,15 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpGet]
         [Route("GetTripImageByTripId/{id}")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public List<TripImage> GetTripImageByTripId(int id)
         {
             return _tripImageService.GetTripImageByTripId(id);
         }
+
         [HttpPost]
         [Route("CreateTripImage")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public void CreateTripImage(TripImage tripImage)
         {
             _tripImageService.CreateTripImage(tripImage);
@@ -48,7 +51,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPut]
         [Route("UpdateTripImage")]
-
+        [CheckClaimsAttribute("Roleid", "1")]
         public void UpdateTripImage(TripImage tripImage)
         {
             _tripImageService.UpdateTripImage(tripImage);
@@ -57,13 +60,16 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpDelete]
         [Route("DeleteTripImage/{id}")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public void DeleteTripImage(int id)
         {
             _tripImageService.DeleteTripImage(id);
         }
 
-        [Route("uploadImage")]
+
         [HttpPost]
+        [Route("uploadImage")]     
+        [CheckClaimsAttribute("Roleid", "1")]
         public TripImage UploadImage()
         {
             var file = Request.Form.Files[0];

@@ -1,5 +1,4 @@
 using Trip_Volunteer.Core.Common;
-using Trip_Volunteer.Core.Data;
 using Trip_Volunteer.Core.Repository;
 using Trip_Volunteer.Core.Service;
 using Trip_Volunteer.Infra.Common;
