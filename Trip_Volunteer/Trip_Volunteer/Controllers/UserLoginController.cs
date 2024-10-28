@@ -48,7 +48,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPut]
         [Route("UpdateUserLogin")]
-        [CheckClaimsAttribute("Roleid", "2")]
+        [CheckClaimsAttribute("Roleid", "1","2")]
         public void UpdateUserLogin(UserLogin userLogin)
         {
             _userLoginService.UpdateUserLogin(userLogin);
@@ -112,7 +112,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPut]
         [Route("UpdateAllUserInformation")]
-        [CheckClaimsAttribute("Roleid", "1", "2")]
+        //[CheckClaimsAttribute("Roleid", "1", "2")]
         public void UpdateAllUserInformation(string L_id, string L_Email, string L_Pass, string L_RePass, string r_id, string u_id, string F_Name, string L_Name, string IMG, string u_Address, string phone, DateTime B_Day)
         {
             _userLoginService.UpdateAllUserInformation(L_id, L_Email, L_Pass, L_RePass, r_id, u_id, F_Name, L_Name, IMG, u_Address, phone, B_Day);
@@ -121,7 +121,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpGet]
         [Route("GetAllUserInformation")]
-        [CheckClaimsAttribute("Roleid", "1", "2")]
+        //[CheckClaimsAttribute("Roleid", "1", "2")]
         public List<UserInformationDto> GetAllUserInformation()
         {
             return _userLoginService.GetAllUserInformation();
@@ -130,7 +130,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpGet]
         [Route("GetUserinfoByEmail")]
-        [CheckClaimsAttribute("Roleid", "1")]
+        //[CheckClaimsAttribute("Roleid", "1")]
         public List<UserInformationDto> GetUserinfoByEmail(string email)
         {
             return _userLoginService.GetUserinfoByEmail(email);
@@ -156,7 +156,7 @@ namespace Trip_Volunteer.API.Controllers
 
 
         [HttpPut("updatePassword")]
-        [CheckClaimsAttribute("Roleid", "1", "2")]
+        //[CheckClaimsAttribute("Roleid", "1", "2")]
         public IActionResult UpdatePassword([FromBody] PasswordUpdateRequest request)
         {
             if (string.IsNullOrWhiteSpace(request.NewPassword))

@@ -38,8 +38,32 @@ namespace Trip_Volunteer.API.Controllers
                 return StatusCode(500, "Error sending email");
             }
 
-            return Ok(new { message = "Verification code sent successfully" });
+            // Return the verification code in the response for client-side validation
+            return Ok(new { message = "Verification code sent successfully", verificationCode });
         }
+
+
+        //[HttpPost("send-reset-email")]
+        //public async Task<IActionResult> SendResetEmail([FromBody] ForgotPasswordRequest model)
+        //{
+        //    if (string.IsNullOrEmpty(model.Email))
+        //    {
+        //        return BadRequest("Email is required");
+        //    }
+
+        //    // Generate a random 6-digit code
+        //    var verificationCode = GenerateVerificationCode();
+
+        //    // Send the email with the 6-digit code
+        //    var emailSent = await SendEmailAsync(model.Email, verificationCode);
+
+        //    if (!emailSent)
+        //    {
+        //        return StatusCode(500, "Error sending email");
+        //    }
+
+        //    return Ok(new { message = "Verification code sent successfully" });
+        //}
 
         private string GenerateVerificationCode()
         {
