@@ -57,5 +57,13 @@ namespace Trip_Volunteer.API.Controllers
             _servicesService.DeleteService(serviceId);
 
         }
+
+        [HttpGet]
+        [Route("GetServiceByTripId/{id}")]
+        public List<Core.Data.Service> GetServiceByTripId(int id)
+        {
+            return _servicesService.GetServiceByTripId(id);
+        }
+
     }
 }

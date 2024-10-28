@@ -14,5 +14,6 @@ namespace Trip_Volunteer.Core.Service
         void CreateService(Core.Data.Service service );
         void UpdateService(int serviceId, decimal serviceCost, string serviceName);
         void DeleteService(int serviceId);
+        List<Core.Data.Service> GetServiceByTripId(int id);
     }
 }
