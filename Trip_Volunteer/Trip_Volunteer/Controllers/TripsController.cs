@@ -96,24 +96,24 @@ namespace Trip_Volunteer.API.Controllers
         }
         [HttpGet]
         [Route("GetAllTripInformation")]
-        public List<TripInformationDTO> GetAllTripInformation()
+        public Task<List<TripInfoByIdDTO>> GetAllTripInformation()
         {
             return _tripsService.GetAllTripInformation();
         }
         [HttpGet]
         [Route("GetAllTripInformationById")]
-        public TripInformationDTO GetAllTripInformationById(int Id)
+        public TripInfoByIdDTO GetAllTripInformationById(int Id)
         {
             return _tripsService.GetAllTripInformationById(Id);
         }
         [HttpGet]
-        [Route("GetTripVolById")]
+        [Route("GetTripVolById/{id}")]
         public TripWithVolDTO GetTripVolById(int Id)
         {
             return _tripsService.GetTripVolById(Id);
         }
         [HttpGet]
-        [Route("GetTripUsersById")]
+        [Route("GetTripUsersById/{id}")]
         public TripWithVolDTO GetTripUsersById(int Id)
         {
             return _tripsService.GetTripUsersById(Id);

@@ -41,5 +41,9 @@ namespace Trip_Volunteer.Infra.Service
         {
             _serviceRepository.UpdateService(serviceId, serviceCost, serviceName);
         }
+        public List<Core.Data.Service> GetServiceByTripId(int id)
+        {
+            return _serviceRepository.GetServiceByTripId(id);
+        }
     }
 }

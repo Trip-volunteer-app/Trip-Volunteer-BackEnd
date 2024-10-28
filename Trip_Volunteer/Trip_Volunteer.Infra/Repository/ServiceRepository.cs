@@ -77,6 +77,13 @@ namespace Trip_Volunteer.Infra.Repository
                 commandType: CommandType.StoredProcedure);
         }
 
-
+        public List<Core.Data.Service> GetServiceByTripId(int id)
+        {
+            var p = new DynamicParameters();
+            p.Add("id", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            IEnumerable<Core.Data.Service> result = _dbContext.Connection.Query<Core.Data.Service>("service_Package.GetServiceByTripId", p, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+     
     }
 }
