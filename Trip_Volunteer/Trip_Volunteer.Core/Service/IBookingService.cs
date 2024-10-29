@@ -11,8 +11,8 @@ namespace Trip_Volunteer.Core.Service
     {
         List<Booking> GetAllBookings();
         Booking GetBookingById(int bookingId);
-        void CreateBooking(int tripId, int loginId, decimal totalAmount);
-        void UpdateBooking(int bookingId, string paymentStatus, int tripId, int loginId, decimal totalAmount);
+        void CreateBooking(Booking booking);
+        void UpdateBooking(Booking booking);
         void DeleteBooking(int bookingId);
     }
 }

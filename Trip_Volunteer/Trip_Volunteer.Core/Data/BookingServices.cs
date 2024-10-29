@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Trip_Volunteer.Core.Data
 {
-    public partial class BookingService
+    public partial class BookingServices
     {
         public decimal Booking_Service_Id { get; set; }
         public decimal? Booking_Id { get; set; }

@@ -84,13 +84,6 @@ namespace Trip_Volunteer.API.Controllers
             return Ok(numberOfTrips); 
         }
 
-        //[HttpGet("trips/NumberOfFinishedTrips")]
-        //public IActionResult NumberOfFinishedTrips()
-        //{
-        //    int numberOfTrips = _tripsService.NumberOfFinishedTrips();
-        //    return Ok(numberOfTrips); 
-        //}
-
 
         [HttpGet]
         [Route("TripsWithMaxReservations")]
@@ -111,8 +104,8 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpGet]
         [Route("GetAllTripInformationById")]
-        [CheckClaimsAttribute("Roleid", "1")]
-        public TripInfoByIdDTO GetAllTripInformationById(int Id)
+/*        [CheckClaimsAttribute("Roleid", "1")]
+*/        public TripInfoByIdDTO GetAllTripInformationById(int Id)
         {
             return _tripsService.GetAllTripInformationById(Id);
         }
@@ -128,8 +121,8 @@ namespace Trip_Volunteer.API.Controllers
 
 
         [HttpGet]
+        [Route("GetTripUsersById")]
         [CheckClaimsAttribute("Roleid", "1")]
-        [Route("GetTripUsersById/{id}")]
         public TripWithVolDTO GetTripUsersById(int Id)
         {
             return _tripsService.GetTripUsersById(Id);
