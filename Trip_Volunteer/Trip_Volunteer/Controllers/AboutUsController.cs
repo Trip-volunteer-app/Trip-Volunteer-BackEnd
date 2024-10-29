@@ -61,8 +61,8 @@ namespace Trip_Volunteer.API.Controllers
         }
 
 
+        [HttpPost]       
         [Route("uploadHeroImage")]
-        [HttpPost]
         public Aboutu uploadHeroImage()
         {
             var file = Request.Form.Files[0];
@@ -77,7 +77,6 @@ namespace Trip_Volunteer.API.Controllers
             return item;
         }
 
-        [Route("uploadImage1")]
         [HttpPost]
         [Route("uploadImage1")]
         [CheckClaimsAttribute("Roleid", "1")]
@@ -149,8 +148,9 @@ namespace Trip_Volunteer.API.Controllers
             return item;
         }
 
-        [Route("uploadImage5")]
+
         [HttpPost]
+        [Route("uploadImage5")]
         public Aboutu UploadImage5()
         {
             var file = Request.Form.Files[0];
@@ -165,8 +165,8 @@ namespace Trip_Volunteer.API.Controllers
             return item;
         }
 
+        [HttpPost]    
         [Route("uploadImage6")]
-        [HttpPost]
         public Aboutu UploadImage6()
         {
             var file = Request.Form.Files[0];
@@ -180,8 +180,9 @@ namespace Trip_Volunteer.API.Controllers
             item.Image6 = fileName;
             return item;
         }
+
+        [HttpPost]        
         [Route("uploadFeedbackBackground")]
-        [HttpPost]
         public Aboutu uploadFeedbackBackground()
         {
             var file = Request.Form.Files[0];
@@ -196,6 +197,7 @@ namespace Trip_Volunteer.API.Controllers
             return item;
         }
 
+        [HttpGet]
         [Route("GetSelectedAboutus")]
         [CheckClaimsAttribute("Roleid", "1")]
         public Aboutu GetSelectedAboutus()

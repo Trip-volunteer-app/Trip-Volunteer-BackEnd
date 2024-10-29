@@ -17,9 +17,9 @@ namespace Trip_Volunteer.Infra.Service
             _bookingRepository = bookingRepository;
         }
 
-        public void CreateBooking(int tripId, int loginId, decimal totalAmount)
+        public void CreateBooking(Booking booking)
         {
-            _bookingRepository.CreateBooking(tripId, loginId, totalAmount);
+            _bookingRepository.CreateBooking(booking);
         }
 
         public void DeleteBooking(int bookingId)
@@ -37,9 +37,9 @@ namespace Trip_Volunteer.Infra.Service
             return _bookingRepository.GetBookingById(bookingId);
         }
 
-        public void UpdateBooking(int bookingId, string paymentStatus, int tripId, int loginId, decimal totalAmount)
+        public void UpdateBooking(Booking booking)
         {
-            _bookingRepository.UpdateBooking(bookingId, paymentStatus, tripId, loginId, totalAmount);
+            _bookingRepository.UpdateBooking(booking);
         }
     }
 }

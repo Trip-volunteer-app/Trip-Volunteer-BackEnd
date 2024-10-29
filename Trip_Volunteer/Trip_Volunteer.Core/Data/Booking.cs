@@ -8,6 +8,7 @@ namespace Trip_Volunteer.Core.Data
         public Booking()
         {
             Reviews = new HashSet<Review>();
+            Booking_Services = new HashSet<BookingServices>();
         }
 
         public decimal Booking_Id { get; set; }
@@ -25,7 +26,7 @@ namespace Trip_Volunteer.Core.Data
 
         public decimal? NumberOfUser { get; set; }
 
-        public virtual ICollection<BookingService> Booking_Services { get; set; }
+        public virtual ICollection<BookingServices>? Booking_Services { get; set; }
 
     }
 }

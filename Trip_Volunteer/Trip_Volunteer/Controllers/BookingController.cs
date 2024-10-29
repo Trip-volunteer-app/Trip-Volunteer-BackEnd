@@ -20,40 +20,40 @@ namespace Trip_Volunteer.API.Controllers
         }
 
         [HttpGet]
-        [CheckClaimsAttribute("Roleid", "1")]
-        public List<Booking> GetAllBookings()
+/*        [CheckClaimsAttribute("Roleid", "1")]
+*/        public List<Booking> GetAllBookings()
         {
           return  _bookingService.GetAllBookings();
         }
 
         [HttpGet]
         [Route("GetBookingById/{bookingId}")]
-        [CheckClaimsAttribute("Roleid", "1")]
-        public Booking GetBookingById(int bookingId)
+/*        [CheckClaimsAttribute("Roleid", "1")]
+*/        public Booking GetBookingById(int bookingId)
         {
            return _bookingService.GetBookingById(bookingId);
         }
 
         [HttpPost]
         [Route("CreateBooking")]
-        [CheckClaimsAttribute("Roleid", "1","2")]
-        public void CreateBooking(int tripId, int loginId, decimal totalAmount)
+/*        [CheckClaimsAttribute("Roleid", "1","2")]
+*/        public void CreateBooking(Booking booking)
         {
-            _bookingService.CreateBooking(tripId, loginId, totalAmount);
+            _bookingService.CreateBooking(booking);
         }
 
         [HttpPut]
         [Route("UpdateBooking")]
-        [CheckClaimsAttribute("Roleid", "1")]
-        public void UpdateBooking(int bookingId, string paymentStatus, int tripId, int loginId, decimal totalAmount)
+/*        [CheckClaimsAttribute("Roleid", "1")]
+*/        public void UpdateBooking(Booking booking)
         {
-            _bookingService.UpdateBooking(bookingId, paymentStatus, tripId, loginId, totalAmount);
+            _bookingService.UpdateBooking(booking);
         }
 
         [HttpDelete]
         [Route("DeleteBooking/{bookingId}")]
-        [CheckClaimsAttribute("Roleid", "1")]
-        public void DeleteBooking(int bookingId)
+/*        [CheckClaimsAttribute("Roleid", "1")]
+*/        public void DeleteBooking(int bookingId)
         {
 
             _bookingService.DeleteBooking(bookingId);
