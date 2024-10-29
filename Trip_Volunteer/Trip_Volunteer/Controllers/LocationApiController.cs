@@ -39,31 +39,23 @@ namespace Trip_Volunteer.API.Controllers
             return Ok(content); // You can deserialize the JSON and return specific information if needed
         }
 
-        [HttpPost("get-geocode-info")]
-        public async Task<IActionResult> GetGeocodeInfo(string departureAddress, string destinationAddress)
+        [HttpGet("get-geocode-info")]
+        public async Task<IActionResult> GetGeocodeInfo(string Address)
         {
             var apiKey = "AIzaSyDEGmmofoNnuXXtkx6CxIIMgzk1Tkq5kKk"; // Use your own API key
-            var requestUrl = $"https://maps.googleapis.com/maps/api/geocode/json?address={Uri.EscapeDataString(departureAddress)}&key={apiKey}";
-            var request2Url = $"https://maps.googleapis.com/maps/api/geocode/json?address={Uri.EscapeDataString(destinationAddress)}&key={apiKey}";
+            var requestUrl = $"https://maps.googleapis.com/maps/api/geocode/json?address={Uri.EscapeDataString(Address)}&key={apiKey}";
 
             var response1 = await _httpClient.GetAsync(requestUrl);
             if (!response1.IsSuccessStatusCode)
             {
                 return BadRequest("Error retrieving geocode information.");
             }
-            var response2 = await _httpClient.GetAsync(request2Url);
-            if (!response2.IsSuccessStatusCode)
-            {
-                return BadRequest("Error retrieving geocode information.");
-            }
+
 
             var content = await response1.Content.ReadAsStringAsync();
             Console.WriteLine($"444444444444444444444444444444444444444444444444444{content}");
             var jsonResponse = JObject.Parse(content); // Parse the response into a JObject
 
-            var content2 = await response2.Content.ReadAsStringAsync();
-            Console.WriteLine($"444444444444444444444444444444444444444444444444444{content}");
-            var jsonResponse2 = JObject.Parse(content2); // Parse the response into a JObject
 
             // Check the status
             if (jsonResponse["status"].ToString() != "OK" || jsonResponse["results"].Count() == 0)
@@ -73,33 +65,14 @@ namespace Trip_Volunteer.API.Controllers
 
 
             // Extract latitude and longitude
-            var latitudeDeparture = (decimal)jsonResponse["results"][0]["geometry"]["location"]["lat"];
-            var longitudeDeparture = (decimal)jsonResponse["results"][0]["geometry"]["location"]["lng"];
-            var latitudeDestination = (decimal)jsonResponse2["results"][0]["geometry"]["location"]["lat"];
-            var longitudeDestination = (decimal)jsonResponse2["results"][0]["geometry"]["location"]["lng"];
-            // Create a new Location object
-            var location = new Location
+            var locationInfo = new
             {
-                Departure_Latitude = latitudeDeparture,
-                Departure_Longitude = longitudeDeparture,
-                Departure_Location = departureAddress,
-                Destination_Location = destinationAddress,
-                Destination_Latitude = latitudeDestination,
-                Destination_Longitude = longitudeDestination,
+                Latitude = (decimal)jsonResponse["results"][0]["geometry"]["location"]["lat"],
+                Longitude = (decimal)jsonResponse["results"][0]["geometry"]["location"]["lng"],
+                Address = (string)jsonResponse["results"][0]["formatted_address"]
             };
 
-            // Use the existing service method to add the location to the database
-            try
-            {
-                _locationService.CREATElocation(location);
-            }
-            catch (Exception ex)
-            {
-                // Handle the exception, return a meaningful message
-                return StatusCode(StatusCodes.Status500InternalServerError, "Error saving location to the database.");
-            }
-
-            return Ok(location); // Return the saved location or other relevant info
+            return Ok(locationInfo);
         }
     }
 }
