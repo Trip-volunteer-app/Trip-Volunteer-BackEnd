@@ -112,7 +112,6 @@ namespace Trip_Volunteer.API.Controllers
         [HttpGet]
         [Route("GetAllTripInformationById")]
         [CheckClaimsAttribute("Roleid", "1")]
-        public TripInformationDTO GetAllTripInformationById(int Id)
         public TripInfoByIdDTO GetAllTripInformationById(int Id)
         {
             return _tripsService.GetAllTripInformationById(Id);
@@ -120,7 +119,6 @@ namespace Trip_Volunteer.API.Controllers
 
 
         [HttpGet]
-        [Route("GetTripVolById")]
         [CheckClaimsAttribute("Roleid", "1")]
         [Route("GetTripVolById/{id}")]
         public TripWithVolDTO GetTripVolById(int Id)
@@ -130,7 +128,6 @@ namespace Trip_Volunteer.API.Controllers
 
 
         [HttpGet]
-        [Route("GetTripUsersById")]
         [CheckClaimsAttribute("Roleid", "1")]
         [Route("GetTripUsersById/{id}")]
         public TripWithVolDTO GetTripUsersById(int Id)

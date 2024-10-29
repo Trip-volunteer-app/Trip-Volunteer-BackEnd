@@ -74,6 +74,7 @@ namespace Trip_Volunteer.API.Controllers
             return item;
         }
 
+        [HttpPost]
         [Route("uploadImage1")]
         [CheckClaimsAttribute("Roleid", "1")]
         public HomePageElement UploadImage1()
