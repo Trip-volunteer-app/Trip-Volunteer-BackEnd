@@ -21,7 +21,7 @@ namespace Trip_Volunteer.Core.Data
         public virtual DbSet<Booking> Bookings { get; set; } = null!;
         public virtual DbSet<Category> Categories { get; set; } = null!;
         public virtual DbSet<ContactU> ContactUs { get; set; } = null!;
-        public virtual DbSet<BookingService> BookingServices { get; set; } = null!;
+        public virtual DbSet<BookingServices> BookingServices { get; set; } = null!;
 
         public virtual DbSet<ContactusElement> ContactusElements { get; set; } = null!;
         public virtual DbSet<HomePageElement> HomePageElements { get; set; } = null!;
@@ -230,7 +230,7 @@ namespace Trip_Volunteer.Core.Data
             });
 
 
-            modelBuilder.Entity<BookingService>(entity =>
+            modelBuilder.Entity<BookingServices>(entity =>
             {
                 entity.ToTable("BOOKING_SERVICE");
 

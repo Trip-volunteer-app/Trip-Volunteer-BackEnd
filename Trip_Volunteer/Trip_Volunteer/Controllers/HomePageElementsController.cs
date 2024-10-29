@@ -58,8 +58,8 @@ namespace Trip_Volunteer.API.Controllers
             _homePageElementsService.DeleteHomePageElement(id);
         }
 
+        [HttpPost]   
         [Route("uploadHeroImg")]
-        [HttpPost]
         public HomePageElement UploadHero_img()
         {
             var file = Request.Form.Files[0];
@@ -74,6 +74,8 @@ namespace Trip_Volunteer.API.Controllers
             return item;
         }
 
+
+        [HttpPost]
         [Route("uploadImage1")]
         [CheckClaimsAttribute("Roleid", "1")]
         public HomePageElement UploadImage1()
@@ -162,15 +164,16 @@ namespace Trip_Volunteer.API.Controllers
             return item;
         }
 
-        [Route("UpdateHomeSelectStatus")]
         [HttpPut]
+        [Route("UpdateHomeSelectStatus")]
         public void UpdateHomeSelectStatus(int id)
         {
             _homePageElementsService.UpdateHomeSelectStatus(id);
         }
 
-        [Route("GetSelectedHomeElement")]
+
         [HttpGet]
+        [Route("GetSelectedHomeElement")]
         public HomePageElement GetSelectedHomeElement()
         {
             return _homePageElementsService.GetSelectedHomeElement();

@@ -41,12 +41,14 @@ namespace Trip_Volunteer.Infra.Repository
             return result.SingleOrDefault();
         }
 
-        public void CreateBooking(int tripId, int loginId, decimal totalAmount)
+        public void CreateBooking(Booking booking)
         {
             var p = new DynamicParameters();
-            p.Add("p_trip_id", tripId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("p_login_id", loginId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("p_total_amount", totalAmount, dbType: DbType.Decimal, direction: ParameterDirection.Input);
+            p.Add("p_trip_id", booking.Trip_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("p_login_id", booking.Login_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("p_total_amount", booking.Total_Amount, dbType: DbType.Decimal, direction: ParameterDirection.Input);
+            p.Add("P_NumberOfUser", booking.NumberOfUser, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("p_Note", booking.Note, dbType: DbType.String, direction: ParameterDirection.Input);
 
             _dbContext.Connection.Execute(
                 "booking_Package.CreateBooking",
@@ -54,14 +56,15 @@ namespace Trip_Volunteer.Infra.Repository
                 commandType: CommandType.StoredProcedure);
         }
 
-        public void UpdateBooking(int bookingId, string paymentStatus, int tripId, int loginId, decimal totalAmount)
+        public void UpdateBooking(Booking booking)
         {
             var p = new DynamicParameters();
-            p.Add("p_booking_id", bookingId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("p_payment_status", paymentStatus, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("p_trip_id", tripId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("p_login_id", loginId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("p_total_amount", totalAmount, dbType: DbType.Decimal, direction: ParameterDirection.Input);
+            p.Add("p_booking_id", booking.Booking_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("p_trip_id", booking.Trip_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("p_login_id", booking.Login_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("p_total_amount", booking.Total_Amount, dbType: DbType.Decimal, direction: ParameterDirection.Input);
+            p.Add("P_NumberOfUser", booking.NumberOfUser, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("p_Note", booking.Note, dbType: DbType.String, direction: ParameterDirection.Input);
 
             _dbContext.Connection.Execute(
                 "booking_Package.UpdateBooking",

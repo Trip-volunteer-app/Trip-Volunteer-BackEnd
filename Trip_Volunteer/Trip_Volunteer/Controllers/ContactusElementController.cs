@@ -60,9 +60,8 @@ namespace Trip_Volunteer.API.Controllers
             _contactusElementService.DeleteContactusElement(id);
         }
 
-
-        [Route("uploadImage")]
         [HttpPost]
+        [Route("uploadImage")]
         [CheckClaimsAttribute("Roleid", "1")]
         public ContactusElement UploadImage()
         {
