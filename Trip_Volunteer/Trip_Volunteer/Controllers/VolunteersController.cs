@@ -37,7 +37,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPost]
         [Route("CreateVolunteer")]
-        [CheckClaimsAttribute("Roleid", "2")]
+        //[CheckClaimsAttribute("Roleid", "2")]
         public void CreateVolunteer(Volunteer volunteer)
         {
             _volunteersService.CreateVolunteer(volunteer);
