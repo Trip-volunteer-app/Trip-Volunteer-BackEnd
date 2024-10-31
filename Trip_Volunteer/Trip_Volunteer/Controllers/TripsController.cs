@@ -128,6 +128,23 @@ namespace Trip_Volunteer.API.Controllers
             return _tripsService.GetTripUsersById(Id);
         }
 
-   
+        [HttpGet]
+        [Route("GetVolunteerUserInfoByTripId/{ID}")]
+
+        public List<GetVolunteerUserInfoByTripIdDTO> GetVolunteerUserInfoByTripId(int ID)
+        {
+            return _tripsService.GetVolunteerUserInfoByTripId(ID);
+        }
+
+
+
+        [HttpGet]
+        [Route("GetUserPaymentsForTrip/{ID}")]
+
+        public List<GetUserPaymentsForTripDTO> GetUserPaymentsForTrip(int ID)
+        {
+            return _tripsService.GetUserPaymentsForTrip(ID);
+        }
+
     }
 }

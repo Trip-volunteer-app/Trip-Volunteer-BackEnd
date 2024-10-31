@@ -30,5 +30,7 @@ namespace Trip_Volunteer.Core.Service
         TripInfoByIdDTO GetAllTripInformationById(int Id);
         TripWithVolDTO GetTripVolById(int Id);
         TripWithVolDTO GetTripUsersById(int Id);
+        List<GetVolunteerUserInfoByTripIdDTO> GetVolunteerUserInfoByTripId(int ID);
+        List<GetUserPaymentsForTripDTO> GetUserPaymentsForTrip(int ID);
     }
 }

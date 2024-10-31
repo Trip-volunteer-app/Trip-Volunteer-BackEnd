@@ -163,5 +163,21 @@ namespace Trip_Volunteer.Infra.Repository
             IEnumerable<TripWithVolDTO> result = _dbContext.Connection.Query<TripWithVolDTO>("trips_Package.GetTripUsersById", p, commandType: CommandType.StoredProcedure);
             return result.FirstOrDefault();
         }
+
+        public List<GetVolunteerUserInfoByTripIdDTO> GetVolunteerUserInfoByTripId(int ID)
+        {
+            var p = new DynamicParameters();
+            p.Add("p_trip_id", ID, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            IEnumerable<GetVolunteerUserInfoByTripIdDTO> result = _dbContext.Connection.Query<GetVolunteerUserInfoByTripIdDTO>("trips_Package.GetVolunteerUserInfoByTripId", p, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+
+        public List<GetUserPaymentsForTripDTO> GetUserPaymentsForTrip(int ID)
+        {
+            var p = new DynamicParameters();
+            p.Add("p_trip_id", ID, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            IEnumerable<GetUserPaymentsForTripDTO> result = _dbContext.Connection.Query<GetUserPaymentsForTripDTO>("trips_Package.GetUserPaymentsForTrip", p, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
     }
 }
