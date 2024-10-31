@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Trip_Volunteer.Core.Data;
+using Trip_Volunteer.Core.DTO;
 using Trip_Volunteer.Core.Repository;
 using Trip_Volunteer.Core.Service;
 
@@ -17,9 +18,9 @@ namespace Trip_Volunteer.Infra.Service
             _bookingRepository = bookingRepository;
         }
 
-        public void CreateBooking(Booking booking)
+        public void CreateBooking(BookingDTO bookingDto)
         {
-            _bookingRepository.CreateBooking(booking);
+            _bookingRepository.CreateBooking( bookingDto);
         }
 
         public void DeleteBooking(int bookingId)
