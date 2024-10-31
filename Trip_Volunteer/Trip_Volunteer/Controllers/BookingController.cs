@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Data;
 using Trip_Volunteer.Core.Common;
 using Trip_Volunteer.Core.Data;
+using Trip_Volunteer.Core.DTO;
 using Trip_Volunteer.Core.Service;
 
 namespace Trip_Volunteer.API.Controllers
@@ -37,9 +38,11 @@ namespace Trip_Volunteer.API.Controllers
         [HttpPost]
         [Route("CreateBooking")]
 /*        [CheckClaimsAttribute("Roleid", "1","2")]
-*/        public void CreateBooking(Booking booking)
+*/        public void CreateBooking( BookingDTO bookingDto)
         {
-            _bookingService.CreateBooking(booking);
+             _bookingService.CreateBooking(bookingDto);
+
+
         }
 
         [HttpPut]
