@@ -20,6 +20,8 @@ namespace Trip_Volunteer.Core.Data
         public virtual DbSet<Bank> Banks { get; set; } = null!;
         public virtual DbSet<Booking> Bookings { get; set; } = null!;
         public virtual DbSet<Category> Categories { get; set; } = null!;
+        public virtual DbSet<Card> Cards { get; set; } = null!;
+
         public virtual DbSet<ContactU> ContactUs { get; set; } = null!;
         public virtual DbSet<BookingServices> BookingServices { get; set; } = null!;
 
@@ -228,6 +230,43 @@ namespace Trip_Volunteer.Core.Data
                     .IsUnicode(false)
                     .HasColumnName("FULL_NAME");
             });
+
+
+
+            modelBuilder.Entity<Card>(entity =>
+            {
+                entity.ToTable("CARD");
+
+                entity.Property(e => e.CardId)
+                    .HasColumnType("NUMBER(38)")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnName("CARD_ID");
+
+                entity.Property(e => e.CardNumber)
+                    .HasColumnType("NUMBER")
+                    .HasColumnName("CARD_NUMBER");
+
+                entity.Property(e => e.CardholderName)
+                    .HasMaxLength(500)
+                    .IsUnicode(false)
+                    .HasColumnName("CARDHOLDER_NAME");
+
+                entity.Property(e => e.ExpiryDate)
+                    .HasColumnType("DATE")
+                    .HasColumnName("EXPIRY_DATE");
+
+                entity.Property(e => e.LoginId)
+                    .HasColumnType("NUMBER")
+                    .HasColumnName("LOGIN_ID");
+
+                entity.HasOne(d => d.Login)
+                    .WithMany(p => p.Cards)
+                    .HasForeignKey(d => d.LoginId)
+                    .OnDelete(DeleteBehavior.SetNull)
+                    .HasConstraintName("FK_CARD_LOGIN_ID");
+            });
+
+
 
 
             modelBuilder.Entity<BookingServices>(entity =>
@@ -836,6 +875,9 @@ namespace Trip_Volunteer.Core.Data
 
             modelBuilder.Entity<UserLogin>(entity =>
             {
+                entity.HasKey(e => e.Login_Id)
+                    .HasName("SYS_C009321");
+
                 entity.ToTable("USER_LOGIN");
 
                 entity.HasIndex(e => e.Email, "SYS_C009322")
