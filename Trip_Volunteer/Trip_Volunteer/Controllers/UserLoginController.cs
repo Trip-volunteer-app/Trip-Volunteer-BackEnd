@@ -5,6 +5,9 @@ using Trip_Volunteer.Core.DTO;
 using Trip_Volunteer.Core.Service;
 using System.Security.Cryptography;
 using System.Text;
+using Oracle.ManagedDataAccess.Client;
+using System.Data;
+using Trip_Volunteer.Infra.Service;
 
 
 
@@ -113,7 +116,7 @@ namespace Trip_Volunteer.API.Controllers
         [HttpPut]
         [Route("UpdateAllUserInformation")]
         //[CheckClaimsAttribute("Roleid", "1", "2")]
-        public void UpdateAllUserInformation(string L_id, string L_Email, string L_Pass, string L_RePass, string r_id, string u_id, string F_Name, string L_Name, string IMG, string u_Address, string phone, DateTime B_Day)
+        public void UpdateAllUserInformation(int L_id, string L_Email, string L_Pass, string L_RePass, int r_id, int u_id, string F_Name, string L_Name, string IMG, string u_Address, string phone, DateTime B_Day)
         {
             _userLoginService.UpdateAllUserInformation(L_id, L_Email, L_Pass, L_RePass, r_id, u_id, F_Name, L_Name, IMG, u_Address, phone, B_Day);
         }
@@ -207,9 +210,66 @@ namespace Trip_Volunteer.API.Controllers
             }
         }
 
+        
+      
+
+        [HttpPut]
+        [Route("ChangePassword")]
+        public async Task<IActionResult> ChangePassword([FromBody] ChangePasswordDto changePassword)
+        {
+            // Check if the required fields are filled
+            if (string.IsNullOrWhiteSpace(changePassword.OldPassword) ||
+                string.IsNullOrWhiteSpace(changePassword.NewPassword) ||
+                string.IsNullOrWhiteSpace(changePassword.ConfirmPassword))
+            {
+                return BadRequest("Old password, new password, and confirm password are required.");
+            }
+
+            // Hash the new password and confirm password
+            changePassword.NewPassword = HashPassword(changePassword.NewPassword);
+            changePassword.ConfirmPassword = HashPassword(changePassword.ConfirmPassword);
+
+            try
+            {
+
+                // Retrieve the user's stored hashed password from the database
+                var user =  _userLoginService.GetUserLoginById(changePassword.LOGIN_ID); // Assuming UserId is part of your DTO
+                if (user == null)
+                {
+                    return NotFound("User not found.");
+                }
+
+                // Verify the old password
+                changePassword.OldPassword = HashPassword(changePassword.OldPassword);
 
 
+                // Ensure the new password and confirm password match
+                //if (changePassword.NewPassword != changePassword.ConfirmPassword)
+                //{
+                //    return BadRequest("New password and confirm password do not match.");
+                //}
+                int result = await _userLoginService.ChangePasswordAsync(changePassword);
 
-
+                // Check the result and respond accordingly
+                if (result == -2)
+                {
+                    return BadRequest("New password and confirm password do not match.");
+                }
+                else if (result == 1)
+                {
+                    return Ok(new { message = "Password changed successfully." });
+                }
+                else
+                {
+                    return StatusCode(500, new { message = "Failed to change password. Please try again later." });
+                }
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "An error occurred while changing the password.", error = ex.Message });
+            }
+        }
     }
 }
+
+

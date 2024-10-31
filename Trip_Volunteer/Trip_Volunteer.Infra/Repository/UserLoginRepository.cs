@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -102,17 +103,17 @@ namespace Trip_Volunteer.Infra.Repository
             return result;
         }
 
-        public void UpdateAllUserInformation(string L_id, string L_Email, string L_Pass, string L_RePass, string r_id, string u_id,
+        public void UpdateAllUserInformation(int L_id, string L_Email, string L_Pass, string L_RePass, int r_id, int u_id,
             string F_Name, string L_Name, string IMG, string u_Address, string phone, DateTime B_Day)
         {
             var p = new DynamicParameters();
 
-            p.Add("L_id", L_id, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("L_id", L_id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("L_Email", L_Email, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("L_Pass", L_Pass, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("L_RePass", L_RePass, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("r_id", r_id, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("u_id", u_id, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("r_id", r_id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("u_id", u_id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("F_Name", F_Name, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("L_Name", L_Name, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("IMG", IMG, dbType: DbType.String, direction: ParameterDirection.Input);
@@ -163,5 +164,26 @@ namespace Trip_Volunteer.Infra.Repository
                 return builder.ToString();
             }
         }
+
+        public async Task<int> ChangePasswordAsync(ChangePasswordDto changePassword)
+        {
+            if (changePassword.NewPassword != changePassword.ConfirmPassword)
+            {
+                // Returning -2 to indicate that the passwords do not match.
+                return -2;
+            }
+
+            var parameters = new DynamicParameters();
+            parameters.Add("p_user_id", changePassword.LOGIN_ID, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            parameters.Add("p_old_password", changePassword.OldPassword, dbType: DbType.String, direction: ParameterDirection.Input);
+            parameters.Add("p_new_password", changePassword.NewPassword, dbType: DbType.String, direction: ParameterDirection.Input);
+            parameters.Add("p_status", dbType: DbType.Int32, direction: ParameterDirection.Output);
+
+            await _dbContext.Connection.ExecuteAsync("User_Login_Package.change_password", parameters, commandType: CommandType.StoredProcedure);
+
+            return parameters.Get<int>("p_status");
+        }
+
+
     }
 }

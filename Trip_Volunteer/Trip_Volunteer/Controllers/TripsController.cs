@@ -112,7 +112,6 @@ namespace Trip_Volunteer.API.Controllers
 
 
         [HttpGet]
-        [Route("GetTripVolById")]
         [CheckClaimsAttribute("Roleid", "1")]
         [Route("GetTripVolById/{id}")]
         public TripWithVolDTO GetTripVolById(int Id)
@@ -121,7 +120,7 @@ namespace Trip_Volunteer.API.Controllers
         }
 
 
-        [HttpGet]   
+        [HttpGet]
         [Route("GetTripUsersById")]
         [CheckClaimsAttribute("Roleid", "1")]
         public TripWithVolDTO GetTripUsersById(int Id)

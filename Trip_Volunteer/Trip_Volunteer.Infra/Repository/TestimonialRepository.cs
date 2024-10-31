@@ -25,6 +25,13 @@ namespace Trip_Volunteer.Infra.Repository
             IEnumerable<Testimonial> result = _dbContext.Connection.Query<Testimonial>("Testimonial_Package.GetAllTestimonies", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
+
+        public List<Testimonial> GetAcceptedTestimonies()
+        {
+            IEnumerable<Testimonial> result = _dbContext.Connection.Query<Testimonial>("Testimonial_Package.GetAcceptedTestimonies", commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+
         public Testimonial GetTestimonyById(int id)
         {
             var p = new DynamicParameters();

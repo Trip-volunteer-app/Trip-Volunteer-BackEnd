@@ -26,8 +26,16 @@ namespace Trip_Volunteer.API.Controllers
         }
 
         [HttpGet]
+        [Route("GetAcceptedTestimonies")]
+        public List<Testimonial> GetAcceptedTestimonies()
+        {
+            return _testimonialService.GetAcceptedTestimonies();
+        }
+
+
+        [HttpGet]
         [Route("GetTestimonyById/{id}")]
-        [CheckClaimsAttribute("Roleid", "1")]
+        //[CheckClaimsAttribute("Roleid", "1")]
         public Testimonial GetTestimonyById(int id)
         {
             return _testimonialService.GetTestimonyById(id);
@@ -35,7 +43,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPost]
         [Route("CreateTestimony")]
-        [CheckClaimsAttribute("Roleid", "2")]
+        //[CheckClaimsAttribute("Roleid", "2")]
         public void CreateTestimony(Testimonial testimonial)
         {
             _testimonialService.CreateTestimony(testimonial);
