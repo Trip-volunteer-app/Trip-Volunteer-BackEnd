@@ -44,7 +44,6 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPost]
         [Route("CREATElocation")]
-        [CheckClaimsAttribute("Roleid", "1")]
         public void CREATElocation(Location location)
         {
             _locationService.CREATElocation(location);
