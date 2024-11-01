@@ -8,6 +8,7 @@ namespace Trip_Volunteer.Core.Data
         public UserLogin()
         {
             Bookings = new HashSet<Booking>();
+            Cards = new HashSet<Card>();
             Payments = new HashSet<Payment>();
             Testimonials = new HashSet<Testimonial>();
             Volunteers = new HashSet<Volunteer>();
@@ -19,11 +20,12 @@ namespace Trip_Volunteer.Core.Data
         public decimal? Role_Id { get; set; }
         public DateTime? Date_Register { get; set; }
         public decimal? User_Id { get; set; }
-        public string? Repassword { get; set; }
+        public string Repassword { get; set; } = null!;
 
         public virtual UserRole? Role { get; set; }
         public virtual User? User { get; set; }
         public virtual ICollection<Booking> Bookings { get; set; }
+        public virtual ICollection<Card> Cards { get; set; }
         public virtual ICollection<Payment> Payments { get; set; }
         public virtual ICollection<Testimonial> Testimonials { get; set; }
         public virtual ICollection<Volunteer> Volunteers { get; set; }

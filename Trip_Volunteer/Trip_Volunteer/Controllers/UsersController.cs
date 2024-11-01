@@ -12,9 +12,11 @@ namespace Trip_Volunteer.API.Controllers
     public class UsersController : ControllerBase
     {
         private readonly IUserService _userService;
-        public UsersController(IUserService userService)
+        private readonly IConfiguration _configuration;
+        public UsersController(IUserService userService, IConfiguration configuration)
         {
             _userService = userService;
+            _configuration = configuration;
         }
 
 
@@ -37,7 +39,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPost]
         [Route("CreateUsers")]
-        [CheckClaimsAttribute("Roleid", "1")]
+        [CheckClaimsAttribute("Roleid", "1", "2")]
         public void CreateUsers(User user)
         {
             _userService.CreateUsers(user);
@@ -71,14 +73,14 @@ namespace Trip_Volunteer.API.Controllers
         }
 
         
-        [HttpPost]
+        [HttpPut]
         [Route("uploadImage")]
-        [CheckClaimsAttribute("Roleid", "1", "2")]
+        //[CheckClaimsAttribute("Roleid", "1", "2")]
         public User UploadImage()
         {
             var file = Request.Form.Files[0];
             var fileName = Guid.NewGuid().ToString() + "_" + file.FileName;
-            var fullPath = Path.Combine("Images", fileName);
+            var fullPath = Path.Combine(_configuration["AppSettings:UploadImage"], fileName);
             using (var stream = new FileStream(fullPath, FileMode.Create))
             {
                 file.CopyTo(stream);
@@ -87,6 +89,8 @@ namespace Trip_Volunteer.API.Controllers
             item.Image_Path = fileName;
             return item;
         }
+
+
 
 
     }

@@ -1,14 +1,19 @@
-﻿using Microsoft.IdentityModel.Tokens;
+﻿using Dapper;
+using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IdentityModel.Tokens.Jwt;
+using System.Net;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
+using System.Xml.Linq;
 using Trip_Volunteer.Core.Data;
 using Trip_Volunteer.Core.DTO;
 using Trip_Volunteer.Core.Repository;
 using Trip_Volunteer.Core.Service;
+using Trip_Volunteer.Infra.Repository;
 
 namespace Trip_Volunteer.Infra.Service
 {
@@ -78,7 +83,7 @@ namespace Trip_Volunteer.Infra.Service
             }
         }
 
-        public void UpdateAllUserInformation(string L_id, string L_Email, string L_Pass, string L_RePass, string r_id, string u_id, string F_Name, string L_Name, string IMG, string u_Address, string phone, DateTime B_Day)
+        public void UpdateAllUserInformation(int L_id, string L_Email, string L_Pass, string L_RePass, int r_id, int u_id,string F_Name, string L_Name, string IMG, string u_Address, string phone, DateTime B_Day)
         {
             _userLoginRepository.UpdateAllUserInformation(L_id, L_Email, L_Pass, L_RePass, r_id, u_id, F_Name, L_Name, IMG, u_Address, phone, B_Day);
         }
@@ -104,6 +109,21 @@ namespace Trip_Volunteer.Infra.Service
         }
 
 
+        public async Task<int> ChangePasswordAsync(ChangePasswordDto changePassword)
+        {
+            if (changePassword.NewPassword != changePassword.ConfirmPassword)
+            {
+                // Returning -2 to indicate that the passwords do not match.
+                return -2;
+            }
+            else 
+            {
+               return await _userLoginRepository.ChangePasswordAsync(changePassword);
+            
+            }
+        }
 
     }
 }
+
+

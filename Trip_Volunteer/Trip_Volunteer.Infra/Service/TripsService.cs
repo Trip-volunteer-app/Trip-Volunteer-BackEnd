@@ -70,11 +70,11 @@ namespace Trip_Volunteer.Infra.Service
         {
             return _tripsRepository.TripsWithMaxReservations();
         }
-        public List<TripInformationDTO> GetAllTripInformation()
+        public Task<List<TripInfoByIdDTO>> GetAllTripInformation()
         {
             return _tripsRepository.GetAllTripInformation();
         }
-        public TripInformationDTO GetAllTripInformationById(int Id)
+        public TripInfoByIdDTO GetAllTripInformationById(int Id)
         {
             return _tripsRepository.GetAllTripInformationById(Id);
         }
@@ -85,6 +85,14 @@ namespace Trip_Volunteer.Infra.Service
         public TripWithVolDTO GetTripUsersById(int Id)
         {
             return _tripsRepository.GetTripUsersById(Id);
+        }
+        public List<GetVolunteerUserInfoByTripIdDTO> GetVolunteerUserInfoByTripId(int ID) 
+        { 
+            return _tripsRepository.GetVolunteerUserInfoByTripId(ID);
+        }
+        public List<GetUserPaymentsForTripDTO> GetUserPaymentsForTrip(int ID) 
+        {
+            return _tripsRepository.GetUserPaymentsForTrip(ID);
         }
     }
 }

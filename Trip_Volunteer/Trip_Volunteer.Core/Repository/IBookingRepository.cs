@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Trip_Volunteer.Core.Data;
+using Trip_Volunteer.Core.DTO;
 
 namespace Trip_Volunteer.Core.Repository
 {
@@ -11,8 +12,8 @@ namespace Trip_Volunteer.Core.Repository
     {
         List<Booking> GetAllBookings();
         Booking GetBookingById(int bookingId);
-        void CreateBooking(int tripId, int loginId, decimal totalAmount);
-        void UpdateBooking(int bookingId, string paymentStatus, int tripId, int loginId, decimal totalAmount);
+        void CreateBooking(BookingDTO bookingDto);
+        void UpdateBooking(Booking booking);
         void DeleteBooking(int bookingId);
 
     }

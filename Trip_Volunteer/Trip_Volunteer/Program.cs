@@ -1,5 +1,4 @@
 using Trip_Volunteer.Core.Common;
-using Trip_Volunteer.Core.Data;
 using Trip_Volunteer.Core.Repository;
 using Trip_Volunteer.Core.Service;
 using Trip_Volunteer.Infra.Common;
@@ -59,6 +58,8 @@ internal class Program
         builder.Services.AddScoped<IAnnualRepository, AnnualRepository>();
         builder.Services.AddHttpClient<Location_ApiController>(); // Register the HttpClient for the controller
         builder.Services.AddScoped<ITripVolunteerroleRepository, TripVolunteerroleRepository>();
+        builder.Services.AddScoped<IBookingServiceRepository, BookingServiceRepository>();
+
 
 
         builder.Services.AddScoped<IBankService, BankService>();
@@ -86,6 +87,7 @@ internal class Program
         builder.Services.AddScoped<IMonthlyService, MonthlyService>();
         builder.Services.AddScoped<IAnnualService, AnnualService>();
         builder.Services.AddScoped<ITripVolunteerroleService, TripVolunteerroleService>();
+        builder.Services.AddScoped<IBookingServicesServices, BookingServicesServices>();
 
 
         builder.Services.AddAuthentication(opt =>

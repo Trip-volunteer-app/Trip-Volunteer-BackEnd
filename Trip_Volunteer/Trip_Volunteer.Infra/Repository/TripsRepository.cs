@@ -1,14 +1,10 @@
 ﻿using Dapper;
-using Oracle.ManagedDataAccess.Client;
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Data;
 using Trip_Volunteer.Core.Common;
 using Trip_Volunteer.Core.Data;
 using Trip_Volunteer.Core.DTO;
 using Trip_Volunteer.Core.Repository;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
+using Trip_Volunteer.Infra.Service;
 
 
 namespace Trip_Volunteer.Infra.Repository
@@ -110,18 +106,46 @@ namespace Trip_Volunteer.Infra.Repository
             return result.ToList();
         }
 
-        public List<TripInformationDTO> GetAllTripInformation()
+        public async Task<List<TripInfoByIdDTO>> GetAllTripInformation()
         {
-             IEnumerable<TripInformationDTO> result = _dbContext.Connection.Query<TripInformationDTO>("trips_Package.GetAllTripInformation", commandType: CommandType.StoredProcedure);
-             return result.ToList();
+            List<TripInfoByIdDTO> trips;
+            List<TripImage> images;
+           
+            using (var multi = await _dbContext.Connection.QueryMultipleAsync("trips_Package.GetAllTripInformation", commandType: CommandType.StoredProcedure))
+            {
+                trips = (await multi.ReadAsync<TripInfoByIdDTO>()).ToList();
 
+                images = (await multi.ReadAsync<TripImage>()).ToList();
+            }
+
+            foreach (var trip in trips)
+            {
+                trip.Images = images.Where(i => i.Trip_Id == trip.Trip_Id).ToList();
+
+            }
+
+            return trips;
         }
-        public TripInformationDTO GetAllTripInformationById(int Id)
+
+        public TripInfoByIdDTO GetAllTripInformationById(int Id)
         {
             var p = new DynamicParameters();
             p.Add("id", Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            IEnumerable<TripInformationDTO> result = _dbContext.Connection.Query<TripInformationDTO>("trips_Package.GetAllTripInformationById", p, commandType: CommandType.StoredProcedure);
-            return result.FirstOrDefault();
+
+            using (var multi = _dbContext.Connection.QueryMultiple("trips_Package.GetAllTripInformationById", p, commandType: CommandType.StoredProcedure))
+            {
+                var tripInfo = multi.Read<TripInfoByIdDTO>().FirstOrDefault();
+                var images = multi.Read<TripImage>().ToList();
+                var services = multi.Read<Core.Data.Service>().ToList();
+
+                if (tripInfo != null)
+                {
+                    tripInfo.Images = images;
+                    tripInfo.Services = services;
+                }
+
+                return tripInfo;
+            }
         }
 
 
@@ -138,6 +162,22 @@ namespace Trip_Volunteer.Infra.Repository
             p.Add("id", Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             IEnumerable<TripWithVolDTO> result = _dbContext.Connection.Query<TripWithVolDTO>("trips_Package.GetTripUsersById", p, commandType: CommandType.StoredProcedure);
             return result.FirstOrDefault();
+        }
+
+        public List<GetVolunteerUserInfoByTripIdDTO> GetVolunteerUserInfoByTripId(int ID)
+        {
+            var p = new DynamicParameters();
+            p.Add("p_trip_id", ID, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            IEnumerable<GetVolunteerUserInfoByTripIdDTO> result = _dbContext.Connection.Query<GetVolunteerUserInfoByTripIdDTO>("trips_Package.GetVolunteerUserInfoByTripId", p, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+
+        public List<GetUserPaymentsForTripDTO> GetUserPaymentsForTrip(int ID)
+        {
+            var p = new DynamicParameters();
+            p.Add("p_trip_id", ID, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            IEnumerable<GetUserPaymentsForTripDTO> result = _dbContext.Connection.Query<GetUserPaymentsForTripDTO>("trips_Package.GetUserPaymentsForTrip", p, commandType: CommandType.StoredProcedure);
+            return result.ToList();
         }
     }
 }
