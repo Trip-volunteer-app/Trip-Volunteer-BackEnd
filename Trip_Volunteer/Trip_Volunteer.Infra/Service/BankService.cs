@@ -36,5 +36,9 @@ namespace Trip_Volunteer.Infra.Service
         {
             _bankRepository.DeleteCard(id);
         }
+        public void UpdateBalance(Bank bank)
+        {
+            _bankRepository.UpdateBalance(bank);
+        }
     }
 }
