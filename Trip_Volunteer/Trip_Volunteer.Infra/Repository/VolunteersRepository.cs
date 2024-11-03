@@ -41,10 +41,8 @@ namespace Trip_Volunteer.Infra.Repository
             p.Add("TripId", volunteer.Trip_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("VolunteerRoleId", volunteer.Volunteer_Role_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("V_Experience", volunteer.Experience, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("V_PhoneNumber", volunteer.Phone_Number, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("V_PhoneNumber", volunteer.Phone_Number, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("V_Email", volunteer.Email, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("V_Status", volunteer.Status, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("Application_date", volunteer.Date_Applied, dbType: DbType.Date, direction: ParameterDirection.Input);
             p.Add("V_Notes", volunteer.Notes, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("V_EmergencyContacts", volunteer.Emergency_Contact, dbType: DbType.String, direction: ParameterDirection.Input);
            
@@ -117,6 +115,17 @@ namespace Trip_Volunteer.Infra.Repository
             var result = _dbContext.Connection.QuerySingleOrDefault<int>("volunteers_package.TotalNumberOfVolunteer", commandType: CommandType.StoredProcedure);
 
             return result;
+        }
+
+
+        public Volunteer GetVolunteerByTripId(int TripId, int LoginId)
+        {
+            var p = new DynamicParameters();
+            p.Add("T_Id", TripId, DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("L_Id", LoginId, DbType.Int32, direction: ParameterDirection.Input);
+
+            var result = _dbContext.Connection.Query<Volunteer>("volunteers_package.GetVolunteerByTripId", p, commandType: CommandType.StoredProcedure);
+            return result.SingleOrDefault();
         }
     }
 }

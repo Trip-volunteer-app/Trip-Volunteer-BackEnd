@@ -33,8 +33,8 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpGet]
         [Route("GetTripById/{id}")]
-        [CheckClaimsAttribute("Roleid", "1")]
-        public Trip GetTripById(int id)
+/*        [CheckClaimsAttribute("Roleid", "1")]
+*/        public Trip GetTripById(int id)
         {
             return _tripsService.GetTripById(id);
         }

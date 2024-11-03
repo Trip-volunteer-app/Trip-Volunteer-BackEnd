@@ -19,5 +19,6 @@ namespace Trip_Volunteer.Core.Repository
         List<VolunteerSearchDto> SearchVolunteers(VolunteerSearchDto searchCriteria);
         List<Trip> GetTripsForVolunteerByName(string firstName, string lastName);
         int TotalNumberOfVolunteer();
+        Volunteer GetVolunteerByTripId(int TripId, int LoginId);
     }
 }

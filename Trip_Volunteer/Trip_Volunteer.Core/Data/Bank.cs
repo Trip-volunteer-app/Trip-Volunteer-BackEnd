@@ -15,7 +15,7 @@ namespace Trip_Volunteer.Core.Data
         public string? Card_Number { get; set; }
         public decimal Balance { get; set; }
         public string Cvv { get; set; } = null!;
-        public DateTime? Expiration_Date { get; set; }
+        public string? Expiration_Date { get; set; }
 
         public virtual ICollection<Payment> Payments { get; set; }
     }
