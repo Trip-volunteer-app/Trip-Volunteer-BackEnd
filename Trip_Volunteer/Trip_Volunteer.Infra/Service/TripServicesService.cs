@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Trip_Volunteer.Core.Data;
+using Trip_Volunteer.Core.DTO;
 using Trip_Volunteer.Core.Repository;
 using Trip_Volunteer.Core.Service;
 using Trip_Volunteer.Infra.Repository;
@@ -41,6 +42,10 @@ namespace Trip_Volunteer.Infra.Service
         public void UpdateTripService(TripService tripService)
         {
             _tripServiceRepository.UpdateTripService(tripService);
+        }
+        public List<ServiceDTO> GetServiceByTripID(int tripId)
+        {
+            return _tripServiceRepository.GetServiceByTripID(tripId);
         }
     }
 }

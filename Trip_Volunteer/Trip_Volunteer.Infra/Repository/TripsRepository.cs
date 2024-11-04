@@ -36,7 +36,6 @@ namespace Trip_Volunteer.Infra.Repository
         {
             var p = new DynamicParameters();
             p.Add("t_name", trip.Trip_Name, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("t_location_id", trip.Trip_Location_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("t_price", trip.Trip_Price, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("number_users", trip.Max_Number_Of_Users, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("s_date", trip.Start_Date, dbType: DbType.Date, direction: ParameterDirection.Input);
@@ -45,6 +44,16 @@ namespace Trip_Volunteer.Infra.Repository
             p.Add("number_Volunteers", trip.Max_Number_Of_Volunteers, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("cate_id", trip.Category_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("img_name", trip.Image_Name, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("T_DEPARTURE_LOCATION", trip.Departure_Location, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("T_DESTINATION_LOCATION", trip.Destination_Location, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("T_DEPARTURE_LATITUDE", trip.Departure_Latitude, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("T_DEPARTURE_LONGITUDE", trip.Departure_Longitude, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("T_DESTINATION_LATITUDE", trip.Destination_Latitude, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("T_DESTINATION_LONGITUDE", trip.Destination_Longitude, dbType: DbType.String, direction: ParameterDirection.Input);
+
+           var serviceIds = string.Join(",", trip.SelectedServices);
+            p.Add("service_ids", serviceIds, dbType: DbType.String, direction: ParameterDirection.Input);
+
 
             var result = _dbContext.Connection.Execute("trips_Package.CreateTrip", p, commandType: CommandType.StoredProcedure);
 
