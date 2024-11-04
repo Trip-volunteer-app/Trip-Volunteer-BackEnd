@@ -36,6 +36,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPost]
         [Route("CreateContactusElement")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public void CreateContactusElement(ContactusElement contactusElement)
         {
             _contactusElementService.CreateContactusElement(contactusElement);
