@@ -21,16 +21,19 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpGet]
         [Route("GetAllVolunteers")]
-/*        [CheckClaimsAttribute("Roleid", "1")]
-*/        public List<Volunteer> GetAllVolunteers()
+
+        //[CheckClaimsAttribute("Roleid", "1")]
+        public List<Volunteer> GetAllVolunteers()
         {
             return _volunteersService.GetAllVolunteers();
         }
 
         [HttpGet]
         [Route("GetVolunteerById/{id}")]
-/*        [CheckClaimsAttribute("Roleid", "1")]
-*/        public Volunteer GetVolunteerById(int id)
+
+        //[CheckClaimsAttribute("Roleid", "1")]
+        public Volunteer GetVolunteerById(int id)
+
         {
             return _volunteersService.GetVolunteerById(id);
         }
@@ -45,8 +48,10 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPut]
         [Route("UpdateVolunteer")]
-/*        [CheckClaimsAttribute("Roleid", "1")]
-*/        public void UpdateVolunteer(Volunteer volunteer)
+
+        //[CheckClaimsAttribute("Roleid", "1")]
+        public void UpdateVolunteer(Volunteer volunteer)
+
         {
             _volunteersService.UpdateVolunteer(volunteer);
         }
@@ -125,6 +130,47 @@ namespace Trip_Volunteer.API.Controllers
             
         }
 
+
+
+
+        [HttpPost("sendTripDetailsEmail")]
+        public async Task<IActionResult> sendTripDetailsEmail([FromBody] EmailDataDTO emailRequest)
+        {
+            try
+            {
+                var smtpClient = new SmtpClient("smtp.gmail.com")
+                {
+                    Port = 587,
+                    Credentials = new NetworkCredential("sajedaalquraan1@gmail.com", "bobf xqnl rsiq gmbe"),
+
+                    EnableSsl = true,
+                };
+
+                var mailMessage = new MailMessage
+                {
+                    From = new MailAddress("sajedaalquraan1@gmail.com"),
+                    Subject = "Trip Details",
+                    Body = $"Dear Volunteer, \n\nHere are your trip details:\n\n{emailRequest.TripDetails}",
+                    IsBodyHtml = false,
+                };
+
+                mailMessage.To.Add(emailRequest.Email);
+
+                // Use async for email sending
+                await smtpClient.SendMailAsync(mailMessage);
+
+                return Ok("Email sent successfully.");
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
+        }
+
+
+
+
+
         [HttpGet("TotalNumberOfVolunteer")]
 /*        [CheckClaimsAttribute("Roleid", "1")]
 */        public IActionResult TotalNumberOfVolunteer()
@@ -143,5 +189,8 @@ namespace Trip_Volunteer.API.Controllers
     }
 
 }
+
+
+
 
 

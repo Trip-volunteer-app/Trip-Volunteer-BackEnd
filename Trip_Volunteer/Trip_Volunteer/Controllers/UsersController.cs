@@ -48,7 +48,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPut]
         [Route("UpdateUsers")]
-        [CheckClaimsAttribute("Roleid", "1", "2")]
+        //[CheckClaimsAttribute("Roleid", "1", "2")]
         public void UpdateUsers(User user)
         {
             _userService.UpdateUsers(user);
