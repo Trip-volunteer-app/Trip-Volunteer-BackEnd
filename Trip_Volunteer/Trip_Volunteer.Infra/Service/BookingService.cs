@@ -18,9 +18,9 @@ namespace Trip_Volunteer.Infra.Service
             _bookingRepository = bookingRepository;
         }
 
-        public void CreateBooking(BookingDTO bookingDto)
+        public int CreateBooking(BookingDTO bookingDto)
         {
-            _bookingRepository.CreateBooking( bookingDto);
+            return _bookingRepository.CreateBooking( bookingDto);
         }
 
         public void DeleteBooking(int bookingId)
@@ -41,6 +41,14 @@ namespace Trip_Volunteer.Infra.Service
         public void UpdateBooking(Booking booking)
         {
             _bookingRepository.UpdateBooking(booking);
+        }
+        public void UpdatePaymentStatus(Booking booking)
+        {
+            _bookingRepository.UpdatePaymentStatus( booking);
+        }
+        public Booking GetBookingByTripId(int TripId, int LoginId)
+        {
+            return _bookingRepository.GetBookingByTripId( TripId,  LoginId);
         }
     }
 }

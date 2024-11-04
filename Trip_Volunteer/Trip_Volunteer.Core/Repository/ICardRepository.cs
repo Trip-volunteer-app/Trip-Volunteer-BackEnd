@@ -7,14 +7,13 @@ using Trip_Volunteer.Core.Data;
 
 namespace Trip_Volunteer.Core.Repository
 {
-    public interface IBankRepository
+    public interface ICardRepository
     {
-        List<Bank> GetAllCard();
-        Bank GetCardById(int id);
-        void CreateCard(Bank bank);
-        void UpdateCard(Bank bank);
+        List<Card> GetAllCard();
+        Card GetCardById(int id);
+        List<Card> GetCardByLoginId(int id);
+        void CreateCard(Card card);
+        void UpdateCard(Card card);
         void DeleteCard(int id);
-        void UpdateBalance(Bank bank);
-
     }
 }

@@ -41,7 +41,7 @@ namespace Trip_Volunteer.Infra.Repository
             p.Add("C_Namber", bank.Card_Number, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("B_Bank", bank.Balance, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("Cvv_B", bank.Cvv, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("Ex_Date", bank.Expiration_Date, dbType: DbType.Date, direction: ParameterDirection.Input);
+            p.Add("Ex_Date", bank.Expiration_Date, dbType: DbType.String, direction: ParameterDirection.Input);
 
             _dbContext.Connection.Execute("Bank_Package.CreateCard", p, commandType: CommandType.StoredProcedure);
         }
@@ -55,7 +55,7 @@ namespace Trip_Volunteer.Infra.Repository
             p.Add("C_Namber", bank.Card_Number, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("B_Bank", bank.Balance, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("Cvv_B", bank.Cvv, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("Ex_Date", bank.Expiration_Date, dbType: DbType.Date, direction: ParameterDirection.Input);
+            p.Add("Ex_Date", bank.Expiration_Date, dbType: DbType.String, direction: ParameterDirection.Input);
 
             _dbContext.Connection.Execute("Bank_Package.UpdateCard", p, commandType: CommandType.StoredProcedure);
         }
@@ -66,6 +66,17 @@ namespace Trip_Volunteer.Infra.Repository
             p.Add("Id", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             _dbContext.Connection.Execute("Bank_Package.DeleteCard", p, commandType: CommandType.StoredProcedure);
 
+        }
+
+        public void UpdateBalance(Bank bank)
+        {
+            var p = new DynamicParameters();
+
+            p.Add("B_id ", bank.Bank_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("B_Bank", bank.Balance, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("Cvv_B", bank.Cvv, dbType: DbType.String, direction: ParameterDirection.Input);
+
+            _dbContext.Connection.Execute("Bank_Package.UpdateBalance", p, commandType: CommandType.StoredProcedure);
         }
     }
 }

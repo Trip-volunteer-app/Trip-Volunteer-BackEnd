@@ -222,7 +222,8 @@ namespace Trip_Volunteer.Core.Data
                     .HasColumnName("CVV");
 
                 entity.Property(e => e.Expiration_Date)
-                    .HasColumnType("DATE")
+                   .HasMaxLength(20)
+                    .IsUnicode(false)
                     .HasColumnName("EXPIRATION_DATE");
 
                 entity.Property(e => e.Full_Name)
@@ -237,31 +238,33 @@ namespace Trip_Volunteer.Core.Data
             {
                 entity.ToTable("CARD");
 
-                entity.Property(e => e.CardId)
+                entity.Property(e => e.Card_Id)
                     .HasColumnType("NUMBER(38)")
                     .ValueGeneratedOnAdd()
                     .HasColumnName("CARD_ID");
 
-                entity.Property(e => e.CardNumber)
-                    .HasColumnType("NUMBER")
+                entity.Property(e => e.Card_Number)
+                     .HasMaxLength(16)
+                    .IsUnicode(false)
                     .HasColumnName("CARD_NUMBER");
 
-                entity.Property(e => e.CardholderName)
+                entity.Property(e => e.Cardholder_Name)
                     .HasMaxLength(500)
                     .IsUnicode(false)
                     .HasColumnName("CARDHOLDER_NAME");
 
-                entity.Property(e => e.ExpiryDate)
-                    .HasColumnType("DATE")
+                entity.Property(e => e.Expiry_Date)
+                    .HasMaxLength(20)
+                    .IsUnicode(false)
                     .HasColumnName("EXPIRY_DATE");
 
-                entity.Property(e => e.LoginId)
+                entity.Property(e => e.Login_Id)
                     .HasColumnType("NUMBER")
                     .HasColumnName("LOGIN_ID");
 
                 entity.HasOne(d => d.Login)
                     .WithMany(p => p.Cards)
-                    .HasForeignKey(d => d.LoginId)
+                    .HasForeignKey(d => d.Login_Id)
                     .OnDelete(DeleteBehavior.SetNull)
                     .HasConstraintName("FK_CARD_LOGIN_ID");
             });
@@ -985,7 +988,8 @@ namespace Trip_Volunteer.Core.Data
                     .HasColumnName("NOTES");
 
                 entity.Property(e => e.Phone_Number)
-                    .HasColumnType("NUMBER")
+                    .HasMaxLength(20)
+                    .IsUnicode(false)
                     .HasColumnName("PHONE_NUMBER");
 
                 entity.Property(e => e.Status)

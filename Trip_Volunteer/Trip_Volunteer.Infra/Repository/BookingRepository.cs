@@ -45,7 +45,7 @@ namespace Trip_Volunteer.Infra.Repository
             return result.SingleOrDefault();
         }
 
-        public void CreateBooking(BookingDTO bookingDto)
+        public int CreateBooking(BookingDTO bookingDto)
         {
 
             var p = new DynamicParameters();
@@ -80,6 +80,7 @@ namespace Trip_Volunteer.Infra.Repository
                         commandType: CommandType.StoredProcedure);
                 }
             }
+            return (int)generatedBookingId;
         }
 
         public void UpdateBooking(Booking booking)
@@ -109,6 +110,26 @@ namespace Trip_Volunteer.Infra.Repository
                 commandType: CommandType.StoredProcedure);
         }
 
+        public void UpdatePaymentStatus(Booking booking)
+        {
+            var p = new DynamicParameters();
+            p.Add("p_booking_id", booking.Booking_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+          
+            _dbContext.Connection.Execute(
+                "booking_Package.UpdatePaymentStatus",
+                p,
+                commandType: CommandType.StoredProcedure);
+        }
+
+        public Booking GetBookingByTripId(int TripId, int LoginId)
+        {
+            var p = new DynamicParameters();
+            p.Add("T_Id", TripId, DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("L_Id", LoginId, DbType.Int32, direction: ParameterDirection.Input);
+
+            var result = _dbContext.Connection.Query<Booking>("booking_Package.GetBookingByTripId", p, commandType: CommandType.StoredProcedure);
+            return result.SingleOrDefault();
+        }
 
     }
 }

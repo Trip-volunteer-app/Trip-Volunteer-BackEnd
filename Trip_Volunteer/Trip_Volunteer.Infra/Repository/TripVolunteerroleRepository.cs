@@ -28,7 +28,7 @@ namespace Trip_Volunteer.Infra.Repository
         public TripVolunteerrole Gettrip_volunteerRolesById(int id)
         {
             var p = new DynamicParameters();
-            p.Add("id", id, DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("id", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             var result = _dbContext.Connection.Query<TripVolunteerrole>("trip_volunteerRoles_Packegs.Gettrip_volunteerRolesById", p, commandType: CommandType.StoredProcedure);
             return result.SingleOrDefault();
         }
@@ -55,9 +55,16 @@ namespace Trip_Volunteer.Infra.Repository
         public void Deletetrip_volunteerRoles(int id)
         {
             var p = new DynamicParameters();
-            p.Add("id", id, DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("id", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             _dbContext.Connection.Execute("trip_volunteerRoles_Packegs.Deletetrip_volunteerRoles", p, commandType: CommandType.StoredProcedure);
         }
-       
+
+        public List<VolunteerRoleDTO> GetVolunteerRoleByTripId(int id)
+        {
+            var p = new DynamicParameters();
+            p.Add("id", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            IEnumerable<VolunteerRoleDTO> result = _dbContext.Connection.Query<VolunteerRoleDTO>("trip_volunteerRoles_Packegs.GetVolunteerRoleByTripId", p, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
     }
 }

@@ -56,7 +56,11 @@ namespace Trip_Volunteer.Infra.Service
             var result = _volunteersRepository.TotalNumberOfVolunteer();
             return result;
         }
+        public Volunteer GetVolunteerByTripId(int TripId, int LoginId)
+        {
+            return _volunteersRepository.GetVolunteerByTripId(TripId,LoginId);
+        }
 
-        
+
     }
 }
