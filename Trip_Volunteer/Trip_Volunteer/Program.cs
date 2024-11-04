@@ -59,6 +59,7 @@ internal class Program
         builder.Services.AddHttpClient<Location_ApiController>(); // Register the HttpClient for the controller
         builder.Services.AddScoped<ITripVolunteerroleRepository, TripVolunteerroleRepository>();
         builder.Services.AddScoped<IBookingServiceRepository, BookingServiceRepository>();
+        builder.Services.AddScoped<ICardRepository, CardRepository>();
 
 
 
@@ -88,6 +89,7 @@ internal class Program
         builder.Services.AddScoped<IAnnualService, AnnualService>();
         builder.Services.AddScoped<ITripVolunteerroleService, TripVolunteerroleService>();
         builder.Services.AddScoped<IBookingServicesServices, BookingServicesServices>();
+        builder.Services.AddScoped<ICardService, CardService>();
 
 
         builder.Services.AddAuthentication(opt =>

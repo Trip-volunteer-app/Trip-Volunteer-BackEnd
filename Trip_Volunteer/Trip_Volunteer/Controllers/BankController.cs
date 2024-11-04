@@ -53,7 +53,12 @@ namespace Trip_Volunteer.API.Controllers
         {
             _bankService.DeleteCard(id);
         }
-
+        [HttpPut]
+        [Route("UpdateBalance")]
+        public void UpdateBalance(Bank bank)
+        {
+            _bankService.UpdateBalance(bank);
+        }
 
     }
 }
