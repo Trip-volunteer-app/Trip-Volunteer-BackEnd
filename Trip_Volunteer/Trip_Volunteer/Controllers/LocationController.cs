@@ -7,6 +7,7 @@ using Trip_Volunteer.Core.Common;
 using Trip_Volunteer.Core.Data;
 using Trip_Volunteer.Core.Service;
 using System.Net.Http;
+using Trip_Volunteer.Core.DTO;
 
 
 namespace Trip_Volunteer.API.Controllers
@@ -67,8 +68,20 @@ namespace Trip_Volunteer.API.Controllers
             _locationService.Deletelocation(id);
         }
 
+        [HttpGet]
+        [Route("GetLocationByTripId/{ID}")]
+        [CheckClaimsAttribute("Roleid", "1")]
+        public Location GetLocationByTripId(int ID)
+        {
+            return _locationService.GetLocationByTripId(ID);
+        }
 
-        
+        [HttpGet]
+        [Route("GetAllLocationsWithTripId")]
+        public List<LocationDTO> GetAllLocationsWithTripId()
+        {
+            return _locationService.GetAllLocationsWithTripId();
+        }
     }
 }
 

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Trip_Volunteer.Core.Data;
+using Trip_Volunteer.Core.DTO;
 using Trip_Volunteer.Core.Repository;
 using Trip_Volunteer.Core.Service;
 
@@ -42,7 +43,13 @@ namespace Trip_Volunteer.Infra.Service
         {
             _locationRepository.Deletelocation(id);
         }
-
-
+        public Location GetLocationByTripId(int ID)
+        {
+           return  _locationRepository.GetLocationByTripId(ID);
+        }
+        public List<LocationDTO> GetAllLocationsWithTripId()
+        {
+            return _locationRepository.GetAllLocationsWithTripId();
+        }
     }
 }

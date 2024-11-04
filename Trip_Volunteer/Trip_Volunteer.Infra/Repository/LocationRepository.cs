@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Trip_Volunteer.Core.Common;
 using Trip_Volunteer.Core.Data;
+using Trip_Volunteer.Core.DTO;
 using Trip_Volunteer.Core.Repository;
 
 namespace Trip_Volunteer.Infra.Repository
@@ -56,13 +57,13 @@ namespace Trip_Volunteer.Infra.Repository
         public void UPDATElocation(Location location)
         {
             var p = new DynamicParameters();
-            p.Add("ID", location.Location_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("ID", location.Location_Id, dbType: DbType.Decimal, direction: ParameterDirection.Input);
             p.Add("departurelocation", location.Departure_Location, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("destinationlocation", location.Destination_Location, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("departurelatitude", location.Departure_Latitude, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("departurelongitude", location.Departure_Longitude, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("destinationlatitude", location.Destination_Latitude, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("destinationlongitude", location.Departure_Longitude, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("departurelatitude", location.Departure_Latitude, dbType: DbType.Double, direction: ParameterDirection.Input);
+            p.Add("departurelongitude", location.Departure_Longitude, dbType: DbType.Double, direction: ParameterDirection.Input);
+            p.Add("destinationlatitude", location.Destination_Latitude, dbType: DbType.Double, direction: ParameterDirection.Input);
+            p.Add("destinationlongitude", location.Departure_Longitude, dbType: DbType.Double, direction: ParameterDirection.Input);
 
             _dbContext.Connection.Execute("location_Package.UPDATElocation", p, commandType: CommandType.StoredProcedure);
 
@@ -74,6 +75,20 @@ namespace Trip_Volunteer.Infra.Repository
             p.Add("Id", Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             _dbContext.Connection.Execute("location_Package.Deletelocation", p, commandType: CommandType.StoredProcedure);
 
+        }
+        public Location GetLocationByTripId(int ID)
+        {
+
+            var p = new DynamicParameters();
+            p.Add("T_Id", ID, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            IEnumerable<Location> result = _dbContext.Connection.Query<Location>("location_Package.GetLocationByTripId", p, commandType: CommandType.StoredProcedure);
+            return result.FirstOrDefault();
+        }
+        public List<LocationDTO> GetAllLocationsWithTripId()
+        {
+
+            IEnumerable<LocationDTO> result = _dbContext.Connection.Query<LocationDTO>("location_Package.GetAllLocationsWithTripId", commandType: CommandType.StoredProcedure);
+            return result.ToList();
         }
 
     }
