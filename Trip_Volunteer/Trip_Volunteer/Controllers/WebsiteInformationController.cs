@@ -47,7 +47,6 @@ namespace Trip_Volunteer.API.Controllers
         [HttpPut]
         [Route("UPDATEwebsite_information")]
         [CheckClaimsAttribute("Roleid", "1")]
-
         public void UPDATEwebsite_information(WebsiteInformation websiteInformation)
         {
             _websiteInformationService.UPDATEwebsite_information(websiteInformation);

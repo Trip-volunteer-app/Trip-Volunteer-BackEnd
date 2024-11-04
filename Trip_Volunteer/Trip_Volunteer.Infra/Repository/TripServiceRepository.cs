@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Trip_Volunteer.Core.Common;
 using Trip_Volunteer.Core.Data;
+using Trip_Volunteer.Core.DTO;
 using Trip_Volunteer.Core.Repository;
 
 namespace Trip_Volunteer.Infra.Repository
@@ -66,9 +67,12 @@ namespace Trip_Volunteer.Infra.Repository
             
         }
 
-
-
-
-
+        public List<ServiceDTO> GetServiceByTripID(int tripId)
+        {
+            var p = new DynamicParameters();
+            p.Add("p_trip_id", tripId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            var result = _dbContext.Connection.Query<ServiceDTO>("trip_service_Package.GetServiceByTripID", p, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
     }
 }

@@ -107,7 +107,6 @@ namespace Trip_Volunteer.API.Controllers
         
         [HttpGet]
         [Route("GetSelectedElement")]
-        [CheckClaimsAttribute("Roleid", "1")]
         public ContactusElement GetSelectedContactusElement()
         {
             return _contactusElementService.GetSelectedContactusElement();

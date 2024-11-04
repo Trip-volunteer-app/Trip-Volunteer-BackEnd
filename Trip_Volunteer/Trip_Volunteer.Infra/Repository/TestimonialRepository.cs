@@ -40,7 +40,7 @@ namespace Trip_Volunteer.Infra.Repository
             return result.SingleOrDefault();
         }
 
-        public void CreateTestimony(Testimonial testimonial)
+        public void CreateTestimony(Testimonial testimonial) 
         {
             var p = new DynamicParameters();
             p.Add("LoginId", testimonial.Login_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Trip_Volunteer.Core.Data;
+using Trip_Volunteer.Core.DTO;
 using Trip_Volunteer.Core.Service;
 
 namespace Trip_Volunteer.API.Controllers
@@ -52,6 +53,13 @@ namespace Trip_Volunteer.API.Controllers
         public void DeleteTripService(int tripServiceId)
         {
             _tripServicesService.DeleteTripService(tripServiceId);
+        }
+
+        [HttpGet]
+        [Route("GetServiceByTripID/{tripId}")]
+        public List<ServiceDTO> GetServiceByTripID(int tripId)
+        {
+            return _tripServicesService.GetServiceByTripID(tripId);
         }
     }
 }
