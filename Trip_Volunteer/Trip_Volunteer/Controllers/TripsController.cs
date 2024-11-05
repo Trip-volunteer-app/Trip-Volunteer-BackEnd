@@ -97,7 +97,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpGet]
         [Route("GetAllTripInformation")]
-        public Task<List<TripInfoByIdDTO>> GetAllTripInformation()
+        public  Task<List<TripInfoByIdDTO>> GetAllTripInformation()
         {
             return _tripsService.GetAllTripInformation();
         }
