@@ -81,50 +81,40 @@ namespace Trip_Volunteer.API.Controllers
             return _bookingService.GetBookingByTripId( TripId, LoginId);
         }
         [HttpPost("send-email")]
-        public IActionResult SendEmail([FromBody] EmailRequest emailRequest)
+        public async Task<IActionResult> SendEmail([FromBody] SendEmailBookingDTO sendEmailBookingDTO)
         {
             try
             {
-                // Set up the SMTP client
-                var smtpClient = new SmtpClient("smtp.gmail.com")
+                using (var smtpClient = new SmtpClient("smtp.gmail.com")
                 {
                     Port = 587,
                     Credentials = new NetworkCredential("sajedaalquraan1@gmail.com", "bobf xqnl rsiq gmbe"),
                     EnableSsl = true,
-                };
-
-                string Trip_Name= emailRequest.Trip_Name;
-                var Start_Date = emailRequest.Start_Date;
-                var End_Date = emailRequest.End_Date;
-                string Departure_Location = emailRequest.Departure_Location;
-                string Destination_Location = emailRequest.Destination_Location;
-                var Services = emailRequest.Services;
-
-                // Compose the email
-                var mailMessage = new MailMessage
+                })
                 {
-                    From = new MailAddress("sajedaalquraan1@gmail.com"),
-                    Subject = $"Payment Status Update for Trip: {emailRequest.Trip_Name}",
-                    Body = emailRequest.Status?.ToLower() == "paid"
-                         ? $"Hello! Your payment for the trip '{emailRequest.Trip_Name}' has been successfully received. Thank you for completing the transaction. We look forward to having you on this exciting journey with us! /n Trip_Name: '{Trip_Name}'/n Start_Date:'{Start_Date}'/n End_Date:'{End_Date}'/n Departure Location:'{Departure_Location}'/n Destination Location:'{Destination_Location}'/n Services:'{Services}'"
-                         : "We wanted to inform you that there was an issue processing your payment. Please review your booking details or contact support for assistance.",
-                    IsBodyHtml = false,
-                };
+                    var mailMessage = new MailMessage
+                    {
+                        From = new MailAddress("sajedaalquraan1@gmail.com"),
+                        Subject = $"Payment Status Update for Trip: {sendEmailBookingDTO.Trip_Name}",
+                        Body = sendEmailBookingDTO.Status?.ToLower() == "paid"
+                             ? $"Hello! Your payment for the trip '{sendEmailBookingDTO.Trip_Name}' has been successfully received. Thank you for completing the transaction. We look forward to having you on this exciting journey with us! \n\n Trip_Name: '{sendEmailBookingDTO.Trip_Name}'\n\n Start_Date:'{sendEmailBookingDTO.Start_Date}'\n\n End_Date:'{sendEmailBookingDTO.End_Date}'\n\n Departure Location:'{sendEmailBookingDTO.Departure_Location}'\n\n Destination Location:'{sendEmailBookingDTO.Destination_Location}'\n\n Services:'{string.Join(", ", sendEmailBookingDTO.Services.Select(s => s.Service_Name))}'"
+                             : "We wanted to inform you that there was an issue processing your payment. Please review your booking details or contact support for assistance.",
+                        IsBodyHtml = false,
+                    };
 
-                // Send email to the user
-                mailMessage.To.Add(emailRequest.Email);
+                    mailMessage.To.Add(sendEmailBookingDTO.Email);
 
-                // Send the email
-                smtpClient.Send(mailMessage);
+                    await smtpClient.SendMailAsync(mailMessage);
+                }
 
                 return Ok("Email sent successfully.");
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error in SendEmail: " + ex.Message);
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
+
 
 
     }
