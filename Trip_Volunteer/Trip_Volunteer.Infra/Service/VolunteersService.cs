@@ -46,6 +46,11 @@ namespace Trip_Volunteer.Infra.Service
         {
             return _volunteersRepository.SearchVolunteers(searchCriteria);
         }
+
+        public List<VolunteerSearchDto> AllVolunteersWithTrips()
+        {
+            return _volunteersRepository.AllVolunteersWithTrips();
+        }
         public List<Trip> GetTripsForVolunteerByName(string firstName, string lastName)
         {
             return _volunteersRepository.GetTripsForVolunteerByName(firstName, lastName);
@@ -56,7 +61,7 @@ namespace Trip_Volunteer.Infra.Service
             var result = _volunteersRepository.TotalNumberOfVolunteer();
             return result;
         }
-        public Volunteer GetVolunteerByTripId(int TripId, int LoginId)
+        public List<Volunteer> GetVolunteerByTripId(int TripId, int LoginId)
         {
             return _volunteersRepository.GetVolunteerByTripId(TripId,LoginId);
         }
@@ -64,3 +69,4 @@ namespace Trip_Volunteer.Infra.Service
 
     }
 }
+

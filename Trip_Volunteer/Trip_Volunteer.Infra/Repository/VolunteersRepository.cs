@@ -93,6 +93,12 @@ namespace Trip_Volunteer.Infra.Repository
             return result.ToList();
         }
 
+        public List<VolunteerSearchDto> AllVolunteersWithTrips()
+        {
+            var result = _dbContext.Connection.Query<VolunteerSearchDto>("AllVolunteers", commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+
         public List<Trip> GetTripsForVolunteerByName(string firstName, string lastName)
         {
             var parameters = new DynamicParameters();
@@ -118,14 +124,15 @@ namespace Trip_Volunteer.Infra.Repository
         }
 
 
-        public Volunteer GetVolunteerByTripId(int TripId, int LoginId)
+        public List<Volunteer> GetVolunteerByTripId(int TripId, int LoginId)
         {
             var p = new DynamicParameters();
             p.Add("T_Id", TripId, DbType.Int32, direction: ParameterDirection.Input);
             p.Add("L_Id", LoginId, DbType.Int32, direction: ParameterDirection.Input);
 
             var result = _dbContext.Connection.Query<Volunteer>("volunteers_package.GetVolunteerByTripId", p, commandType: CommandType.StoredProcedure);
-            return result.SingleOrDefault();
+            return result.ToList(); // Now returns List<Volunteer>
         }
+
     }
 }

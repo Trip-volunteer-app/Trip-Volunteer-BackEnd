@@ -74,13 +74,21 @@ namespace Trip_Volunteer.API.Controllers
 
 
         [HttpPost]
-        [Route("Search")]
+        [Route("SearchVolunteers")]
 /*        [CheckClaimsAttribute("Roleid", "1", "2")]
 */        public List<VolunteerSearchDto> SearchVolunteers(VolunteerSearchDto searchCriteria)
         {
             return _volunteersService.SearchVolunteers(searchCriteria);
         }
 
+        [HttpGet]
+        [Route("AllVolunteersWithTrips")]
+        /*        [CheckClaimsAttribute("Roleid", "1", "2")]
+        */
+        public List<VolunteerSearchDto> AllVolunteersWithTrips()
+        {
+            return _volunteersService.AllVolunteersWithTrips();
+        }
 
         [HttpPost]
         [Route("GetTripsByVolunteerName")]
@@ -182,7 +190,7 @@ namespace Trip_Volunteer.API.Controllers
         [Route("GetVolunteerByTripId")]
         /*        [CheckClaimsAttribute("Roleid", "1", "2")]
 */
-        public Volunteer GetVolunteerByTripId(int TripId, int LoginId)
+        public List<Volunteer> GetVolunteerByTripId(int TripId, int LoginId)
         {
             return _volunteersService.GetVolunteerByTripId( TripId, LoginId);
         }

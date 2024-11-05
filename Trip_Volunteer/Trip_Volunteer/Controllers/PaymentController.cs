@@ -59,7 +59,7 @@ namespace Trip_Volunteer.API.Controllers
 
 
         [HttpGet("TotalNumberOfPayments")]
-        [CheckClaimsAttribute("Roleid", "1")]
+        //[CheckClaimsAttribute("Roleid", "1")]
         public IActionResult TotalNumberOfPayments()
         {
             int numberOfpayment = _paymentService.TotalNumberOfPayments();

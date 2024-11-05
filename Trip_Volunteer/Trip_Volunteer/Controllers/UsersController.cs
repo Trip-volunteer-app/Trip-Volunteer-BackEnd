@@ -64,8 +64,8 @@ namespace Trip_Volunteer.API.Controllers
         }
 
 
-        [HttpGet("trips/NumberOfRegisteredUsers")]
-        [CheckClaimsAttribute("Roleid", "1")]
+        [HttpGet("NumberOfRegisteredUsers")]
+        //[CheckClaimsAttribute("Roleid", "1")]
         public IActionResult NumberOfRegisteredUsers()
         {
             int numberOfTrips = _userService.NumberOfRegisteredUsers();
