@@ -10,7 +10,7 @@ namespace Trip_Volunteer.Core.Data
             TripServices = new HashSet<TripService>();
         }
 
-        public decimal Service_Id { get; set; }
+        public decimal? Service_Id { get; set; }
         public decimal? Service_Cost { get; set; }
         public string? Service_Name { get; set; }
 
