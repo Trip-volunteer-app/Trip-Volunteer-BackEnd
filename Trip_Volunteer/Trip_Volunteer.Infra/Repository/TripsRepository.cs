@@ -146,11 +146,19 @@ namespace Trip_Volunteer.Infra.Repository
                 var tripInfo = multi.Read<TripInfoByIdDTO>().FirstOrDefault();
                 var images = multi.Read<TripImage>().ToList();
                 var services = multi.Read<Core.Data.Service>().ToList();
+                //var volunteer = multi.Read<Volunteer>().ToList();
+                //var Tripvolunteerrole = multi.Read<TripVolunteerrole>().ToList();
+                //var volunteerRole = multi.Read<VolunteerRole>().ToList();
+
 
                 if (tripInfo != null)
                 {
                     tripInfo.Images = images;
                     tripInfo.Services = services;
+                    //tripInfo.Volunteer = volunteer;
+                    //tripInfo.tripVolunteerrole = Tripvolunteerrole;
+                    //tripInfo.VolunteerRole = volunteerRole;
+
                 }
 
                 return tripInfo;

@@ -18,7 +18,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpGet]
         [Route("GetAllTripServices")]
-        [CheckClaimsAttribute("Roleid", "1","2")]
+        //[CheckClaimsAttribute("Roleid", "1","2")]
         public List<TripService> GetAllTripServices()
         {
             return _tripServicesService.GetAllTripServices();
