@@ -2,7 +2,10 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Data;
+using System.Net.Mail;
+using System.Net;
 using Trip_Volunteer.Core.Data;
+using Trip_Volunteer.Core.DTO;
 using Trip_Volunteer.Core.Service;
 
 namespace Trip_Volunteer.API.Controllers
@@ -37,7 +40,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPost]
         [Route("CreateContact")]
-        [CheckClaimsAttribute("Roleid", "2")]
+        //[CheckClaimsAttribute("Roleid", "2")]
         public void CreateContact(ContactU contact)
         {
             _contactUsService.CreateContact(contact);
@@ -56,6 +59,44 @@ namespace Trip_Volunteer.API.Controllers
         public void DeleteContact(int contactId)
         {
             _contactUsService.DeleteContact(contactId);
+        }
+
+
+        [HttpPost("send-email")]
+        public IActionResult SendEmail([FromBody] EmailContactRequest emailRequest)
+        {
+            try
+            {
+                // Set up the SMTP client
+                var smtpClient = new SmtpClient("smtp.gmail.com")
+                {
+                    Port = 587,
+                    Credentials = new NetworkCredential("sajedaalquraan1@gmail.com", "bobf xqnl rsiq gmbe"),
+                    EnableSsl = true,
+                };
+
+                // Compose the email
+                var mailMessage = new MailMessage
+                {
+                    From = new MailAddress("sajedaalquraan1@gmail.com"),
+                    Subject = "Contact Us ",
+                    Body ="Thank you to contact us , we will contact you as soon as possible",
+                    IsBodyHtml = false,
+                };
+
+                // Send email to the user (assuming their email is in the request)
+                mailMessage.To.Add(emailRequest.email);
+
+                // Send the email
+                smtpClient.Send(mailMessage);
+
+                return Ok("Email sent successfully.");
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
+
         }
 
 
