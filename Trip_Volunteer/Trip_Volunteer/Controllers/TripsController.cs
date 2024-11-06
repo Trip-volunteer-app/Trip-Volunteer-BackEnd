@@ -5,6 +5,7 @@ using Trip_Volunteer.Core.Data;
 using Trip_Volunteer.Core.DTO;
 using Trip_Volunteer.Core.Repository;
 using Trip_Volunteer.Core.Service;
+using Trip_Volunteer.Infra.Repository;
 
 namespace Trip_Volunteer.API.Controllers
 {
@@ -19,13 +20,10 @@ namespace Trip_Volunteer.API.Controllers
         {
             _tripsService = tripsService;
             _configuration = configuration;
-
         }
-
 
         [HttpGet]
         [Route("GetAllTrips")]
-
         public List<Trip> GetAllTrips()
         {
             return _tripsService.GetAllTrips();
@@ -40,8 +38,6 @@ namespace Trip_Volunteer.API.Controllers
             return _tripsService.GetTripById(id);
         }
 
-
-
         [HttpPost]
         [Route("CreateTrip")]
         [CheckClaimsAttribute("Roleid", "1")]
@@ -50,7 +46,6 @@ namespace Trip_Volunteer.API.Controllers
             _tripsService.CreateTrip(trip);
         }
 
-
         [HttpPut]
         [Route("UpdateTrip")]
         [CheckClaimsAttribute("Roleid", "1")]
@@ -58,7 +53,6 @@ namespace Trip_Volunteer.API.Controllers
         {
             _tripsService.UpdateTrip(trip);
         }
-
 
         [HttpDelete]
         [Route("DeleteTrip/{id}")]
@@ -70,12 +64,10 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpGet]
         [Route("SearchBetweenDate")]
-
         public List<Trip> SearchBetweenDate(DateTime Start_Date,DateTime End_Date)
         {
             return _tripsService.SearchBetweenDate(Start_Date, End_Date);
         }
-
 
         [HttpGet("trips/GetNumberOfTrips")]
         [CheckClaimsAttribute("Roleid", "1")]
@@ -85,7 +77,6 @@ namespace Trip_Volunteer.API.Controllers
             return Ok(numberOfTrips); 
         }
 
-
         [HttpGet]
         [Route("TripsWithMaxReservations")]
         [CheckClaimsAttribute("Roleid", "1")]
@@ -94,14 +85,12 @@ namespace Trip_Volunteer.API.Controllers
             return _tripsService.TripsWithMaxReservations();
         }
 
-
         [HttpGet]
         [Route("GetAllTripInformation")]
         public  Task<List<TripInfoByIdDTO>> GetAllTripInformation()
         {
             return _tripsService.GetAllTripInformation();
         }
-
 
         [HttpGet]
         [Route("GetAllTripInformationById")]
@@ -111,7 +100,6 @@ namespace Trip_Volunteer.API.Controllers
             return _tripsService.GetAllTripInformationById(Id);
         }
 
-
         [HttpGet]
         [CheckClaimsAttribute("Roleid", "1")]
         [Route("GetTripVolById/{id}")]
@@ -119,7 +107,6 @@ namespace Trip_Volunteer.API.Controllers
         {
             return _tripsService.GetTripVolById(Id);
         }
-
 
         [HttpGet]
         [Route("GetTripUsersById")]
@@ -137,8 +124,6 @@ namespace Trip_Volunteer.API.Controllers
             return _tripsService.GetVolunteerUserInfoByTripId(ID);
         }
 
-
-
         [HttpGet]
         [Route("GetUserPaymentsForTrip/{ID}")]
 
@@ -147,6 +132,11 @@ namespace Trip_Volunteer.API.Controllers
             return _tripsService.GetUserPaymentsForTrip(ID);
         }
 
-
+        [HttpGet]
+        [Route("GetTopRatedTrips")]
+        public List<TripsByRatingDTO> GetTopRatedTrips()
+        {
+            return _tripsService.GetTopRatedTrips();
+        }
     }
 }

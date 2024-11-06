@@ -94,5 +94,9 @@ namespace Trip_Volunteer.Infra.Service
         {
             return _tripsRepository.GetUserPaymentsForTrip(ID);
         }
+        public List<TripsByRatingDTO> GetTopRatedTrips()
+        {
+            return _tripsRepository.GetTopRatedTrips();
+        }
     }
 }
