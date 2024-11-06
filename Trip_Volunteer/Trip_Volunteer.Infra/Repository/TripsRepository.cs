@@ -196,5 +196,12 @@ namespace Trip_Volunteer.Infra.Repository
             IEnumerable<GetUserPaymentsForTripDTO> result = _dbContext.Connection.Query<GetUserPaymentsForTripDTO>("trips_Package.GetUserPaymentsForTrip", p, commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
+
+        public List<TripsByRatingDTO> GetTopRatedTrips()
+        {
+            IEnumerable<TripsByRatingDTO> result = _dbContext.Connection.Query<TripsByRatingDTO>("trips_Package.GetTopRatedTrips", commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+
     }
 }
