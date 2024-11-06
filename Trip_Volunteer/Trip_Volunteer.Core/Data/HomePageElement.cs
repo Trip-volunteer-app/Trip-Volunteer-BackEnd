@@ -12,11 +12,6 @@ namespace Trip_Volunteer.Core.Data
         public string? Text1 { get; set; }
         public string? Logo_Image { get; set; }
         public string? Logo_Text { get; set; }
-        public string? Image1 { get; set; }
-        public string? Image2 { get; set; }
-        public string? Image3 { get; set; }
-        public string? Image4 { get; set; }
-        public string? Image5 { get; set; }
         public int? Selected { get; set; }
     }
 }

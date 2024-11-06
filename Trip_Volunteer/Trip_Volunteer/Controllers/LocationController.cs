@@ -53,7 +53,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPut]
         [Route("UPDATElocation")]
-        [CheckClaimsAttribute("Roleid", "1")]
+        //[CheckClaimsAttribute("Roleid", "1")]
         public void UPDATElocation(Location location)
         {
             _locationService.UPDATElocation(location);
@@ -70,7 +70,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpGet]
         [Route("GetLocationByTripId/{ID}")]
-        [CheckClaimsAttribute("Roleid", "1")]
+        //[CheckClaimsAttribute("Roleid", "1")]
         public Location GetLocationByTripId(int ID)
         {
             return _locationService.GetLocationByTripId(ID);
