@@ -45,7 +45,7 @@ namespace Trip_Volunteer.Infra.Repository
             p.Add("V_Email", volunteer.Email, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("V_Notes", volunteer.Notes, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("V_EmergencyContacts", volunteer.Emergency_Contact, dbType: DbType.String, direction: ParameterDirection.Input);
-           
+
             _dbContext.Connection.Execute("volunteers_package.CreateVolunteer", p, commandType: CommandType.StoredProcedure);
         }
 
@@ -80,7 +80,7 @@ namespace Trip_Volunteer.Infra.Repository
             p.Add("p_New_Status", status, DbType.String, direction: ParameterDirection.Input);
             _dbContext.Connection.Execute("volunteers_package.UpdateVolunteerStatus", p, commandType: CommandType.StoredProcedure);
         }
-        
+
         public List<VolunteerSearchDto> SearchVolunteers(VolunteerSearchDto searchCriteria)
         {
             var parameters = new DynamicParameters();
@@ -124,15 +124,27 @@ namespace Trip_Volunteer.Infra.Repository
         }
 
 
-        public List<Volunteer> GetVolunteerByTripId(int TripId, int LoginId)
+        public Volunteer GetVolunteerByTripId(int TripId, int LoginId)
         {
             var p = new DynamicParameters();
             p.Add("T_Id", TripId, DbType.Int32, direction: ParameterDirection.Input);
             p.Add("L_Id", LoginId, DbType.Int32, direction: ParameterDirection.Input);
 
             var result = _dbContext.Connection.Query<Volunteer>("volunteers_package.GetVolunteerByTripId", p, commandType: CommandType.StoredProcedure);
-            return result.ToList(); // Now returns List<Volunteer>
+            return result.SingleOrDefault(); // Now returns List<Volunteer>
         }
 
+
+        //IEnumerable<UserInformationDto> result = _dbContext.Connection.Query<UserInformationDto>("User_Login_Package.GetUserinfoByName", p, commandType: CommandType.StoredProcedure);
+
+        public List<GetTripVolunteersDTO> GetTripVolunteers(int id)
+        {
+            var p = new DynamicParameters();
+            p.Add("p_trip_id", id, DbType.Int32,  ParameterDirection.Input);
+            IEnumerable<GetTripVolunteersDTO> result = _dbContext.Connection.Query<GetTripVolunteersDTO>("get_volunteer_info", p, commandType: CommandType.StoredProcedure);
+
+            return result.ToList();
+
+        }
     }
 }

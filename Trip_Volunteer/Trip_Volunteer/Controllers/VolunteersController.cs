@@ -135,7 +135,7 @@ namespace Trip_Volunteer.API.Controllers
             {
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
-            
+
         }
 
 
@@ -190,9 +190,16 @@ namespace Trip_Volunteer.API.Controllers
         [Route("GetVolunteerByTripId")]
         /*        [CheckClaimsAttribute("Roleid", "1", "2")]
 */
-        public List<Volunteer> GetVolunteerByTripId(int TripId, int LoginId)
+        public Volunteer GetVolunteerByTripId(int TripId, int LoginId)
         {
             return _volunteersService.GetVolunteerByTripId( TripId, LoginId);
+        }
+
+        [HttpGet]
+        [Route("GetTripVolunteers/{id}")]
+        public List<GetTripVolunteersDTO> GetTripVolunteers(int id)
+        {
+            return _volunteersService.GetTripVolunteers(id);
         }
     }
 

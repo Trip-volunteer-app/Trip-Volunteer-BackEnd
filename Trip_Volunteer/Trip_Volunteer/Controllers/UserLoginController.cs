@@ -151,7 +151,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpGet]
         [Route("GetUserinfoByName")]
-        [CheckClaimsAttribute("Roleid", "1")]
+        //[CheckClaimsAttribute("Roleid", "1")]
         public List<UserInformationDto> GetUserinfoByName(string F_Name, string L_Name)
         {
             return _userLoginService.GetUserinfoByName(F_Name, L_Name);
