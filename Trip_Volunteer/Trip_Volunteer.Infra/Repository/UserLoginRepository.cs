@@ -103,16 +103,13 @@ namespace Trip_Volunteer.Infra.Repository
             return result;
         }
 
-        public void UpdateAllUserInformation(int L_id, string L_Email, string L_Pass, string L_RePass, int r_id, int u_id,
+        public void UpdateAllUserInformation(int L_id, string L_Email, int u_id,
             string F_Name, string L_Name, string IMG, string u_Address, string phone, DateTime B_Day)
         {
             var p = new DynamicParameters();
 
             p.Add("L_id", L_id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("L_Email", L_Email, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("L_Pass", L_Pass, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("L_RePass", L_RePass, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("r_id", r_id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("u_id", u_id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("F_Name", F_Name, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("L_Name", L_Name, dbType: DbType.String, direction: ParameterDirection.Input);
@@ -184,6 +181,12 @@ namespace Trip_Volunteer.Infra.Repository
             return parameters.Get<int>("p_status");
         }
 
-
+        public ProfileDTO GetUserinfoByLoginId(int id)
+        {
+            var p = new DynamicParameters();
+            p.Add("Id", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            var result = _dbContext.Connection.Query<ProfileDTO>("User_Login_Package.GetUserinfoByLoginId", p, commandType: CommandType.StoredProcedure);
+            return result.SingleOrDefault();
+        }
     }
 }

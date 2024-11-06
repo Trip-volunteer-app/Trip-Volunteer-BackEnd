@@ -21,5 +21,7 @@ namespace Trip_Volunteer.Core.Service
         List<Trip> GetTripsForVolunteerByName(string firstName, string lastName);
         int TotalNumberOfVolunteer();
         Volunteer GetVolunteerByTripId(int TripId, int LoginId);
+
+        List<GetTripVolunteersDTO> GetTripVolunteers(int id);
     }
 }

@@ -66,6 +66,10 @@ namespace Trip_Volunteer.Infra.Service
             return _volunteersRepository.GetVolunteerByTripId(TripId,LoginId);
         }
 
+        public List<GetTripVolunteersDTO> GetTripVolunteers(int id)
+        {
+            return _volunteersRepository.GetTripVolunteers(id);
+        }
 
     }
 }

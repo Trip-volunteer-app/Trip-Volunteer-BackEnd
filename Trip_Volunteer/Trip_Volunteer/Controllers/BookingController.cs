@@ -80,42 +80,7 @@ namespace Trip_Volunteer.API.Controllers
         {
             return _bookingService.GetBookingByTripId( TripId, LoginId);
         }
-        [HttpPost("send-email")]
-        public async Task<IActionResult> SendEmail([FromBody] SendEmailBookingDTO sendEmailBookingDTO)
-        {
-            try
-            {
-                using (var smtpClient = new SmtpClient("smtp.gmail.com")
-                {
-                    Port = 587,
-                    Credentials = new NetworkCredential("sajedaalquraan1@gmail.com", "bobf xqnl rsiq gmbe"),
-                    EnableSsl = true,
-                })
-                {
-                    var mailMessage = new MailMessage
-                    {
-                        From = new MailAddress("sajedaalquraan1@gmail.com"),
-                        Subject = $"Payment Status Update for Trip: {sendEmailBookingDTO.Trip_Name}",
-                        Body = sendEmailBookingDTO.Status?.ToLower() == "paid"
-                             ? $"Hello! Your payment for the trip '{sendEmailBookingDTO.Trip_Name}' has been successfully received. Thank you for completing the transaction. We look forward to having you on this exciting journey with us! \n\n Trip_Name: '{sendEmailBookingDTO.Trip_Name}'\n\n Start_Date:'{sendEmailBookingDTO.Start_Date}'\n\n End_Date:'{sendEmailBookingDTO.End_Date}'\n\n Departure Location:'{sendEmailBookingDTO.Departure_Location}'\n\n Destination Location:'{sendEmailBookingDTO.Destination_Location}'\n\n Services:'{string.Join(", ", sendEmailBookingDTO.Services.Select(s => s.Service_Name))}'"
-                             : "We wanted to inform you that there was an issue processing your payment. Please review your booking details or contact support for assistance.",
-                        IsBodyHtml = false,
-                    };
-
-                    mailMessage.To.Add(sendEmailBookingDTO.Email);
-
-                    await smtpClient.SendMailAsync(mailMessage);
-                }
-
-                return Ok("Email sent successfully.");
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, $"Internal server error: {ex.Message}");
-            }
-        }
-
-
+     
 
     }
 }
