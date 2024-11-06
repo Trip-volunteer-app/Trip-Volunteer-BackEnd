@@ -454,31 +454,6 @@ namespace Trip_Volunteer.Core.Data
                     .IsUnicode(false)
                     .HasColumnName("HERO_IMAGE");
 
-                entity.Property(e => e.Image1)
-                    .HasMaxLength(600)
-                    .IsUnicode(false)
-                    .HasColumnName("IMAGE1");
-
-                entity.Property(e => e.Image2)
-                    .HasMaxLength(600)
-                    .IsUnicode(false)
-                    .HasColumnName("IMAGE2");
-
-                entity.Property(e => e.Image3)
-                    .HasMaxLength(600)
-                    .IsUnicode(false)
-                    .HasColumnName("IMAGE3");
-
-                entity.Property(e => e.Image4)
-                    .HasMaxLength(600)
-                    .IsUnicode(false)
-                    .HasColumnName("IMAGE4");
-
-                entity.Property(e => e.Image5)
-                    .HasMaxLength(600)
-                    .IsUnicode(false)
-                    .HasColumnName("IMAGE5");
-
                 entity.Property(e => e.Logo_Image)
                     .HasMaxLength(600)
                     .IsUnicode(false)

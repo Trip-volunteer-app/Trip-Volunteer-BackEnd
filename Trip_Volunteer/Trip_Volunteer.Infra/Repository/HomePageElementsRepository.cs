@@ -40,11 +40,6 @@ namespace Trip_Volunteer.Infra.Repository
             p.Add("H_Title", homePageElement.Title, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("H_Logo_Image", homePageElement.Logo_Image, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("H_Logo_Text", homePageElement.Logo_Text, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("H_Image1", homePageElement.Image1, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("H_Image2", homePageElement.Image2, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("H_Image3", homePageElement.Image3, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("H_Image4", homePageElement.Image4, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("H_Image5", homePageElement.Image5, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("H_Text1", homePageElement.Text1, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("H_Header", homePageElement.Header, dbType: DbType.String, direction: ParameterDirection.Input);
 
@@ -59,11 +54,6 @@ namespace Trip_Volunteer.Infra.Repository
             p.Add("H_Title", homePageElement.Title, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("H_Logo_Image", homePageElement.Logo_Image, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("H_Logo_Text", homePageElement.Logo_Text, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("H_Image1", homePageElement.Image1, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("H_Image2", homePageElement.Image2, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("H_Image3", homePageElement.Image3, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("H_Image4", homePageElement.Image4, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("H_Image5", homePageElement.Image5, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("H_Text1", homePageElement.Text1, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("H_Header", homePageElement.Header, dbType: DbType.String, direction: ParameterDirection.Input);
 

@@ -190,7 +190,7 @@ namespace Trip_Volunteer.API.Controllers
         [Route("GetVolunteerByTripId")]
         /*        [CheckClaimsAttribute("Roleid", "1", "2")]
 */
-        public List<Volunteer> GetVolunteerByTripId(int TripId, int LoginId)
+        public Volunteer GetVolunteerByTripId(int TripId, int LoginId)
         {
             return _volunteersService.GetVolunteerByTripId( TripId, LoginId);
         }
