@@ -73,7 +73,7 @@ namespace Trip_Volunteer.API.Controllers
         }
 
         
-        [HttpPut]
+        [HttpPost]
         [Route("uploadImage")]
         //[CheckClaimsAttribute("Roleid", "1", "2")]
         public User UploadImage()
