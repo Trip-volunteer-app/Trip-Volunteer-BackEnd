@@ -117,24 +117,40 @@ namespace Trip_Volunteer.Infra.Repository
 
         public async Task<List<TripInfoByIdDTO>> GetAllTripInformation()
         {
-            List<TripInfoByIdDTO> trips;
-            List<TripImage> images;
-           
-            using (var multi = await _dbContext.Connection.QueryMultipleAsync("trips_Package.GetAllTripInformation", commandType: CommandType.StoredProcedure))
-            {
-                trips = (await multi.ReadAsync<TripInfoByIdDTO>()).ToList();
+            List<TripInfoByIdDTO> trips = new List<TripInfoByIdDTO>();
+            List<TripImage> images = new List<TripImage>();
+            List<TripServiceDTO> tripServices = new List<TripServiceDTO>();
 
-                images = (await multi.ReadAsync<TripImage>()).ToList();
+            try
+            {
+                using (var multi = await _dbContext.Connection.QueryMultipleAsync("trips_Package.GetAllTripInformation", commandType: CommandType.StoredProcedure))
+                {
+                    if (!multi.IsConsumed) trips = (await multi.ReadAsync<TripInfoByIdDTO>()).ToList();
+
+                    if (!multi.IsConsumed) images = (await multi.ReadAsync<TripImage>()).ToList();
+
+                    if (!multi.IsConsumed) tripServices = (await multi.ReadAsync<TripServiceDTO>()).ToList();
+
+                }
+
+                foreach (var trip in trips)
+                {
+                    trip.Images = images.Where(i => i.Trip_Id == trip.Trip_Id).ToList();
+                    trip.TripServiceDTO = tripServices.Where(ts => ts.Trip_Id == trip.Trip_Id).ToList();
+
+             
+                }
             }
-
-            foreach (var trip in trips)
+            catch (Exception ex)
             {
-                trip.Images = images.Where(i => i.Trip_Id == trip.Trip_Id).ToList();
-
+                Console.WriteLine($"Error: {ex.Message}");
+                throw;
             }
 
             return trips;
         }
+
+
 
         public TripInfoByIdDTO GetAllTripInformationById(int Id)
         {

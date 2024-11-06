@@ -30,8 +30,21 @@ namespace Trip_Volunteer.Core.DTO
         public List<TripImage> Images { get; set; } = new List<TripImage>();
         public List<Core.Data.Service> Services { get; set; } = new List<Core.Data.Service>();
         public List<TripService> TripService { get; set; } = new List<TripService>();
+        public List<TripServiceDTO> TripServiceDTO { get; set; } = new List<TripServiceDTO>();
+
         public List<TripVolunteerrole> tripVolunteerrole { get; set; } = new List<TripVolunteerrole>();
         public List<Volunteer> Volunteer { get; set; } = new List<Volunteer>();
         public List<VolunteerRole> VolunteerRole { get; set; } = new List<VolunteerRole>();
+    }
+
+
+
+    public class TripServiceDTO
+    {
+        public decimal? Trip_Service_Id { get; set; }
+        public decimal? Trip_Id { get; set; }
+        public decimal? Service_Id { get; set; }
+        public decimal? Service_Cost { get; set; }
+        public string? Service_Name { get; set; }
     }
 }
