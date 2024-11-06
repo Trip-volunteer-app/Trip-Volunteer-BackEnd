@@ -116,9 +116,9 @@ namespace Trip_Volunteer.API.Controllers
         [HttpPut]
         [Route("UpdateAllUserInformation")]
         //[CheckClaimsAttribute("Roleid", "1", "2")]
-        public void UpdateAllUserInformation(int L_id, string L_Email, string L_Pass, string L_RePass, int r_id, int u_id, string F_Name, string L_Name, string IMG, string u_Address, string phone, DateTime B_Day)
+        public void UpdateAllUserInformation(int L_id, string L_Email, int u_id, string F_Name, string L_Name, string IMG, string u_Address, string phone, DateTime B_Day)
         {
-            _userLoginService.UpdateAllUserInformation(L_id, L_Email, L_Pass, L_RePass, r_id, u_id, F_Name, L_Name, IMG, u_Address, phone, B_Day);
+            _userLoginService.UpdateAllUserInformation(L_id, L_Email, u_id, F_Name, L_Name, IMG, u_Address, phone, B_Day);
         }
 
 
@@ -268,6 +268,14 @@ namespace Trip_Volunteer.API.Controllers
             {
                 return StatusCode(500, new { message = "An error occurred while changing the password.", error = ex.Message });
             }
+        }
+
+        [HttpGet("GetUserinfoByLoginId/{id}")]
+        //[CheckClaimsAttribute("Roleid", "1", "2")]
+
+        public ProfileDTO GetUserinfoByLoginId(int id)
+        {
+            return _userLoginService.GetUserinfoByLoginId(id);
         }
     }
 }

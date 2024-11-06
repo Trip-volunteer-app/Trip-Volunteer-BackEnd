@@ -83,9 +83,9 @@ namespace Trip_Volunteer.Infra.Service
             }
         }
 
-        public void UpdateAllUserInformation(int L_id, string L_Email, string L_Pass, string L_RePass, int r_id, int u_id,string F_Name, string L_Name, string IMG, string u_Address, string phone, DateTime B_Day)
+        public void UpdateAllUserInformation(int L_id, string L_Email, int u_id,string F_Name, string L_Name, string IMG, string u_Address, string phone, DateTime B_Day)
         {
-            _userLoginRepository.UpdateAllUserInformation(L_id, L_Email, L_Pass, L_RePass, r_id, u_id, F_Name, L_Name, IMG, u_Address, phone, B_Day);
+            _userLoginRepository.UpdateAllUserInformation(L_id, L_Email, u_id, F_Name, L_Name, IMG, u_Address, phone, B_Day);
         }
 
         public List<UserInformationDto> GetAllUserInformation()
@@ -121,6 +121,11 @@ namespace Trip_Volunteer.Infra.Service
                return await _userLoginRepository.ChangePasswordAsync(changePassword);
             
             }
+        }
+
+        public ProfileDTO GetUserinfoByLoginId(int id)
+        {
+            return _userLoginRepository.GetUserinfoByLoginId(id);
         }
 
     }
