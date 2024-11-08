@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Trip_Volunteer.Core.Common;
 using Trip_Volunteer.Core.Repository;
 using Trip_Volunteer.Core.Data;
+using Trip_Volunteer.Core.DTO;
 
 namespace Trip_Volunteer.Infra.Repository
 {
@@ -53,18 +54,19 @@ namespace Trip_Volunteer.Infra.Repository
                 commandType: CommandType.StoredProcedure);
         }
 
-        public void UpdateService(int serviceId, decimal serviceCost, string serviceName)
+        public void UpdateService(Core.Data.Service service)
         {
             var p = new DynamicParameters();
-            p.Add("p_service_id", serviceId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("p_service_cost", serviceCost, dbType: DbType.Decimal, direction: ParameterDirection.Input);
-            p.Add("p_service_name", serviceName, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("p_service_id", service.Service_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("p_service_cost", service.Service_Cost, dbType: DbType.Decimal, direction: ParameterDirection.Input);
+            p.Add("p_service_name", service.Service_Name, dbType: DbType.String, direction: ParameterDirection.Input);
 
             _dbContext.Connection.Execute(
                 "service_Package.UpdateService",
                 p,
                 commandType: CommandType.StoredProcedure);
         }
+
 
         public void DeleteService(int serviceId)
         {
@@ -74,7 +76,7 @@ namespace Trip_Volunteer.Infra.Repository
             _dbContext.Connection.Execute(
                 "service_Package.DeleteService",
                 p,
-                commandType: CommandType.StoredProcedure);
+                commandType: CommandType.StoredProcedure); 
         }
 
         public List<Core.Data.Service> GetServiceByTripId(int id)
@@ -84,6 +86,18 @@ namespace Trip_Volunteer.Infra.Repository
             IEnumerable<Core.Data.Service> result = _dbContext.Connection.Query<Core.Data.Service>("service_Package.GetServiceByTripId", p, commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
-     
+        public void CreateServiceForTrip(ServiceTripDTO serviceTrip)
+        {
+            var p = new DynamicParameters();
+            p.Add("T_id", serviceTrip.Trip_Id, dbType: DbType.Decimal, direction: ParameterDirection.Input);
+            p.Add("s_id", serviceTrip.Trip_Id, dbType: DbType.Decimal, direction: ParameterDirection.Input);
+            p.Add("s_cost", serviceTrip.Service_Cost, dbType: DbType.Decimal, direction: ParameterDirection.Input);
+            p.Add("s_name", serviceTrip.Service_Name, dbType: DbType.String, direction: ParameterDirection.Input);
+
+            _dbContext.Connection.Execute(
+                "service_Package.CreateServiceForTrip",
+                p,
+                commandType: CommandType.StoredProcedure);
+        }
     }
 }

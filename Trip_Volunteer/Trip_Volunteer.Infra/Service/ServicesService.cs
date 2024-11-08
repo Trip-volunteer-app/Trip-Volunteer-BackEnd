@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Trip_Volunteer.Core.DTO;
 using Trip_Volunteer.Core.Repository;
 using Trip_Volunteer.Core.Service;
 
@@ -37,13 +38,17 @@ namespace Trip_Volunteer.Infra.Service
            return _serviceRepository.GetServiceById(serviceId);
         }
 
-        public void UpdateService(int serviceId, decimal serviceCost, string serviceName)
+        public void UpdateService(Core.Data.Service service)
         {
-            _serviceRepository.UpdateService(serviceId, serviceCost, serviceName);
+            _serviceRepository.UpdateService(service);
         }
         public List<Core.Data.Service> GetServiceByTripId(int id)
         {
             return _serviceRepository.GetServiceByTripId(id);
+        }
+        public void CreateServiceForTrip(ServiceTripDTO serviceTrip)
+        {
+            _serviceRepository.CreateServiceForTrip(serviceTrip);
         }
     }
 }
