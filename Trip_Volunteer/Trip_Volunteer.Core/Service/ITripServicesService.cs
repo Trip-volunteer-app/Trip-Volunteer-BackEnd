@@ -16,5 +16,7 @@ namespace Trip_Volunteer.Core.Service
         void UpdateTripService(TripService tripService);
         void DeleteTripService(int tripServiceId);
         List<ServiceDTO> GetServiceByTripID(int tripId);
+        void CreateTripServiceForServicesList(TripWithServicesListDTO tripServiceList)
+;
     }
 }

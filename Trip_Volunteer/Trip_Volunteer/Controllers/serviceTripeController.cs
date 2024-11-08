@@ -61,5 +61,11 @@ namespace Trip_Volunteer.API.Controllers
         {
             return _tripServicesService.GetServiceByTripID(tripId);
         }
+        [HttpPost]
+        [Route("CreateTripServiceForServicesList")]
+        public void CreateTripServiceForServicesList(TripWithServicesListDTO tripServiceList)
+        {
+            _tripServicesService.CreateTripServiceForServicesList(tripServiceList);
+        }
     }
 }
