@@ -27,7 +27,7 @@ namespace Trip_Volunteer.Infra.Service
         {
             return _BookingServiceRepository.GetBookingServiceById(id);
         }
-        public BookingServicesDTO GetBookingServiceByBookingId(int id)
+        public List<BookingServicesDTO> GetBookingServiceByBookingId(int id)
         {
             return _BookingServiceRepository.GetBookingServiceByBookingId(id);
         }

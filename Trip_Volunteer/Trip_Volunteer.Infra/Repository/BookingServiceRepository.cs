@@ -55,24 +55,14 @@ namespace Trip_Volunteer.Infra.Repository
 
               return result.SingleOrDefault();
           }*/
-        public BookingServicesDTO GetBookingServiceByBookingId(int id)
+        public List<BookingServicesDTO> GetBookingServiceByBookingId(int id)
         {
           
             var p = new DynamicParameters();
             p.Add("Id", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
 
-            using (var multi = _dbContext.Connection.QueryMultiple("booking_service_Package.GetBookingServiceByBookingId", p, commandType: CommandType.StoredProcedure))
-            {
-                var bookingServices = multi.Read<BookingServicesDTO>().FirstOrDefault();
-                var services = multi.Read<Core.Data.Service>().ToList();
-
-                if (bookingServices != null)
-                {
-                    bookingServices.Services = services;
-                }
-
-                return bookingServices;
-            }
+            IEnumerable<BookingServicesDTO> result = _dbContext.Connection.Query<BookingServicesDTO>("booking_service_Package.GetBookingServiceByBookingId", p, commandType: CommandType.StoredProcedure);
+            return result.ToList();
         }
         public void CreateBookingService(BookingServices bookingServices)
         {

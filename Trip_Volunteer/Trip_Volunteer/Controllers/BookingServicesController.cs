@@ -26,15 +26,15 @@ namespace Trip_Volunteer.API.Controllers
         }
 
         [HttpGet]
-        [Route("GetBookingServiceById")]
+        [Route("GetBookingServiceById/{id}")]
         public BookingServices GetBookingServiceById(int id)
         {
             return _bookingServiceService.GetBookingServiceById(id);
         }
 
         [HttpGet]
-        [Route("GetBookingServiceByBookingId")]
-        public BookingServicesDTO GetBookingServiceByBookingId(int id)
+        [Route("GetBookingServiceByBookingId/{id}")]
+        public List<BookingServicesDTO> GetBookingServiceByBookingId(int id)
         {
             return _bookingServiceService.GetBookingServiceByBookingId(id);
         }

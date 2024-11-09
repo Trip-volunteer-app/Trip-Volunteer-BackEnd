@@ -131,6 +131,21 @@ namespace Trip_Volunteer.API.Controllers
         {
             return _tripsService.GetUserPaymentsForTrip(ID);
         }
+        [HttpPut]
+        [Route("updateMaxUser")]
+        /*        [CheckClaimsAttribute("Roleid", "1","2")]
+*/
+        public void updateMaxUser(int id, int res_num)
+        {
+            _tripsService.updateMaxUser(id, res_num);
+        }
+        [HttpPut]
+        [Route("updateMaxVolunteer")]
+        /*        [CheckClaimsAttribute("Roleid", "1","2")]
+*/
+        public void updateMaxVolunteer(int id, int res_num)
+        {
+            _tripsService.updateMaxVolunteer(id, res_num);
 
         [HttpGet]
         [Route("GetTopRatedTrips")]

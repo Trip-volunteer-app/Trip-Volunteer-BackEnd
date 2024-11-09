@@ -12,7 +12,7 @@ namespace Trip_Volunteer.Core.Repository
     {
         List<BookingServices> GetAllBookingServices();
         BookingServices GetBookingServiceById(int id);
-        BookingServicesDTO GetBookingServiceByBookingId(int id);
+        List<BookingServicesDTO> GetBookingServiceByBookingId(int id);
         void CreateBookingService(BookingServices bookingServices);
         void UpdateBookingService(BookingServices bookingServices);
         void DeleteBookingService(int id);
