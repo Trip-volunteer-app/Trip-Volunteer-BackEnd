@@ -13,6 +13,8 @@ namespace Trip_Volunteer.Core.Data
 
         public decimal Volunteer_Role_Id { get; set; }
         public string? Role_Name { get; set; }
+        public int? Number_Of_Volunteers { get; set; }
+
 
         public virtual ICollection<TripVolunteerrole> TripVolunteerroles { get; set; }
         public virtual ICollection<Volunteer> Volunteers { get; set; }

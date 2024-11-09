@@ -40,7 +40,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPost]
         [Route("CreateTrip")]
-        [CheckClaimsAttribute("Roleid", "1")]
+        //[CheckClaimsAttribute("Roleid", "1")]
         public void CreateTrip(TripsDto trip)
         {
             _tripsService.CreateTrip(trip);
@@ -56,7 +56,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpDelete]
         [Route("DeleteTrip/{id}")]
-        [CheckClaimsAttribute("Roleid", "1")]
+        //[CheckClaimsAttribute("Roleid", "1")]
         public void DeleteTrip(int id)
         {
             _tripsService.DeleteTrip(id);

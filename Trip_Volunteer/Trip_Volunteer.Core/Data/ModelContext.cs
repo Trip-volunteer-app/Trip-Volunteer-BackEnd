@@ -1043,6 +1043,12 @@ namespace Trip_Volunteer.Core.Data
                     .HasMaxLength(200)
                     .IsUnicode(false)
                     .HasColumnName("ROLE_NAME");
+
+                entity.Property(e => e.Number_Of_Volunteers)
+                    .HasColumnType("NUMBER")
+                    .IsUnicode(false)
+                    .HasColumnName("NUMBER_OF_VOLUNTEERS");
+
             });
             modelBuilder.Entity<WebsiteInformation>(entity =>
             {

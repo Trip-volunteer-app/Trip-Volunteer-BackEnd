@@ -7,6 +7,7 @@ using Trip_Volunteer.Core.Data;
 using Trip_Volunteer.Core.DTO;
 using Trip_Volunteer.Core.Repository;
 using Trip_Volunteer.Core.Service;
+using Trip_Volunteer.Infra.Repository;
 
 namespace Trip_Volunteer.Infra.Service
 {
@@ -43,7 +44,13 @@ namespace Trip_Volunteer.Infra.Service
             return _tripVolunteerroleRepository.GetVolunteerRoleByTripId(id);
         }
 
-
-
+        public void CreateTripVRoleForVRolesList(TripWithVolunteerRolesDTO tripWithVolunteerRoles)
+        {
+            _tripVolunteerroleRepository.CreateTripVRoleForVRolesList(tripWithVolunteerRoles);
+        }
+        public void DeleteTripVolunteerRoleForATrip(int tripId, int vRoleId)
+        {
+            _tripVolunteerroleRepository.DeleteTripVolunteerRoleForATrip(tripId, vRoleId);
+        }
     }
 }

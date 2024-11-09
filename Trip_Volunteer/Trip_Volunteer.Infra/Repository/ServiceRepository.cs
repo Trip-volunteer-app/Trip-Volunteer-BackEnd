@@ -90,7 +90,7 @@ namespace Trip_Volunteer.Infra.Repository
         {
             var p = new DynamicParameters();
             p.Add("T_id", serviceTrip.Trip_Id, dbType: DbType.Decimal, direction: ParameterDirection.Input);
-            p.Add("s_id", serviceTrip.Trip_Id, dbType: DbType.Decimal, direction: ParameterDirection.Input);
+            p.Add("s_id", serviceTrip.Service_Id, dbType: DbType.Decimal, direction: ParameterDirection.Input);
             p.Add("s_cost", serviceTrip.Service_Cost, dbType: DbType.Decimal, direction: ParameterDirection.Input);
             p.Add("s_name", serviceTrip.Service_Name, dbType: DbType.String, direction: ParameterDirection.Input);
 
