@@ -14,6 +14,5 @@ namespace Trip_Volunteer.Core.Repository
         void CreatePayment(Payment payment);
         void UpdatePayment(Payment payment);
         void DeletePayment(int id);
-        int TotalNumberOfPayments();
     }
 }

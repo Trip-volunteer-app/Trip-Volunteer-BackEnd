@@ -7,6 +7,7 @@ using Trip_Volunteer.Core.Data;
 using Trip_Volunteer.Core.DTO;
 using Trip_Volunteer.Core.Repository;
 using Trip_Volunteer.Core.Service;
+using Trip_Volunteer.Infra.Repository;
 
 namespace Trip_Volunteer.Infra.Service
 {
@@ -49,6 +50,12 @@ namespace Trip_Volunteer.Infra.Service
         public Booking GetBookingByTripId(int TripId, int LoginId)
         {
             return _bookingRepository.GetBookingByTripId( TripId,  LoginId);
+        }
+
+        public int TotalNumberOfBooking()
+        {
+            var result = _bookingRepository.TotalNumberOfBooking();
+            return result;
         }
     }
 }

@@ -39,10 +39,6 @@ namespace Trip_Volunteer.Infra.Service
              _paymentRepository.DeletePayment(id);
         }
 
-        public int TotalNumberOfPayments() 
-        {
-            var result = _paymentRepository.TotalNumberOfPayments();
-            return result;
-        }
+       
     }
 }

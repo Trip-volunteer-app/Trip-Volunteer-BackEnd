@@ -49,10 +49,10 @@ namespace Trip_Volunteer.Infra.Service
             _tripsRepository.DeleteTrip(Id);
         }
 
-        public List<Trip> SearchBetweenDate(DateTime Start_Date, DateTime End_Date)
-        {
-            return _tripsRepository.SearchBetweenDate(Start_Date, End_Date);
-        }
+        //public List<Trip> SearchBetweenDate(DateTime Start_Date, DateTime End_Date)
+        //{
+        //    return _tripsRepository.SearchBetweenDate(Start_Date, End_Date);
+        //}
         public int NumberOfTrips()
         {
             var result = _tripsRepository.NumberOfTrips();
@@ -86,11 +86,11 @@ namespace Trip_Volunteer.Infra.Service
         {
             return _tripsRepository.GetTripUsersById(Id);
         }
-        public List<GetVolunteerUserInfoByTripIdDTO> GetVolunteerUserInfoByTripId(int ID) 
-        { 
+        public List<GetVolunteerUserInfoByTripIdDTO> GetVolunteerUserInfoByTripId(int ID)
+        {
             return _tripsRepository.GetVolunteerUserInfoByTripId(ID);
         }
-        public List<GetUserPaymentsForTripDTO> GetUserPaymentsForTrip(int ID) 
+        public List<GetUserPaymentsForTripDTO> GetUserPaymentsForTrip(int ID)
         {
             return _tripsRepository.GetUserPaymentsForTrip(ID);
         }

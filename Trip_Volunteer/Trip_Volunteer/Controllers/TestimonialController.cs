@@ -19,7 +19,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpGet]
         [Route("GetAllTestimonies")]
-        [CheckClaimsAttribute("Roleid", "1")]
+        //[CheckClaimsAttribute("Roleid", "1")]
         public List<Testimonial> GetAllTestimonies()
         {
             return _testimonialService.GetAllTestimonies();
@@ -51,7 +51,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPut]
         [Route("UpdateTestimony")]
-        [CheckClaimsAttribute("Roleid", "1")]
+        //[CheckClaimsAttribute("Roleid", "1")]
         public void UpdateTestimony(Testimonial testimonial)
         {
             _testimonialService.UpdateTestimony(testimonial);
