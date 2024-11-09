@@ -47,5 +47,9 @@ namespace Trip_Volunteer.Infra.Service
         {
             return _tripServiceRepository.GetServiceByTripID(tripId);
         }
+        public void CreateTripServiceForServicesList(TripWithServicesListDTO tripServiceList)
+        {
+             _tripServiceRepository.CreateTripServiceForServicesList(tripServiceList);
+        }
     }
 }

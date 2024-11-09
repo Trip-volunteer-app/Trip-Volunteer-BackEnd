@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Trip_Volunteer.Core.Data;
+using Trip_Volunteer.Core.DTO;
 
 namespace Trip_Volunteer.Core.Repository
 {
@@ -12,9 +13,9 @@ namespace Trip_Volunteer.Core.Repository
         List<Core.Data.Service> GetAllServices();
         Core.Data.Service GetServiceById(int serviceId);
         void CreateService(Core.Data.Service service);
-        void UpdateService(int serviceId, decimal serviceCost, string serviceName);
+        void UpdateService(Core.Data.Service service);
         void DeleteService(int serviceId);
         List<Core.Data.Service> GetServiceByTripId(int id);
-
+        void CreateServiceForTrip(ServiceTripDTO serviceTrip);
     }
 }

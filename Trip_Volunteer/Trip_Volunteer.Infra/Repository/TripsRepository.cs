@@ -54,6 +54,8 @@ namespace Trip_Volunteer.Infra.Repository
            var serviceIds = string.Join(",", trip.SelectedServices);
             p.Add("service_ids", serviceIds, dbType: DbType.String, direction: ParameterDirection.Input);
 
+            var volunteerRoleIds = string.Join(",", trip.SelectedVolunteerRoles);
+            p.Add("volunteerRole_ids", volunteerRoleIds, dbType: DbType.String, direction: ParameterDirection.Input);
 
             var result = _dbContext.Connection.Execute("trips_Package.CreateTrip", p, commandType: CommandType.StoredProcedure);
 
@@ -231,5 +233,11 @@ namespace Trip_Volunteer.Infra.Repository
             _dbContext.Connection.Execute("trips_Package.updateMaxVolunteer", p, commandType: CommandType.StoredProcedure);
 
         }
+        public List<TripsByRatingDTO> GetTopRatedTrips()
+        {
+            IEnumerable<TripsByRatingDTO> result = _dbContext.Connection.Query<TripsByRatingDTO>("trips_Package.GetTopRatedTrips", commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+
     }
 }

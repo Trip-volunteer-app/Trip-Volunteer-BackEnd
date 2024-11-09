@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Data;
 using Trip_Volunteer.Core.Data;
+using Trip_Volunteer.Core.DTO;
 using Trip_Volunteer.Core.Service;
 
 namespace Trip_Volunteer.API.Controllers
@@ -35,18 +36,18 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPost]
         [Route("CreateService")]
-        [CheckClaimsAttribute("Roleid", "1")]
-        public void CreateService(Core.Data.Service service)
+        //[CheckClaimsAttribute("Roleid", "1")]
+        public void CreateService( Core.Data.Service service)
         {
             _servicesService.CreateService(service);
         }
 
         [HttpPut]
         [Route("UpdateService")]
-        [CheckClaimsAttribute("Roleid", "1")]
-        public void UpdateService(int serviceId, decimal serviceCost, string serviceName)
+        //[CheckClaimsAttribute("Roleid", "1")]
+        public void UpdateService(Core.Data.Service service)
         {
-            _servicesService.UpdateService(serviceId, serviceCost, serviceName);
+            _servicesService.UpdateService(service);
         }
 
         [HttpDelete]
@@ -65,5 +66,11 @@ namespace Trip_Volunteer.API.Controllers
             return _servicesService.GetServiceByTripId(id);
         }
 
+        [HttpPost]
+        [Route("CreateServiceForTrip")]
+        public void CreateServiceForTrip(ServiceTripDTO serviceTrip)
+        {
+            _servicesService.CreateServiceForTrip(serviceTrip);
+        }
     }
 }

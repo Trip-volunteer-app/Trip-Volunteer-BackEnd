@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Trip_Volunteer.Core.Data;
+using Trip_Volunteer.Core.DTO;
 using Trip_Volunteer.Core.Repository;
 using Trip_Volunteer.Core.Service;
 using Trip_Volunteer.Infra.Repository;
@@ -36,6 +37,15 @@ namespace Trip_Volunteer.Infra.Service
         public void DeleteVolunteerRole(int id)
         {
             _volunteerRolesRepository.DeleteVolunteerRole(id);
+        }
+        public List<VolunteerRoleDTO> GetRoleByTripID(int tripId)
+        {
+            return _volunteerRolesRepository.GetRoleByTripID(tripId);
+        }
+        public void CreateVolunteerRoleForTrip(VolunteerRoleDTO volunteerRoleDTO)
+
+        {
+            _volunteerRolesRepository.CreateVolunteerRoleForTrip(volunteerRoleDTO);
         }
     }
 }

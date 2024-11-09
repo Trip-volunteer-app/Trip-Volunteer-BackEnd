@@ -17,44 +17,49 @@ namespace Trip_Volunteer.API.Controllers
         {
             _tripVolunteerroleService = tripVolunteerroleService;
         }
-        
+
 
         [HttpGet]
         [Route("GetAlltrip_volunteerRoles")]
-/*        [CheckClaimsAttribute("Roleid", "1")]
-*/        public List<TripVolunteerrole> GetAlltrip_volunteerRoles()
+        /*        [CheckClaimsAttribute("Roleid", "1")]
+        */
+        public List<TripVolunteerrole> GetAlltrip_volunteerRoles()
         {
             return _tripVolunteerroleService.GetAlltrip_volunteerRoles();
         }
 
         [HttpGet]
         [Route("Gettrip_volunteerRolesById/{id}")]
-/*        [CheckClaimsAttribute("Roleid", "1")]
-*/        public TripVolunteerrole Gettrip_volunteerRolesById(int id)
+        /*        [CheckClaimsAttribute("Roleid", "1")]
+        */
+        public TripVolunteerrole Gettrip_volunteerRolesById(int id)
         {
             return _tripVolunteerroleService.Gettrip_volunteerRolesById(id);
         }
 
         [HttpPost]
         [Route("CREATEtrip_volunteerRoles")]
-/*        [CheckClaimsAttribute("Roleid", "1")]
-*/        public void CREATEtrip_volunteerRoles(TripVolunteerrole tripVolunteerrole)
+        /*        [CheckClaimsAttribute("Roleid", "1")]
+        */
+        public void CREATEtrip_volunteerRoles(TripVolunteerrole tripVolunteerrole)
         {
             _tripVolunteerroleService.CREATEtrip_volunteerRoles(tripVolunteerrole);
         }
 
         [HttpPut]
         [Route("UPDATEtrip_volunteerRoles")]
-/*        [CheckClaimsAttribute("Roleid", "1")]
-*/        public void UPDATEtrip_volunteerRoles(TripVolunteerrole tripVolunteerrole)
+        /*        [CheckClaimsAttribute("Roleid", "1")]
+        */
+        public void UPDATEtrip_volunteerRoles(TripVolunteerrole tripVolunteerrole)
         {
             _tripVolunteerroleService.UPDATEtrip_volunteerRoles(tripVolunteerrole);
         }
 
         [HttpDelete]
         [Route("Deletetrip_volunteerRoles/{Id}")]
-/*        [CheckClaimsAttribute("Roleid", "1")]
-*/        public void Deletetrip_volunteerRoles(int Id)
+        /*        [CheckClaimsAttribute("Roleid", "1")]
+        */
+        public void Deletetrip_volunteerRoles(int Id)
         {
             _tripVolunteerroleService.Deletetrip_volunteerRoles(Id);
         }
@@ -67,5 +72,19 @@ namespace Trip_Volunteer.API.Controllers
             return _tripVolunteerroleService.GetVolunteerRoleByTripId(id);
         }
 
+        [HttpPost]
+        [Route("CreateTripVRoleForVRolesList")]
+        public void CreateTripVRoleForVRolesList(TripWithVolunteerRolesDTO tripWithVolunteerRoles)
+        {
+            _tripVolunteerroleService.CreateTripVRoleForVRolesList(tripWithVolunteerRoles);
+        }
+
+        [HttpDelete("Deletetrip_volunteerRoles")]
+        public void DeleteTripVolunteerRole([FromQuery] int id, [FromQuery] int tripid)
+        {
+
+            _tripVolunteerroleService.DeleteTripVolunteerRoleForATrip(tripid, id);
+
+        }
     }
 }

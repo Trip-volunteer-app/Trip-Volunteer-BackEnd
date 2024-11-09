@@ -14,8 +14,8 @@ namespace Trip_Volunteer.Core.Data
         public decimal? Service_Cost { get; set; }
         public string? Service_Name { get; set; }
 
-        public virtual ICollection<TripService> TripServices { get; set; }
-        public virtual ICollection<BookingServices> Booking_Services { get; set; }
+        public virtual ICollection<TripService>? TripServices { get; set; }
+        public virtual ICollection<BookingServices>? Booking_Services { get; set; }
 
     }
 }

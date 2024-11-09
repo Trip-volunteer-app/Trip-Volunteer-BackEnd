@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace Trip_Volunteer.Core.DTO
 {
-    public class TripsDto
+    public class TripsByRatingDTO
     {
+        public decimal Trip_Id { get; set; }
         public string? Trip_Name { get; set; }
+        public decimal? Trip_Location_Id { get; set; }
         public decimal? Trip_Price { get; set; }
         public decimal? Max_Number_Of_Users { get; set; }
         public DateTime? Start_Date { get; set; }
@@ -16,15 +18,8 @@ namespace Trip_Volunteer.Core.DTO
         public string? Description { get; set; }
         public decimal? Max_Number_Of_Volunteers { get; set; }
         public decimal? Category_Id { get; set; }
-        public string? Image_Name { get; set; }
-        public List<int> SelectedServices { get; set; }
-        public List<int> SelectedVolunteerRoles { get; set; }
-        public string? Departure_Location { get; set; }
+        public decimal? Average_Rating { get; set; }
         public string? Destination_Location { get; set; }
-        public decimal? Departure_Latitude { get; set; }
-        public decimal? Departure_Longitude { get; set; }
-        public decimal? Destination_Latitude { get; set; }
-        public decimal? Destination_Longitude { get; set; }
-
+        public string? Image_Name { get; set; }
     }
 }

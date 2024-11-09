@@ -102,6 +102,9 @@ namespace Trip_Volunteer.Infra.Service
         public void updateMaxVolunteer(int id, int res_num)
         {
             _tripsRepository.updateMaxVolunteer(id, res_num);
+        public List<TripsByRatingDTO> GetTopRatedTrips()
+        {
+            return _tripsRepository.GetTopRatedTrips();
         }
     }
 }

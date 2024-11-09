@@ -12,19 +12,12 @@ namespace Trip_Volunteer.Core.Service
     {
         List<Trip> GetAllTrips();
         Trip GetTripById(int ID);
-
         void CreateTrip(TripsDto trip);
-
         void UpdateTrip(Trip trip);
-
         void DeleteTrip(int Id);
-
         List<Trip> SearchBetweenDate(DateTime Start_Date, DateTime End_Date);
-      
         int NumberOfTrips();
-
         //int NumberOfFinishedTrips();
-
         List<Trip> TripsWithMaxReservations();
         Task<List<TripInfoByIdDTO>> GetAllTripInformation();
         TripInfoByIdDTO GetAllTripInformationById(int Id);
@@ -34,5 +27,6 @@ namespace Trip_Volunteer.Core.Service
         List<GetUserPaymentsForTripDTO> GetUserPaymentsForTrip(int ID);
         void updateMaxUser(int id, int res_num);
         void updateMaxVolunteer(int id, int res_num);
+        List<TripsByRatingDTO> GetTopRatedTrips();
     }
 }
