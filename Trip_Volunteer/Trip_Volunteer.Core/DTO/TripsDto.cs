@@ -18,6 +18,7 @@ namespace Trip_Volunteer.Core.DTO
         public decimal? Category_Id { get; set; }
         public string? Image_Name { get; set; }
         public List<int> SelectedServices { get; set; }
+        public List<int> SelectedVolunteerRoles { get; set; }
         public string? Departure_Location { get; set; }
         public string? Destination_Location { get; set; }
         public decimal? Departure_Latitude { get; set; }

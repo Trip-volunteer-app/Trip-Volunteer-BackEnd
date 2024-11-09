@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace Trip_Volunteer.Core.DTO
 {
-    public class VolunteerRoleDTO
+    public class TripWithVolunteerRolesDTO
     {
+        public List<int> SelectedVolunteerRoles { get; set; }
         public decimal? Trip_Id { get; set; }
-        public decimal? Volunteer_Role_Id { get; set; }
-        public string? Role_Name { get; set; }
-        public int? Number_Of_Volunteers { get; set; }
     }
 }

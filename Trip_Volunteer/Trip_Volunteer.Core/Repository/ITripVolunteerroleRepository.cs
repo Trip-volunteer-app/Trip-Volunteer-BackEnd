@@ -21,5 +21,9 @@ namespace Trip_Volunteer.Core.Repository
          void Deletetrip_volunteerRoles(int id);
 
          List<VolunteerRoleDTO> GetVolunteerRoleByTripId(int id);
+
+        void CreateTripVRoleForVRolesList(TripWithVolunteerRolesDTO tripWithVolunteerRoles);
+        void DeleteTripVolunteerRoleForATrip(int tripId, int vRoleId);
+
     }
 }

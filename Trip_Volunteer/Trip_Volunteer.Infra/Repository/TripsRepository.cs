@@ -54,6 +54,8 @@ namespace Trip_Volunteer.Infra.Repository
            var serviceIds = string.Join(",", trip.SelectedServices);
             p.Add("service_ids", serviceIds, dbType: DbType.String, direction: ParameterDirection.Input);
 
+            var volunteerRoleIds = string.Join(",", trip.SelectedVolunteerRoles);
+            p.Add("volunteerRole_ids", volunteerRoleIds, dbType: DbType.String, direction: ParameterDirection.Input);
 
             var result = _dbContext.Connection.Execute("trips_Package.CreateTrip", p, commandType: CommandType.StoredProcedure);
 

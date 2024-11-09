@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Trip_Volunteer.Core.Data;
+using Trip_Volunteer.Core.DTO;
 using Trip_Volunteer.Core.Service;
 
 namespace Trip_Volunteer.API.Controllers
@@ -56,7 +57,20 @@ namespace Trip_Volunteer.API.Controllers
         {
             _volunteerRolesService.DeleteVolunteerRole(id);
         }
+        [HttpGet]
+        [Route("GetRoleByTripID/{tripId}")]
+        public List<VolunteerRoleDTO> GetRoleByTripID(int tripId)
+        {
+            return _volunteerRolesService.GetRoleByTripID(tripId);
+        }
+        [HttpPost]
+        [Route("CreateVolunteerRoleForTrip")]
+        public void CreateVolunteerRoleForTrip(VolunteerRoleDTO volunteerRoleDTO)
+
+        {
+            _volunteerRolesService.CreateVolunteerRoleForTrip(volunteerRoleDTO);
+        }
 
 
-    }
+        }
 }
