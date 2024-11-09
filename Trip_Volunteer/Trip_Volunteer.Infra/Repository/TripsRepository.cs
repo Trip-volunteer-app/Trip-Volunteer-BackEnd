@@ -88,14 +88,14 @@ namespace Trip_Volunteer.Infra.Repository
 
         }
 
-        public List<Trip> SearchBetweenDate(DateTime Start_Date, DateTime End_Date)
-        {
-            var p = new DynamicParameters();
-            p.Add("p_start_date", Start_Date, dbType: DbType.Date, direction: ParameterDirection.Input);
-            p.Add("p_end_date", End_Date, dbType: DbType.Date, direction: ParameterDirection.Input);
-            IEnumerable<Trip> result = _dbContext.Connection.Query<Trip>("trips_Package.searchBetweendate", p, commandType: CommandType.StoredProcedure);
-            return result.ToList();
-        }
+        //public List<Trip> SearchBetweenDate(DateTime Start_Date, DateTime End_Date)
+        //{
+        //    var p = new DynamicParameters();
+        //    p.Add("p_start_date", Start_Date, dbType: DbType.Date, direction: ParameterDirection.Input);
+        //    p.Add("p_end_date", End_Date, dbType: DbType.Date, direction: ParameterDirection.Input);
+        //    IEnumerable<Trip> result = _dbContext.Connection.Query<Trip>("trips_Package.searchBetweendate", p, commandType: CommandType.StoredProcedure);
+        //    return result.ToList();
+        //}
 
         public int NumberOfTrips()
         {

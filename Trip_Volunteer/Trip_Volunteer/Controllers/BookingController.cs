@@ -80,7 +80,13 @@ namespace Trip_Volunteer.API.Controllers
         {
             return _bookingService.GetBookingByTripId( TripId, LoginId);
         }
-     
+
+        [HttpGet]
+        [Route("TotalNumberOfBooking")]
+        public int TotalNumberOfBooking()
+        {
+            return _bookingService.TotalNumberOfBooking();
+        }
 
     }
 }

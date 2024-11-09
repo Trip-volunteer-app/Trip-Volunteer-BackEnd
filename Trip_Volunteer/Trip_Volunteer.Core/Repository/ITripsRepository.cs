@@ -20,7 +20,7 @@ namespace Trip_Volunteer.Core.Repository
 
          void DeleteTrip(int Id);
 
-        List<Trip> SearchBetweenDate(DateTime Start_Date, DateTime End_Date);
+        //List<Trip> SearchBetweenDate(DateTime Start_Date, DateTime End_Date);
 
         int NumberOfTrips();
 

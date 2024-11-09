@@ -17,5 +17,6 @@ namespace Trip_Volunteer.Core.Repository
         void DeleteBooking(int bookingId);
         void UpdatePaymentStatus(Booking booking);
         Booking GetBookingByTripId(int TripId, int LoginId);
+        int TotalNumberOfBooking();
     }
 }

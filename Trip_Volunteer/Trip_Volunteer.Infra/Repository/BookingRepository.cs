@@ -131,5 +131,11 @@ namespace Trip_Volunteer.Infra.Repository
             return result.SingleOrDefault();
         }
 
+        public int TotalNumberOfBooking()
+        {
+            var result = _dbContext.Connection.QuerySingleOrDefault<int>("booking_Package.TotalNumberOfBooking", commandType: CommandType.StoredProcedure);
+
+            return result;
+        }
     }
 }

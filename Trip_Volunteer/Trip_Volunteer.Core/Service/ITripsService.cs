@@ -15,7 +15,7 @@ namespace Trip_Volunteer.Core.Service
         void CreateTrip(TripsDto trip);
         void UpdateTrip(Trip trip);
         void DeleteTrip(int Id);
-        List<Trip> SearchBetweenDate(DateTime Start_Date, DateTime End_Date);
+        //List<Trip> SearchBetweenDate(DateTime Start_Date, DateTime End_Date);
         int NumberOfTrips();
         //int NumberOfFinishedTrips();
         List<Trip> TripsWithMaxReservations();
