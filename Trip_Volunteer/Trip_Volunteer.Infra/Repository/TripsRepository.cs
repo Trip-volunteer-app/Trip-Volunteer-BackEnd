@@ -212,5 +212,24 @@ namespace Trip_Volunteer.Infra.Repository
             IEnumerable<GetUserPaymentsForTripDTO> result = _dbContext.Connection.Query<GetUserPaymentsForTripDTO>("trips_Package.GetUserPaymentsForTrip", p, commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
+
+        public void updateMaxUser(int id, int res_num)
+        {
+            var p = new DynamicParameters();
+            p.Add("od", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("res_num", res_num, dbType: DbType.Int32, direction: ParameterDirection.Input);
+           
+            _dbContext.Connection.Execute("trips_Package.updateMaxUser", p, commandType: CommandType.StoredProcedure);
+
+        }
+        public void updateMaxVolunteer(int id, int res_num)
+        {
+            var p = new DynamicParameters();
+            p.Add("od", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("res_num", res_num, dbType: DbType.Int32, direction: ParameterDirection.Input);
+
+            _dbContext.Connection.Execute("trips_Package.updateMaxVolunteer", p, commandType: CommandType.StoredProcedure);
+
+        }
     }
 }

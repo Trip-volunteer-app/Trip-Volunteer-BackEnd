@@ -94,5 +94,14 @@ namespace Trip_Volunteer.Infra.Service
         {
             return _tripsRepository.GetUserPaymentsForTrip(ID);
         }
+
+        public void updateMaxUser(int id, int res_num)
+        {
+            _tripsRepository.updateMaxUser(id, res_num);
+        }
+        public void updateMaxVolunteer(int id, int res_num)
+        {
+            _tripsRepository.updateMaxVolunteer(id, res_num);
+        }
     }
 }

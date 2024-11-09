@@ -5,6 +5,7 @@ using Trip_Volunteer.Core.Data;
 using Trip_Volunteer.Core.DTO;
 using Trip_Volunteer.Core.Repository;
 using Trip_Volunteer.Core.Service;
+using Trip_Volunteer.Infra.Repository;
 
 namespace Trip_Volunteer.API.Controllers
 {
@@ -146,7 +147,21 @@ namespace Trip_Volunteer.API.Controllers
         {
             return _tripsService.GetUserPaymentsForTrip(ID);
         }
-
-
+        [HttpPut]
+        [Route("updateMaxUser")]
+        /*        [CheckClaimsAttribute("Roleid", "1","2")]
+*/
+        public void updateMaxUser(int id, int res_num)
+        {
+            _tripsService.updateMaxUser(id, res_num);
+        }
+        [HttpPut]
+        [Route("updateMaxVolunteer")]
+        /*        [CheckClaimsAttribute("Roleid", "1","2")]
+*/
+        public void updateMaxVolunteer(int id, int res_num)
+        {
+            _tripsService.updateMaxVolunteer(id, res_num);
+        }
     }
 }
