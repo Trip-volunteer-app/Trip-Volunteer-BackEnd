@@ -218,7 +218,7 @@ namespace Trip_Volunteer.Infra.Repository
         public void updateMaxUser(int id, int res_num)
         {
             var p = new DynamicParameters();
-            p.Add("od", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("id", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("res_num", res_num, dbType: DbType.Int32, direction: ParameterDirection.Input);
            
             _dbContext.Connection.Execute("trips_Package.updateMaxUser", p, commandType: CommandType.StoredProcedure);
@@ -227,7 +227,7 @@ namespace Trip_Volunteer.Infra.Repository
         public void updateMaxVolunteer(int id, int res_num)
         {
             var p = new DynamicParameters();
-            p.Add("od", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("id", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("res_num", res_num, dbType: DbType.Int32, direction: ParameterDirection.Input);
 
             _dbContext.Connection.Execute("trips_Package.updateMaxVolunteer", p, commandType: CommandType.StoredProcedure);
