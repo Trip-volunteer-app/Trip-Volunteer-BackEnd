@@ -82,7 +82,7 @@ namespace Trip_Volunteer.API.Controllers
         public IActionResult GetNumberOfTrips()
         {
             int numberOfTrips = _tripsService.NumberOfTrips();
-            return Ok(numberOfTrips); 
+            return Ok(numberOfTrips);
         }
 
         [HttpGet]
@@ -95,15 +95,16 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpGet]
         [Route("GetAllTripInformation")]
-        public  Task<List<TripInfoByIdDTO>> GetAllTripInformation()
+        public Task<List<TripInfoByIdDTO>> GetAllTripInformation()
         {
             return _tripsService.GetAllTripInformation();
         }
 
         [HttpGet]
         [Route("GetAllTripInformationById")]
-/*        [CheckClaimsAttribute("Roleid", "1")]
-*/        public TripInfoByIdDTO GetAllTripInformationById(int Id)
+        /*        [CheckClaimsAttribute("Roleid", "1")]
+        */
+        public TripInfoByIdDTO GetAllTripInformationById(int Id)
         {
             return _tripsService.GetAllTripInformationById(Id);
         }
@@ -154,9 +155,11 @@ namespace Trip_Volunteer.API.Controllers
         public void updateMaxVolunteer(int id, int res_num)
         {
             _tripsService.updateMaxVolunteer(id, res_num);
+        }
 
         [HttpGet]
         [Route("GetTopRatedTrips")]
+
         public List<TripsByRatingDTO> GetTopRatedTrips()
         {
             return _tripsService.GetTopRatedTrips();
