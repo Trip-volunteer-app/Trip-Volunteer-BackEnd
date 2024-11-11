@@ -21,9 +21,9 @@ namespace Trip_Volunteer.Infra.Repository
         {
             _dbContext = dbContext;
         }
-        public List<Volunteer> GetAllVolunteers()
+        public List<AllVolunteersInfoDTO> GetAllVolunteers()
         {
-            IEnumerable<Volunteer> result = _dbContext.Connection.Query<Volunteer>("volunteers_package.GatAllVolunteers", commandType: CommandType.StoredProcedure);
+            IEnumerable<AllVolunteersInfoDTO> result = _dbContext.Connection.Query<AllVolunteersInfoDTO>("volunteers_package.GatAllVolunteers", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
         public Volunteer GetVolunteerById(int id)

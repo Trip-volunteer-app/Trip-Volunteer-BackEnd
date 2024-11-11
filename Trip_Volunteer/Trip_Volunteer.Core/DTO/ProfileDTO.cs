@@ -26,7 +26,7 @@ namespace Trip_Volunteer.Core.DTO
         public string Role_Name { get; set; } = null!;
 
         public List<BookingsDTO> Bookings { get; set; } = new List<BookingsDTO>();
-        public List<VolunteerDTO> Volunteer { get; set; } = new List<VolunteerDTO>();
+        public List<AllVolunteerDTO> Volunteer { get; set; } = new List<AllVolunteerDTO>();
 
 
     }
@@ -56,7 +56,7 @@ namespace Trip_Volunteer.Core.DTO
         public List<ServiceBookingDTO> ServiceBooking { get; set; } = new List<ServiceBookingDTO>();
 
     }
-    public class VolunteerDTO
+    public class AllVolunteerDTO
     {
         public decimal Volunteer_Id { get; set; }
         public decimal? Login_Id { get; set; }

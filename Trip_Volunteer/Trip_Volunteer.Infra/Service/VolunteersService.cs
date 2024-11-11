@@ -18,7 +18,7 @@ namespace Trip_Volunteer.Infra.Service
         {
             _volunteersRepository = volunteersRepository;
         }
-        public List<Volunteer> GetAllVolunteers()
+        public List<AllVolunteersInfoDTO> GetAllVolunteers()
         {
             return _volunteersRepository.GetAllVolunteers();
         }
