@@ -15,7 +15,7 @@ namespace Trip_Volunteer.Core.Service
         void CreateVolunteer(Volunteer volunteer);
         void UpdateVolunteer(Volunteer volunteer);
         void DeleteVolunteer(int id);
-        void UpdateVolunteerStatus(int id, string status);
+        void UpdateVolunteerStatus(Volunteer volunteer);
         List<VolunteerSearchDto> SearchVolunteers(VolunteerSearchDto searchCriteria);
         List<VolunteerSearchDto> AllVolunteersWithTrips();
         List<Trip> GetTripsForVolunteerByName(string firstName, string lastName);

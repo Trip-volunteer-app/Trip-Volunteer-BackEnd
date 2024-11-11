@@ -34,7 +34,6 @@ namespace Trip_Volunteer.Core.Repository
         List<GetVolunteerUserInfoByTripIdDTO> GetVolunteerUserInfoByTripId(int ID);
         List<GetUserPaymentsForTripDTO> GetUserPaymentsForTrip(int ID);
         void updateMaxUser(int id, int res_num);
-        void updateMaxVolunteer(int id, int res_num);
         List<TripsByRatingDTO> GetTopRatedTrips();
     }
 }

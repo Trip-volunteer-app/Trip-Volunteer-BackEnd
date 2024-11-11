@@ -84,5 +84,15 @@ namespace Trip_Volunteer.Infra.Repository
             p.Add("vRole_Id", vRoleId, DbType.Int32, ParameterDirection.Input);
             _dbContext.Connection.Execute("trip_volunteerRoles_Packegs.DeleteTripVolunteerRoleForATrip", p, commandType: CommandType.StoredProcedure);
         }
+
+        public void updateNumberOfVolunteer(TripVolunteerrole tripVolunteerrole)
+        {
+            var p = new DynamicParameters();
+            p.Add("t_id", tripVolunteerrole.Trip_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("vr_id", tripVolunteerrole.Volunteer_Role_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+
+            _dbContext.Connection.Execute("trip_volunteerRoles_Packegs.updateNumberOfVolunteer", p, commandType: CommandType.StoredProcedure);
+
+        }
     }
 }

@@ -25,5 +25,8 @@ namespace Trip_Volunteer.Core.Repository
         void CreateTripVRoleForVRolesList(TripWithVolunteerRolesDTO tripWithVolunteerRoles);
         void DeleteTripVolunteerRoleForATrip(int tripId, int vRoleId);
 
+        void updateNumberOfVolunteer(TripVolunteerrole tripVolunteerrole);
+
+
     }
 }
