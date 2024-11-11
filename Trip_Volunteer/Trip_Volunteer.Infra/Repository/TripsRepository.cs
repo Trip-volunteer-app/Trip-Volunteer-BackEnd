@@ -5,6 +5,8 @@ using Trip_Volunteer.Core.Data;
 using Trip_Volunteer.Core.DTO;
 using Trip_Volunteer.Core.Repository;
 using Trip_Volunteer.Infra.Service;
+using Newtonsoft.Json;
+
 
 
 namespace Trip_Volunteer.Infra.Repository
@@ -54,11 +56,10 @@ namespace Trip_Volunteer.Infra.Repository
            var serviceIds = string.Join(",", trip.SelectedServices);
             p.Add("service_ids", serviceIds, dbType: DbType.String, direction: ParameterDirection.Input);
 
-            var volunteerRoleIds = string.Join(",", trip.SelectedVolunteerRoles);
-            p.Add("volunteerRole_ids", volunteerRoleIds, dbType: DbType.String, direction: ParameterDirection.Input);
+            var volunteerRolesJson = Newtonsoft.Json.JsonConvert.SerializeObject(trip.SelectedVolunteerRoles);
+            p.Add("volunteerRoleData", volunteerRolesJson, dbType: DbType.String, direction: ParameterDirection.Input);
 
             var result = _dbContext.Connection.Execute("trips_Package.CreateTrip", p, commandType: CommandType.StoredProcedure);
-
 
         }
 

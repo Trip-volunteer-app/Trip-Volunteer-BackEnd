@@ -71,12 +71,17 @@ namespace Trip_Volunteer.Infra.Repository
         {
             var p = new DynamicParameters();
             p.Add("v_tripId", tripWithVolunteerRoles.Trip_Id, dbType: DbType.String, direction: ParameterDirection.Input);
-
-            var SelectedVolunteerRoles = string.Join(",", tripWithVolunteerRoles.SelectedVolunteerRoles);
-            p.Add("SelectedVolunteerRoles", SelectedVolunteerRoles, dbType: DbType.String, direction: ParameterDirection.Input);
+            var volunteerRolesJson = Newtonsoft.Json.JsonConvert.SerializeObject(tripWithVolunteerRoles.SelectedVolunteerRoles);
+            p.Add("volunteerRoleData", volunteerRolesJson, dbType: DbType.String, direction: ParameterDirection.Input);
 
             var result = _dbContext.Connection.Execute("trip_volunteerRoles_Packegs.CreateTripVRoleForVRolesList", p, commandType: CommandType.StoredProcedure);
+
+
         }
+
+    
+
+
         public void DeleteTripVolunteerRoleForATrip(int tripId, int vRoleId)
         {
             var p = new DynamicParameters();
@@ -84,6 +89,7 @@ namespace Trip_Volunteer.Infra.Repository
             p.Add("vRole_Id", vRoleId, DbType.Int32, ParameterDirection.Input);
             _dbContext.Connection.Execute("trip_volunteerRoles_Packegs.DeleteTripVolunteerRoleForATrip", p, commandType: CommandType.StoredProcedure);
         }
+
 
         public void updateNumberOfVolunteer(TripVolunteerrole tripVolunteerrole)
         {
@@ -94,5 +100,16 @@ namespace Trip_Volunteer.Infra.Repository
             _dbContext.Connection.Execute("trip_volunteerRoles_Packegs.updateNumberOfVolunteer", p, commandType: CommandType.StoredProcedure);
 
         }
+
+        public void UpdateTrip_vrole_NumberOfVolunteers(TripVolunteerrole tripVolunteerrole)
+        {
+            var p = new DynamicParameters();
+            p.Add("t_volunteerRoles_id", tripVolunteerrole.Trip_Volunteerroles_Id, DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("num_ofVolunteers", tripVolunteerrole.Number_Of_Volunteers, DbType.Int32, direction: ParameterDirection.Input);
+
+            _dbContext.Connection.Execute("trip_volunteerRoles_Packegs.UpdateTrip_vrole_NumberOfVolunteers", p, commandType: CommandType.StoredProcedure);
+        }
+
+
     }
 }
