@@ -27,5 +27,8 @@ namespace Trip_Volunteer.Core.Repository
         void UpdateTrip_vrole_NumberOfVolunteers(TripVolunteerrole tripVolunteerrole);
 
 
+        void updateNumberOfVolunteer(TripVolunteerrole tripVolunteerrole);
+
+
     }
 }

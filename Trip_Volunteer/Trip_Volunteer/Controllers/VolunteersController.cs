@@ -65,11 +65,11 @@ namespace Trip_Volunteer.API.Controllers
         }
 
         [HttpPut]
-        [Route("UpdateVolunteerStatus/{id}/{status}")]
+        [Route("UpdateVolunteerStatus")]
 /*        [CheckClaimsAttribute("Roleid", "1")]
-*/        public void UpdateVolunteerStatus(int id, string status)
+*/        public void UpdateVolunteerStatus(Volunteer volunteer)
         {
-            _volunteersService.UpdateVolunteerStatus(id, status);
+            _volunteersService.UpdateVolunteerStatus(volunteer);
         }
 
 
