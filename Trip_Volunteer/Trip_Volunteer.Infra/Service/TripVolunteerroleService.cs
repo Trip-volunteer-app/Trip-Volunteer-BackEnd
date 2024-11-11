@@ -52,5 +52,12 @@ namespace Trip_Volunteer.Infra.Service
         {
             _tripVolunteerroleRepository.DeleteTripVolunteerRoleForATrip(tripId, vRoleId);
         }
+
+        public void UpdateTrip_vrole_NumberOfVolunteers(TripVolunteerrole tripVolunteerrole)
+        {
+            _tripVolunteerroleRepository.UpdateTrip_vrole_NumberOfVolunteers(tripVolunteerrole);
+
+        }
+
     }
 }

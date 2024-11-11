@@ -24,7 +24,7 @@ namespace Trip_Volunteer.Infra.Repository
 
         public List<MonthlyReportDTO> MonthlyReport()
         {
-            var result = _dbContext.Connection.Query<MonthlyReportDTO>("generate_monthly_revenue_report", commandType: CommandType.StoredProcedure);
+            var result = _dbContext.Connection.Query<MonthlyReportDTO>("GetMonthlyRevenue", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
 
