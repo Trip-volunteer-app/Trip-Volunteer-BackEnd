@@ -8,11 +8,11 @@ namespace Trip_Volunteer.Core.DTO
 {
     public class MonthlyReportDTO
     {
-        public DateTime trip_month { get; set; }
-        public decimal TOTAL_SERVICE_COST { get; set; }
-        public decimal TOTAL_REVENUE { get; set; }
+        public string month_year { get; set; }
+        public decimal cost { get; set; }
+        public decimal total_revenue { get; set; }
 
-        public decimal NET_REVENUE { get; set; }
+        public decimal monthly_revenue { get; set; }
 
     }
 

@@ -1017,6 +1017,11 @@ namespace Trip_Volunteer.Core.Data
                     .HasColumnType("NUMBER(38)")
                     .HasColumnName("VOLUNTEER_ROLE_ID");
 
+                entity.Property(e => e.Number_Of_Volunteers)
+                    .HasColumnType("NUMBER")
+                    .IsUnicode(false)
+                    .HasColumnName("NUMBER_OF_VOLUNTEERS");
+
                 entity.HasOne(d => d.Trip)
                     .WithMany(p => p.TripVolunteerroles)
                     .HasForeignKey(d => d.Trip_Id)
@@ -1028,6 +1033,8 @@ namespace Trip_Volunteer.Core.Data
                     .HasForeignKey(d => d.Volunteer_Role_Id)
                     .OnDelete(DeleteBehavior.SetNull)
                     .HasConstraintName("FK_TRIP_VOLUNTEER_ROLES_ID");
+
+
             });
 
             modelBuilder.Entity<VolunteerRole>(entity =>
@@ -1043,11 +1050,6 @@ namespace Trip_Volunteer.Core.Data
                     .HasMaxLength(200)
                     .IsUnicode(false)
                     .HasColumnName("ROLE_NAME");
-
-                entity.Property(e => e.Number_Of_Volunteers)
-                    .HasColumnType("NUMBER")
-                    .IsUnicode(false)
-                    .HasColumnName("NUMBER_OF_VOLUNTEERS");
 
             });
             modelBuilder.Entity<WebsiteInformation>(entity =>
