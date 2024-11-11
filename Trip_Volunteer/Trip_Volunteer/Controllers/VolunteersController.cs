@@ -23,7 +23,7 @@ namespace Trip_Volunteer.API.Controllers
         [Route("GetAllVolunteers")]
 
         //[CheckClaimsAttribute("Roleid", "1")]
-        public List<Volunteer> GetAllVolunteers()
+        public List<AllVolunteersInfoDTO> GetAllVolunteers()
         {
             return _volunteersService.GetAllVolunteers();
         }

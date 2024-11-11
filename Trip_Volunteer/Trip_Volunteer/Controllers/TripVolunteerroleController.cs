@@ -96,6 +96,7 @@ namespace Trip_Volunteer.API.Controllers
         public void updateNumberOfVolunteer(TripVolunteerrole tripVolunteerrole)
         {
             _tripVolunteerroleService.updateNumberOfVolunteer(tripVolunteerrole);
+        }
 
         [HttpPut]
         [Route("UpdateTrip_vrole_NumberOfVolunteers")]
