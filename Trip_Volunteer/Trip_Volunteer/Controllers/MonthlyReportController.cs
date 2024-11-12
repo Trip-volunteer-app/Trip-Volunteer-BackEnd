@@ -37,5 +37,16 @@ namespace Trip_Volunteer.API.Controllers
 
             return _monthlyService.GetDailyRevenueForMonth(month, year);
         }
+
+
+
+        [HttpGet]
+        [Route("GetSYSMonthlyRevenue")]
+        public MonthlyReportDTO GetSYSMonthlyRevenue()
+        {
+
+            return _monthlyService.GetSYSMonthlyRevenue();
+        }
+
     }
 }
