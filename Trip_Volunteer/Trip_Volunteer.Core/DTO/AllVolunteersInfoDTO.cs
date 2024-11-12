@@ -22,7 +22,10 @@ namespace Trip_Volunteer.Core.DTO
         public string? Emergency_Contact { get; set; }
         public string? Role_Name { get; set; }
         public string? Trip_Name { get; set; }
-
+        public int? Number_Of_Volunteers { get; set; }
+        public decimal Location_Id { get; set; }
+        public string? Departure_Location { get; set; }
+        public string? Destination_Location { get; set; }
 
     }
 }
