@@ -12,6 +12,6 @@ namespace Trip_Volunteer.Core.Service
         List<MonthlyReportDTO> MonthlyReport(string month, string year);
         List<YearsDTO> GetDistinctTripYears();
         List<MonthlyReportDTO> GetDailyRevenueForMonth(string month, string year);
-
+        MonthlyReportDTO GetSYSMonthlyRevenue();
     }
 }

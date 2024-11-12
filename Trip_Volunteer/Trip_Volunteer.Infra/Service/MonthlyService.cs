@@ -31,5 +31,11 @@ namespace Trip_Volunteer.Infra.Service
 
             return _monthlyRepository.GetDailyRevenueForMonth(month, year);
         }
+
+        public MonthlyReportDTO GetSYSMonthlyRevenue()
+        {
+
+            return _monthlyRepository.GetSYSMonthlyRevenue();
+        }
     }
 }

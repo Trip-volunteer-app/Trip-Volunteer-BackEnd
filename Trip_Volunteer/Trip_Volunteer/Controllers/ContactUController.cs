@@ -80,7 +80,8 @@ namespace Trip_Volunteer.API.Controllers
                 {
                     From = new MailAddress("sajedaalquraan1@gmail.com"),
                     Subject = "Contact Us ",
-                    Body ="Thank you to contact us , we will contact you as soon as possible",
+                    Body = "Thank you for reaching out to us! We have received your message and appreciate you taking the time to contact us.\n" +
+                    " One of our team members will review your query and get back to you shortly.",
                     IsBodyHtml = false,
                 };
 
