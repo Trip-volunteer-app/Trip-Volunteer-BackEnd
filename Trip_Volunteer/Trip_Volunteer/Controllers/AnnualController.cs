@@ -17,11 +17,21 @@ namespace Trip_Volunteer.API.Controllers
         }
 
         [HttpGet]
-        [Route("AnnualReport")]
+        [Route("GetMonthlyRevenueForYear/{year}")]
         //[CheckClaimsAttribute("Roleid", "1")]
-        public List<AnnualReportDTO> AnnualReport()
+        public List<AnnualReportDTO> GetMonthlyRevenueForYear(string year)
         {
-            return _annualService.AnnualReport();
+            return _annualService.GetMonthlyRevenueForYear(year);
+
+        }
+
+        [HttpGet]
+        [Route("GetYearlyRevenue/{year}")]
+        //[CheckClaimsAttribute("Roleid", "1")]
+        public List<AnnualReportDTO> GetYearlyRevenue(string year)
+        {
+            return _annualService.GetYearlyRevenue(year);
+
         }
     }
 }

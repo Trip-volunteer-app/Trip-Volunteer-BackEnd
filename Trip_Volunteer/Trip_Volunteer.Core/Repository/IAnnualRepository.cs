@@ -9,6 +9,8 @@ namespace Trip_Volunteer.Core.Repository
 {
     public interface IAnnualRepository
     {
-        List<AnnualReportDTO> AnnualReport();
+        List<AnnualReportDTO> GetMonthlyRevenueForYear(string year);
+        List<AnnualReportDTO> GetYearlyRevenue(string year);
+
     }
 }

@@ -22,12 +22,32 @@ namespace Trip_Volunteer.Infra.Repository
             _dbContext = dbContext;
         }
 
-        public List<MonthlyReportDTO> MonthlyReport()
+        public List<MonthlyReportDTO> MonthlyReport(string month, string year)
         {
-            var result = _dbContext.Connection.Query<MonthlyReportDTO>("GetMonthlyRevenue", commandType: CommandType.StoredProcedure);
+            var p = new DynamicParameters();
+            p.Add("p_month", month, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("p_year", year, dbType: DbType.String, direction: ParameterDirection.Input);
+
+            var result = _dbContext.Connection.Query<MonthlyReportDTO>("GetMonthlyRevenue", p, commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
 
+        public List<YearsDTO> GetDistinctTripYears()
+        {
+            IEnumerable<YearsDTO> result = _dbContext.Connection.Query<YearsDTO>(
+                "GetDistinctTripYears", commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+
+        public List<MonthlyReportDTO> GetDailyRevenueForMonth(string month, string year)
+        {
+            var p = new DynamicParameters();
+            p.Add("p_month", month, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("p_year", year, dbType: DbType.String, direction: ParameterDirection.Input);
+
+            var result = _dbContext.Connection.Query<MonthlyReportDTO>("GetDailyRevenueForMonth", p, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
 
     }
 }
