@@ -600,7 +600,9 @@ namespace Trip_Volunteer.Core.Data
                 entity.Property(e => e.Volunteer_Id)
                     .HasColumnType("NUMBER")
                     .HasColumnName("VOLUNTEER_ID");
-
+                entity.Property(e => e.TRIP_ID)
+                    .HasColumnType("NUMBER")
+                    .HasColumnName("TRIP_ID");
                 entity.HasOne(d => d.Booking)
                     .WithMany(p => p.Reviews)
                     .HasForeignKey(d => d.Booking_Id)

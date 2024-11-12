@@ -34,12 +34,24 @@ namespace Trip_Volunteer.Infra.Repository
 
         }
 
+
+         public List<Review> GetreviewByBookingID(int id)
+        {
+            var p = new DynamicParameters();
+            p.Add("IdReview", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            IEnumerable<Review> result = _dbContext.Connection.Query<Review>("review_Package.GetreviewByBookingID",p, commandType: CommandType.StoredProcedure);
+
+            //var result = _dbContext.Connection.Query<Review>("review_Package.GetreviewByBookingID", p, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+
+        }
         public void CreateReview(Review review)
         {
             var p = new DynamicParameters();
             p.Add("p_rate", review.Rate, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("p_feedback", review.Feedback, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("p_booking_id", review.Booking_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("TRIP_ID", review.TRIP_ID, dbType: DbType.Int32, direction: ParameterDirection.Input);
 
             _dbContext.Connection.Execute("review_Package.Createreview", p, commandType: CommandType.StoredProcedure);
         }
@@ -52,6 +64,7 @@ namespace Trip_Volunteer.Infra.Repository
             p.Add("p_feedback", review.Feedback, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("p_booking_id", review.Booking_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("IdReview", review.Review_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("ID_TRIP", review.TRIP_ID, dbType: DbType.Int32, direction: ParameterDirection.Input);
 
             _dbContext.Connection.Execute("review_Package.Updatereview", p, commandType: CommandType.StoredProcedure);
         }

@@ -37,6 +37,11 @@ namespace Trip_Volunteer.Infra.Service
          return _reviewRepository.GetReviewById(id);
         }
 
+        public List<Review> GetreviewByBookingID(int id)
+        {
+            return _reviewRepository.GetreviewByBookingID(id);
+        }
+
         public void UpdateReview(Review review)
         {
             _reviewRepository.UpdateReview(review);

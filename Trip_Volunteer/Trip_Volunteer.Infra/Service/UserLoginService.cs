@@ -128,6 +128,11 @@ namespace Trip_Volunteer.Infra.Service
             return _userLoginRepository.GetUserinfoByLoginId(id);
         }
 
+        public ProfileDTO GetUserinfoByLoginIdForReview(int id)
+        {
+            return _userLoginRepository.GetUserinfoByLoginIdForReview(id);
+        }
+
     }
 }
 

@@ -11,6 +11,7 @@ namespace Trip_Volunteer.Core.Service
     {
         List<Review> GetAllReview();
         Review GetReviewById(int id);
+        List<Review> GetreviewByBookingID(int id);
         void CreateReview(Review review);
         void UpdateReview(Review review);
         void DeleteReview(int id);
