@@ -19,9 +19,20 @@ namespace Trip_Volunteer.Infra.Repository
         {
             _dbContext = dbContext;
         }
-        public List<AnnualReportDTO> AnnualReport()
+        public List<AnnualReportDTO> GetMonthlyRevenueForYear(string year)
         {
-            var result = _dbContext.Connection.Query<AnnualReportDTO>("generate_annual_revenue_report", commandType: CommandType.StoredProcedure);
+            var p = new DynamicParameters();
+            p.Add("p_year", year, dbType: DbType.String, direction: ParameterDirection.Input);
+
+            var result = _dbContext.Connection.Query<AnnualReportDTO>("GetMonthlyRevenueForYear", p, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+        public List<AnnualReportDTO> GetYearlyRevenue(string year)
+        {
+            var p = new DynamicParameters();
+            p.Add("p_year", year, dbType: DbType.String, direction: ParameterDirection.Input);
+
+            var result = _dbContext.Connection.Query<AnnualReportDTO>("GetYearlyRevenue", p, commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
 

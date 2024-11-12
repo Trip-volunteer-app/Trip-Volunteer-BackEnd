@@ -9,6 +9,9 @@ namespace Trip_Volunteer.Core.Service
 {
     public interface IMonthlyService
     {
-        List<MonthlyReportDTO> MonthlyReport();
+        List<MonthlyReportDTO> MonthlyReport(string month, string year);
+        List<YearsDTO> GetDistinctTripYears();
+        List<MonthlyReportDTO> GetDailyRevenueForMonth(string month, string year);
+
     }
 }

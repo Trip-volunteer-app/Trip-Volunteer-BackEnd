@@ -19,9 +19,17 @@ namespace Trip_Volunteer.Infra.Service
             _monthlyRepository= monthlyRepository;
         }
 
-        public List<MonthlyReportDTO> MonthlyReport()
+        public List<MonthlyReportDTO> MonthlyReport(string month, string year)
         {
-            return _monthlyRepository.MonthlyReport();
+            return _monthlyRepository.MonthlyReport(month, year);
+        }
+        public List<YearsDTO> GetDistinctTripYears() { 
+        return _monthlyRepository.GetDistinctTripYears();
+        }
+
+        public List<MonthlyReportDTO> GetDailyRevenueForMonth(string month, string year) {
+
+            return _monthlyRepository.GetDailyRevenueForMonth(month, year);
         }
     }
 }
