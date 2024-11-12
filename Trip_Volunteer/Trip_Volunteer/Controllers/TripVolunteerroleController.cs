@@ -97,12 +97,14 @@ namespace Trip_Volunteer.API.Controllers
         {
             _tripVolunteerroleService.updateNumberOfVolunteer(tripVolunteerrole);
         }
-            [HttpPut]
-            [Route("UpdateTrip_vrole_NumberOfVolunteers")]
-            public void UpdateTrip_vrole_NumberOfVolunteers(TripVolunteerrole tripVolunteerrole)
-            {
-                _tripVolunteerroleService.UpdateTrip_vrole_NumberOfVolunteers(tripVolunteerrole);
 
+
+
+        [HttpPut]
+        [Route("UpdateTrip_vrole_NumberOfVolunteers")]
+        public void UpdateTrip_vrole_NumberOfVolunteers(TripVolunteerrole tripVolunteerrole)
+        {
+            _tripVolunteerroleService.UpdateTrip_vrole_NumberOfVolunteers(tripVolunteerrole);
 
             }
         }

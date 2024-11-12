@@ -10,7 +10,7 @@ namespace Trip_Volunteer.Core.Repository
 {
     public interface IVolunteersRepository
     {
-        List<Volunteer> GetAllVolunteers();
+        List<AllVolunteersInfoDTO> GetAllVolunteers();
         Volunteer GetVolunteerById(int id);
         void CreateVolunteer(Volunteer volunteer);
         void UpdateVolunteer(Volunteer volunteer);
