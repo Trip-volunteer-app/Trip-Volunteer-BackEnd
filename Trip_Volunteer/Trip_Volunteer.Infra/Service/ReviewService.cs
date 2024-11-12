@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Trip_Volunteer.Core.Data;
+using Trip_Volunteer.Core.DTO;
 using Trip_Volunteer.Core.Repository;
 using Trip_Volunteer.Core.Service;
 
@@ -27,7 +28,7 @@ namespace Trip_Volunteer.Infra.Service
             _reviewRepository.DeleteReview(id);
         }
 
-        public List<Review> GetAllReview()
+        public List<ReviewDTO> GetAllReview()
         {
            return _reviewRepository.GetAllReview();
         }
@@ -40,6 +41,10 @@ namespace Trip_Volunteer.Infra.Service
         public void UpdateReview(Review review)
         {
             _reviewRepository.UpdateReview(review);
+        }
+        public List<ReviewDTO> GetreviewBycategoryId(int id)
+        {
+           return _reviewRepository.GetreviewBycategoryId(id);
         }
     }
 }

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Trip_Volunteer.Core.Data;
 using Trip_Volunteer.Core.DTO;
 using Trip_Volunteer.Core.Service;
+using Trip_Volunteer.Infra.Service;
 
 namespace Trip_Volunteer.API.Controllers
 {
@@ -86,11 +87,23 @@ namespace Trip_Volunteer.API.Controllers
             _tripVolunteerroleService.DeleteTripVolunteerRoleForATrip(tripid, id);
 
         }
+
+
+        [HttpPut]
+        [Route("updateNumberOfVolunteer")]
+        /*        [CheckClaimsAttribute("Roleid", "1","2")]
+*/
+        public void updateNumberOfVolunteer(TripVolunteerrole tripVolunteerrole)
+        {
+            _tripVolunteerroleService.updateNumberOfVolunteer(tripVolunteerrole);
+        }
+
         [HttpPut]
         [Route("UpdateTrip_vrole_NumberOfVolunteers")]
         public void UpdateTrip_vrole_NumberOfVolunteers(TripVolunteerrole tripVolunteerrole)
         {
             _tripVolunteerroleService.UpdateTrip_vrole_NumberOfVolunteers(tripVolunteerrole);
+
 
         }
     }

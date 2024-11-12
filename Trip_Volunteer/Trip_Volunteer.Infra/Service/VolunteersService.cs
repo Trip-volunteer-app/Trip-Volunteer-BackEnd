@@ -18,7 +18,7 @@ namespace Trip_Volunteer.Infra.Service
         {
             _volunteersRepository = volunteersRepository;
         }
-        public List<Volunteer> GetAllVolunteers()
+        public List<AllVolunteersInfoDTO> GetAllVolunteers()
         {
             return _volunteersRepository.GetAllVolunteers();
         }
@@ -38,9 +38,9 @@ namespace Trip_Volunteer.Infra.Service
         {
             _volunteersRepository.DeleteVolunteer(id);
         }
-        public void UpdateVolunteerStatus(int id, string status)
+        public void UpdateVolunteerStatus(Volunteer volunteer)
         {
-            _volunteersRepository.UpdateVolunteerStatus(id, status);
+            _volunteersRepository.UpdateVolunteerStatus(volunteer);
         }
         public List<VolunteerSearchDto> SearchVolunteers(VolunteerSearchDto searchCriteria)
         {

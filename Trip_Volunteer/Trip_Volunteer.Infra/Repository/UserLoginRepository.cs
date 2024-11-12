@@ -192,7 +192,7 @@ namespace Trip_Volunteer.Infra.Repository
             {
                 var profileInfo = multi.Read<ProfileDTO>().FirstOrDefault();
                 var bookings = multi.Read<BookingsDTO>().ToList();
-                var volunteerInfo = multi.Read<VolunteerDTO>().ToList();
+                var volunteerInfo = multi.Read<AllVolunteerDTO>().ToList();
 
 
                 if (profileInfo != null)

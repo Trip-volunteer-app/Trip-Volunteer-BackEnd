@@ -26,11 +26,11 @@ namespace Trip_Volunteer.Infra.Repository
             return result.ToList();
         }
 
-        public Trip GetTripById(int ID)
+        public TripInformationDTO GetTripById(int ID)
         {
             var p = new DynamicParameters();
             p.Add("id", ID, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            IEnumerable<Trip> result = _dbContext.Connection.Query<Trip>("trips_Package.GettripsById", p, commandType: CommandType.StoredProcedure);
+            IEnumerable<TripInformationDTO> result = _dbContext.Connection.Query<TripInformationDTO>("trips_Package.GettripsById", p, commandType: CommandType.StoredProcedure);
             return result.FirstOrDefault();
         }
 
@@ -225,20 +225,22 @@ namespace Trip_Volunteer.Infra.Repository
             _dbContext.Connection.Execute("trips_Package.updateMaxUser", p, commandType: CommandType.StoredProcedure);
 
         }
-        public void updateMaxVolunteer(int id, int res_num)
-        {
-            var p = new DynamicParameters();
-            p.Add("id", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("res_num", res_num, dbType: DbType.Int32, direction: ParameterDirection.Input);
-
-            _dbContext.Connection.Execute("trips_Package.updateMaxVolunteer", p, commandType: CommandType.StoredProcedure);
-
-        }
+    
         public List<TripsByRatingDTO> GetTopRatedTrips()
         {
             IEnumerable<TripsByRatingDTO> result = _dbContext.Connection.Query<TripsByRatingDTO>("trips_Package.GetTopRatedTrips", commandType: CommandType.StoredProcedure);
             return result.ToList();
+        }  
+        
+        public List<TripInformationDTO> GetAlltripsByCategory(int id)
+        {
+            var p = new DynamicParameters();
+            p.Add("id", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+
+            IEnumerable<TripInformationDTO> result = _dbContext.Connection.Query<TripInformationDTO>("trips_Package.GetAlltripsByCategory", p, commandType: CommandType.StoredProcedure);
+            return result.ToList();
         }
+
 
     }
 }
