@@ -11,7 +11,7 @@ namespace Trip_Volunteer.Core.Service
     public interface ITripsService
     {
         List<Trip> GetAllTrips();
-        Trip GetTripById(int ID);
+        TripInformationDTO GetTripById(int ID);
         void CreateTrip(TripsDto trip);
         void UpdateTrip(Trip trip);
         void DeleteTrip(int Id);
@@ -27,5 +27,6 @@ namespace Trip_Volunteer.Core.Service
         List<GetUserPaymentsForTripDTO> GetUserPaymentsForTrip(int ID);
         void updateMaxUser(int id, int res_num);
         List<TripsByRatingDTO> GetTopRatedTrips();
+        List<TripInformationDTO> GetAlltripsByCategory(int id);
     }
 }

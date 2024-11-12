@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Data;
 using Trip_Volunteer.Core.Data;
+using Trip_Volunteer.Core.DTO;
 using Trip_Volunteer.Core.Service;
 
 namespace Trip_Volunteer.API.Controllers
@@ -19,8 +20,8 @@ namespace Trip_Volunteer.API.Controllers
         }
 
         [HttpGet]
-        [CheckClaimsAttribute("Roleid", "1")]
-        public List<Review> GetAllReview()
+/*        [CheckClaimsAttribute("Roleid", "1")]
+*/        public List<ReviewDTO> GetAllReview()
         {
           return  _reviewService.GetAllReview().ToList();
         }
@@ -56,6 +57,14 @@ namespace Trip_Volunteer.API.Controllers
         public void DeleteReview(int id)
         {
             _reviewService.DeleteReview(id);
+        }
+
+        [HttpGet]
+        [Route("GetreviewBycategoryId/{id}")]
+/*        [CheckClaimsAttribute("Roleid", "1","2")]
+*/        public List<ReviewDTO> GetreviewBycategoryId(int id)
+        {
+            return _reviewService.GetreviewBycategoryId(id);
         }
     }
 }

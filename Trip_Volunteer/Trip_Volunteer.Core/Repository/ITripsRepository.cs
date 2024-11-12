@@ -12,7 +12,7 @@ namespace Trip_Volunteer.Core.Repository
     public interface ITripsRepository
     {
          List<Trip> GetAllTrips();
-         Trip GetTripById(int ID);
+        TripInformationDTO GetTripById(int ID);
 
          void CreateTrip(TripsDto trip);
 
@@ -35,5 +35,6 @@ namespace Trip_Volunteer.Core.Repository
         List<GetUserPaymentsForTripDTO> GetUserPaymentsForTrip(int ID);
         void updateMaxUser(int id, int res_num);
         List<TripsByRatingDTO> GetTopRatedTrips();
+        List<TripInformationDTO> GetAlltripsByCategory(int id);
     }
 }

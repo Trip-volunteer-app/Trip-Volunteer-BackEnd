@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Trip_Volunteer.Core.Common;
 using Trip_Volunteer.Core.Data;
+using Trip_Volunteer.Core.DTO;
 using Trip_Volunteer.Core.Repository;
 
 namespace Trip_Volunteer.Infra.Repository
@@ -18,9 +19,9 @@ namespace Trip_Volunteer.Infra.Repository
         {
             _dbContext = dbContext;
         }
-        public List<Review> GetAllReview()
+        public List<ReviewDTO> GetAllReview()
         {
-            IEnumerable<Review> result = _dbContext.Connection.Query<Review>("review_Package.GetAllreview", commandType: CommandType.StoredProcedure);
+            IEnumerable<ReviewDTO> result = _dbContext.Connection.Query<ReviewDTO>("review_Package.GetAllreview", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
 
@@ -62,6 +63,13 @@ namespace Trip_Volunteer.Infra.Repository
             p.Add("IdReview", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
 
             _dbContext.Connection.Execute("review_Package.Deletereview", p, commandType: CommandType.StoredProcedure);
+        }
+        public List<ReviewDTO> GetreviewBycategoryId(int id)
+        {
+            var p = new DynamicParameters();
+            p.Add("id", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            IEnumerable<ReviewDTO> result = _dbContext.Connection.Query<ReviewDTO>("review_Package.GetreviewBycategoryId",p, commandType: CommandType.StoredProcedure);
+            return result.ToList();
         }
     }
 }

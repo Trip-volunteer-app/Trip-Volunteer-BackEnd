@@ -26,7 +26,7 @@ namespace Trip_Volunteer.Infra.Service
         }
 
 
-        public Trip GetTripById(int ID)
+        public TripInformationDTO GetTripById(int ID)
         {
             return _tripsRepository.GetTripById(ID);
 
@@ -103,6 +103,10 @@ namespace Trip_Volunteer.Infra.Service
         public List<TripsByRatingDTO> GetTopRatedTrips()
         {
             return _tripsRepository.GetTopRatedTrips();
+        }
+        public List<TripInformationDTO> GetAlltripsByCategory(int id)
+        {
+            return _tripsRepository.GetAlltripsByCategory(id);
         }
     }
 }

@@ -41,7 +41,7 @@ namespace Trip_Volunteer.API.Controllers
         [Route("GetTripById/{id}")]
 
         //[CheckClaimsAttribute("Roleid", "1")]
-        public Trip GetTripById(int id)
+        public TripInformationDTO GetTripById(int id)
         {
             return _tripsService.GetTripById(id);
         }
@@ -158,6 +158,14 @@ namespace Trip_Volunteer.API.Controllers
             return _tripsService.GetTopRatedTrips();
         }
 
+        [HttpGet]
+        [Route("GetAlltripsByCategory/{id}")]
+  /*    [CheckClaimsAttribute("Roleid", "1","2")]
+*/
+        public List<TripInformationDTO> GetAlltripsByCategory(int id)
+        {
+            return _tripsService.GetAlltripsByCategory(id);
+        }
 
         //[HttpPost("sendTripDetailsAndPaymentEmail")]
         //public async Task<IActionResult> sendTripDetailsAndPaymentEmail([FromBody] sendTripDetailsAndPaymentEmailDTO sendTripDetailsAndPayment)
