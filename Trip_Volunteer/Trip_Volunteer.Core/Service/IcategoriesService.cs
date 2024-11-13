@@ -16,5 +16,6 @@ namespace Trip_Volunteer.Core.Service
         void UPDATEcategories(Category category);
 
         void Deletecategories(int Id);
+        List<Category> GetCategoryWithImageAndTrips();
     }
 }

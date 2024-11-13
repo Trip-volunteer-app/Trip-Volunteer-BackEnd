@@ -16,5 +16,6 @@ namespace Trip_Volunteer.Core.Repository
         void UpdateReview(Review review);
         void DeleteReview(int id);
          List<ReviewDTO> GetreviewBycategoryId(int id);
+        List<Review> GetreviewByBookingID(int id);
     }
 }

@@ -12,12 +12,15 @@ namespace Trip_Volunteer.API.Controllers
     {
 
         private readonly IcategoriesService _categoriesService;
-        public categoriesController(IcategoriesService categoriesService)
+        private readonly IConfiguration _configuration;
+
+        public categoriesController(IcategoriesService categoriesService, IConfiguration configuration)
         {
             _categoriesService = categoriesService;
+            _configuration = configuration;
         }
 
-        
+
         [HttpGet]
         [Route("GetAllcategories")]
         public List<Category> GetAllcategories()
@@ -36,7 +39,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPost]
         [Route("CREATEcategories")]
-        [CheckClaimsAttribute("Roleid", "1")]
+        //[CheckClaimsAttribute("Roleid", "1")]
         public void CREATEcategories(Category category)
         {
             _categoriesService.CREATEcategories(category);
@@ -45,7 +48,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPut]
         [Route("UPDATEcategories")]
-        [CheckClaimsAttribute("Roleid", "1")]
+        //[CheckClaimsAttribute("Roleid", "1")]
 
         public void UPDATEcategories(Category category)
         {
@@ -55,12 +58,34 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpDelete]
         [Route("Deletecategories/{id}")]
-        [CheckClaimsAttribute("Roleid", "1")]
+        //[CheckClaimsAttribute("Roleid", "1")]
         public void Deletecategories(int id)
         {
             _categoriesService.Deletecategories(id);
         }
 
+        [HttpGet]
+        [Route("GetCategoryWithImageAndTrips")]
+        public List<Category> GetCategoryWithImageAndTrips()
+        {
+            return _categoriesService.GetCategoryWithImageAndTrips();
+        }
 
+        [HttpPost]
+        [Route("uploadImage")]
+        //[CheckClaimsAttribute("Roleid", "1", "2")]
+        public User UploadImage()
+        {
+            var file = Request.Form.Files[0];
+            var fileName = Guid.NewGuid().ToString() + "_" + file.FileName;
+            var fullPath = Path.Combine(_configuration["AppSettings:UploadImage"], fileName);
+            using (var stream = new FileStream(fullPath, FileMode.Create))
+            {
+                file.CopyTo(stream);
+            }
+            User item = new User();
+            item.Image_Path = fileName;
+            return item;
+        }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Trip_Volunteer.Core.Data;
+using Trip_Volunteer.Core.DTO;
 using Trip_Volunteer.Core.Service;
 
 namespace Trip_Volunteer.API.Controllers
@@ -110,6 +111,15 @@ namespace Trip_Volunteer.API.Controllers
         public ContactusElement GetSelectedContactusElement()
         {
             return _contactusElementService.GetSelectedContactusElement();
+        }
+
+
+        [HttpGet]
+        [Route("GetAllTeam")]
+
+        public List<TeamDTO> GetAllTeam()
+        {
+            return _contactusElementService.GetAllTeam();
         }
 
     }

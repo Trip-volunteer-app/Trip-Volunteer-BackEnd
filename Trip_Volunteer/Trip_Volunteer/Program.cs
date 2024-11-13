@@ -10,7 +10,6 @@ using System.Text;
 using Trip_Volunteer.API.Controllers;
 using Microsoft.AspNetCore.Http.Features;
 
-
 internal class Program
 {
     private static void Main(string[] args)

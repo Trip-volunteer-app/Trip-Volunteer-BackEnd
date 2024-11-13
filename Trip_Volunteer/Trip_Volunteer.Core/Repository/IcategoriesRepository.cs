@@ -20,5 +20,6 @@ namespace Trip_Volunteer.Core.Repository
          void UPDATEcategories(Category category);
 
          void Deletecategories(int Id);
+        List<Category> GetCategoryWithImageAndTrips();
     }
 }

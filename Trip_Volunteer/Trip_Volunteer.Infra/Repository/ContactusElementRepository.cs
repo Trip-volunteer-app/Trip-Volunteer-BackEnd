@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Trip_Volunteer.Core.Common;
 using Trip_Volunteer.Core.Data;
+using Trip_Volunteer.Core.DTO;
 using Trip_Volunteer.Core.Repository;
 
 namespace Trip_Volunteer.Infra.Repository
@@ -76,6 +77,11 @@ namespace Trip_Volunteer.Infra.Repository
             var p = new DynamicParameters();
             p.Add("C_id ", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             _dbContext.Connection.Execute("Contactus_Elements_Package.UpdateContactusElementSelectStatus", p, commandType: CommandType.StoredProcedure);
+        }
+        public List<TeamDTO> GetAllTeam()
+        {
+            IEnumerable<TeamDTO> result = _dbContext.Connection.Query<TeamDTO>("GetAllTeam", commandType: CommandType.StoredProcedure);
+            return result.ToList();
         }
     }
 }

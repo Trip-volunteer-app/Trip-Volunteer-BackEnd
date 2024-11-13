@@ -145,9 +145,16 @@ namespace Trip_Volunteer.Infra.Service
                 var recaptchaResult = JsonConvert.DeserializeObject<ReCaptchaDTO>(jsonResponse);
                 return recaptchaResult.Success;
             }
-
+            
             return false;
         }
+
+        public ProfileDTO GetUserinfoByLoginIdForReview(int id)
+        {
+            return _userLoginRepository.GetUserinfoByLoginIdForReview(id);
+        }
+
+
     }
 
 }

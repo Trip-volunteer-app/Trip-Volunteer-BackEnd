@@ -379,6 +379,16 @@ namespace Trip_Volunteer.Core.Data
                     .HasMaxLength(200)
                     .IsUnicode(false)
                     .HasColumnName("CATEGORY_NAME");
+
+                entity.Property(e => e.IMAGES)
+                    .HasMaxLength(4000)
+                    .IsUnicode(false)
+                    .HasColumnName("IMAGES");
+
+                entity.Property(e => e.TEXT)
+                    .HasMaxLength(4000)
+                    .IsUnicode(false)
+                    .HasColumnName("TEXT");
             });
 
             modelBuilder.Entity<ContactU>(entity =>
@@ -612,6 +622,10 @@ namespace Trip_Volunteer.Core.Data
                     .HasForeignKey(d => d.Volunteer_Id)
                     .OnDelete(DeleteBehavior.SetNull)
                     .HasConstraintName("FK_REVIEW_VOLUNTEER_ID");
+
+                entity.Property(e => e.TRIP_ID)
+                    .HasColumnType("NUMBER")
+                    .HasColumnName("TRIP_ID");
             });
 
             modelBuilder.Entity<Service>(entity =>

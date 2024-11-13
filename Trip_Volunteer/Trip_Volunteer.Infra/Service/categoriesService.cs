@@ -47,7 +47,10 @@ namespace Trip_Volunteer.Infra.Service
         {
             _categoriesRepository.Deletecategories(Id);
         }
-
+        public List<Category> GetCategoryWithImageAndTrips()
+        {
+            return _categoriesRepository.GetCategoryWithImageAndTrips();
+        }
 
     }
 }

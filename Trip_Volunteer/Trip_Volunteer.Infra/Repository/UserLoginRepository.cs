@@ -207,5 +207,29 @@ namespace Trip_Volunteer.Infra.Repository
         }
 
 
+        public ProfileDTO GetUserinfoByLoginIdForReview(int id)
+        {
+            var p = new DynamicParameters();
+            p.Add("Id", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+
+            using (var multi = _dbContext.Connection.QueryMultiple("GetUserinfoByLoginIdForReview", p, commandType: CommandType.StoredProcedure))
+            {
+                var profileInfo = multi.Read<ProfileDTO>().FirstOrDefault();
+                var bookings = multi.Read<BookingsDTO>().ToList();
+                var volunteerInfo = multi.Read<AllVolunteerDTO>().ToList();
+
+
+                if (profileInfo != null)
+                {
+                    profileInfo.Bookings = bookings;
+                    profileInfo.Volunteer = volunteerInfo;
+
+                }
+
+                return profileInfo;
+            }
+        }
+
+
     }
 }
