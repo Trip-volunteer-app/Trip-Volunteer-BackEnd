@@ -1,5 +1,7 @@
 ﻿using Dapper;
+using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -20,10 +22,14 @@ namespace Trip_Volunteer.Infra.Service
     public class UserLoginService : IUserLoginService
     {
         private readonly IUserLoginRepository _userLoginRepository;
+        private readonly IConfiguration _configuration;
 
-        public UserLoginService(IUserLoginRepository userLoginRepository)
+
+        public UserLoginService(IUserLoginRepository userLoginRepository, IConfiguration configuration)
         {
             _userLoginRepository = userLoginRepository;
+            _configuration = configuration;
+
         }
 
         public List<UserLogin> GetAllUserLogin()
@@ -56,7 +62,7 @@ namespace Trip_Volunteer.Infra.Service
             _userLoginRepository.Registers(FirstName, LastName, Email, Password, RePassword, PHONE_NUMBER, ADDRESS);
         }
 
-        public string Auth(UserLogin userLogin)
+        public string Auth(AuthDTO userLogin)
         {
             var result = _userLoginRepository.Auth(userLogin);
             if (result == null)
@@ -127,8 +133,23 @@ namespace Trip_Volunteer.Infra.Service
         {
             return _userLoginRepository.GetUserinfoByLoginId(id);
         }
+        public async Task<bool> ValidateRecaptcha(string recaptchaResponse)
+        {
+            var secretKey = _configuration["AppSettings:GoogleReCaptcha:SecretKey"];
+            var client = new HttpClient();
+            var response = await client.PostAsync($"https://www.google.com/recaptcha/api/siteverify?secret={secretKey}&response={recaptchaResponse}", null);
 
+            if (response.IsSuccessStatusCode)
+            {
+                var jsonResponse = await response.Content.ReadAsStringAsync();
+                var recaptchaResult = JsonConvert.DeserializeObject<ReCaptchaDTO>(jsonResponse);
+                return recaptchaResult.Success;
+            }
+
+            return false;
+        }
     }
+
 }
 
 

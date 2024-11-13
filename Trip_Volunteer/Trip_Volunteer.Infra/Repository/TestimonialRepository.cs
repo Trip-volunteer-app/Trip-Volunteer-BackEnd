@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Trip_Volunteer.Core.Common;
 using Trip_Volunteer.Core.Data;
+using Trip_Volunteer.Core.DTO;
 using Trip_Volunteer.Core.Repository;
 
 namespace Trip_Volunteer.Infra.Repository
@@ -73,7 +74,11 @@ namespace Trip_Volunteer.Infra.Repository
             p.Add("T_Id", id, DbType.Int32, direction: ParameterDirection.Input);
             _dbContext.Connection.Execute("Testimonial_Package.DeleteTestimony", p, commandType: CommandType.StoredProcedure);
         }
-
+        public List<TestimonyCountDTO> GetTestimonyStatusCounts()
+        {
+            IEnumerable<TestimonyCountDTO> result = _dbContext.Connection.Query<TestimonyCountDTO>("GetTestimonyStatusCounts", commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
 
 
     }

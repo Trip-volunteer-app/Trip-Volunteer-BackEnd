@@ -49,11 +49,10 @@ namespace Trip_Volunteer.Infra.Repository
             return result.ToList();
         }
 
-        public GetSYSMonthlyRevenueDTO GetSYSMonthlyRevenue()
+
+        public MonthlyReportDTO GetSYSMonthlyRevenue()
         {
-
-            var result = _dbContext.Connection.Query<GetSYSMonthlyRevenueDTO>("GetSYSMonthlyRevenue",  commandType: CommandType.StoredProcedure);
-
+            var result = _dbContext.Connection.Query<MonthlyReportDTO>("GetSYSMonthlyRevenue",  commandType: CommandType.StoredProcedure);
             return result.SingleOrDefault();
         }
 
