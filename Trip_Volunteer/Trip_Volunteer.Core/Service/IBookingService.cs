@@ -11,7 +11,7 @@ namespace Trip_Volunteer.Core.Service
     public interface IBookingService
     {
         List<Booking> GetAllBookings();
-        Booking GetBookingById(int bookingId);
+        BookingDTO GetBookingById(int bookingId);
         int CreateBooking(BookingDTO bookingDto);
         void UpdateBooking(Booking booking);
         void DeleteBooking(int bookingId);

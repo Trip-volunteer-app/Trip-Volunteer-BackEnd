@@ -17,6 +17,7 @@ namespace Trip_Volunteer.Core.DTO
         public string? Note { get; set; }
 
         public decimal? NumberOfUser { get; set; }
+        public decimal? max_number_of_users { get; set; }
         public int[]? ArrayParam { get; set; }
 
     }
