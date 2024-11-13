@@ -34,7 +34,6 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpGet]
         [Route("GetTripImageByTripId/{id}")]
-        [CheckClaimsAttribute("Roleid", "1")]
         public List<TripImage> GetTripImageByTripId(int id)
         {
             return _tripImageService.GetTripImageByTripId(id);

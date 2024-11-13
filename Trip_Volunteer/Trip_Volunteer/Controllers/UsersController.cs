@@ -39,7 +39,6 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPost]
         [Route("CreateUsers")]
-        [CheckClaimsAttribute("Roleid", "1", "2")]
         public void CreateUsers(User user)
         {
             _userService.CreateUsers(user);
@@ -48,7 +47,6 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPut]
         [Route("UpdateUsers")]
-        //[CheckClaimsAttribute("Roleid", "1", "2")]
         public void UpdateUsers(User user)
         {
             _userService.UpdateUsers(user);
@@ -65,7 +63,7 @@ namespace Trip_Volunteer.API.Controllers
 
 
         [HttpGet("NumberOfRegisteredUsers")]
-        //[CheckClaimsAttribute("Roleid", "1")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public IActionResult NumberOfRegisteredUsers()
         {
             int numberOfTrips = _userService.NumberOfRegisteredUsers();
@@ -75,7 +73,6 @@ namespace Trip_Volunteer.API.Controllers
         
         [HttpPost]
         [Route("uploadImage")]
-        //[CheckClaimsAttribute("Roleid", "1", "2")]
         public User UploadImage()
         {
             var file = Request.Form.Files[0];

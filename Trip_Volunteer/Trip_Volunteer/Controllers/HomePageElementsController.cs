@@ -36,7 +36,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPost]
         [Route("CreateHomePageElement")]
-        //[CheckClaimsAttribute("Roleid", "1")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public void CreateHomePageElement(HomePageElement homePageElement)
         {
             _homePageElementsService.CreateHomePageElement(homePageElement);
@@ -44,7 +44,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPut]
         [Route("UpdatHomePageElement")]
-        //[CheckClaimsAttribute("Roleid", "1")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public void UpdatHomePageElement(HomePageElement homePageElement)
         {
             _homePageElementsService.UpdatHomePageElement(homePageElement);
@@ -52,7 +52,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpDelete]
         [Route("DeleteHomePageElement/{id}")]
-        //[CheckClaimsAttribute("Roleid", "1")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public void DeleteHomePageElement(int id)
         {
             _homePageElementsService.DeleteHomePageElement(id);
@@ -60,6 +60,8 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPost]   
         [Route("uploadHeroImg")]
+        [CheckClaimsAttribute("Roleid", "1")]
+
         public HomePageElement UploadHero_img()
         {
             var file = Request.Form.Files[0];
@@ -77,7 +79,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPost]
         [Route("uploadImage1")]
-        //[CheckClaimsAttribute("Roleid", "1")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public HomePageElement UploadImage1()
         {
             var file = Request.Form.Files[0];
@@ -95,6 +97,8 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPut]
         [Route("UpdateHomeSelectStatus")]
+        [CheckClaimsAttribute("Roleid", "1")]
+
         public void UpdateHomeSelectStatus(int id)
         {
             _homePageElementsService.UpdateHomeSelectStatus(id);
@@ -103,6 +107,8 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpGet]
         [Route("GetSelectedHomeElement")]
+        [CheckClaimsAttribute("Roleid", "1")]
+
         public HomePageElement GetSelectedHomeElement()
         {
             return _homePageElementsService.GetSelectedHomeElement();

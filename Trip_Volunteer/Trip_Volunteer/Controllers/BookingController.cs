@@ -23,24 +23,25 @@ namespace Trip_Volunteer.API.Controllers
         }
 
         [HttpGet]
-/*        [CheckClaimsAttribute("Roleid", "1")]
-*/        public List<Booking> GetAllBookings()
+        [CheckClaimsAttribute("Roleid", "1")]
+
+        public List<Booking> GetAllBookings()
         {
           return  _bookingService.GetAllBookings();
         }
 
         [HttpGet]
         [Route("GetBookingById")]
-/*        [CheckClaimsAttribute("Roleid", "1")]
-*/        public BookingDTO GetBookingById(int bookingId)
+        [CheckClaimsAttribute("Roleid", "1")]
+        public BookingDTO GetBookingById(int bookingId)
         {
            return _bookingService.GetBookingById(bookingId);
         }
 
         [HttpPost]
         [Route("CreateBooking")]
-/*        [CheckClaimsAttribute("Roleid", "1","2")]
-*/        public IActionResult CreateBooking([FromBody] BookingDTO bookingDto)
+        [CheckClaimsAttribute("Roleid", "1", "2")]
+        public IActionResult CreateBooking([FromBody] BookingDTO bookingDto)
         {
             int bookingId = _bookingService.CreateBooking(bookingDto);
             return Ok(new { BookingId = bookingId });
@@ -49,16 +50,16 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPut]
         [Route("UpdateBooking")]
-/*        [CheckClaimsAttribute("Roleid", "1")]
-*/        public void UpdateBooking(Booking booking)
+        [CheckClaimsAttribute("Roleid", "1","2")]
+        public void UpdateBooking(Booking booking)
         {
             _bookingService.UpdateBooking(booking);
         }
 
         [HttpDelete]
         [Route("DeleteBooking/{bookingId}")]
-/*        [CheckClaimsAttribute("Roleid", "1", "2")]
-*/         public void DeleteBooking(int bookingId)
+        [CheckClaimsAttribute("Roleid", "1", "2")]
+        public void DeleteBooking(int bookingId)
         {
 
             _bookingService.DeleteBooking(bookingId);
@@ -83,6 +84,8 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpGet]
         [Route("TotalNumberOfBooking")]
+        [CheckClaimsAttribute("Roleid", "1")]
+
         public int TotalNumberOfBooking()
         {
             return _bookingService.TotalNumberOfBooking();

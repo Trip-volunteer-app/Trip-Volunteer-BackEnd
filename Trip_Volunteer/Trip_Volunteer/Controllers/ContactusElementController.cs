@@ -116,7 +116,6 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpGet]
         [Route("GetAllTeam")]
-
         public List<TeamDTO> GetAllTeam()
         {
             return _contactusElementService.GetAllTeam();

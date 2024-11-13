@@ -22,7 +22,7 @@ namespace Trip_Volunteer.API.Controllers
         [HttpGet]
         [Route("GetAllVolunteers")]
 
-        //[CheckClaimsAttribute("Roleid", "1")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public List<AllVolunteersInfoDTO> GetAllVolunteers()
         {
             return _volunteersService.GetAllVolunteers();
@@ -31,7 +31,7 @@ namespace Trip_Volunteer.API.Controllers
         [HttpGet]
         [Route("GetVolunteerById/{id}")]
 
-        //[CheckClaimsAttribute("Roleid", "1")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public Volunteer GetVolunteerById(int id)
 
         {
@@ -40,7 +40,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPost]
         [Route("CreateVolunteer")]
-        //[CheckClaimsAttribute("Roleid", "2")]
+        [CheckClaimsAttribute("Roleid", "2")]
         public void CreateVolunteer(Volunteer volunteer)
         {
             _volunteersService.CreateVolunteer(volunteer);
@@ -49,7 +49,7 @@ namespace Trip_Volunteer.API.Controllers
         [HttpPut]
         [Route("UpdateVolunteer")]
 
-        //[CheckClaimsAttribute("Roleid", "1")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public void UpdateVolunteer(Volunteer volunteer)
 
         {
@@ -58,16 +58,17 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpDelete]
         [Route("DeleteVolunteer/{id}")]
-/*        [CheckClaimsAttribute("Roleid", "1","2")]
-*/        public void DeleteVolunteer(int id)
+        [CheckClaimsAttribute("Roleid", "1")]
+        
+        public void DeleteVolunteer(int id)
         {
             _volunteersService.DeleteVolunteer(id);
         }
 
         [HttpPut]
         [Route("UpdateVolunteerStatus")]
-/*        [CheckClaimsAttribute("Roleid", "1")]
-*/        public void UpdateVolunteerStatus(Volunteer volunteer)
+        [CheckClaimsAttribute("Roleid", "1")]     
+        public void UpdateVolunteerStatus(Volunteer volunteer)
         {
             _volunteersService.UpdateVolunteerStatus(volunteer);
         }
@@ -75,16 +76,14 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPost]
         [Route("SearchVolunteers")]
-/*        [CheckClaimsAttribute("Roleid", "1", "2")]
-*/        public List<VolunteerSearchDto> SearchVolunteers(VolunteerSearchDto searchCriteria)
+       public List<VolunteerSearchDto> SearchVolunteers(VolunteerSearchDto searchCriteria)
         {
             return _volunteersService.SearchVolunteers(searchCriteria);
         }
 
         [HttpGet]
         [Route("AllVolunteersWithTrips")]
-        /*        [CheckClaimsAttribute("Roleid", "1", "2")]
-        */
+        
         public List<VolunteerSearchDto> AllVolunteersWithTrips()
         {
             return _volunteersService.AllVolunteersWithTrips();
@@ -180,16 +179,15 @@ namespace Trip_Volunteer.API.Controllers
 
 
         [HttpGet("TotalNumberOfVolunteer")]
-/*        [CheckClaimsAttribute("Roleid", "1")]
-*/        public IActionResult TotalNumberOfVolunteer()
+        [CheckClaimsAttribute("Roleid", "1")]
+        public IActionResult TotalNumberOfVolunteer()
         {
             int numberOfTrips = _volunteersService.TotalNumberOfVolunteer();
             return Ok(numberOfTrips);
         }
         [HttpGet]
         [Route("GetVolunteerByTripId")]
-        /*        [CheckClaimsAttribute("Roleid", "1", "2")]
-*/
+        
         public Volunteer GetVolunteerByTripId(int TripId, int LoginId)
         {
             return _volunteersService.GetVolunteerByTripId( TripId, LoginId);

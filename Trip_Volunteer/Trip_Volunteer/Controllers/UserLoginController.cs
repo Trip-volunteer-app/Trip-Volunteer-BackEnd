@@ -34,7 +34,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpGet]
         [Route("GetUserLoginById")]
-        [CheckClaimsAttribute("Roleid", "1", "2")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public UserLogin GetUserLoginById(int id)
         {
             return _userLoginService.GetUserLoginById(id);
@@ -69,7 +69,6 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPost]
         [Route("Registers")]
-        //[CheckClaimsAttribute("Roleid", "2")]
         public IActionResult Registers(string First_Name, string Last_Name, string Email, string Password, string RePassword, string PHONE_NUMBER, string ADDRESS)
         {
             // Ensure the fields are being received properly
@@ -140,7 +139,6 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpGet]
         [Route("GetUserinfoByEmail")]
-        //[CheckClaimsAttribute("Roleid", "1")]
         public List<UserInformationDto> GetUserinfoByEmail(string email)
         {
             return _userLoginService.GetUserinfoByEmail(email);
@@ -149,7 +147,6 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpGet]
         [Route("GetUserinfoByPhone")]
-        [CheckClaimsAttribute("Roleid", "1")]
         public List<UserInformationDto> GetUserinfoByPhone(string Phone)
         {
             return _userLoginService.GetUserinfoByPhone(Phone);
@@ -158,7 +155,6 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpGet]
         [Route("GetUserinfoByName")]
-        //[CheckClaimsAttribute("Roleid", "1")]
         public List<UserInformationDto> GetUserinfoByName(string F_Name, string L_Name)
         {
             return _userLoginService.GetUserinfoByName(F_Name, L_Name);
@@ -166,7 +162,6 @@ namespace Trip_Volunteer.API.Controllers
 
 
         [HttpPut("updatePassword")]
-        //[CheckClaimsAttribute("Roleid", "1", "2")]
         public IActionResult UpdatePassword([FromBody] PasswordUpdateRequest request)
         {
             if (string.IsNullOrWhiteSpace(request.NewPassword))
