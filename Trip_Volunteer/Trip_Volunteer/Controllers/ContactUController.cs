@@ -41,7 +41,6 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPost]
         [Route("CreateContact")]
-        //[CheckClaimsAttribute("Roleid", "2")]
         public void CreateContact(ContactU contact)
         {
             _contactUsService.CreateContact(contact);

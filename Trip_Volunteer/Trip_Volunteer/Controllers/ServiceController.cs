@@ -20,7 +20,6 @@ namespace Trip_Volunteer.API.Controllers
         }
 
         [HttpGet]
-        //[CheckClaimsAttribute("Roleid", "1","2")]
         public List<Service> GetAllServices()
         {
           return  _servicesService.GetAllServices();
@@ -28,7 +27,6 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpGet]
         [Route("GetServiceById/{serviceId}")]
-        [CheckClaimsAttribute("Roleid", "1","2")]
         public Service GetServiceById(int serviceId)
         {
           return _servicesService.GetServiceById(serviceId);
@@ -36,7 +34,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPost]
         [Route("CreateService")]
-        //[CheckClaimsAttribute("Roleid", "1")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public void CreateService( Core.Data.Service service)
         {
             _servicesService.CreateService(service);
@@ -44,7 +42,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPut]
         [Route("UpdateService")]
-        //[CheckClaimsAttribute("Roleid", "1")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public void UpdateService(Core.Data.Service service)
         {
             _servicesService.UpdateService(service);
@@ -68,6 +66,8 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPost]
         [Route("CreateServiceForTrip")]
+        [CheckClaimsAttribute("Roleid", "1")]
+
         public void CreateServiceForTrip(ServiceTripDTO serviceTrip)
         {
             _servicesService.CreateServiceForTrip(serviceTrip);
