@@ -40,9 +40,11 @@ namespace Trip_Volunteer.API.Controllers
 
 
 
+
         [HttpGet]
         [Route("GetSYSMonthlyRevenue")]
         public MonthlyReportDTO GetSYSMonthlyRevenue()
+
         {
 
             return _monthlyService.GetSYSMonthlyRevenue();

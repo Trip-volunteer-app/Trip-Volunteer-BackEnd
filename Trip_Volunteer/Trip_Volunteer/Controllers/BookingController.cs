@@ -32,7 +32,7 @@ namespace Trip_Volunteer.API.Controllers
         [HttpGet]
         [Route("GetBookingById")]
 /*        [CheckClaimsAttribute("Roleid", "1")]
-*/        public Booking GetBookingById(int bookingId)
+*/        public BookingDTO GetBookingById(int bookingId)
         {
            return _bookingService.GetBookingById(bookingId);
         }

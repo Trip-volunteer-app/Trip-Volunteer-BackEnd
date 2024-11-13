@@ -32,12 +32,12 @@ namespace Trip_Volunteer.Infra.Repository
             return result.ToList();
         }
 
-        public Booking GetBookingById(int bookingId)
+        public BookingDTO GetBookingById(int bookingId)
         {
             var p = new DynamicParameters();
             p.Add("p_booking_id", bookingId, dbType: DbType.Int32, direction: ParameterDirection.Input);
 
-            var result = _dbContext.Connection.Query<Booking>(
+            var result = _dbContext.Connection.Query<BookingDTO>(
                 "booking_Package.GetBookingById",
                 p,
                 commandType: CommandType.StoredProcedure);

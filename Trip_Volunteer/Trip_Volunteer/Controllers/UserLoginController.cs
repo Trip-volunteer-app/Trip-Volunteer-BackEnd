@@ -100,8 +100,14 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPost]
         [Route("Auth")]
-        public IActionResult Auth(UserLogin userLogin)
+        public async Task<IActionResult> Auth(AuthDTO userLogin)
         {
+            bool isRecaptchaValid = await _userLoginService.ValidateRecaptcha(userLogin.RecaptchaResponse);
+            if (!isRecaptchaValid)
+            {
+                return BadRequest("Invalid reCAPTCHA response");
+            }
+
             var token = _userLoginService.Auth(userLogin);
             if (token == null)
             {
@@ -112,6 +118,7 @@ namespace Trip_Volunteer.API.Controllers
                 return Ok(token);
             }
         }
+
 
         [HttpPut]
         [Route("UpdateAllUserInformation")]

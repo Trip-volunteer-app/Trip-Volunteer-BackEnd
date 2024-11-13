@@ -92,7 +92,7 @@ namespace Trip_Volunteer.Infra.Repository
             _dbContext.Connection.Execute("User_Login_Package.Registers", p, commandType: CommandType.StoredProcedure);
         }
         
-        public UserLogin Auth(UserLogin userLogin)
+        public UserLogin Auth(AuthDTO userLogin)
         {
             string hashedPassword = HashPassword(userLogin.Password);
 
