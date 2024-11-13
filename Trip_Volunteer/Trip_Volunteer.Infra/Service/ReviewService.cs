@@ -46,5 +46,10 @@ namespace Trip_Volunteer.Infra.Service
         {
            return _reviewRepository.GetreviewBycategoryId(id);
         }
+
+        public List<Review> GetreviewByBookingID(int id)
+        {
+            return _reviewRepository.GetreviewByBookingID(id);
+        }
     }
 }

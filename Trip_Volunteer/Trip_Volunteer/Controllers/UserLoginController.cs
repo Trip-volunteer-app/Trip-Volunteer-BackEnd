@@ -277,6 +277,14 @@ namespace Trip_Volunteer.API.Controllers
         {
             return _userLoginService.GetUserinfoByLoginId(id);
         }
+
+        [HttpGet("GetUserinfoByLoginIdForReview/{id}")]
+        //[CheckClaimsAttribute("Roleid", "1", "2")]
+
+        public ProfileDTO GetUserinfoByLoginIdForReview(int id)
+        {
+            return _userLoginService.GetUserinfoByLoginIdForReview(id);
+        }
     }
 }
 
