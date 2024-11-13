@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Trip_Volunteer.Core.Data;
+using Trip_Volunteer.Core.DTO;
 
 namespace Trip_Volunteer.Core.Repository
 {
@@ -15,5 +16,7 @@ namespace Trip_Volunteer.Core.Repository
         void UpdateTestimony(Testimonial testimonial);
         void DeleteTestimony(int id);
         List<Testimonial> GetAcceptedTestimonies();
+        List<TestimonyCountDTO> GetTestimonyStatusCounts();
+
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Trip_Volunteer.Core.Data;
+using Trip_Volunteer.Core.DTO;
 using Trip_Volunteer.Core.Repository;
 using Trip_Volunteer.Core.Service;
 
@@ -44,7 +45,7 @@ namespace Trip_Volunteer.Infra.Service
 
         public async Task<Dictionary<string, int>> GetStatusDistributionAsync()
         {
-            var testimonials =  _testimonialRepository.GetAllTestimonies();
+            var testimonials = _testimonialRepository.GetAllTestimonies();
 
             // Count the number of testimonials by status
             var statusDistribution = testimonials
@@ -52,6 +53,10 @@ namespace Trip_Volunteer.Infra.Service
                 .ToDictionary(g => g.Key ?? "Unknown", g => g.Count());
 
             return statusDistribution;
+        }
+        public List<TestimonyCountDTO> GetTestimonyStatusCounts()
+        {
+            return _testimonialRepository.GetTestimonyStatusCounts();
         }
     }
 }

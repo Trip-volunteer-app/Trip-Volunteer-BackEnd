@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Trip_Volunteer.Core.Data;
 using Trip_Volunteer.Core.Service;
 using System.Linq;
+using Trip_Volunteer.Core.DTO;
 
 
 namespace Trip_Volunteer.API.Controllers
@@ -73,7 +74,12 @@ namespace Trip_Volunteer.API.Controllers
             var distribution = await _testimonialService.GetStatusDistributionAsync();
             return Ok(distribution);
         }
-
+        [HttpGet("GetTestimonyStatusCounts")]
+        //[CheckClaimsAttribute("Roleid", "1")]
+        public List<TestimonyCountDTO> GetTestimonyStatusCounts()
+        {
+            return _testimonialService.GetTestimonyStatusCounts();
+        }
 
     }
 }
