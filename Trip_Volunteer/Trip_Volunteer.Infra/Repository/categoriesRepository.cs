@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Trip_Volunteer.Core.Common;
 using Trip_Volunteer.Core.Data;
+using Trip_Volunteer.Core.DTO;
 using Trip_Volunteer.Core.Repository;
 
 namespace Trip_Volunteer.Infra.Repository
@@ -61,6 +62,23 @@ namespace Trip_Volunteer.Infra.Repository
             p.Add("Id", Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             _dbContext.Connection.Execute("categories_Package.Deletecategories", p, commandType: CommandType.StoredProcedure);
 
+        }
+
+        public List<TotalUsersPerCategoryDTO> GetTotalUsersPerCategory()
+        {
+            IEnumerable<TotalUsersPerCategoryDTO> result = _dbContext.Connection.Query<TotalUsersPerCategoryDTO>("GetTotalUsersPerCategory", commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+        public List<AveregeCategoryRateDTO> GetAverageRatingPerCategory()
+        {
+            IEnumerable<AveregeCategoryRateDTO> result = _dbContext.Connection.Query<AveregeCategoryRateDTO>("GetAverageRatingPerCategory", commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+
+        public List<CategoryRevenueDTO> GetNetRevenuePerCategory()
+        {
+            IEnumerable<CategoryRevenueDTO> result = _dbContext.Connection.Query<CategoryRevenueDTO>("GetNetRevenuePerCategory", commandType: CommandType.StoredProcedure);
+            return result.ToList();
         }
     }
 }

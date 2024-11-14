@@ -28,6 +28,7 @@ namespace Trip_Volunteer.Core.Service
         Task<int> ChangePasswordAsync(ChangePasswordDto changePassword);
         ProfileDTO GetUserinfoByLoginId(int id);
         Task<bool> ValidateRecaptcha(string recaptchaResponse);
+        PercentOfBookedUsersDTO CalculatePaidBookingPercentage();
 
     }
 }

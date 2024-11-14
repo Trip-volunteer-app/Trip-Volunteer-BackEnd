@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using Oracle.ManagedDataAccess.Client;
+using Oracle.ManagedDataAccess.Types;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -69,7 +70,7 @@ namespace Trip_Volunteer.Infra.Repository
         }
         public void Registers(string FirstName, string LastName, string Email, string Password, string RePassword, string PHONE_NUMBER, string ADDRESS)
         {
-         
+
             string hashedPassword = HashPassword(Password);
             string hashedRePassword = HashPassword(RePassword);
 
@@ -91,7 +92,7 @@ namespace Trip_Volunteer.Infra.Repository
 
             _dbContext.Connection.Execute("User_Login_Package.Registers", p, commandType: CommandType.StoredProcedure);
         }
-        
+
         public UserLogin Auth(AuthDTO userLogin)
         {
             string hashedPassword = HashPassword(userLogin.Password);
@@ -181,7 +182,7 @@ namespace Trip_Volunteer.Infra.Repository
             return parameters.Get<int>("p_status");
         }
 
- 
+
 
         public ProfileDTO GetUserinfoByLoginId(int id)
         {
@@ -205,7 +206,28 @@ namespace Trip_Volunteer.Infra.Repository
                 return profileInfo;
             }
         }
+        public PercentOfBookedUsersDTO CalculatePaidBookingPercentage()
+        {
+            var p = new DynamicParameters();
 
+            // Add the output parameter
+            p.Add("v_percentage", dbType: DbType.Decimal, direction: ParameterDirection.Output);
+
+            // Execute the stored procedure
+            _dbContext.Connection.Execute(
+                "CalculatePaidBookingPercentage",
+                p,
+                commandType: CommandType.StoredProcedure
+            );
+
+            // After executing, the output parameter should have the value
+            decimal percentage = p.Get<decimal>("v_percentage");
+
+            // Map the result to your DTO
+            return new PercentOfBookedUsersDTO { Percentage = percentage };
+        }
 
     }
+
+
 }

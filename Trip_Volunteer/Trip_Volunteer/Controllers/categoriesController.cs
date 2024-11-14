@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Data;
 using Trip_Volunteer.Core.Data;
+using Trip_Volunteer.Core.DTO;
 using Trip_Volunteer.Core.Service;
 
 namespace Trip_Volunteer.API.Controllers
@@ -61,6 +62,28 @@ namespace Trip_Volunteer.API.Controllers
             _categoriesService.Deletecategories(id);
         }
 
+        [HttpGet]
+        [Route("GetTotalUsersPerCategory")]
+        [CheckClaimsAttribute("Roleid", "1")]
+        public List<TotalUsersPerCategoryDTO> GetTotalUsersPerCategory()
+        {
+            return _categoriesService.GetTotalUsersPerCategory();
+        }
 
+        [HttpGet]
+        [Route("GetAverageRatingPerCategory")]
+        [CheckClaimsAttribute("Roleid", "1")]
+        public List<AveregeCategoryRateDTO> GetAverageRatingPerCategory()
+        {
+            return _categoriesService.GetAverageRatingPerCategory();
+        }
+        [HttpGet]
+        [Route("GetNetRevenuePerCategory")]
+        [CheckClaimsAttribute("Roleid", "1")]
+        public List<CategoryRevenueDTO> GetNetRevenuePerCategory()
+        {
+            return _categoriesService.GetNetRevenuePerCategory();
+
+        }
     }
 }

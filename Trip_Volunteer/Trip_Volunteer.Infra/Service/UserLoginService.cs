@@ -89,7 +89,7 @@ namespace Trip_Volunteer.Infra.Service
             }
         }
 
-        public void UpdateAllUserInformation(int L_id, string L_Email, int u_id,string F_Name, string L_Name, string IMG, string u_Address, string phone, DateTime B_Day)
+        public void UpdateAllUserInformation(int L_id, string L_Email, int u_id, string F_Name, string L_Name, string IMG, string u_Address, string phone, DateTime B_Day)
         {
             _userLoginRepository.UpdateAllUserInformation(L_id, L_Email, u_id, F_Name, L_Name, IMG, u_Address, phone, B_Day);
         }
@@ -122,10 +122,10 @@ namespace Trip_Volunteer.Infra.Service
                 // Returning -2 to indicate that the passwords do not match.
                 return -2;
             }
-            else 
+            else
             {
-               return await _userLoginRepository.ChangePasswordAsync(changePassword);
-            
+                return await _userLoginRepository.ChangePasswordAsync(changePassword);
+
             }
         }
 
@@ -148,8 +148,11 @@ namespace Trip_Volunteer.Infra.Service
 
             return false;
         }
+        public PercentOfBookedUsersDTO CalculatePaidBookingPercentage()
+        {
+            return _userLoginRepository.CalculatePaidBookingPercentage();
+        }
     }
-
 }
 
 
