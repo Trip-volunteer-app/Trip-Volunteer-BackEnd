@@ -37,6 +37,7 @@ namespace Trip_Volunteer.API.Controllers
         {
             _tripServicesService.CreateTripService(tripService);
         }
+
         [HttpPut]
         [Route("UpdateTripService")]
         [CheckClaimsAttribute("Roleid", "1")]

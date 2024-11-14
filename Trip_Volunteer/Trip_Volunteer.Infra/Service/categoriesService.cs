@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Trip_Volunteer.Core.Data;
+using Trip_Volunteer.Core.DTO;
 using Trip_Volunteer.Core.Repository;
 using Trip_Volunteer.Core.Service;
 
@@ -28,7 +29,7 @@ namespace Trip_Volunteer.Infra.Service
         public Category GetcategoriesById(int ID)
         {
             return _categoriesRepository.GetcategoriesById(ID);
-            
+
         }
 
 
@@ -40,12 +41,25 @@ namespace Trip_Volunteer.Infra.Service
 
         public void UPDATEcategories(Category category)
         {
-           _categoriesRepository.UPDATEcategories(category);
+            _categoriesRepository.UPDATEcategories(category);
         }
 
         public void Deletecategories(int Id)
         {
             _categoriesRepository.Deletecategories(Id);
+        }
+        public List<TotalUsersPerCategoryDTO> GetTotalUsersPerCategory()
+        {
+            return _categoriesRepository.GetTotalUsersPerCategory();
+        }
+        public List<AveregeCategoryRateDTO> GetAverageRatingPerCategory()
+        {
+            return _categoriesRepository.GetAverageRatingPerCategory();
+        }
+        public List<CategoryRevenueDTO> GetNetRevenuePerCategory()
+        {
+            return _categoriesRepository.GetNetRevenuePerCategory();
+
         }
         public List<Category> GetCategoryWithImageAndTrips()
         {

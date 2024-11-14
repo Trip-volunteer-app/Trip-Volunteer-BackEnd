@@ -28,7 +28,6 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpGet]
         [Route("GetAlllocation")]
-
         public List<Location> GetAlllocation()
         {
             return _locationService.GetAlllocation();
@@ -46,7 +45,6 @@ namespace Trip_Volunteer.API.Controllers
         [HttpPost]
         [Route("CREATElocation")]
         [CheckClaimsAttribute("Roleid", "1")]
-
         public void CREATElocation(Location location)
         {
             _locationService.CREATElocation(location);

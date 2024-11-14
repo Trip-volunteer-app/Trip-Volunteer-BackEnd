@@ -279,33 +279,5 @@ namespace Trip_Volunteer.API.Controllers
 
             return sb.ToString();
         }
-
-       
-
-
     }
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -29,6 +29,7 @@ namespace Trip_Volunteer.Core.Service
         ProfileDTO GetUserinfoByLoginId(int id);
         ProfileDTO GetUserinfoByLoginIdForReview(int id);
         Task<bool> ValidateRecaptcha(string recaptchaResponse);
+        PercentOfBookedUsersDTO CalculatePaidBookingPercentage();
 
     }
 }

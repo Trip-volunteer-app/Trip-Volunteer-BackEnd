@@ -71,7 +71,5 @@ namespace Trip_Volunteer.API.Controllers
         {
             _volunteerRolesService.CreateVolunteerRoleForTrip(volunteerRoleDTO);
         }
-
-
-        }
+    }
 }

@@ -42,7 +42,7 @@ namespace Trip_Volunteer.API.Controllers
 
 
         [HttpPost]
-        [Route("CreateUserLogin")]       
+        [Route("CreateUserLogin")]
         public void CreateUserLogin(UserLogin userLogin)
         {
             _userLoginService.CreateUserLogin(userLogin);
@@ -51,7 +51,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPut]
         [Route("UpdateUserLogin")]
-        [CheckClaimsAttribute("Roleid", "1","2")]
+        [CheckClaimsAttribute("Roleid", "1", "2")]
         public void UpdateUserLogin(UserLogin userLogin)
         {
             _userLoginService.UpdateUserLogin(userLogin);
@@ -82,7 +82,7 @@ namespace Trip_Volunteer.API.Controllers
 
             // Check if email already exists
             var existingUser = _userLoginService.GetAllUserLogin().SingleOrDefault(x => x.Email == Email);
-                //GetUserinfoByEmail(Email).SingleOrDefault();
+            //GetUserinfoByEmail(Email).SingleOrDefault();
             if (existingUser != null)
             {
                 return BadRequest("Email already exists");
@@ -212,8 +212,8 @@ namespace Trip_Volunteer.API.Controllers
             }
         }
 
-        
-      
+
+
 
         [HttpPut]
         [Route("ChangePassword")]
@@ -235,7 +235,7 @@ namespace Trip_Volunteer.API.Controllers
             {
 
                 // Retrieve the user's stored hashed password from the database
-                var user =  _userLoginService.GetUserLoginById(changePassword.LOGIN_ID); // Assuming UserId is part of your DTO
+                var user = _userLoginService.GetUserLoginById(changePassword.LOGIN_ID); // Assuming UserId is part of your DTO
                 if (user == null)
                 {
                     return NotFound("User not found.");
@@ -286,6 +286,13 @@ namespace Trip_Volunteer.API.Controllers
         public ProfileDTO GetUserinfoByLoginIdForReview(int id)
         {
             return _userLoginService.GetUserinfoByLoginIdForReview(id);
+        }
+
+        [HttpGet("CalculatePaidBookingPercentage")]
+        //[CheckClaimsAttribute("Roleid", "1")]
+        public PercentOfBookedUsersDTO CalculatePaidBookingPercentage()
+        {
+            return _userLoginService.CalculatePaidBookingPercentage();
         }
     }
 }

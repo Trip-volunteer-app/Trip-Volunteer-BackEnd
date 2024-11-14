@@ -27,8 +27,8 @@ namespace Trip_Volunteer.API.Controllers
         [CheckClaimsAttribute("Roleid", "1")]
         public List<ContactU> GetAllContacts()
         {
-          return _contactUsService.GetAllContacts();
-           
+            return _contactUsService.GetAllContacts();
+
         }
 
         [HttpGet]
@@ -36,7 +36,7 @@ namespace Trip_Volunteer.API.Controllers
         [CheckClaimsAttribute("Roleid", "1")]
         public ContactU GetContactById(int contactId)
         {
-           return _contactUsService.GetContactById(contactId);
+            return _contactUsService.GetContactById(contactId);
         }
 
         [HttpPost]
@@ -98,11 +98,6 @@ namespace Trip_Volunteer.API.Controllers
             {
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
-
         }
-
-        
-
-
     }
 }

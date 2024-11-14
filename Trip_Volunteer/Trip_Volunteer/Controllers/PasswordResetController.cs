@@ -80,16 +80,7 @@ namespace Trip_Volunteer.API.Controllers
                 return false;
             }
         }
-
-
-
-
-
-
     }
-
-
-
 }
 
 

@@ -64,7 +64,6 @@ namespace Trip_Volunteer.API.Controllers
             _testimonialService.DeleteTestimony(id);
         }
 
-
         [HttpGet("StatusDistribution")]
         [CheckClaimsAttribute("Roleid", "1")]
         public async Task<IActionResult> GetStatusDistribution()
@@ -72,16 +71,12 @@ namespace Trip_Volunteer.API.Controllers
             var distribution = await _testimonialService.GetStatusDistributionAsync();
             return Ok(distribution);
         }
+
         [HttpGet("GetTestimonyStatusCounts")]
         [CheckClaimsAttribute("Roleid", "1")]
         public List<TestimonyCountDTO> GetTestimonyStatusCounts()
         {
             return _testimonialService.GetTestimonyStatusCounts();
         }
-
     }
 }
-
-
-
-

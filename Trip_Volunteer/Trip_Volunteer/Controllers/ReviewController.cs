@@ -20,7 +20,7 @@ namespace Trip_Volunteer.API.Controllers
         }
 
         [HttpGet]
-*/        public List<ReviewDTO> GetAllReview()
+       public List<ReviewDTO> GetAllReview()
         {
           return  _reviewService.GetAllReview().ToList();
         }
@@ -30,7 +30,6 @@ namespace Trip_Volunteer.API.Controllers
         public Review GetReviewById(int id)
         {
            return _reviewService.GetReviewById(id);
-
         }
 
         [HttpPost]

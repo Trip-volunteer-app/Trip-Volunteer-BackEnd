@@ -24,7 +24,6 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpGet]
         [CheckClaimsAttribute("Roleid", "1")]
-
         public List<Booking> GetAllBookings()
         {
           return  _bookingService.GetAllBookings();
@@ -73,6 +72,7 @@ namespace Trip_Volunteer.API.Controllers
         {
             _bookingService.UpdatePaymentStatus( booking);
         }
+
         [HttpGet]
         [Route("GetBookingByTripId")]
         /*        [CheckClaimsAttribute("Roleid", "1", "2")]

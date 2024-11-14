@@ -61,7 +61,6 @@ namespace Trip_Volunteer.API.Controllers
         [HttpPost]   
         [Route("uploadHeroImg")]
         [CheckClaimsAttribute("Roleid", "1")]
-
         public HomePageElement UploadHero_img()
         {
             var file = Request.Form.Files[0];
@@ -98,7 +97,6 @@ namespace Trip_Volunteer.API.Controllers
         [HttpPut]
         [Route("UpdateHomeSelectStatus")]
         [CheckClaimsAttribute("Roleid", "1")]
-
         public void UpdateHomeSelectStatus(int id)
         {
             _homePageElementsService.UpdateHomeSelectStatus(id);
@@ -108,7 +106,6 @@ namespace Trip_Volunteer.API.Controllers
         [HttpGet]
         [Route("GetSelectedHomeElement")]
         [CheckClaimsAttribute("Roleid", "1")]
-
         public HomePageElement GetSelectedHomeElement()
         {
             return _homePageElementsService.GetSelectedHomeElement();

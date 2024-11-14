@@ -176,8 +176,6 @@ namespace Trip_Volunteer.API.Controllers
 
 
 
-
-
         [HttpGet("TotalNumberOfVolunteer")]
         [CheckClaimsAttribute("Roleid", "1")]
         public IActionResult TotalNumberOfVolunteer()

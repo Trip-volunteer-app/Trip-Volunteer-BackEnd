@@ -74,7 +74,5 @@ namespace Trip_Volunteer.API.Controllers
             item.Image1 = fileName;
             return item;
         }
-
-
     }
 }
