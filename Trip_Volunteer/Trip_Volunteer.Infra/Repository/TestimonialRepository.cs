@@ -27,9 +27,9 @@ namespace Trip_Volunteer.Infra.Repository
             return result.ToList();
         }
 
-        public List<Testimonial> GetAcceptedTestimonies()
+        public List<TestimonialDTO> GetAcceptedTestimonies()
         {
-            IEnumerable<Testimonial> result = _dbContext.Connection.Query<Testimonial>("Testimonial_Package.GetAcceptedTestimonies", commandType: CommandType.StoredProcedure);
+            IEnumerable<TestimonialDTO> result = _dbContext.Connection.Query<TestimonialDTO>("Testimonial_Package.GetAcceptedTestimonies", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
 

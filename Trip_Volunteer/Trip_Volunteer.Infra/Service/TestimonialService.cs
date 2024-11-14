@@ -21,7 +21,7 @@ namespace Trip_Volunteer.Infra.Service
         {
             return _testimonialRepository.GetAllTestimonies();
         }
-        public List<Testimonial> GetAcceptedTestimonies()
+        public List<TestimonialDTO> GetAcceptedTestimonies()
         {
             return _testimonialRepository.GetAcceptedTestimonies();
         }

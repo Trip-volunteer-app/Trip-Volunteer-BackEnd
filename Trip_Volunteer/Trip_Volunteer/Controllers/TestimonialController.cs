@@ -27,7 +27,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpGet]
         [Route("GetAcceptedTestimonies")]
-        public List<Testimonial> GetAcceptedTestimonies()
+        public List<TestimonialDTO> GetAcceptedTestimonies()
         {
             return _testimonialService.GetAcceptedTestimonies();
         }

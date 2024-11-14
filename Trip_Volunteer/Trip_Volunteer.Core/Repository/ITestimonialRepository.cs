@@ -15,7 +15,7 @@ namespace Trip_Volunteer.Core.Repository
         void CreateTestimony(Testimonial testimonial);
         void UpdateTestimony(Testimonial testimonial);
         void DeleteTestimony(int id);
-        List<Testimonial> GetAcceptedTestimonies();
+        List<TestimonialDTO> GetAcceptedTestimonies();
         List<TestimonyCountDTO> GetTestimonyStatusCounts();
 
     }
