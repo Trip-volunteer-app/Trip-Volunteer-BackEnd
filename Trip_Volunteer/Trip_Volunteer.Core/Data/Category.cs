@@ -12,6 +12,8 @@ namespace Trip_Volunteer.Core.Data
 
         public decimal Category_Id { get; set; }
         public string? Category_Name { get; set; }
+        public string? IMAGES { get; set; }
+        public string? TEXT { get; set; }
 
         public virtual ICollection<Trip> Trips { get; set; }
     }

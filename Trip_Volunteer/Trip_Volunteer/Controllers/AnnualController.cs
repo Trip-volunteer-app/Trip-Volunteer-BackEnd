@@ -18,7 +18,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpGet]
         [Route("GetMonthlyRevenueForYear/{year}")]
-        //[CheckClaimsAttribute("Roleid", "1")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public List<AnnualReportDTO> GetMonthlyRevenueForYear(string year)
         {
             return _annualService.GetMonthlyRevenueForYear(year);
@@ -27,7 +27,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpGet]
         [Route("GetYearlyRevenue/{year}")]
-        //[CheckClaimsAttribute("Roleid", "1")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public List<AnnualReportDTO> GetYearlyRevenue(string year)
         {
             return _annualService.GetYearlyRevenue(year);

@@ -61,6 +61,10 @@ namespace Trip_Volunteer.Infra.Service
             return _categoriesRepository.GetNetRevenuePerCategory();
 
         }
+        public List<Category> GetCategoryWithImageAndTrips()
+        {
+            return _categoriesRepository.GetCategoryWithImageAndTrips();
+        }
 
     }
 }

@@ -16,5 +16,9 @@ namespace Trip_Volunteer.Core.Service
         void UpdateReview(Review review);
         void DeleteReview(int id);
         List<ReviewDTO> GetreviewBycategoryId(int id);
+        List<Review> GetreviewByBookingID(int id);
+
+
+
     }
 }

@@ -26,6 +26,7 @@ namespace Trip_Volunteer.Core.Repository
         ProfileDTO GetUserinfoByLoginId(int id);
         PercentOfBookedUsersDTO CalculatePaidBookingPercentage();
 
+        ProfileDTO GetUserinfoByLoginIdForReview(int id);
 
     }
 }

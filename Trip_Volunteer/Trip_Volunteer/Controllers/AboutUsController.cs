@@ -23,7 +23,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpGet]
         [Route("GetAllAboutUsElements")]
-        [CheckClaimsAttribute("Roleid", "1")]
+        //[CheckClaimsAttribute("Roleid", "1")]
         public List<Aboutu> GetAllAboutUsElements()
         {
             return _aboutUsService.GetAllAboutUsElements();
@@ -31,7 +31,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpGet]
         [Route("GetAboutUsElementById/{id}")]
-        [CheckClaimsAttribute("Roleid", "1")]
+        //[CheckClaimsAttribute("Roleid", "1")]
         public Aboutu GetAboutUsElementById(int id)
         {
             return _aboutUsService.GetAboutUsElementById(id);
@@ -207,7 +207,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpGet]
         [Route("GetSelectedAboutus")]
-        //[CheckClaimsAttribute("Roleid", "1")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public Aboutu GetSelectedAboutus()
         {
             return _aboutUsService.GetSelectedAboutus();

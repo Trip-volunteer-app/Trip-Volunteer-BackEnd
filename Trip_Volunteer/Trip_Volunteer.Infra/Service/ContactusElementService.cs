@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Trip_Volunteer.Core.Data;
+using Trip_Volunteer.Core.DTO;
 using Trip_Volunteer.Core.Repository;
 using Trip_Volunteer.Core.Service;
 using Trip_Volunteer.Infra.Repository;
@@ -45,5 +46,11 @@ namespace Trip_Volunteer.Infra.Service
         {
             return _contactusElementRepository.GetSelectedContactusElement();
         }
+
+        public List<TeamDTO> GetAllTeam()
+        {
+            return _contactusElementRepository.GetAllTeam();
+        }
+
     }
 }

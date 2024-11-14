@@ -7,6 +7,7 @@ using System.Net;
 using Trip_Volunteer.Core.Data;
 using Trip_Volunteer.Core.DTO;
 using Trip_Volunteer.Core.Service;
+using Trip_Volunteer.Infra.Service;
 
 namespace Trip_Volunteer.API.Controllers
 {
@@ -26,8 +27,8 @@ namespace Trip_Volunteer.API.Controllers
         [CheckClaimsAttribute("Roleid", "1")]
         public List<ContactU> GetAllContacts()
         {
-          return _contactUsService.GetAllContacts();
-           
+            return _contactUsService.GetAllContacts();
+
         }
 
         [HttpGet]
@@ -35,12 +36,11 @@ namespace Trip_Volunteer.API.Controllers
         [CheckClaimsAttribute("Roleid", "1")]
         public ContactU GetContactById(int contactId)
         {
-           return _contactUsService.GetContactById(contactId);
+            return _contactUsService.GetContactById(contactId);
         }
 
         [HttpPost]
         [Route("CreateContact")]
-        //[CheckClaimsAttribute("Roleid", "2")]
         public void CreateContact(ContactU contact)
         {
             _contactUsService.CreateContact(contact);
@@ -80,8 +80,9 @@ namespace Trip_Volunteer.API.Controllers
                 {
                     From = new MailAddress("sajedaalquraan1@gmail.com"),
                     Subject = "Contact Us ",
-                    Body = "Thank you for reaching out to us! We have received your message and appreciate you taking the time to contact us.\n" +
-                    " One of our team members will review your query and get back to you shortly.",
+
+                    Body = "Thank you for reaching out to us! We have received your message and appreciate you taking the time to contact us.\n One of our team members will review your query and get back to you shortly.",
+
                     IsBodyHtml = false,
                 };
 
@@ -97,9 +98,6 @@ namespace Trip_Volunteer.API.Controllers
             {
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
-
         }
-
-
     }
 }

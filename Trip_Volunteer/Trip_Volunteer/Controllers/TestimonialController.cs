@@ -20,7 +20,6 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpGet]
         [Route("GetAllTestimonies")]
-        //[CheckClaimsAttribute("Roleid", "1")]
         public List<Testimonial> GetAllTestimonies()
         {
             return _testimonialService.GetAllTestimonies();
@@ -36,7 +35,6 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpGet]
         [Route("GetTestimonyById/{id}")]
-        //[CheckClaimsAttribute("Roleid", "1")]
         public Testimonial GetTestimonyById(int id)
         {
             return _testimonialService.GetTestimonyById(id);
@@ -44,7 +42,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPost]
         [Route("CreateTestimony")]
-        //[CheckClaimsAttribute("Roleid", "2")]
+        [CheckClaimsAttribute("Roleid", "2")]
         public void CreateTestimony(Testimonial testimonial)
         {
             _testimonialService.CreateTestimony(testimonial);
@@ -52,7 +50,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPut]
         [Route("UpdateTestimony")]
-        //[CheckClaimsAttribute("Roleid", "1")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public void UpdateTestimony(Testimonial testimonial)
         {
             _testimonialService.UpdateTestimony(testimonial);
@@ -66,7 +64,6 @@ namespace Trip_Volunteer.API.Controllers
             _testimonialService.DeleteTestimony(id);
         }
 
-
         [HttpGet("StatusDistribution")]
         [CheckClaimsAttribute("Roleid", "1")]
         public async Task<IActionResult> GetStatusDistribution()
@@ -74,16 +71,12 @@ namespace Trip_Volunteer.API.Controllers
             var distribution = await _testimonialService.GetStatusDistributionAsync();
             return Ok(distribution);
         }
+
         [HttpGet("GetTestimonyStatusCounts")]
-        //[CheckClaimsAttribute("Roleid", "1")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public List<TestimonyCountDTO> GetTestimonyStatusCounts()
         {
             return _testimonialService.GetTestimonyStatusCounts();
         }
-
     }
 }
-
-
-
-

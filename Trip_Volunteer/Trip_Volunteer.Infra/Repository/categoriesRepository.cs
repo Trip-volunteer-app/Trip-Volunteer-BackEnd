@@ -40,6 +40,8 @@ namespace Trip_Volunteer.Infra.Repository
             var p = new DynamicParameters();
             p.Add("category_id", category.Category_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("category_name", category.Category_Name, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("IMAGES", category.IMAGES, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("TEXT", category.TEXT, dbType: DbType.String, direction: ParameterDirection.Input);
 
             var result = _dbContext.Connection.Execute("categories_Package.CREATEcategories", p, commandType: CommandType.StoredProcedure);
 
@@ -51,6 +53,8 @@ namespace Trip_Volunteer.Infra.Repository
             var p = new DynamicParameters();
             p.Add("categoryid", category.Category_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("categoryname", category.Category_Name, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("CIMAGES", category.IMAGES, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("CTEXT", category.TEXT, dbType: DbType.String, direction: ParameterDirection.Input);
 
             _dbContext.Connection.Execute("categories_Package.UPDATEcategories", p, commandType: CommandType.StoredProcedure);
 
@@ -78,6 +82,12 @@ namespace Trip_Volunteer.Infra.Repository
         public List<CategoryRevenueDTO> GetNetRevenuePerCategory()
         {
             IEnumerable<CategoryRevenueDTO> result = _dbContext.Connection.Query<CategoryRevenueDTO>("GetNetRevenuePerCategory", commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+
+        public List<Category> GetCategoryWithImageAndTrips()
+        {
+            IEnumerable<Category> result = _dbContext.Connection.Query<Category>("GetCategoryWithImageAndTrips", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
     }

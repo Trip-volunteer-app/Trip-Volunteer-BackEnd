@@ -13,12 +13,15 @@ namespace Trip_Volunteer.API.Controllers
     {
 
         private readonly IcategoriesService _categoriesService;
-        public categoriesController(IcategoriesService categoriesService)
+        private readonly IConfiguration _configuration;
+
+        public categoriesController(IcategoriesService categoriesService, IConfiguration configuration)
         {
             _categoriesService = categoriesService;
+            _configuration = configuration;
         }
 
-        
+
         [HttpGet]
         [Route("GetAllcategories")]
         public List<Category> GetAllcategories()
@@ -69,6 +72,12 @@ namespace Trip_Volunteer.API.Controllers
         {
             return _categoriesService.GetTotalUsersPerCategory();
         }
+        [HttpGet]
+        [Route("GetCategoryWithImageAndTrips")]
+        public List<Category> GetCategoryWithImageAndTrips()
+        {
+            return _categoriesService.GetCategoryWithImageAndTrips();
+        }
 
         [HttpGet]
         [Route("GetAverageRatingPerCategory")]
@@ -84,6 +93,22 @@ namespace Trip_Volunteer.API.Controllers
         {
             return _categoriesService.GetNetRevenuePerCategory();
 
+        }
+        [HttpPost]
+        [Route("uploadImage")]
+        [CheckClaimsAttribute("Roleid", "1")]
+        public User UploadImage()
+        {
+            var file = Request.Form.Files[0];
+            var fileName = Guid.NewGuid().ToString() + "_" + file.FileName;
+            var fullPath = Path.Combine(_configuration["AppSettings:UploadImage"], fileName);
+            using (var stream = new FileStream(fullPath, FileMode.Create))
+            {
+                file.CopyTo(stream);
+            }
+            User item = new User();
+            item.Image_Path = fileName;
+            return item;
         }
     }
 }

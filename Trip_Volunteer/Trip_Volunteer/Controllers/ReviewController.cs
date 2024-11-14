@@ -20,24 +20,21 @@ namespace Trip_Volunteer.API.Controllers
         }
 
         [HttpGet]
-/*        [CheckClaimsAttribute("Roleid", "1")]
-*/        public List<ReviewDTO> GetAllReview()
+       public List<ReviewDTO> GetAllReview()
         {
           return  _reviewService.GetAllReview().ToList();
         }
 
         [HttpGet]
         [Route("GetReviewById/{id}")]
-        [CheckClaimsAttribute("Roleid", "1")]
         public Review GetReviewById(int id)
         {
            return _reviewService.GetReviewById(id);
-
         }
 
         [HttpPost]
         [Route("CreateReview")]
-        [CheckClaimsAttribute("Roleid", "1","2")]
+        [CheckClaimsAttribute("Roleid", "1", "2")]
         public void CreateReview(Review review)
         {
             _reviewService.CreateReview(review);
@@ -61,10 +58,16 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpGet]
         [Route("GetreviewBycategoryId/{id}")]
-/*        [CheckClaimsAttribute("Roleid", "1","2")]
-*/        public List<ReviewDTO> GetreviewBycategoryId(int id)
+        public List<ReviewDTO> GetreviewBycategoryId(int id)
         {
             return _reviewService.GetreviewBycategoryId(id);
+        }
+
+        [HttpGet]
+        [Route("GetreviewByBookingID/{id}")]      
+        public List<Review> GetreviewByBookingID(int id)
+        {
+            return _reviewService.GetreviewByBookingID(id);
         }
     }
 }

@@ -25,7 +25,6 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpGet]
         [Route("GetTestimonialElementById")]
-        [CheckClaimsAttribute("Roleid", "1", "2")]
         public TestimonialElement GetTestimonialElementById(int id)
         {
             return _testimonialElementService.GetTestimonialElementById(id);
@@ -75,7 +74,5 @@ namespace Trip_Volunteer.API.Controllers
             item.Image1 = fileName;
             return item;
         }
-
-
     }
 }

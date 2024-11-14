@@ -24,5 +24,6 @@ namespace Trip_Volunteer.Core.Repository
          List<AveregeCategoryRateDTO> GetAverageRatingPerCategory();
         List<CategoryRevenueDTO> GetNetRevenuePerCategory();
 
+        List<Category> GetCategoryWithImageAndTrips();
     }
 }
