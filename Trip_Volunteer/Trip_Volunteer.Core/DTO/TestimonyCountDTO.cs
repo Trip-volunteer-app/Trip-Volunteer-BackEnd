@@ -11,5 +11,6 @@ namespace Trip_Volunteer.Core.DTO
         public int Rejected_Count { get; set; }
         public int Accepted_Count { get; set; }
         public int Pending_Count { get; set; }
+        public int Total_Count { get; set; }
     }
 }
