@@ -232,7 +232,7 @@ namespace Trip_Volunteer.Infra.Repository
             var p = new DynamicParameters();
             p.Add("Id", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
 
-            using (var multi = _dbContext.Connection.QueryMultiple("GetUserinfoByLoginIdForReview", p, commandType: CommandType.StoredProcedure))
+            using (var multi = _dbContext.Connection.QueryMultiple("User_Login_Package.GetUserinfoByLoginIdForReview", p, commandType: CommandType.StoredProcedure))
             {
                 var profileInfo = multi.Read<ProfileDTO>().FirstOrDefault();
                 var bookings = multi.Read<BookingsDTO>().ToList();
