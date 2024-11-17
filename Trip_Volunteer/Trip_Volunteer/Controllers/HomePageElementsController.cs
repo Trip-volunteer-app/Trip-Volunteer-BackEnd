@@ -105,7 +105,6 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpGet]
         [Route("GetSelectedHomeElement")]
-        [CheckClaimsAttribute("Roleid", "1")]
         public HomePageElement GetSelectedHomeElement()
         {
             return _homePageElementsService.GetSelectedHomeElement();

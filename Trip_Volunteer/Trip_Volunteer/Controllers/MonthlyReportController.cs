@@ -23,6 +23,7 @@ namespace Trip_Volunteer.API.Controllers
         {
             return _monthlyService.MonthlyReport(month, year);
         }
+
         [HttpGet]
         [Route("GetDistinctTripYears")]
         [CheckClaimsAttribute("Roleid", "1")]
@@ -45,6 +46,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpGet]
         [Route("GetSYSMonthlyRevenue")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public MonthlyReportDTO GetSYSMonthlyRevenue()
 
         {

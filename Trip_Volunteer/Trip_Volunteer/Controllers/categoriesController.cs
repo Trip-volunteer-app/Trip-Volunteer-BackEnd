@@ -50,7 +50,6 @@ namespace Trip_Volunteer.API.Controllers
         [HttpPut]
         [Route("UPDATEcategories")]
         [CheckClaimsAttribute("Roleid", "1")]
-
         public void UPDATEcategories(Category category)
         {
             _categoriesService.UPDATEcategories(category);
@@ -72,6 +71,7 @@ namespace Trip_Volunteer.API.Controllers
         {
             return _categoriesService.GetTotalUsersPerCategory();
         }
+
         [HttpGet]
         [Route("GetCategoryWithImageAndTrips")]
         public List<Category> GetCategoryWithImageAndTrips()
@@ -86,6 +86,7 @@ namespace Trip_Volunteer.API.Controllers
         {
             return _categoriesService.GetAverageRatingPerCategory();
         }
+
         [HttpGet]
         [Route("GetNetRevenuePerCategory")]
         [CheckClaimsAttribute("Roleid", "1")]
@@ -94,6 +95,7 @@ namespace Trip_Volunteer.API.Controllers
             return _categoriesService.GetNetRevenuePerCategory();
 
         }
+
         [HttpPost]
         [Route("uploadImage")]
         [CheckClaimsAttribute("Roleid", "1")]

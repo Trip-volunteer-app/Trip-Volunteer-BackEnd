@@ -74,9 +74,6 @@ namespace Trip_Volunteer.Infra.Repository
             string hashedPassword = HashPassword(Password);
             string hashedRePassword = HashPassword(RePassword);
 
-
-
-
             if (hashedPassword != hashedRePassword)
             {
                 throw new ArgumentException("Passwords do not match.");

@@ -36,7 +36,6 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPost]
         [Route("CREATEtrip_volunteerRoles")]
-        [CheckClaimsAttribute("Roleid", "1")]
 
         public void CREATEtrip_volunteerRoles(TripVolunteerrole tripVolunteerrole)
         {
@@ -45,7 +44,6 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPut]
         [Route("UPDATEtrip_volunteerRoles")]
-        [CheckClaimsAttribute("Roleid", "1")]
 
         public void UPDATEtrip_volunteerRoles(TripVolunteerrole tripVolunteerrole)
         {
@@ -54,7 +52,6 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpDelete]
         [Route("Deletetrip_volunteerRoles/{Id}")]
-        [CheckClaimsAttribute("Roleid", "1")]
 
         public void Deletetrip_volunteerRoles(int Id)
         {
@@ -71,14 +68,12 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPost]
         [Route("CreateTripVRoleForVRolesList")]
-        [CheckClaimsAttribute("Roleid", "1")]
         public void CreateTripVRoleForVRolesList(TripWithVolunteerRolesDTO tripWithVolunteerRoles)
         {
             _tripVolunteerroleService.CreateTripVRoleForVRolesList(tripWithVolunteerRoles);
         }
 
         [HttpDelete("Deletetrip_volunteerRoles")]
-        [CheckClaimsAttribute("Roleid", "1")]
         public void DeleteTripVolunteerRole([FromQuery] int id, [FromQuery] int tripid)
         {
 
@@ -89,7 +84,6 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPut]
         [Route("updateNumberOfVolunteer")]
-        [CheckClaimsAttribute("Roleid", "1")]
         public void updateNumberOfVolunteer(TripVolunteerrole tripVolunteerrole)
         {
             _tripVolunteerroleService.updateNumberOfVolunteer(tripVolunteerrole);
@@ -97,7 +91,6 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPut]
         [Route("UpdateTrip_vrole_NumberOfVolunteers")]
-        [CheckClaimsAttribute("Roleid", "1")]
         public void UpdateTrip_vrole_NumberOfVolunteers(TripVolunteerrole tripVolunteerrole)
         {
             _tripVolunteerroleService.UpdateTrip_vrole_NumberOfVolunteers(tripVolunteerrole);
