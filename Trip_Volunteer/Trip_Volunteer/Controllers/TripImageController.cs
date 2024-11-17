@@ -60,6 +60,7 @@ namespace Trip_Volunteer.API.Controllers
         [HttpDelete]
         [Route("DeleteTripImage/{id}")]
         [CheckClaimsAttribute("Roleid", "1")]
+
         public void DeleteTripImage(int id)
         {
             _tripImageService.DeleteTripImage(id);
@@ -68,7 +69,6 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPost]
         [Route("uploadImage")]     
-        [CheckClaimsAttribute("Roleid", "1")]
         public TripImage UploadImage()
         {
             var file = Request.Form.Files[0];

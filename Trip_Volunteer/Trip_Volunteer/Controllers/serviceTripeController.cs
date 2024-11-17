@@ -49,6 +49,7 @@ namespace Trip_Volunteer.API.Controllers
         [HttpDelete]
         [Route("DeleteTripService")]
         [CheckClaimsAttribute("Roleid", "1")]
+
         public void DeleteTripService(int tripServiceId)
         {
             _tripServicesService.DeleteTripService(tripServiceId);

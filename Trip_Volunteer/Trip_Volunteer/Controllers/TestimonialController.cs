@@ -42,7 +42,8 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPost]
         [Route("CreateTestimony")]
-        [CheckClaimsAttribute("Roleid", "2")]
+        [CheckClaimsAttribute("Roleid", "1","2")]
+
         public void CreateTestimony(Testimonial testimonial)
         {
             _testimonialService.CreateTestimony(testimonial);
@@ -74,6 +75,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpGet("GetTestimonyStatusCounts")]
         [CheckClaimsAttribute("Roleid", "1")]
+
         public List<TestimonyCountDTO> GetTestimonyStatusCounts()
         {
             return _testimonialService.GetTestimonyStatusCounts();

@@ -33,7 +33,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPost]
         [Route("CreateTestimonialElement")]
-        [CheckClaimsAttribute("Roleid", "1")]
+        [CheckClaimsAttribute("Roleid", "1","2")]
         public void CreateTestimonialElement(TestimonialElement testimonialElement)
         {
             _testimonialElementService.CreateTestimonialElement(testimonialElement);
@@ -42,7 +42,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPut]
         [Route("UpdateTestimonialElement")]
-        [CheckClaimsAttribute("Roleid", "1")]
+        [CheckClaimsAttribute("Roleid", "1", "2")]
         public void UpdateTestimonialElement(TestimonialElement testimonialElement)
         {
             _testimonialElementService.UpdateTestimonialElement(testimonialElement);
@@ -60,7 +60,6 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPost]
         [Route("uploadImage")]
-        [CheckClaimsAttribute("Roleid", "1")]
         public TestimonialElement UploadImage()
         {
             var file = Request.Form.Files[0];

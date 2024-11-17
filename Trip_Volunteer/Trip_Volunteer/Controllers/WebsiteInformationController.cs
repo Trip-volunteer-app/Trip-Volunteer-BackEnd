@@ -19,7 +19,6 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpGet]
         [Route("GetAllwebsite_information")]
-        //[CheckClaimsAttribute("Roleid", "1", "2")]
         public List<WebsiteInformation> GetAllwebsite_information()
         {
             return _websiteInformationService.GetAllwebsite_information();
@@ -27,7 +26,6 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpGet]
         [Route("Getwebsite_informationById/{id}")]
-        //[CheckClaimsAttribute("Roleid", "1", "2")]
         public WebsiteInformation Getwebsite_informationById(int id)
         {
             return _websiteInformationService.Getwebsite_informationById(id);
@@ -71,7 +69,6 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpGet]
         [Route("GetSelectedWebsiteInfo")]
-        [CheckClaimsAttribute("Roleid", "1")]
         public WebsiteInformation GetSelectedWebsiteInfo()
         {
             return _websiteInformationService.GetSelectedWebsiteInfo();

@@ -25,7 +25,7 @@ namespace Trip_Volunteer.API.Controllers
 
 
         [HttpGet]
-        [CheckClaimsAttribute("Roleid", "1")]
+        //[CheckClaimsAttribute("Roleid", "1")]
         public List<UserLogin> GetAllUserLogin()
         {
             return _userLoginService.GetAllUserLogin();
@@ -34,7 +34,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpGet]
         [Route("GetUserLoginById")]
-        [CheckClaimsAttribute("Roleid", "1")]
+        //[CheckClaimsAttribute("Roleid", "1")]
         public UserLogin GetUserLoginById(int id)
         {
             return _userLoginService.GetUserLoginById(id);
@@ -82,7 +82,6 @@ namespace Trip_Volunteer.API.Controllers
 
             // Check if email already exists
             var existingUser = _userLoginService.GetAllUserLogin().SingleOrDefault(x => x.Email == Email);
-            //GetUserinfoByEmail(Email).SingleOrDefault();
             if (existingUser != null)
             {
                 return BadRequest("Email already exists");
@@ -121,7 +120,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPut]
         [Route("UpdateAllUserInformation")]
-        //[CheckClaimsAttribute("Roleid", "1", "2")]
+        [CheckClaimsAttribute("Roleid", "1", "2")]
         public void UpdateAllUserInformation(int L_id, string L_Email, int u_id, string F_Name, string L_Name, string IMG, string u_Address, string phone, DateTime B_Day)
         {
             _userLoginService.UpdateAllUserInformation(L_id, L_Email, u_id, F_Name, L_Name, IMG, u_Address, phone, B_Day);
@@ -130,7 +129,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpGet]
         [Route("GetAllUserInformation")]
-        //[CheckClaimsAttribute("Roleid", "1", "2")]
+        [CheckClaimsAttribute("Roleid", "1", "2")]
         public List<UserInformationDto> GetAllUserInformation()
         {
             return _userLoginService.GetAllUserInformation();
@@ -162,6 +161,7 @@ namespace Trip_Volunteer.API.Controllers
 
 
         [HttpPut("updatePassword")]
+        [CheckClaimsAttribute("Roleid", "1", "2")]
         public IActionResult UpdatePassword([FromBody] PasswordUpdateRequest request)
         {
             if (string.IsNullOrWhiteSpace(request.NewPassword))
@@ -185,9 +185,6 @@ namespace Trip_Volunteer.API.Controllers
                 user.Repassword = hashedPassword;
                 user.Password = hashedPassword;
                 _userLoginService.UpdateUserLogin(user);  // Save changes
-
-
-
 
                 return Ok(new { message = "Password updated successfully" });
             }
@@ -217,6 +214,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPut]
         [Route("ChangePassword")]
+        [CheckClaimsAttribute("Roleid", "1", "2")]
         public async Task<IActionResult> ChangePassword([FromBody] ChangePasswordDto changePassword)
         {
             // Check if the required fields are filled
@@ -245,11 +243,7 @@ namespace Trip_Volunteer.API.Controllers
                 changePassword.OldPassword = HashPassword(changePassword.OldPassword);
 
 
-                // Ensure the new password and confirm password match
-                //if (changePassword.NewPassword != changePassword.ConfirmPassword)
-                //{
-                //    return BadRequest("New password and confirm password do not match.");
-                //}
+              
                 int result = await _userLoginService.ChangePasswordAsync(changePassword);
 
                 // Check the result and respond accordingly

@@ -34,7 +34,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPost]
         [Route("CreateReview")]
-        [CheckClaimsAttribute("Roleid", "1", "2")]
+        [CheckClaimsAttribute("Roleid", "1","2")]
         public void CreateReview(Review review)
         {
             _reviewService.CreateReview(review);
@@ -42,7 +42,6 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPut]
         [Route("UpdateReview")]
-        [CheckClaimsAttribute("Roleid", "1")]
         public void UpdateReview(Review review)
         {
             _reviewService.UpdateReview(review);
