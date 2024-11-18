@@ -13,5 +13,6 @@ namespace Trip_Volunteer.Core.DTO
         public decimal? Service_Id { get; set; }
         public string? Service_Name { get; set; }
         public decimal? Service_Cost { get; set; }
+        public int? Is_Optional { get; set; }
     }
 }

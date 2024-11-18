@@ -813,6 +813,10 @@ namespace Trip_Volunteer.Core.Data
                     .HasColumnType("NUMBER(38)")
                     .HasColumnName("TRIP_ID");
 
+                entity.Property(e => e.Is_Optional)
+                    .HasColumnType("NUMBER(38)")
+                    .HasColumnName("IS_OPTIONAL");
+
                 entity.HasOne(d => d.Service)
                     .WithMany(p => p.TripServices)
                     .HasForeignKey(d => d.Service_Id)

@@ -8,7 +8,7 @@ namespace Trip_Volunteer.Core.DTO
 {
     public class TripWithServicesListDTO
     {
-        public List<int> SelectedServices { get; set; }
+        public List<ServiceDTO> SelectedServices { get; set; }
         public decimal? Trip_Id { get; set; }
     }
 }
