@@ -19,7 +19,6 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpGet]
         [Route("GetAllPayments")]
-        [CheckClaimsAttribute("Roleid", "1")]
         public List<Payment> GetAllPayments()
         {
             return _paymentService.GetAllPayments();
@@ -27,7 +26,6 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpGet]
         [Route("GetPaymantById/{id}")]
-        [CheckClaimsAttribute("Roleid", "1")]
         public Payment GetPaymantById(int id)
         {
             return _paymentService.GetPaymantById(id);
@@ -35,7 +33,6 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPost]
         [Route("CreatePayment")]
-        [CheckClaimsAttribute("Roleid", "1","2")]
         public void CreatePayment(Payment payment)
         {
             _paymentService.CreatePayment(payment);
@@ -43,7 +40,6 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPut]
         [Route("UpdatePayment")]
-        [CheckClaimsAttribute("Roleid", "1","2")]
         public void UpdatePayment(Payment payment)
         {
             _paymentService.UpdatePayment(payment);
@@ -51,7 +47,6 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpDelete]
         [Route("DeletePayment/{id}")]
-        [CheckClaimsAttribute("Roleid", "1","2")]
         public void DeletePayment(int id)
         {
             _paymentService.DeletePayment(id);

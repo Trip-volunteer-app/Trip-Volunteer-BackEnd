@@ -21,7 +21,6 @@ namespace Trip_Volunteer.API.Controllers
 
 
         [HttpGet]
-        [CheckClaimsAttribute("Roleid", "1")]
         public List<User> GetAllUsers()
         {
             return _userService.GetAllUsers();
@@ -30,7 +29,6 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpGet]
         [Route("GetUsersById")]
-        [CheckClaimsAttribute("Roleid", "1")]
         public User GetUsersById(int id)
         {
             return _userService.GetUsersById(id);
@@ -55,7 +53,6 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpDelete]
         [Route("DeleteUsers")]
-        [CheckClaimsAttribute("Roleid", "1")]
         public void DeleteUsers(int id)
         {
             _userService.DeleteUsers(id);

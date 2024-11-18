@@ -30,8 +30,6 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpGet]
         [Route("GetVolunteerById/{id}")]
-
-        [CheckClaimsAttribute("Roleid", "1")]
         public Volunteer GetVolunteerById(int id)
 
         {
@@ -40,7 +38,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPost]
         [Route("CreateVolunteer")]
-        [CheckClaimsAttribute("Roleid", "2")]
+        [CheckClaimsAttribute("Roleid", "1","2")]
         public void CreateVolunteer(Volunteer volunteer)
         {
             _volunteersService.CreateVolunteer(volunteer);
@@ -48,10 +46,8 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPut]
         [Route("UpdateVolunteer")]
-
         [CheckClaimsAttribute("Roleid", "1")]
         public void UpdateVolunteer(Volunteer volunteer)
-
         {
             _volunteersService.UpdateVolunteer(volunteer);
         }
@@ -59,7 +55,6 @@ namespace Trip_Volunteer.API.Controllers
         [HttpDelete]
         [Route("DeleteVolunteer/{id}")]
         [CheckClaimsAttribute("Roleid", "1")]
-        
         public void DeleteVolunteer(int id)
         {
             _volunteersService.DeleteVolunteer(id);
@@ -67,7 +62,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPut]
         [Route("UpdateVolunteerStatus")]
-        [CheckClaimsAttribute("Roleid", "1")]     
+        [CheckClaimsAttribute("Roleid", "1")]
         public void UpdateVolunteerStatus(Volunteer volunteer)
         {
             _volunteersService.UpdateVolunteerStatus(volunteer);
@@ -177,7 +172,6 @@ namespace Trip_Volunteer.API.Controllers
 
 
         [HttpGet("TotalNumberOfVolunteer")]
-        [CheckClaimsAttribute("Roleid", "1")]
         public IActionResult TotalNumberOfVolunteer()
         {
             int numberOfTrips = _volunteersService.TotalNumberOfVolunteer();

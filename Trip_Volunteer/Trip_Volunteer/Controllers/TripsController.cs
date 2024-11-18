@@ -78,7 +78,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpGet]
         [Route("TripsWithMaxReservations")]
-        [CheckClaimsAttribute("Roleid", "1")]
+
         public List<Trip> TripsWithMaxReservations()
         {
             return _tripsService.TripsWithMaxReservations();
@@ -107,7 +107,7 @@ namespace Trip_Volunteer.API.Controllers
 
 
         [HttpGet]
-        [CheckClaimsAttribute("Roleid", "1")]
+        [Route("GetTripVolById/{Id}")]
         public TripWithVolDTO GetTripVolById(int Id)
         {
             return _tripsService.GetTripVolById(Id);
@@ -122,8 +122,6 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpGet]
         [Route("GetVolunteerUserInfoByTripId/{ID}")]
-        [CheckClaimsAttribute("Roleid", "1")]
-
         public List<GetVolunteerUserInfoByTripIdDTO> GetVolunteerUserInfoByTripId(int ID)
         {
             return _tripsService.GetVolunteerUserInfoByTripId(ID);
@@ -131,8 +129,6 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpGet]
         [Route("GetUserPaymentsForTrip/{ID}")]
-        [CheckClaimsAttribute("Roleid", "1")]
-
         public List<GetUserPaymentsForTripDTO> GetUserPaymentsForTrip(int ID)
         {
             return _tripsService.GetUserPaymentsForTrip(ID);
@@ -146,10 +142,8 @@ namespace Trip_Volunteer.API.Controllers
             _tripsService.updateMaxUser(id, res_num);
         }
       
-
         [HttpGet]
         [Route("GetTopRatedTrips")]
-
         public List<TripsByRatingDTO> GetTopRatedTrips()
         {
             return _tripsService.GetTopRatedTrips();
@@ -157,8 +151,6 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpGet]
         [Route("GetAlltripsByCategory/{id}")]
-  /*    [CheckClaimsAttribute("Roleid", "1","2")]
-*/
         public List<TripInformationDTO> GetAlltripsByCategory(int id)
         {
             return _tripsService.GetAlltripsByCategory(id);

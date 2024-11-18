@@ -33,7 +33,6 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpGet]
         [Route("GetContactById/{contactId}")]
-        [CheckClaimsAttribute("Roleid", "1")]
         public ContactU GetContactById(int contactId)
         {
             return _contactUsService.GetContactById(contactId);
@@ -48,6 +47,7 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpPut]
         [Route("UpdateContact")]
+        [CheckClaimsAttribute("Roleid", "1")]
         public void UpdateContact(ContactU contact)
         {
             _contactUsService.UpdateContact(contact);
