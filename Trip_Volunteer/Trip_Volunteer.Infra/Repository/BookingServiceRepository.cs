@@ -43,18 +43,6 @@ namespace Trip_Volunteer.Infra.Repository
             return result.SingleOrDefault();
         }
 
-        /*  public BookingService GetBookingServiceByBookingId(int id)
-          {
-              var p = new DynamicParameters();
-              p.Add("Id", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
-
-              var result = _dbContext.Connection.Query<BookingService>(
-                  "booking_service_Package.GetBookingServiceByBookingId",
-                  p,
-                  commandType: CommandType.StoredProcedure);
-
-              return result.SingleOrDefault();
-          }*/
         public List<BookingServicesDTO> GetBookingServiceByBookingId(int id)
         {
           

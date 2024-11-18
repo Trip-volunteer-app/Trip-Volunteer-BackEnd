@@ -93,11 +93,18 @@ namespace Trip_Volunteer.API.Controllers
 
         [HttpGet]
         [Route("GetAllTripInformationById")]
-        
         public TripInfoByIdDTO GetAllTripInformationById(int Id)
         {
             return _tripsService.GetAllTripInformationById(Id);
         }
+
+        [HttpGet]
+        [Route("GetAllTripInformationByIdWithOptionalServices/{Id}")]
+        public TripInfoByIdDTO GetAllTripInformationByIdWithOptionalServices(int Id)
+        {
+            return _tripsService.GetAllTripInformationByIdWithOptionalServices(Id);
+        }
+
 
         [HttpGet]
         [Route("GetTripVolById/{Id}")]
@@ -128,6 +135,8 @@ namespace Trip_Volunteer.API.Controllers
         }
         [HttpPut]
         [Route("updateMaxUser")]
+        //[CheckClaimsAttribute("Roleid", "1")]
+
         public void updateMaxUser(int id, int res_num)
         {
             _tripsService.updateMaxUser(id, res_num);
@@ -167,10 +176,7 @@ namespace Trip_Volunteer.API.Controllers
                 var receiverEmail = emailRequest.ReceiverEmail;
                 var subject = "Trip and Payment Details";
                 var body = emailRequest.Body ?? "Here is the email body with a PDF attachment.";
-
-                // Generate the PDF with the formatted content
                 var pdfFilePath = GenerateStyledPdf(body);
-
                 var mailMessage = new MailMessage
                 {
                     From = new MailAddress(senderEmail),
@@ -198,7 +204,6 @@ namespace Trip_Volunteer.API.Controllers
             }
         }
 
-        // Method to generate a styled PDF
         [HttpPost("SendEmailWithPdfAttachmecccccccccccnt")]
 
         public string GenerateStyledPdf(string content)
@@ -237,8 +242,6 @@ namespace Trip_Volunteer.API.Controllers
   
 
         [HttpPost("SendEmailWithPdfAttaffffffffffchment")]
-
-        // Helper method to format the trip details
         private string FormatTripDetails(dynamic jsonBody)
         {
             var sb = new StringBuilder();
@@ -262,5 +265,13 @@ namespace Trip_Volunteer.API.Controllers
 
             return sb.ToString();
         }
+        [HttpGet]
+        [Route("GETALLTRIPINFORMATIONWITHOUTOPTIONALSERVICES")]
+        public Task<List<TripInfoByIdDTO>> GETALLTRIPINFORMATIONWITHOUTOPTIONALSERVICES()
+        {
+            return _tripsService.GETALLTRIPINFORMATIONWITHOUTOPTIONALSERVICES();
+
+        }
+
     }
 }

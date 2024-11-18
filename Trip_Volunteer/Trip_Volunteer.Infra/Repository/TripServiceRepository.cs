@@ -80,8 +80,8 @@ namespace Trip_Volunteer.Infra.Repository
             var p = new DynamicParameters();
             p.Add("s_tripId", tripServiceList.Trip_Id, dbType: DbType.String, direction: ParameterDirection.Input);
 
-            var SelectedServices = string.Join(",", tripServiceList.SelectedServices);
-            p.Add("SelectedServices", SelectedServices, dbType: DbType.String, direction: ParameterDirection.Input);
+            var servicesJson = Newtonsoft.Json.JsonConvert.SerializeObject(tripServiceList.SelectedServices);
+            p.Add("service_data", servicesJson, dbType: DbType.String, direction: ParameterDirection.Input);
 
             var result = _dbContext.Connection.Execute("trip_service_Package.CreateTripServiceForServicesList", p, commandType: CommandType.StoredProcedure);
         }

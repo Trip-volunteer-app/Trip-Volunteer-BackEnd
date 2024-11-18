@@ -4,9 +4,6 @@ using Trip_Volunteer.Core.Common;
 using Trip_Volunteer.Core.Data;
 using Trip_Volunteer.Core.DTO;
 using Trip_Volunteer.Core.Repository;
-using Trip_Volunteer.Infra.Service;
-using Newtonsoft.Json;
-
 
 
 namespace Trip_Volunteer.Infra.Repository
@@ -53,14 +50,13 @@ namespace Trip_Volunteer.Infra.Repository
             p.Add("T_DESTINATION_LATITUDE", trip.Destination_Latitude, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("T_DESTINATION_LONGITUDE", trip.Destination_Longitude, dbType: DbType.String, direction: ParameterDirection.Input);
 
-           var serviceIds = string.Join(",", trip.SelectedServices);
-            p.Add("service_ids", serviceIds, dbType: DbType.String, direction: ParameterDirection.Input);
+            var servicesJson = Newtonsoft.Json.JsonConvert.SerializeObject(trip.SelectedServices);
+            p.Add("service_data", servicesJson, dbType: DbType.String, direction: ParameterDirection.Input);
 
             var volunteerRolesJson = Newtonsoft.Json.JsonConvert.SerializeObject(trip.SelectedVolunteerRoles);
             p.Add("volunteerRoleData", volunteerRolesJson, dbType: DbType.String, direction: ParameterDirection.Input);
 
             var result = _dbContext.Connection.Execute("trips_Package.CreateTrip", p, commandType: CommandType.StoredProcedure);
-
         }
 
         public void UpdateTrip(Trip trip)
@@ -78,7 +74,6 @@ namespace Trip_Volunteer.Infra.Repository
             p.Add("categoryid", trip.Category_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
 
             _dbContext.Connection.Execute("trips_Package.UPDATEtrips", p, commandType: CommandType.StoredProcedure);
-
         }
 
         public void DeleteTrip(int Id)
@@ -86,31 +81,13 @@ namespace Trip_Volunteer.Infra.Repository
             var p = new DynamicParameters();
             p.Add("Id", Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             _dbContext.Connection.Execute("trips_Package.Deletetrips", p, commandType: CommandType.StoredProcedure);
-
         }
-
-        //public List<Trip> SearchBetweenDate(DateTime Start_Date, DateTime End_Date)
-        //{
-        //    var p = new DynamicParameters();
-        //    p.Add("p_start_date", Start_Date, dbType: DbType.Date, direction: ParameterDirection.Input);
-        //    p.Add("p_end_date", End_Date, dbType: DbType.Date, direction: ParameterDirection.Input);
-        //    IEnumerable<Trip> result = _dbContext.Connection.Query<Trip>("trips_Package.searchBetweendate", p, commandType: CommandType.StoredProcedure);
-        //    return result.ToList();
-        //}
 
         public int NumberOfTrips()
         {
             var result = _dbContext.Connection.QuerySingleOrDefault<int>("trips_Package.NumberOfTrips", commandType: CommandType.StoredProcedure);
-
-            return result;  
+            return result;
         }
-
-        //public int NumberOfFinishedTrips()
-        //{
-        //    var result = _dbContext.Connection.QuerySingleOrDefault<int>("trips_Package.NumberOfFinishedTrips", commandType: CommandType.StoredProcedure);
-
-        //    return result;
-        //}
 
         public List<Trip> TripsWithMaxReservations()
         {
@@ -123,7 +100,6 @@ namespace Trip_Volunteer.Infra.Repository
             List<TripInfoByIdDTO> trips = new List<TripInfoByIdDTO>();
             List<TripImage> images = new List<TripImage>();
             List<TripServiceDTO> tripServices = new List<TripServiceDTO>();
-
             try
             {
                 using (var multi = await _dbContext.Connection.QueryMultipleAsync("trips_Package.GetAllTripInformation", commandType: CommandType.StoredProcedure))
@@ -133,15 +109,44 @@ namespace Trip_Volunteer.Infra.Repository
                     if (!multi.IsConsumed) images = (await multi.ReadAsync<TripImage>()).ToList();
 
                     if (!multi.IsConsumed) tripServices = (await multi.ReadAsync<TripServiceDTO>()).ToList();
-
                 }
 
                 foreach (var trip in trips)
                 {
                     trip.Images = images.Where(i => i.Trip_Id == trip.Trip_Id).ToList();
                     trip.TripServiceDTO = tripServices.Where(ts => ts.Trip_Id == trip.Trip_Id).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+                throw;
+            }
 
-             
+            return trips;
+        }
+
+
+        public async Task<List<TripInfoByIdDTO>> GETALLTRIPINFORMATIONWITHOUTOPTIONALSERVICES()
+        {
+            List<TripInfoByIdDTO> trips = new List<TripInfoByIdDTO>();
+            List<TripImage> images = new List<TripImage>();
+            List<TripServiceDTO> tripServices = new List<TripServiceDTO>();
+            try
+            {
+                using (var multi = await _dbContext.Connection.QueryMultipleAsync("trips_Package.GETALLTRIPINFORMATIONWITHOUTOPTIONALSERVICES", commandType: CommandType.StoredProcedure))
+                {
+                    if (!multi.IsConsumed) trips = (await multi.ReadAsync<TripInfoByIdDTO>()).ToList();
+
+                    if (!multi.IsConsumed) images = (await multi.ReadAsync<TripImage>()).ToList();
+
+                    if (!multi.IsConsumed) tripServices = (await multi.ReadAsync<TripServiceDTO>()).ToList();
+                }
+
+                foreach (var trip in trips)
+                {
+                    trip.Images = images.Where(i => i.Trip_Id == trip.Trip_Id).ToList();
+                    trip.TripServiceDTO = tripServices.Where(ts => ts.Trip_Id == trip.Trip_Id).ToList();
                 }
             }
             catch (Exception ex)
@@ -165,25 +170,37 @@ namespace Trip_Volunteer.Infra.Repository
                 var tripInfo = multi.Read<TripInfoByIdDTO>().FirstOrDefault();
                 var images = multi.Read<TripImage>().ToList();
                 var services = multi.Read<Core.Data.Service>().ToList();
-                //var volunteer = multi.Read<Volunteer>().ToList();
-                //var Tripvolunteerrole = multi.Read<TripVolunteerrole>().ToList();
-                //var volunteerRole = multi.Read<VolunteerRole>().ToList();
-
 
                 if (tripInfo != null)
                 {
                     tripInfo.Images = images;
                     tripInfo.Services = services;
-                    //tripInfo.Volunteer = volunteer;
-                    //tripInfo.tripVolunteerrole = Tripvolunteerrole;
-                    //tripInfo.VolunteerRole = volunteerRole;
-
                 }
 
                 return tripInfo;
             }
         }
 
+        public TripInfoByIdDTO GetAllTripInformationByIdWithOptionalServices(int Id)
+        {
+            var p = new DynamicParameters();
+            p.Add("id", Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+
+            using (var multi = _dbContext.Connection.QueryMultiple("trips_Package.GetAllTripInformationByIdWithOptionalServices", p, commandType: CommandType.StoredProcedure))
+            {
+                var tripInfo = multi.Read<TripInfoByIdDTO>().FirstOrDefault();
+                var images = multi.Read<TripImage>().ToList();
+                var services = multi.Read<Core.Data.Service>().ToList();
+
+                if (tripInfo != null)
+                {
+                    tripInfo.Images = images;
+                    tripInfo.Services = services;
+                }
+
+                return tripInfo;
+            }
+        }
 
         public TripWithVolDTO GetTripVolById(int Id)
         {
@@ -221,17 +238,17 @@ namespace Trip_Volunteer.Infra.Repository
             var p = new DynamicParameters();
             p.Add("id", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("res_num", res_num, dbType: DbType.Int32, direction: ParameterDirection.Input);
-           
+
             _dbContext.Connection.Execute("trips_Package.updateMaxUser", p, commandType: CommandType.StoredProcedure);
 
         }
-    
+
         public List<TripsByRatingDTO> GetTopRatedTrips()
         {
             IEnumerable<TripsByRatingDTO> result = _dbContext.Connection.Query<TripsByRatingDTO>("trips_Package.GetTopRatedTrips", commandType: CommandType.StoredProcedure);
             return result.ToList();
-        }  
-        
+        }
+
         public List<TripInformationDTO> GetAlltripsByCategory(int id)
         {
             var p = new DynamicParameters();
@@ -240,7 +257,5 @@ namespace Trip_Volunteer.Infra.Repository
             IEnumerable<TripInformationDTO> result = _dbContext.Connection.Query<TripInformationDTO>("trips_Package.GetAlltripsByCategory", p, commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
-
-
     }
 }

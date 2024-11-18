@@ -11,6 +11,13 @@ namespace Trip_Volunteer.Core.DTO
         public int Volunteer_Role_Id { get; set; }
         public int Number_Of_Volunteers { get; set; }
     }
+    public class ServiceDto
+    {
+        public decimal? Service_Id { get; set; }
+        public int? Is_Optional { get; set; }
+    }
+
+
     public class TripsDto
     {
         public string? Trip_Name { get; set; }
@@ -22,7 +29,7 @@ namespace Trip_Volunteer.Core.DTO
         public decimal? Max_Number_Of_Volunteers { get; set; }
         public decimal? Category_Id { get; set; }
         public string? Image_Name { get; set; }
-        public List<int> SelectedServices { get; set; }
+        public List<ServiceDto> SelectedServices { get; set; }
         public List<VolunteerRoleDto> SelectedVolunteerRoles { get; set; }
         public string? Departure_Location { get; set; }
         public string? Destination_Location { get; set; }
