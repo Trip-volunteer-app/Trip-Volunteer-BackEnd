@@ -25,18 +25,14 @@ namespace Trip_Volunteer.Infra.Service
             return _tripsRepository.GetAllTrips();
         }
 
-
         public TripInformationDTO GetTripById(int ID)
         {
             return _tripsRepository.GetTripById(ID);
-
         }
-
 
         public void CreateTrip(TripsDto trip)
         {
             _tripsRepository.CreateTrip(trip);
-
         }
 
         public void UpdateTrip(Trip trip)
@@ -48,24 +44,11 @@ namespace Trip_Volunteer.Infra.Service
         {
             _tripsRepository.DeleteTrip(Id);
         }
-
-        //public List<Trip> SearchBetweenDate(DateTime Start_Date, DateTime End_Date)
-        //{
-        //    return _tripsRepository.SearchBetweenDate(Start_Date, End_Date);
-        //}
         public int NumberOfTrips()
         {
             var result = _tripsRepository.NumberOfTrips();
             return result;
         }
-
-        //public int NumberOfFinishedTrips()
-        //{
-        //    var result = _tripsRepository.NumberOfFinishedTrips();
-        //    return result;
-        //}
-        
-
         public List<Trip> TripsWithMaxReservations()
         {
             return _tripsRepository.TripsWithMaxReservations();
@@ -77,6 +60,10 @@ namespace Trip_Volunteer.Infra.Service
         public TripInfoByIdDTO GetAllTripInformationById(int Id)
         {
             return _tripsRepository.GetAllTripInformationById(Id);
+        }
+        public TripInfoByIdDTO GetAllTripInformationByIdWithOptionalServices(int Id)
+        {
+            return _tripsRepository.GetAllTripInformationByIdWithOptionalServices(Id);
         }
         public TripWithVolDTO GetTripVolById(int Id)
         {
@@ -94,12 +81,10 @@ namespace Trip_Volunteer.Infra.Service
         {
             return _tripsRepository.GetUserPaymentsForTrip(ID);
         }
-
         public void updateMaxUser(int id, int res_num)
         {
             _tripsRepository.updateMaxUser(id, res_num);
         }
-      
         public List<TripsByRatingDTO> GetTopRatedTrips()
         {
             return _tripsRepository.GetTopRatedTrips();
@@ -108,5 +93,11 @@ namespace Trip_Volunteer.Infra.Service
         {
             return _tripsRepository.GetAlltripsByCategory(id);
         }
+        public Task<List<TripInfoByIdDTO>> GETALLTRIPINFORMATIONWITHOUTOPTIONALSERVICES()
+        {
+            return _tripsRepository.GETALLTRIPINFORMATIONWITHOUTOPTIONALSERVICES();
+
+        }
+
     }
 }
